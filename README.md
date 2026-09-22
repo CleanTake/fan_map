@@ -1,2 +1,2 @@
 # fan_map
-Intereactive visual map for Fanshawe's Campus
+Intereactive visual map for Fanshawe's Main Campus.
