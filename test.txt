@@ -3,6 +3,3 @@ new change:
 Hello World
 
 new change 
-
-
-more text
