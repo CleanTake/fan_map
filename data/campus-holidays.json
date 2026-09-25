@@ -1,0 +1,333 @@
+{
+  "version": 1,
+  "lastVerified": "2026-09-25",
+  "timezone": "America/Toronto",
+  "coverage": {
+    "from": "2026-09-01",
+    "to": "2027-09-06",
+    "label": "2026-27 academic year through Labour Day 2027"
+  },
+  "basisValues": {
+    "current_calendar": "Listed as a college closure on Fanshawe's current (2026-27) academic calendar.",
+    "prior_year": "Not yet on the current calendar; status follows Fanshawe's most recent published practice.",
+    "not_listed_on_current_calendar": "Absent from the current calendar's closures, so the college is assumed open."
+  },
+  "sources": {
+    "academic-calendar": {
+      "title": "Full-time Post-Secondary Academic Calendar",
+      "url": "https://www.fanshawec.ca/admission-finance/important-dates/academic-calendar",
+      "retrieved": "2026-09-25"
+    },
+    "easter-2026-notice": {
+      "title": "College closed on Good Friday, open Easter Monday",
+      "url": "https://www.fanshawec.ca/events/college-closed-good-friday-open-easter-monday",
+      "retrieved": "2026-09-25"
+    },
+    "ndtr-notice": {
+      "title": "Observance of the National Day for Truth and Reconciliation",
+      "url": "https://www.fanshawec.ca/about-fanshawe/news/observance-national-day-truth-and-reconciliation",
+      "retrieved": "2026-09-25",
+      "published": "2021-09-30"
+    },
+    "holiday-closure-2025-26": {
+      "title": "Holiday closure 2025/26",
+      "url": "https://www.fanshawec.ca/current-students/news/holiday-closure-202526",
+      "retrieved": "2026-09-25",
+      "published": "2025-11-14"
+    },
+    "academic-dates-2020-21": {
+      "title": "2020-2021 Full-time Post Secondary Academic Calendar Key Dates (15 week)",
+      "url": "https://www.fanshawec.ca/sites/default/files/uploads/admissions/academic_dates_2020_2021_15week.pdf",
+      "retrieved": "2026-09-25"
+    },
+    "canada-labour-code": {
+      "title": "Annual vacations and general holidays for federally regulated employers",
+      "url": "https://www.canada.ca/en/services/jobs/workplace/federal-labour-standards/vacations-holidays.html",
+      "retrieved": "2026-09-25"
+    },
+    "ontario-esa": {
+      "title": "Your guide to the Employment Standards Act: Public holidays",
+      "url": "https://www.ontario.ca/document/your-guide-employment-standards-act-0/public-holidays",
+      "retrieved": "2026-09-25"
+    }
+  },
+  "holidays": [
+    {
+      "id": "labour-day-2026",
+      "name": "Labour Day",
+      "date": "2026-09-07",
+      "statutory": {
+        "federal": true,
+        "ontario": true
+      },
+      "fanshawe": {
+        "status": "closed",
+        "basis": "prior_year"
+      },
+      "sourceIds": [
+        "canada-labour-code",
+        "ontario-esa",
+        "academic-dates-2020-21"
+      ],
+      "notes": "Before the start of the 2026-27 calendar; Fanshawe has historically closed on Labour Day."
+    },
+    {
+      "id": "ndtr-2026",
+      "name": "National Day for Truth and Reconciliation",
+      "date": "2026-09-30",
+      "statutory": {
+        "federal": true,
+        "ontario": false
+      },
+      "fanshawe": {
+        "status": "open",
+        "basis": "prior_year"
+      },
+      "sourceIds": [
+        "canada-labour-code",
+        "ontario-esa",
+        "ndtr-notice"
+      ],
+      "notes": "Fanshawe recognizes the day as a day of commemoration; it is not a college closure."
+    },
+    {
+      "id": "thanksgiving-2026",
+      "name": "Thanksgiving Day",
+      "date": "2026-10-12",
+      "statutory": {
+        "federal": true,
+        "ontario": true
+      },
+      "fanshawe": {
+        "status": "closed",
+        "basis": "current_calendar"
+      },
+      "sourceIds": [
+        "canada-labour-code",
+        "ontario-esa",
+        "academic-calendar"
+      ]
+    },
+    {
+      "id": "remembrance-day-2026",
+      "name": "Remembrance Day",
+      "date": "2026-11-11",
+      "statutory": {
+        "federal": true,
+        "ontario": false
+      },
+      "fanshawe": {
+        "status": "open",
+        "basis": "not_listed_on_current_calendar"
+      },
+      "sourceIds": [
+        "canada-labour-code",
+        "ontario-esa",
+        "academic-calendar"
+      ]
+    },
+    {
+      "id": "christmas-2026",
+      "name": "Christmas Day",
+      "date": "2026-12-25",
+      "statutory": {
+        "federal": true,
+        "ontario": true
+      },
+      "fanshawe": {
+        "status": "closed",
+        "basis": "current_calendar"
+      },
+      "sourceIds": [
+        "canada-labour-code",
+        "ontario-esa",
+        "academic-calendar"
+      ],
+      "notes": "Falls within the winter holiday closure."
+    },
+    {
+      "id": "boxing-day-2026",
+      "name": "Boxing Day",
+      "date": "2026-12-26",
+      "statutory": {
+        "federal": true,
+        "ontario": true
+      },
+      "fanshawe": {
+        "status": "closed",
+        "basis": "current_calendar"
+      },
+      "sourceIds": [
+        "canada-labour-code",
+        "ontario-esa",
+        "academic-calendar"
+      ],
+      "notes": "Falls on a Saturday, within the winter holiday closure."
+    },
+    {
+      "id": "new-years-day-2027",
+      "name": "New Year's Day",
+      "date": "2027-01-01",
+      "statutory": {
+        "federal": true,
+        "ontario": true
+      },
+      "fanshawe": {
+        "status": "closed",
+        "basis": "current_calendar"
+      },
+      "sourceIds": [
+        "canada-labour-code",
+        "ontario-esa",
+        "academic-calendar"
+      ]
+    },
+    {
+      "id": "family-day-2027",
+      "name": "Family Day",
+      "date": "2027-02-15",
+      "statutory": {
+        "federal": false,
+        "ontario": true
+      },
+      "fanshawe": {
+        "status": "closed",
+        "basis": "current_calendar"
+      },
+      "sourceIds": [
+        "canada-labour-code",
+        "ontario-esa",
+        "academic-calendar"
+      ]
+    },
+    {
+      "id": "good-friday-2027",
+      "name": "Good Friday",
+      "date": "2027-03-26",
+      "statutory": {
+        "federal": true,
+        "ontario": true
+      },
+      "fanshawe": {
+        "status": "closed",
+        "basis": "current_calendar"
+      },
+      "sourceIds": [
+        "canada-labour-code",
+        "ontario-esa",
+        "academic-calendar"
+      ]
+    },
+    {
+      "id": "easter-monday-2027",
+      "name": "Easter Monday",
+      "date": "2027-03-29",
+      "statutory": {
+        "federal": false,
+        "ontario": false
+      },
+      "fanshawe": {
+        "status": "open",
+        "basis": "prior_year"
+      },
+      "sourceIds": [
+        "canada-labour-code",
+        "ontario-esa",
+        "easter-2026-notice"
+      ],
+      "notes": "Fanshawe states it is not closed for Easter Monday; some courses may hold tests or assessments."
+    },
+    {
+      "id": "victoria-day-2027",
+      "name": "Victoria Day",
+      "date": "2027-05-24",
+      "statutory": {
+        "federal": true,
+        "ontario": true
+      },
+      "fanshawe": {
+        "status": "closed",
+        "basis": "current_calendar"
+      },
+      "sourceIds": [
+        "canada-labour-code",
+        "ontario-esa",
+        "academic-calendar"
+      ]
+    },
+    {
+      "id": "canada-day-2027",
+      "name": "Canada Day",
+      "date": "2027-07-01",
+      "statutory": {
+        "federal": true,
+        "ontario": true
+      },
+      "fanshawe": {
+        "status": "closed",
+        "basis": "prior_year"
+      },
+      "sourceIds": [
+        "canada-labour-code",
+        "ontario-esa",
+        "academic-dates-2020-21"
+      ],
+      "notes": "Not yet on the 2026-27 online calendar; Fanshawe has historically closed on Canada Day."
+    },
+    {
+      "id": "civic-holiday-2027",
+      "name": "Civic Holiday",
+      "date": "2027-08-02",
+      "statutory": {
+        "federal": false,
+        "ontario": false
+      },
+      "fanshawe": {
+        "status": "closed",
+        "basis": "prior_year"
+      },
+      "sourceIds": [
+        "canada-labour-code",
+        "ontario-esa",
+        "academic-dates-2020-21"
+      ],
+      "notes": "Not a statutory holiday federally or in Ontario, but Fanshawe has historically closed."
+    },
+    {
+      "id": "labour-day-2027",
+      "name": "Labour Day",
+      "date": "2027-09-06",
+      "statutory": {
+        "federal": true,
+        "ontario": true
+      },
+      "fanshawe": {
+        "status": "closed",
+        "basis": "prior_year"
+      },
+      "sourceIds": [
+        "canada-labour-code",
+        "ontario-esa",
+        "academic-dates-2020-21"
+      ]
+    }
+  ],
+  "closures": [
+    {
+      "id": "winter-closure-2026-27",
+      "name": "Winter Holiday Closure",
+      "from": "2026-12-25",
+      "to": "2027-01-03",
+      "closesAt": {
+        "date": "2026-12-24",
+        "time": "end_of_business"
+      },
+      "reopens": "2027-01-04",
+      "sourceIds": [
+        "academic-calendar",
+        "holiday-closure-2025-26"
+      ],
+      "notes": "Campus access during the closure is limited to people with advance approval (per the 2025/26 closure notice)."
+    }
+  ]
+}
