@@ -1,0 +1,3064 @@
+{
+  "version": 1,
+  "lastVerified": "2026-09-25",
+  "timezone": "America/Toronto",
+  "campus": {
+    "id": "fanshawe-london",
+    "name": "Fanshawe College London Campus",
+    "address": "1001 Fanshawe College Blvd., London, ON N5Y 5R6"
+  },
+  "sourcePolicy": "Official Fanshawe College and Fanshawe Student Union (fsu.ca) web pages override the orientation map when they disagree; each override is explained in the destination's notes.",
+  "excluded": [
+    {
+      "item": "Downtown Campus (LDA, LDB) including LDB603",
+      "reason": "Outside the London Campus dataset."
+    }
+  ],
+  "sources": {
+    "campus-map": {
+      "title": "London Campus Orientation Map (Revised: August 2026)",
+      "url": "https://www.fanshawec.ca/sites/default/files/2025-02/Fanshawe_College_London_Campus_Map.pdf",
+      "retrieved": "2026-09-25",
+      "published": "2026-08"
+    },
+    "std03": {
+      "title": "College Standard STD03: Titles of Organizational Units and College Property",
+      "url": "https://www.fanshawec.ca/sites/default/files/2024-05/STD03_Titles_of_Organizational_Units_and_College_Property.pdf",
+      "retrieved": "2026-09-25",
+      "published": "2024-05-24"
+    },
+    "chartwells-fall-2026": {
+      "title": "Chartwells food services hours of operation - Fall 2026",
+      "url": "https://www.fanshawec.ca/current-students/news/chartwells-food-services-hours-operation-fall-2026",
+      "retrieved": "2026-09-25",
+      "published": "2026-09-01"
+    },
+    "food-services": {
+      "title": "Meal Plan and Food Services",
+      "url": "https://www.fanshawec.ca/students/life/campus-services/food",
+      "retrieved": "2026-09-25"
+    },
+    "retail-services": {
+      "title": "Retail Services",
+      "url": "https://www.fanshawec.ca/students/life/campus-services/retail",
+      "retrieved": "2026-09-25"
+    },
+    "falcon-shop-move": {
+      "title": "The Campus Store (F1019) is now the new Falcon Shop",
+      "url": "https://www.fanshawec.ca/current-students/news/campus-store-f1019-now-new-falcon-shop",
+      "retrieved": "2026-09-25",
+      "published": "2025-08-21"
+    },
+    "fsu-booster-juice": {
+      "title": "FSU - Booster Juice",
+      "url": "https://www.fsu.ca/booster-juice",
+      "retrieved": "2026-09-25"
+    },
+    "fsu-oasis": {
+      "title": "FSU - Oasis",
+      "url": "https://www.fsu.ca/oasis",
+      "retrieved": "2026-09-25"
+    },
+    "fsu-nest": {
+      "title": "FSU - The Nest Convenience Store",
+      "url": "https://www.fsu.ca/nest",
+      "retrieved": "2026-09-25"
+    },
+    "fsu-out-back-shack": {
+      "title": "FSU - The Out Back Shack",
+      "url": "https://www.fsu.ca/out-back-shack",
+      "retrieved": "2026-09-25"
+    },
+    "fsu-biz-booth": {
+      "title": "FSU - The Biz Booth",
+      "url": "https://www.fsu.ca/biz-booth",
+      "retrieved": "2026-09-25"
+    },
+    "fsu-cds": {
+      "title": "FSU - CD's",
+      "url": "https://www.fsu.ca/cds",
+      "retrieved": "2026-09-25"
+    },
+    "fsu-pharmacy": {
+      "title": "FSU - Pharmacy",
+      "url": "https://www.fsu.ca/pharmacy",
+      "retrieved": "2026-09-25"
+    },
+    "fsu-hospitality": {
+      "title": "FSU - Hospitality Services",
+      "url": "https://www.fsu.ca/hospitality",
+      "retrieved": "2026-09-25"
+    }
+  },
+  "buildings": [
+    {
+      "id": "bldg-a",
+      "code": "A",
+      "name": "A Building",
+      "officialName": "A-Building",
+      "address": "1560 London Lane PVT, London, ON",
+      "site": "london-main",
+      "zone": "green",
+      "categories": [
+        "academic",
+        "administrative",
+        "student_services",
+        "health_wellness"
+      ],
+      "geometry": null,
+      "sourceIds": [
+        "campus-map",
+        "std03"
+      ]
+    },
+    {
+      "id": "bldg-b",
+      "code": "B",
+      "name": "B Building",
+      "officialName": "B-Building",
+      "address": "1490 London Lane PVT, London, ON",
+      "site": "london-main",
+      "zone": "orange",
+      "categories": [
+        "academic",
+        "administrative",
+        "food",
+        "retail"
+      ],
+      "geometry": null,
+      "sourceIds": [
+        "campus-map",
+        "std03"
+      ]
+    },
+    {
+      "id": "bldg-c",
+      "code": "C",
+      "name": "C Building",
+      "officialName": "C-Building",
+      "address": "1514 Technology Drive PVT, London, ON",
+      "site": "london-main",
+      "zone": "orange",
+      "categories": [
+        "academic"
+      ],
+      "geometry": null,
+      "sourceIds": [
+        "campus-map",
+        "std03"
+      ]
+    },
+    {
+      "id": "bldg-d",
+      "code": "D",
+      "name": "D Building",
+      "officialName": "D-Building",
+      "address": "1540 London Lane PVT, London, ON",
+      "site": "london-main",
+      "zone": "green",
+      "categories": [
+        "academic",
+        "administrative",
+        "student_services",
+        "food",
+        "retail"
+      ],
+      "geometry": null,
+      "sourceIds": [
+        "campus-map",
+        "std03"
+      ]
+    },
+    {
+      "id": "bldg-e",
+      "code": "E",
+      "name": "E Building",
+      "officialName": "E-Building",
+      "address": "1546 Community Gate PVT, London, ON",
+      "site": "london-main",
+      "zone": "green",
+      "categories": [
+        "administrative",
+        "student_services"
+      ],
+      "geometry": null,
+      "sourceIds": [
+        "campus-map",
+        "std03"
+      ]
+    },
+    {
+      "id": "bldg-f",
+      "code": "F",
+      "name": "F Building",
+      "officialName": "F-Building",
+      "address": "1560 Community Gate PVT, London, ON",
+      "site": "london-main",
+      "zone": "red",
+      "categories": [
+        "library",
+        "student_services",
+        "retail"
+      ],
+      "geometry": null,
+      "sourceIds": [
+        "campus-map",
+        "std03"
+      ]
+    },
+    {
+      "id": "bldg-g",
+      "code": "G",
+      "name": "G Building",
+      "officialName": "G-Building",
+      "address": "940 Residence Circle PVT, London, ON",
+      "site": "london-main",
+      "zone": "yellow",
+      "categories": [
+        "student_life"
+      ],
+      "geometry": null,
+      "sourceIds": [
+        "campus-map",
+        "std03"
+      ],
+      "notes": "STD03 lists the Telus Student Lounge (G1010) here."
+    },
+    {
+      "id": "bldg-h",
+      "code": "H",
+      "name": "H Building",
+      "officialName": "H-Building",
+      "address": "1580 Campus Drive PVT, London, ON",
+      "site": "london-main",
+      "zone": "blue",
+      "categories": [
+        "academic",
+        "food",
+        "retail"
+      ],
+      "geometry": null,
+      "sourceIds": [
+        "campus-map",
+        "std03"
+      ]
+    },
+    {
+      "id": "bldg-i",
+      "code": "I",
+      "name": "I Booth",
+      "officialName": "I-Booth",
+      "address": "1609 Community Gate PVT, London, ON",
+      "site": "london-main",
+      "zone": null,
+      "categories": [
+        "information"
+      ],
+      "geometry": null,
+      "sourceIds": [
+        "campus-map",
+        "std03"
+      ],
+      "notes": "Campus Information booth (I1002) at the Main Entrance on Community Gate."
+    },
+    {
+      "id": "bldg-j",
+      "code": "J",
+      "name": "J Building (Student Wellness Centre)",
+      "officialName": "J-Building",
+      "address": "1600 Alumni Road PVT, London, ON",
+      "site": "london-main",
+      "zone": "yellow",
+      "categories": [
+        "recreational",
+        "health_wellness",
+        "food"
+      ],
+      "geometry": null,
+      "sourceIds": [
+        "campus-map",
+        "std03"
+      ]
+    },
+    {
+      "id": "bldg-k",
+      "code": "K",
+      "name": "K Building",
+      "officialName": "K-Building",
+      "address": "1585 Campus Drive PVT, London, ON",
+      "site": "london-main",
+      "zone": "blue",
+      "categories": [
+        "unclassified"
+      ],
+      "geometry": null,
+      "sourceIds": [
+        "campus-map",
+        "std03"
+      ],
+      "notes": "No destinations for K are listed on the map legends or STD03."
+    },
+    {
+      "id": "bldg-l",
+      "code": "L",
+      "name": "L Building",
+      "officialName": "L-Building",
+      "address": "1560 Community Gate PVT, London, ON",
+      "site": "london-main",
+      "zone": "red",
+      "categories": [
+        "food",
+        "retail",
+        "student_life"
+      ],
+      "geometry": null,
+      "sourceIds": [
+        "campus-map",
+        "std03"
+      ]
+    },
+    {
+      "id": "bldg-m",
+      "code": "M",
+      "name": "M Building",
+      "officialName": "M-Building",
+      "address": "1590 Community Gate PVT, London, ON",
+      "site": "london-main",
+      "zone": "blue",
+      "categories": [
+        "academic"
+      ],
+      "geometry": null,
+      "sourceIds": [
+        "campus-map",
+        "std03"
+      ],
+      "notes": "STD03 lists radio studios (CFRL, 106.9 The X) and seminar/study rooms here."
+    },
+    {
+      "id": "bldg-n",
+      "code": "N",
+      "name": "Spriet Family Greenhouse",
+      "officialName": "N-Spriet Family Greenhouse",
+      "address": "960 Applied Arts Lane PVT, London, ON",
+      "site": "london-main",
+      "zone": "blue",
+      "categories": [
+        "academic"
+      ],
+      "geometry": null,
+      "sourceIds": [
+        "campus-map",
+        "std03"
+      ]
+    },
+    {
+      "id": "bldg-o1",
+      "code": "O1",
+      "name": "O1 Building (Exterior Washrooms)",
+      "officialName": "O1-Building",
+      "address": "1550 Alumni Road PVT, London, ON",
+      "site": "london-main",
+      "zone": null,
+      "categories": [
+        "utility"
+      ],
+      "geometry": null,
+      "sourceIds": [
+        "campus-map",
+        "std03"
+      ],
+      "notes": "Exterior washrooms across from C Building."
+    },
+    {
+      "id": "bldg-o2",
+      "code": "O2",
+      "name": "O2 Building (Utility Shed)",
+      "officialName": "O2-Building",
+      "address": "1514 Campus Drive PVT, London, ON",
+      "site": "london-main",
+      "zone": null,
+      "categories": [
+        "utility"
+      ],
+      "geometry": null,
+      "sourceIds": [
+        "campus-map",
+        "std03"
+      ]
+    },
+    {
+      "id": "bldg-o3",
+      "code": "O3",
+      "name": "O3 Building (Garbage Enclosure)",
+      "officialName": "O3-Building",
+      "address": "2 Cuddy Court, London, ON",
+      "site": "london-main",
+      "zone": null,
+      "categories": [
+        "utility"
+      ],
+      "geometry": null,
+      "sourceIds": [
+        "campus-map",
+        "std03"
+      ],
+      "notes": "Garbage enclosure next to A Building."
+    },
+    {
+      "id": "bldg-r1",
+      "code": "R1",
+      "name": "Falcon House",
+      "officialName": "R1-Falcon House residence",
+      "address": "950 Residence Circle PVT, London, ON",
+      "site": "london-main",
+      "zone": "yellow",
+      "categories": [
+        "residence"
+      ],
+      "geometry": null,
+      "sourceIds": [
+        "campus-map",
+        "std03"
+      ]
+    },
+    {
+      "id": "bldg-r2",
+      "code": "R2",
+      "name": "Peregrine House",
+      "officialName": "R2-Peregrine House residence",
+      "address": "945 Student Road PVT, London, ON",
+      "site": "london-main",
+      "zone": "yellow",
+      "categories": [
+        "residence"
+      ],
+      "geometry": null,
+      "sourceIds": [
+        "campus-map",
+        "std03"
+      ]
+    },
+    {
+      "id": "bldg-r3",
+      "code": "R3",
+      "name": "Merlin House",
+      "officialName": "R3-Merlin House residence",
+      "address": "990 Residence Circle PVT, London, ON",
+      "site": "london-main",
+      "zone": "yellow",
+      "categories": [
+        "residence"
+      ],
+      "geometry": null,
+      "sourceIds": [
+        "campus-map",
+        "std03"
+      ]
+    },
+    {
+      "id": "bldg-r4",
+      "code": "R4",
+      "name": "Kestrel Court",
+      "officialName": "R4-Kestrel Court townhouse residences",
+      "address": "900 Kestrel Court, London, ON",
+      "site": "london-main",
+      "zone": "yellow",
+      "categories": [
+        "residence"
+      ],
+      "geometry": null,
+      "sourceIds": [
+        "campus-map",
+        "std03"
+      ],
+      "notes": "Address from the August 2026 map; STD03 (2024) lists 900 Fanshawe College Boulevard."
+    },
+    {
+      "id": "bldg-sc",
+      "code": "SC",
+      "name": "Student Centre",
+      "officialName": "Student Centre",
+      "address": "955 Residence Circle PVT, London, ON",
+      "site": "london-main",
+      "zone": "yellow",
+      "categories": [
+        "food",
+        "student_life",
+        "student_services"
+      ],
+      "geometry": null,
+      "sourceIds": [
+        "campus-map",
+        "std03"
+      ]
+    },
+    {
+      "id": "bldg-sub",
+      "code": "SUB",
+      "name": "Student Union Building",
+      "officialName": "Student Union Building",
+      "address": "1606 Alumni Road PVT, London, ON",
+      "site": "london-main",
+      "zone": "red",
+      "categories": [
+        "food",
+        "retail",
+        "recreational",
+        "student_life"
+      ],
+      "geometry": null,
+      "sourceIds": [
+        "campus-map",
+        "std03"
+      ]
+    },
+    {
+      "id": "bldg-t",
+      "code": "T",
+      "name": "T Building",
+      "officialName": "T-Building",
+      "address": "1490 London Lane PVT, London, ON",
+      "site": "london-main",
+      "zone": "orange",
+      "categories": [
+        "academic",
+        "administrative"
+      ],
+      "geometry": null,
+      "sourceIds": [
+        "campus-map",
+        "std03"
+      ],
+      "notes": "Home of the Centre for Construction Trades and Technology (CCTT)."
+    },
+    {
+      "id": "bldg-u",
+      "code": "U",
+      "name": "U Building",
+      "officialName": null,
+      "address": null,
+      "site": "london-main",
+      "zone": null,
+      "categories": [
+        "unclassified"
+      ],
+      "geometry": null,
+      "sourceIds": [
+        "campus-map"
+      ],
+      "notes": "Shown on the August 2026 map beside Lot 5; not listed in STD03 (2024). Official name and use unconfirmed."
+    },
+    {
+      "id": "bldg-y",
+      "code": "Y",
+      "name": "Y Building",
+      "officialName": "Y-Building",
+      "address": "1000 Air Ontario Drive PVT, London, ON",
+      "site": "london-airport",
+      "zone": null,
+      "categories": [
+        "academic"
+      ],
+      "geometry": null,
+      "sourceIds": [
+        "campus-map",
+        "std03"
+      ],
+      "notes": "Off the main campus, at London International Airport."
+    },
+    {
+      "id": "bldg-z",
+      "code": "Z",
+      "name": "Z Building",
+      "officialName": "Z-Building",
+      "address": "1764 Oxford Street East, London, ON",
+      "site": "london-oxford",
+      "zone": null,
+      "categories": [
+        "academic",
+        "food"
+      ],
+      "geometry": null,
+      "sourceIds": [
+        "campus-map",
+        "std03"
+      ],
+      "notes": "One block east of the main campus; home of the Centre for Applied Transportation Technologies (CATT)."
+    }
+  ],
+  "rooms": [
+    {
+      "id": "room-a1001",
+      "code": "A1001",
+      "buildingId": "bldg-a",
+      "floor": 1
+    },
+    {
+      "id": "room-a1037",
+      "code": "A1037",
+      "buildingId": "bldg-a",
+      "floor": 1
+    },
+    {
+      "id": "room-a1046",
+      "code": "A1046",
+      "buildingId": "bldg-a",
+      "floor": 1
+    },
+    {
+      "id": "room-a2036",
+      "code": "A2036",
+      "buildingId": "bldg-a",
+      "floor": 2
+    },
+    {
+      "id": "room-a2058",
+      "code": "A2058",
+      "buildingId": "bldg-a",
+      "floor": 2
+    },
+    {
+      "id": "room-b1002",
+      "code": "B1002",
+      "buildingId": "bldg-b",
+      "floor": 1
+    },
+    {
+      "id": "room-b1048",
+      "code": "B1048",
+      "buildingId": "bldg-b",
+      "floor": 1
+    },
+    {
+      "id": "room-b1081",
+      "code": "B1081",
+      "buildingId": "bldg-b",
+      "floor": 1
+    },
+    {
+      "id": "room-b2015",
+      "code": "B2015",
+      "buildingId": "bldg-b",
+      "floor": 2
+    },
+    {
+      "id": "room-d1001",
+      "code": "D1001",
+      "buildingId": "bldg-d",
+      "floor": 1
+    },
+    {
+      "id": "room-d1025",
+      "code": "D1025",
+      "buildingId": "bldg-d",
+      "floor": 1
+    },
+    {
+      "id": "room-d1027",
+      "code": "D1027",
+      "buildingId": "bldg-d",
+      "floor": 1
+    },
+    {
+      "id": "room-d1043",
+      "code": "D1043",
+      "buildingId": "bldg-d",
+      "floor": 1
+    },
+    {
+      "id": "room-d1045",
+      "code": "D1045",
+      "buildingId": "bldg-d",
+      "floor": 1
+    },
+    {
+      "id": "room-d1063",
+      "code": "D1063",
+      "buildingId": "bldg-d",
+      "floor": 1
+    },
+    {
+      "id": "room-d2030",
+      "code": "D2030",
+      "buildingId": "bldg-d",
+      "floor": 2
+    },
+    {
+      "id": "room-d3018",
+      "code": "D3018",
+      "buildingId": "bldg-d",
+      "floor": 3
+    },
+    {
+      "id": "room-e1012",
+      "code": "E1012",
+      "buildingId": "bldg-e",
+      "floor": 1
+    },
+    {
+      "id": "room-e1013",
+      "code": "E1013",
+      "buildingId": "bldg-e",
+      "floor": 1
+    },
+    {
+      "id": "room-e2020",
+      "code": "E2020",
+      "buildingId": "bldg-e",
+      "floor": 2
+    },
+    {
+      "id": "room-e2025",
+      "code": "E2025",
+      "buildingId": "bldg-e",
+      "floor": 2
+    },
+    {
+      "id": "room-e2030",
+      "code": "E2030",
+      "buildingId": "bldg-e",
+      "floor": 2
+    },
+    {
+      "id": "room-f1002",
+      "code": "F1002",
+      "buildingId": "bldg-f",
+      "floor": 1
+    },
+    {
+      "id": "room-f1019",
+      "code": "F1019",
+      "buildingId": "bldg-f",
+      "floor": 1
+    },
+    {
+      "id": "room-f1043",
+      "code": "F1043",
+      "buildingId": "bldg-f",
+      "floor": 1
+    },
+    {
+      "id": "room-f1066",
+      "code": "F1066",
+      "buildingId": "bldg-f",
+      "floor": 1
+    },
+    {
+      "id": "room-f2010",
+      "code": "F2010",
+      "buildingId": "bldg-f",
+      "floor": 2
+    },
+    {
+      "id": "room-f2028",
+      "code": "F2028",
+      "buildingId": "bldg-f",
+      "floor": 2
+    },
+    {
+      "id": "room-f2042",
+      "code": "F2042",
+      "buildingId": "bldg-f",
+      "floor": 2
+    },
+    {
+      "id": "room-f3005",
+      "code": "F3005",
+      "buildingId": "bldg-f",
+      "floor": 3
+    },
+    {
+      "id": "room-h1000",
+      "code": "H1000",
+      "buildingId": "bldg-h",
+      "floor": 1
+    },
+    {
+      "id": "room-h1015",
+      "code": "H1015",
+      "buildingId": "bldg-h",
+      "floor": 1
+    },
+    {
+      "id": "room-j1000",
+      "code": "J1000",
+      "buildingId": "bldg-j",
+      "floor": 1
+    },
+    {
+      "id": "room-j1002",
+      "code": "J1002",
+      "buildingId": "bldg-j",
+      "floor": 1
+    },
+    {
+      "id": "room-j1003",
+      "code": "J1003",
+      "buildingId": "bldg-j",
+      "floor": 1
+    },
+    {
+      "id": "room-j1004",
+      "code": "J1004",
+      "buildingId": "bldg-j",
+      "floor": 1
+    },
+    {
+      "id": "room-j1015",
+      "code": "J1015",
+      "buildingId": "bldg-j",
+      "floor": 1
+    },
+    {
+      "id": "room-j1032",
+      "code": "J1032",
+      "buildingId": "bldg-j",
+      "floor": 1
+    },
+    {
+      "id": "room-j2003",
+      "code": "J2003",
+      "buildingId": "bldg-j",
+      "floor": 2
+    },
+    {
+      "id": "room-l1001",
+      "code": "L1001",
+      "buildingId": "bldg-l",
+      "floor": 1
+    },
+    {
+      "id": "room-l1002",
+      "code": "L1002",
+      "buildingId": "bldg-l",
+      "floor": 1
+    },
+    {
+      "id": "room-l1012-3",
+      "code": "L1012-3",
+      "buildingId": "bldg-l",
+      "floor": 1
+    },
+    {
+      "id": "room-sc1000",
+      "code": "SC1000",
+      "buildingId": "bldg-sc",
+      "floor": 1
+    },
+    {
+      "id": "room-sc1002",
+      "code": "SC1002",
+      "buildingId": "bldg-sc",
+      "floor": 1
+    },
+    {
+      "id": "room-sub1027",
+      "code": "SUB1027",
+      "buildingId": "bldg-sub",
+      "floor": 1
+    },
+    {
+      "id": "room-t3010",
+      "code": "T3010",
+      "buildingId": "bldg-t",
+      "floor": 3
+    },
+    {
+      "id": "room-z1009",
+      "code": "Z1009",
+      "buildingId": "bldg-z",
+      "floor": 1
+    },
+    {
+      "id": "room-z1012",
+      "code": "Z1012",
+      "buildingId": "bldg-z",
+      "floor": 1
+    }
+  ],
+  "destinations": [
+    {
+      "id": "biz-booth",
+      "name": "Biz Booth",
+      "category": "retail",
+      "buildingId": "bldg-sub",
+      "roomCode": null,
+      "roomId": null,
+      "locationText": "Student Union Building",
+      "operator": "Fanshawe Student Union",
+      "status": "closed_temporarily",
+      "sourceIds": [
+        "campus-map",
+        "fsu-biz-booth"
+      ],
+      "notes": "Closed for the Fall 2026 term. The map gives no room number; STD03 (2024) lists it as SUB1026-3. London Knights and movie tickets are sold at the FSU Office meanwhile."
+    },
+    {
+      "id": "falcon-shop-pickup",
+      "name": "Falcon Shop online order pickup",
+      "category": "retail",
+      "buildingId": "bldg-f",
+      "roomCode": "F1002",
+      "roomId": "room-f1002",
+      "aliases": [
+        "Campus Store and Tech Zone"
+      ],
+      "operator": "Fanshawe Retail Services",
+      "status": "open",
+      "hours": {
+        "timezone": "America/Toronto",
+        "sourceId": "retail-services",
+        "closedOnCollegeClosures": true,
+        "periods": [
+          {
+            "label": "Regular",
+            "from": null,
+            "to": null,
+            "weekly": {
+              "mon": [
+                [
+                  "09:00",
+                  "16:00"
+                ]
+              ],
+              "tue": [
+                [
+                  "09:00",
+                  "16:00"
+                ]
+              ],
+              "wed": [
+                [
+                  "09:00",
+                  "16:00"
+                ]
+              ],
+              "thu": [
+                [
+                  "09:00",
+                  "16:00"
+                ]
+              ],
+              "fri": [
+                [
+                  "09:00",
+                  "16:00"
+                ]
+              ]
+            },
+            "rawText": "Monday to Friday, 9 a.m. to 4 p.m."
+          }
+        ]
+      },
+      "sourceIds": [
+        "campus-map",
+        "retail-services",
+        "falcon-shop-move"
+      ],
+      "notes": "The map still labels F1002 'Campus Store and Tech Zone'. Fanshawe's retail page lists F1002 as the Falcon Shop online order pickup window; the Campus Store became the Falcon Shop at F1019."
+    },
+    {
+      "id": "dernier-cri-hair-group",
+      "name": "Dernier CRI Hair Group",
+      "category": "retail",
+      "buildingId": "bldg-l",
+      "roomCode": "L1002",
+      "roomId": "room-l1002",
+      "status": "unknown",
+      "sourceIds": [
+        "campus-map"
+      ],
+      "notes": "Hours not published on an official Fanshawe or FSU page."
+    },
+    {
+      "id": "cds-coffee-bar",
+      "name": "CD's Coffee Bar",
+      "category": "food",
+      "buildingId": "bldg-l",
+      "roomCode": "L1012-3",
+      "roomId": "room-l1012-3",
+      "aliases": [
+        "Forwell Hall"
+      ],
+      "operator": "Fanshawe Student Union",
+      "status": "closed_temporarily",
+      "sourceIds": [
+        "campus-map",
+        "std03",
+        "fsu-cds",
+        "food-services"
+      ],
+      "notes": "Not opening for the Fall 2026 term. The code 'L1012-3' follows the STD03 sub-room convention (room L1012, sub-room 3), not rooms L1012 and L1013."
+    },
+    {
+      "id": "the-nest",
+      "name": "The Nest Convenience Store",
+      "category": "retail",
+      "buildingId": "bldg-l",
+      "roomCode": "L1001",
+      "roomId": "room-l1001",
+      "operator": "Fanshawe Student Union",
+      "status": "open",
+      "hours": {
+        "timezone": "America/Toronto",
+        "sourceId": "fsu-nest",
+        "closedOnCollegeClosures": true,
+        "periods": [
+          {
+            "label": "Regular",
+            "from": null,
+            "to": null,
+            "weekly": {
+              "mon": [
+                [
+                  "09:00",
+                  "22:00"
+                ]
+              ],
+              "tue": [
+                [
+                  "09:00",
+                  "22:00"
+                ]
+              ],
+              "wed": [
+                [
+                  "09:00",
+                  "22:00"
+                ]
+              ],
+              "thu": [
+                [
+                  "09:00",
+                  "22:00"
+                ]
+              ],
+              "fri": [
+                [
+                  "09:00",
+                  "22:00"
+                ]
+              ]
+            },
+            "rawText": "Monday to Friday 9:00 a.m. to 10:00 p.m.; Saturday to Sunday closed"
+          }
+        ],
+        "notes": "FSU: hours are subject to change."
+      },
+      "sourceIds": [
+        "campus-map",
+        "fsu-nest"
+      ],
+      "notes": "The map lists L1005; the FSU page (source of truth) lists L1001."
+    },
+    {
+      "id": "out-back-shack",
+      "name": "The Out Back Shack",
+      "category": "food",
+      "buildingId": "bldg-sub",
+      "roomCode": "SUB1027",
+      "roomId": "room-sub1027",
+      "aliases": [
+        "Outback Shack"
+      ],
+      "operator": "Fanshawe Student Union",
+      "status": "open",
+      "hours": {
+        "timezone": "America/Toronto",
+        "sourceId": "fsu-out-back-shack",
+        "closedOnCollegeClosures": true,
+        "periods": [
+          {
+            "label": "Regular",
+            "from": null,
+            "to": null,
+            "weekly": {
+              "mon": [
+                [
+                  "11:00",
+                  "19:00"
+                ]
+              ],
+              "tue": [
+                [
+                  "11:00",
+                  "19:00"
+                ]
+              ],
+              "wed": [
+                [
+                  "11:00",
+                  "19:00"
+                ]
+              ],
+              "thu": [
+                [
+                  "11:00",
+                  "19:00"
+                ]
+              ],
+              "fri": [
+                [
+                  "11:00",
+                  "19:00"
+                ]
+              ]
+            },
+            "rawText": "Monday to Friday 11:00 a.m. to 7:00 p.m.; Saturday to Sunday closed"
+          }
+        ],
+        "notes": "FSU: hours are subject to change."
+      },
+      "sourceIds": [
+        "campus-map",
+        "std03",
+        "fsu-out-back-shack"
+      ]
+    },
+    {
+      "id": "booster-juice",
+      "name": "Booster Juice",
+      "category": "food",
+      "buildingId": "bldg-j",
+      "roomCode": "J1002",
+      "roomId": "room-j1002",
+      "operator": "Fanshawe Student Union",
+      "status": "open",
+      "hours": {
+        "timezone": "America/Toronto",
+        "sourceId": "fsu-booster-juice",
+        "closedOnCollegeClosures": true,
+        "periods": [
+          {
+            "label": "Regular",
+            "from": null,
+            "to": null,
+            "weekly": {
+              "mon": [
+                [
+                  "10:00",
+                  "16:00"
+                ]
+              ],
+              "tue": [
+                [
+                  "10:00",
+                  "16:00"
+                ]
+              ],
+              "wed": [
+                [
+                  "10:00",
+                  "16:00"
+                ]
+              ],
+              "thu": [
+                [
+                  "10:00",
+                  "16:00"
+                ]
+              ],
+              "fri": [
+                [
+                  "10:00",
+                  "16:00"
+                ]
+              ]
+            },
+            "rawText": "Monday to Friday 10:00 a.m. to 4:00 p.m.; Saturday to Sunday closed"
+          }
+        ],
+        "notes": "FSU: hours are subject to change."
+      },
+      "sourceIds": [
+        "campus-map",
+        "fsu-booster-juice",
+        "food-services"
+      ]
+    },
+    {
+      "id": "kettles-and-curry-bowls",
+      "name": "Kettles and Curry Bowls",
+      "category": "food",
+      "buildingId": "bldg-sc",
+      "roomCode": "SC1002",
+      "roomId": "room-sc1002",
+      "operator": "Fanshawe Student Union",
+      "status": "unknown",
+      "sourceIds": [
+        "campus-map",
+        "fsu-hospitality"
+      ],
+      "notes": "Listed on the August 2026 map, but FSU Hospitality no longer lists Kettles among its current outlets (its former page redirects to the Hospitality overview)."
+    },
+    {
+      "id": "oasis",
+      "name": "Oasis",
+      "category": "food",
+      "buildingId": "bldg-sc",
+      "roomCode": "SC1000",
+      "roomId": "room-sc1000",
+      "operator": "Fanshawe Student Union",
+      "status": "open",
+      "hours": {
+        "timezone": "America/Toronto",
+        "sourceId": "fsu-oasis",
+        "closedOnCollegeClosures": true,
+        "periods": [
+          {
+            "label": "Regular",
+            "from": null,
+            "to": null,
+            "weekly": {
+              "mon": [
+                [
+                  "08:00",
+                  "20:00"
+                ]
+              ],
+              "tue": [
+                [
+                  "08:00",
+                  "20:00"
+                ]
+              ],
+              "wed": [
+                [
+                  "08:00",
+                  "20:00"
+                ]
+              ],
+              "thu": [
+                [
+                  "08:00",
+                  "20:00"
+                ]
+              ],
+              "fri": [
+                [
+                  "08:00",
+                  "20:00"
+                ]
+              ],
+              "sat": [
+                [
+                  "10:00",
+                  "18:00"
+                ]
+              ],
+              "sun": [
+                [
+                  "10:00",
+                  "18:00"
+                ]
+              ]
+            },
+            "rawText": "Monday to Friday 8:00 a.m. to 8:00 p.m.; Saturday to Sunday 10:00 a.m. to 6:00 p.m."
+          }
+        ],
+        "notes": "Pasta, stir fry and build-a-bowl stations open 11:00 a.m. to 6:00 p.m. FSU: hours are subject to change."
+      },
+      "sourceIds": [
+        "campus-map",
+        "fsu-oasis",
+        "food-services"
+      ],
+      "notes": "STD03 (2024) lists Oasis Cafe at SC1015; the August 2026 map lists SC1000."
+    },
+    {
+      "id": "pharmacy",
+      "name": "Pharmacy",
+      "category": "health_wellness",
+      "buildingId": "bldg-j",
+      "roomCode": "J1000",
+      "roomId": "room-j1000",
+      "status": "closed_permanently",
+      "sourceIds": [
+        "campus-map",
+        "fsu-pharmacy"
+      ],
+      "notes": "Permanently closed after April 24, 2026; prescriptions were transferred to Western On-Campus Pharmacy. Still shown on the August 2026 map."
+    },
+    {
+      "id": "b-cafe",
+      "name": "B Cafe",
+      "category": "food",
+      "buildingId": "bldg-b",
+      "roomCode": "B1081",
+      "roomId": "room-b1081",
+      "aliases": [
+        "B Cafeteria"
+      ],
+      "operator": "Chartwells",
+      "status": "closed_temporarily",
+      "sourceIds": [
+        "campus-map",
+        "std03",
+        "chartwells-fall-2026"
+      ],
+      "notes": "Chartwells lists B-Cafe as closed for Fall 2026. The food services page describes an 'Atrium Cafe' in the James A. Colvin Atrium (B Building) with Tim Hortons, Chicken Chicken, Chef Inspired and Bento Sushi."
+    },
+    {
+      "id": "b-cafe-bento-sushi",
+      "name": "bento SUSHI",
+      "category": "food",
+      "buildingId": "bldg-b",
+      "roomCode": "B1081",
+      "roomId": "room-b1081",
+      "parentId": "b-cafe",
+      "operator": "Chartwells",
+      "status": "closed_temporarily",
+      "sourceIds": [
+        "campus-map",
+        "chartwells-fall-2026"
+      ]
+    },
+    {
+      "id": "b-cafe-chef-inspired",
+      "name": "Chef Inspired",
+      "category": "food",
+      "buildingId": "bldg-b",
+      "roomCode": "B1081",
+      "roomId": "room-b1081",
+      "parentId": "b-cafe",
+      "operator": "Chartwells",
+      "status": "closed_temporarily",
+      "sourceIds": [
+        "campus-map",
+        "chartwells-fall-2026"
+      ]
+    },
+    {
+      "id": "b-cafe-greens-and-grains",
+      "name": "Greens and Grains",
+      "category": "food",
+      "buildingId": "bldg-b",
+      "roomCode": "B1081",
+      "roomId": "room-b1081",
+      "parentId": "b-cafe",
+      "operator": "Chartwells",
+      "status": "closed_temporarily",
+      "sourceIds": [
+        "campus-map",
+        "chartwells-fall-2026"
+      ]
+    },
+    {
+      "id": "b-cafe-kettles",
+      "name": "Kettles",
+      "category": "food",
+      "buildingId": "bldg-b",
+      "roomCode": "B1081",
+      "roomId": "room-b1081",
+      "parentId": "b-cafe",
+      "operator": "Chartwells",
+      "status": "closed_temporarily",
+      "sourceIds": [
+        "campus-map",
+        "chartwells-fall-2026"
+      ]
+    },
+    {
+      "id": "b-cafe-on-the-go",
+      "name": "On the Go",
+      "category": "food",
+      "buildingId": "bldg-b",
+      "roomCode": "B1081",
+      "roomId": "room-b1081",
+      "parentId": "b-cafe",
+      "operator": "Chartwells",
+      "status": "closed_temporarily",
+      "sourceIds": [
+        "campus-map",
+        "chartwells-fall-2026"
+      ]
+    },
+    {
+      "id": "b-cafe-paramount",
+      "name": "Paramount",
+      "category": "food",
+      "buildingId": "bldg-b",
+      "roomCode": "B1081",
+      "roomId": "room-b1081",
+      "parentId": "b-cafe",
+      "operator": "Chartwells",
+      "status": "closed_temporarily",
+      "sourceIds": [
+        "campus-map",
+        "chartwells-fall-2026"
+      ]
+    },
+    {
+      "id": "b-cafe-smoke-s-poutinerie",
+      "name": "Smoke's Poutinerie",
+      "category": "food",
+      "buildingId": "bldg-b",
+      "roomCode": "B1081",
+      "roomId": "room-b1081",
+      "parentId": "b-cafe",
+      "operator": "Chartwells",
+      "status": "closed_temporarily",
+      "sourceIds": [
+        "campus-map",
+        "chartwells-fall-2026"
+      ]
+    },
+    {
+      "id": "b-cafe-tim-hortons",
+      "name": "Tim Hortons",
+      "category": "food",
+      "buildingId": "bldg-b",
+      "roomCode": "B1081",
+      "roomId": "room-b1081",
+      "parentId": "b-cafe",
+      "operator": "Chartwells",
+      "status": "closed_temporarily",
+      "sourceIds": [
+        "campus-map",
+        "chartwells-fall-2026"
+      ]
+    },
+    {
+      "id": "h-cafe",
+      "name": "H Cafe",
+      "category": "food",
+      "buildingId": "bldg-h",
+      "roomCode": "H1000",
+      "roomId": "room-h1000",
+      "aliases": [
+        "H Cafeteria"
+      ],
+      "operator": "Chartwells",
+      "status": "open",
+      "sourceIds": [
+        "campus-map",
+        "food-services"
+      ],
+      "notes": "STD03 (2024) lists H-Cafeteria at H1013; the August 2026 map lists H1000."
+    },
+    {
+      "id": "starbucks",
+      "name": "Starbucks",
+      "category": "food",
+      "buildingId": "bldg-h",
+      "roomCode": "H1000",
+      "roomId": "room-h1000",
+      "parentId": "h-cafe",
+      "operator": "Chartwells",
+      "status": "open",
+      "hours": {
+        "timezone": "America/Toronto",
+        "sourceId": "chartwells-fall-2026",
+        "closedOnCollegeClosures": true,
+        "periods": [
+          {
+            "label": "Fall 2026 regular",
+            "from": "2026-09-08",
+            "to": "2026-12-13",
+            "weekly": {
+              "mon": [
+                [
+                  "08:00",
+                  "16:00"
+                ]
+              ],
+              "tue": [
+                [
+                  "08:00",
+                  "16:00"
+                ]
+              ],
+              "wed": [
+                [
+                  "08:00",
+                  "16:00"
+                ]
+              ],
+              "thu": [
+                [
+                  "08:00",
+                  "16:00"
+                ]
+              ],
+              "fri": [
+                [
+                  "08:00",
+                  "16:00"
+                ]
+              ]
+            },
+            "rawText": "Mon-Thu 08:00-16:00; Fri 08:00-16:00"
+          },
+          {
+            "label": "Fall 2026 exam week",
+            "from": "2026-12-14",
+            "to": "2026-12-18",
+            "weekly": {
+              "mon": [
+                [
+                  "09:00",
+                  "14:00"
+                ]
+              ],
+              "tue": [
+                [
+                  "09:00",
+                  "14:00"
+                ]
+              ],
+              "wed": [
+                [
+                  "09:00",
+                  "14:00"
+                ]
+              ],
+              "thu": [
+                [
+                  "09:00",
+                  "14:00"
+                ]
+              ],
+              "fri": [
+                [
+                  "09:00",
+                  "14:00"
+                ]
+              ]
+            },
+            "rawText": "09:00-14:00"
+          },
+          {
+            "label": "Fall 2026 interterm week",
+            "from": "2026-12-21",
+            "to": "2026-12-24",
+            "weekly": {},
+            "rawText": "Closed"
+          }
+        ],
+        "notes": "Weekends are not listed and are treated as closed. The published table does not mention the October 8-9 study break."
+      },
+      "sourceIds": [
+        "campus-map",
+        "chartwells-fall-2026",
+        "food-services"
+      ]
+    },
+    {
+      "id": "live-chic",
+      "name": "Live Chic",
+      "category": "retail",
+      "buildingId": "bldg-h",
+      "roomCode": "H1015",
+      "roomId": "room-h1015",
+      "status": "unknown",
+      "sourceIds": [
+        "campus-map",
+        "std03"
+      ],
+      "notes": "Hours not published on an official Fanshawe page."
+    },
+    {
+      "id": "d-cafe",
+      "name": "D Cafe",
+      "category": "food",
+      "buildingId": "bldg-d",
+      "roomCode": "D1001",
+      "roomId": "room-d1001",
+      "aliases": [
+        "D Cafeteria",
+        "Southwest Cafe (B-D corner)"
+      ],
+      "operator": "Chartwells",
+      "status": "open",
+      "sourceIds": [
+        "campus-map",
+        "std03",
+        "food-services"
+      ],
+      "notes": "The food services page places Harvey's and the self-serve Tim Hortons in the 'Southwest Cafe (B-D corner)'; the map places them in D Cafe (D1001), so both names refer to this location."
+    },
+    {
+      "id": "harveys",
+      "name": "Harvey's",
+      "category": "food",
+      "buildingId": "bldg-d",
+      "roomCode": "D1001",
+      "roomId": "room-d1001",
+      "parentId": "d-cafe",
+      "operator": "Chartwells",
+      "status": "open",
+      "hours": {
+        "timezone": "America/Toronto",
+        "sourceId": "chartwells-fall-2026",
+        "closedOnCollegeClosures": true,
+        "periods": [
+          {
+            "label": "Fall 2026 regular",
+            "from": "2026-09-08",
+            "to": "2026-12-13",
+            "weekly": {
+              "mon": [
+                [
+                  "11:00",
+                  "16:00"
+                ]
+              ],
+              "tue": [
+                [
+                  "11:00",
+                  "16:00"
+                ]
+              ],
+              "wed": [
+                [
+                  "11:00",
+                  "16:00"
+                ]
+              ],
+              "thu": [
+                [
+                  "11:00",
+                  "16:00"
+                ]
+              ],
+              "fri": [
+                [
+                  "11:00",
+                  "15:00"
+                ]
+              ]
+            },
+            "rawText": "Mon-Thu 11:00-16:00; Fri 11:00-15:00"
+          },
+          {
+            "label": "Fall 2026 exam week",
+            "from": "2026-12-14",
+            "to": "2026-12-18",
+            "weekly": {},
+            "rawText": "Closed"
+          },
+          {
+            "label": "Fall 2026 interterm week",
+            "from": "2026-12-21",
+            "to": "2026-12-24",
+            "weekly": {},
+            "rawText": "Closed"
+          }
+        ],
+        "notes": "Weekends are not listed and are treated as closed. The published table does not mention the October 8-9 study break."
+      },
+      "sourceIds": [
+        "campus-map",
+        "chartwells-fall-2026",
+        "food-services"
+      ]
+    },
+    {
+      "id": "d-cafe-on-the-go",
+      "name": "On the Go",
+      "category": "food",
+      "buildingId": "bldg-d",
+      "roomCode": "D1001",
+      "roomId": "room-d1001",
+      "parentId": "d-cafe",
+      "operator": "Chartwells",
+      "status": "unknown",
+      "sourceIds": [
+        "campus-map"
+      ],
+      "notes": "Not listed in the Chartwells Fall 2026 hours."
+    },
+    {
+      "id": "tim-hortons-self-serve",
+      "name": "Tim Hortons (self-serve)",
+      "category": "food",
+      "buildingId": "bldg-d",
+      "roomCode": "D1001",
+      "roomId": "room-d1001",
+      "aliases": [
+        "Tim Hortons Express"
+      ],
+      "parentId": "d-cafe",
+      "operator": "Chartwells",
+      "status": "open",
+      "hours": {
+        "timezone": "America/Toronto",
+        "sourceId": "chartwells-fall-2026",
+        "closedOnCollegeClosures": true,
+        "periods": [
+          {
+            "label": "Fall 2026 regular",
+            "from": "2026-09-08",
+            "to": "2026-12-13",
+            "weekly": {
+              "mon": [
+                [
+                  "06:45",
+                  "14:00"
+                ]
+              ],
+              "tue": [
+                [
+                  "06:45",
+                  "14:00"
+                ]
+              ],
+              "wed": [
+                [
+                  "06:45",
+                  "14:00"
+                ]
+              ],
+              "thu": [
+                [
+                  "06:45",
+                  "14:00"
+                ]
+              ],
+              "fri": [
+                [
+                  "06:45",
+                  "14:00"
+                ]
+              ]
+            },
+            "rawText": "Mon-Thu 06:45-14:00; Fri 06:45-14:00"
+          },
+          {
+            "label": "Fall 2026 exam week",
+            "from": "2026-12-14",
+            "to": "2026-12-18",
+            "weekly": {
+              "mon": [
+                [
+                  "06:45",
+                  "14:00"
+                ]
+              ],
+              "tue": [
+                [
+                  "06:45",
+                  "14:00"
+                ]
+              ],
+              "wed": [
+                [
+                  "06:45",
+                  "14:00"
+                ]
+              ],
+              "thu": [
+                [
+                  "06:45",
+                  "14:00"
+                ]
+              ],
+              "fri": [
+                [
+                  "06:45",
+                  "14:00"
+                ]
+              ]
+            },
+            "rawText": "06:45-14:00"
+          },
+          {
+            "label": "Fall 2026 interterm week",
+            "from": "2026-12-21",
+            "to": "2026-12-24",
+            "weekly": {
+              "mon": [
+                [
+                  "06:45",
+                  "16:00"
+                ]
+              ],
+              "tue": [
+                [
+                  "06:45",
+                  "16:00"
+                ]
+              ],
+              "wed": [
+                [
+                  "06:45",
+                  "16:00"
+                ]
+              ],
+              "thu": [
+                [
+                  "06:45",
+                  "16:00"
+                ]
+              ]
+            },
+            "rawText": "06:45-16:00"
+          }
+        ],
+        "notes": "Weekends are not listed and are treated as closed. The published table does not mention the October 8-9 study break."
+      },
+      "sourceIds": [
+        "campus-map",
+        "chartwells-fall-2026",
+        "food-services"
+      ]
+    },
+    {
+      "id": "d-courtyard-cafe",
+      "name": "D Courtyard Cafe",
+      "category": "food",
+      "buildingId": "bldg-d",
+      "roomCode": "D1045",
+      "roomId": "room-d1045",
+      "aliases": [
+        "Courtyard Cafe",
+        "The Junction",
+        "D-E-F Junction"
+      ],
+      "operator": "Chartwells",
+      "status": "open",
+      "sourceIds": [
+        "campus-map",
+        "std03",
+        "food-services"
+      ],
+      "notes": "STD03 lists both 'Courtyard Cafe' and 'The Junction featuring Tim Hortons' at D1045."
+    },
+    {
+      "id": "pizza-pizza",
+      "name": "Pizza Pizza",
+      "category": "food",
+      "buildingId": "bldg-d",
+      "roomCode": "D1045",
+      "roomId": "room-d1045",
+      "parentId": "d-courtyard-cafe",
+      "operator": "Chartwells",
+      "status": "open",
+      "hours": {
+        "timezone": "America/Toronto",
+        "sourceId": "chartwells-fall-2026",
+        "closedOnCollegeClosures": true,
+        "periods": [
+          {
+            "label": "Fall 2026 regular",
+            "from": "2026-09-08",
+            "to": "2026-12-13",
+            "weekly": {
+              "mon": [
+                [
+                  "10:30",
+                  "16:00"
+                ]
+              ],
+              "tue": [
+                [
+                  "10:30",
+                  "16:00"
+                ]
+              ],
+              "wed": [
+                [
+                  "10:30",
+                  "16:00"
+                ]
+              ],
+              "thu": [
+                [
+                  "10:30",
+                  "16:00"
+                ]
+              ],
+              "fri": [
+                [
+                  "10:30",
+                  "15:00"
+                ]
+              ]
+            },
+            "rawText": "Mon-Thu 10:30-16:00; Fri 10:30-15:00"
+          },
+          {
+            "label": "Fall 2026 exam week",
+            "from": "2026-12-14",
+            "to": "2026-12-18",
+            "weekly": {
+              "mon": [
+                [
+                  "10:30",
+                  "15:00"
+                ]
+              ],
+              "tue": [
+                [
+                  "10:30",
+                  "15:00"
+                ]
+              ],
+              "wed": [
+                [
+                  "10:30",
+                  "15:00"
+                ]
+              ],
+              "thu": [
+                [
+                  "10:30",
+                  "15:00"
+                ]
+              ],
+              "fri": [
+                [
+                  "10:30",
+                  "15:00"
+                ]
+              ]
+            },
+            "rawText": "10:30-15:00"
+          },
+          {
+            "label": "Fall 2026 interterm week",
+            "from": "2026-12-21",
+            "to": "2026-12-24",
+            "weekly": {},
+            "rawText": "Closed"
+          }
+        ],
+        "notes": "Weekends are not listed and are treated as closed. The published table does not mention the October 8-9 study break."
+      },
+      "sourceIds": [
+        "campus-map",
+        "chartwells-fall-2026",
+        "food-services"
+      ]
+    },
+    {
+      "id": "subway",
+      "name": "Subway",
+      "category": "food",
+      "buildingId": "bldg-d",
+      "roomCode": "D1045",
+      "roomId": "room-d1045",
+      "parentId": "d-courtyard-cafe",
+      "operator": "Chartwells",
+      "status": "open",
+      "hours": {
+        "timezone": "America/Toronto",
+        "sourceId": "chartwells-fall-2026",
+        "closedOnCollegeClosures": true,
+        "periods": [
+          {
+            "label": "Fall 2026 regular",
+            "from": "2026-09-08",
+            "to": "2026-12-13",
+            "weekly": {
+              "mon": [
+                [
+                  "10:30",
+                  "16:00"
+                ]
+              ],
+              "tue": [
+                [
+                  "10:30",
+                  "16:00"
+                ]
+              ],
+              "wed": [
+                [
+                  "10:30",
+                  "16:00"
+                ]
+              ],
+              "thu": [
+                [
+                  "10:30",
+                  "16:00"
+                ]
+              ],
+              "fri": [
+                [
+                  "10:30",
+                  "15:00"
+                ]
+              ]
+            },
+            "rawText": "Mon-Thu 10:30-16:00; Fri 10:30-15:00"
+          },
+          {
+            "label": "Fall 2026 exam week",
+            "from": "2026-12-14",
+            "to": "2026-12-18",
+            "weekly": {
+              "mon": [
+                [
+                  "11:00",
+                  "16:00"
+                ]
+              ],
+              "tue": [
+                [
+                  "11:00",
+                  "16:00"
+                ]
+              ],
+              "wed": [
+                [
+                  "11:00",
+                  "16:00"
+                ]
+              ],
+              "thu": [
+                [
+                  "11:00",
+                  "16:00"
+                ]
+              ],
+              "fri": [
+                [
+                  "11:00",
+                  "16:00"
+                ]
+              ]
+            },
+            "rawText": "11:00-16:00"
+          },
+          {
+            "label": "Fall 2026 interterm week",
+            "from": "2026-12-21",
+            "to": "2026-12-24",
+            "weekly": {},
+            "rawText": "Closed"
+          }
+        ],
+        "notes": "Weekends are not listed and are treated as closed. The published table does not mention the October 8-9 study break."
+      },
+      "sourceIds": [
+        "campus-map",
+        "chartwells-fall-2026",
+        "food-services"
+      ]
+    },
+    {
+      "id": "tim-hortons-junction",
+      "name": "Tim Hortons (Junction)",
+      "category": "food",
+      "buildingId": "bldg-d",
+      "roomCode": "D1045",
+      "roomId": "room-d1045",
+      "parentId": "d-courtyard-cafe",
+      "operator": "Chartwells",
+      "status": "open",
+      "hours": {
+        "timezone": "America/Toronto",
+        "sourceId": "chartwells-fall-2026",
+        "closedOnCollegeClosures": true,
+        "periods": [
+          {
+            "label": "Fall 2026 regular",
+            "from": "2026-09-08",
+            "to": "2026-12-13",
+            "weekly": {
+              "mon": [
+                [
+                  "07:00",
+                  "17:00"
+                ]
+              ],
+              "tue": [
+                [
+                  "07:00",
+                  "17:00"
+                ]
+              ],
+              "wed": [
+                [
+                  "07:00",
+                  "17:00"
+                ]
+              ],
+              "thu": [
+                [
+                  "07:00",
+                  "17:00"
+                ]
+              ],
+              "fri": [
+                [
+                  "07:00",
+                  "17:00"
+                ]
+              ]
+            },
+            "rawText": "Mon-Thu 07:00-17:00; Fri 07:00-17:00"
+          },
+          {
+            "label": "Fall 2026 exam week",
+            "from": "2026-12-14",
+            "to": "2026-12-18",
+            "weekly": {
+              "mon": [
+                [
+                  "07:00",
+                  "15:00"
+                ]
+              ],
+              "tue": [
+                [
+                  "07:00",
+                  "15:00"
+                ]
+              ],
+              "wed": [
+                [
+                  "07:00",
+                  "15:00"
+                ]
+              ],
+              "thu": [
+                [
+                  "07:00",
+                  "15:00"
+                ]
+              ],
+              "fri": [
+                [
+                  "07:00",
+                  "15:00"
+                ]
+              ]
+            },
+            "rawText": "07:00-15:00"
+          },
+          {
+            "label": "Fall 2026 interterm week",
+            "from": "2026-12-21",
+            "to": "2026-12-24",
+            "weekly": {},
+            "rawText": "Closed"
+          }
+        ],
+        "notes": "Weekends are not listed and are treated as closed. The published table does not mention the October 8-9 study break."
+      },
+      "sourceIds": [
+        "campus-map",
+        "std03",
+        "chartwells-fall-2026",
+        "food-services"
+      ]
+    },
+    {
+      "id": "falcon-shop",
+      "name": "The Falcon Shop",
+      "category": "retail",
+      "buildingId": "bldg-f",
+      "roomCode": "F1019",
+      "roomId": "room-f1019",
+      "aliases": [
+        "Campus Store",
+        "Bookstore"
+      ],
+      "operator": "Fanshawe Retail Services",
+      "status": "open",
+      "hours": {
+        "timezone": "America/Toronto",
+        "sourceId": "retail-services",
+        "closedOnCollegeClosures": true,
+        "periods": [
+          {
+            "label": "Regular",
+            "from": null,
+            "to": null,
+            "weekly": {
+              "mon": [["09:00", "16:30"]],
+              "tue": [["09:00", "16:30"]],
+              "wed": [["09:00", "16:30"]],
+              "thu": [["09:00", "16:30"]],
+              "fri": [["09:00", "16:30"]]
+            },
+            "rawText": "Monday and Friday - 9:00 a.m. to 4:30 p.m."
+          }
+        ],
+        "notes": "The official page says 'Monday and Friday'; interpreted as Monday to Friday per the team's decision."
+      },
+      "sourceIds": [
+        "campus-map",
+        "retail-services",
+        "falcon-shop-move",
+        "std03"
+      ],
+      "notes": "The map still lists The Falcon Shop at D1042. Retail Services moved it to F1019 (the former Campus Store) in August 2025."
+    },
+    {
+      "id": "variety-store",
+      "name": "Variety Store",
+      "category": "retail",
+      "buildingId": "bldg-d",
+      "roomCode": "D1043",
+      "roomId": "room-d1043",
+      "aliases": [
+        "Convenience Store"
+      ],
+      "operator": "Fanshawe Retail Services",
+      "status": "open",
+      "hours": {
+        "timezone": "America/Toronto",
+        "sourceId": "retail-services",
+        "closedOnCollegeClosures": true,
+        "periods": [
+          {
+            "label": "Regular",
+            "from": null,
+            "to": null,
+            "weekly": {
+              "mon": [
+                [
+                  "09:00",
+                  "16:00"
+                ]
+              ],
+              "tue": [
+                [
+                  "09:00",
+                  "16:00"
+                ]
+              ],
+              "wed": [
+                [
+                  "09:00",
+                  "16:00"
+                ]
+              ],
+              "thu": [
+                [
+                  "09:00",
+                  "16:00"
+                ]
+              ],
+              "fri": [
+                [
+                  "09:00",
+                  "16:00"
+                ]
+              ]
+            },
+            "rawText": "Monday to Friday 9:00 a.m. - 4:00 p.m."
+          }
+        ]
+      },
+      "sourceIds": [
+        "campus-map",
+        "retail-services",
+        "std03"
+      ]
+    },
+    {
+      "id": "print-shop",
+      "name": "The Print Shop",
+      "category": "retail",
+      "buildingId": "bldg-b",
+      "roomCode": "B1002",
+      "roomId": "room-b1002",
+      "operator": "Fanshawe Retail Services",
+      "status": "open",
+      "hours": {
+        "timezone": "America/Toronto",
+        "sourceId": "retail-services",
+        "closedOnCollegeClosures": true,
+        "periods": [
+          {
+            "label": "Regular",
+            "from": null,
+            "to": null,
+            "weekly": {
+              "mon": [
+                [
+                  "08:30",
+                  "16:00"
+                ]
+              ],
+              "tue": [
+                [
+                  "08:30",
+                  "16:00"
+                ]
+              ],
+              "wed": [
+                [
+                  "08:30",
+                  "16:00"
+                ]
+              ],
+              "thu": [
+                [
+                  "08:30",
+                  "16:00"
+                ]
+              ],
+              "fri": [
+                [
+                  "08:30",
+                  "16:00"
+                ]
+              ]
+            },
+            "rawText": "Monday to Friday, 8:30 a.m. - 4:00 p.m."
+          }
+        ]
+      },
+      "sourceIds": [
+        "retail-services",
+        "std03"
+      ],
+      "notes": "Not on the map legend; included because Retail Services publishes its location and hours."
+    },
+    {
+      "id": "brake-time-cafe",
+      "name": "Brake Time Cafe",
+      "category": "food",
+      "buildingId": "bldg-z",
+      "roomCode": "Z1012",
+      "roomId": "room-z1012",
+      "aliases": [
+        "Automotive (Z-building)"
+      ],
+      "operator": "Chartwells",
+      "status": "open",
+      "hours": {
+        "timezone": "America/Toronto",
+        "sourceId": "chartwells-fall-2026",
+        "closedOnCollegeClosures": true,
+        "periods": [
+          {
+            "label": "Fall 2026 regular",
+            "from": "2026-09-08",
+            "to": "2026-12-13",
+            "weekly": {
+              "mon": [
+                [
+                  "07:30",
+                  "14:00"
+                ]
+              ],
+              "tue": [
+                [
+                  "07:30",
+                  "14:00"
+                ]
+              ],
+              "wed": [
+                [
+                  "07:30",
+                  "14:00"
+                ]
+              ],
+              "thu": [
+                [
+                  "07:30",
+                  "14:00"
+                ]
+              ],
+              "fri": [
+                [
+                  "07:30",
+                  "14:00"
+                ]
+              ]
+            },
+            "rawText": "Mon-Thu 07:30-14:00; Fri 07:30-14:00"
+          },
+          {
+            "label": "Fall 2026 exam week",
+            "from": "2026-12-14",
+            "to": "2026-12-18",
+            "weekly": {
+              "mon": [
+                [
+                  "07:00",
+                  "14:00"
+                ]
+              ],
+              "tue": [
+                [
+                  "07:00",
+                  "14:00"
+                ]
+              ],
+              "wed": [
+                [
+                  "07:00",
+                  "14:00"
+                ]
+              ],
+              "thu": [
+                [
+                  "07:00",
+                  "14:00"
+                ]
+              ],
+              "fri": [
+                [
+                  "07:00",
+                  "14:00"
+                ]
+              ]
+            },
+            "rawText": "07:00-14:00"
+          },
+          {
+            "label": "Fall 2026 interterm week",
+            "from": "2026-12-21",
+            "to": "2026-12-24",
+            "weekly": {},
+            "rawText": "Closed"
+          }
+        ],
+        "notes": "Weekends are not listed and are treated as closed. The published table does not mention the October 8-9 study break."
+      },
+      "sourceIds": [
+        "std03",
+        "food-services",
+        "chartwells-fall-2026"
+      ],
+      "notes": "Not on the map legend; included because Chartwells publishes its hours."
+    },
+    {
+      "id": "counselling-accessibility",
+      "name": "Counselling and Accessibility Services",
+      "category": "student_services",
+      "buildingId": "bldg-f",
+      "roomCode": "F2010",
+      "roomId": "room-f2010",
+      "status": "open",
+      "sourceIds": [
+        "campus-map"
+      ]
+    },
+    {
+      "id": "homework-huddle",
+      "name": "Homework Huddle",
+      "category": "student_services",
+      "buildingId": "bldg-f",
+      "roomCode": "F2042",
+      "roomId": "room-f2042",
+      "status": "open",
+      "sourceIds": [
+        "campus-map"
+      ]
+    },
+    {
+      "id": "indigenous-spirit-assembly",
+      "name": "Indigenous Spirit Assembly (Kalihwiyo Circle)",
+      "category": "student_services",
+      "buildingId": "bldg-f",
+      "roomCode": "F1066",
+      "roomId": "room-f1066",
+      "status": "open",
+      "sourceIds": [
+        "campus-map"
+      ],
+      "notes": "STD03 lists the sub-room as F1066-15, inside the Library Learning Commons."
+    },
+    {
+      "id": "leap-junction",
+      "name": "Leap Junction",
+      "category": "student_services",
+      "buildingId": "bldg-f",
+      "roomCode": "F1043",
+      "roomId": "room-f1043",
+      "status": "open",
+      "sourceIds": [
+        "campus-map"
+      ]
+    },
+    {
+      "id": "library-learning-commons",
+      "name": "Library Learning Commons",
+      "category": "student_services",
+      "buildingId": "bldg-f",
+      "roomCode": "F1066",
+      "roomId": "room-f1066",
+      "status": "open",
+      "sourceIds": [
+        "campus-map"
+      ]
+    },
+    {
+      "id": "quiet-zone",
+      "name": "Quiet Zone",
+      "category": "student_services",
+      "buildingId": "bldg-f",
+      "roomCode": "F2028",
+      "roomId": "room-f2028",
+      "status": "open",
+      "sourceIds": [
+        "campus-map"
+      ]
+    },
+    {
+      "id": "test-centre",
+      "name": "Test Centre",
+      "category": "student_services",
+      "buildingId": "bldg-f",
+      "roomCode": "F3005",
+      "roomId": "room-f3005",
+      "status": "open",
+      "sourceIds": [
+        "campus-map"
+      ]
+    },
+    {
+      "id": "fanshawe-student-union",
+      "name": "Fanshawe Student Union (FSU Office)",
+      "category": "student_services",
+      "buildingId": "bldg-sc",
+      "roomCode": "SC1000",
+      "roomId": "room-sc1000",
+      "operator": "Fanshawe Student Union",
+      "status": "open",
+      "hours": {
+        "timezone": "America/Toronto",
+        "sourceId": "fsu-biz-booth",
+        "closedOnCollegeClosures": true,
+        "periods": [
+          {
+            "label": "Regular",
+            "from": null,
+            "to": null,
+            "weekly": {
+              "mon": [
+                [
+                  "09:00",
+                  "16:30"
+                ]
+              ],
+              "tue": [
+                [
+                  "09:00",
+                  "16:30"
+                ]
+              ],
+              "wed": [
+                [
+                  "09:00",
+                  "16:30"
+                ]
+              ],
+              "thu": [
+                [
+                  "09:00",
+                  "16:30"
+                ]
+              ],
+              "fri": [
+                [
+                  "09:00",
+                  "16:30"
+                ]
+              ]
+            },
+            "rawText": "Monday through Friday, 9:00 a.m. to 4:30 p.m."
+          }
+        ]
+      },
+      "sourceIds": [
+        "campus-map",
+        "fsu-biz-booth"
+      ],
+      "notes": "The map lists SC1001; FSU pages (source of truth) list the FSU Office in room SC 1000."
+    },
+    {
+      "id": "campus-tours",
+      "name": "Campus Tours",
+      "category": "student_services",
+      "buildingId": "bldg-e",
+      "roomCode": "E1013",
+      "roomId": "room-e1013",
+      "aliases": [
+        "Welcome Zone"
+      ],
+      "status": "open",
+      "sourceIds": [
+        "campus-map",
+        "std03"
+      ]
+    },
+    {
+      "id": "cice",
+      "name": "Community Integration through Cooperative Education (CICE)",
+      "category": "student_services",
+      "buildingId": "bldg-a",
+      "roomCode": "A2036",
+      "roomId": "room-a2036",
+      "status": "open",
+      "sourceIds": [
+        "campus-map"
+      ]
+    },
+    {
+      "id": "employment-entrepreneurial-services",
+      "name": "Employment and Student Entrepreneurial Services",
+      "category": "student_services",
+      "buildingId": "bldg-d",
+      "roomCode": "D1063",
+      "roomId": "room-d1063",
+      "status": "open",
+      "sourceIds": [
+        "campus-map"
+      ]
+    },
+    {
+      "id": "fancard-parking-lockers",
+      "name": "FANCard, Parking and Lockers",
+      "category": "student_services",
+      "buildingId": "bldg-e",
+      "roomCode": "E2020",
+      "roomId": "room-e2020",
+      "status": "open",
+      "sourceIds": [
+        "campus-map",
+        "food-services"
+      ]
+    },
+    {
+      "id": "indigenous-reconciliation-dialogue-centre",
+      "name": "Indigenous Reconciliation Dialogue Centre",
+      "category": "student_services",
+      "buildingId": "bldg-d",
+      "roomCode": "D2030",
+      "roomId": "room-d2030",
+      "status": "open",
+      "sourceIds": [
+        "campus-map"
+      ]
+    },
+    {
+      "id": "institute-of-indigenous-learning",
+      "name": "Institute of Indigenous Learning",
+      "category": "student_services",
+      "buildingId": "bldg-a",
+      "roomCode": "A1046",
+      "roomId": "room-a1046",
+      "aliases": [
+        "Indigenous Learning Centre"
+      ],
+      "status": "open",
+      "sourceIds": [
+        "campus-map",
+        "std03"
+      ]
+    },
+    {
+      "id": "international-strategy",
+      "name": "International Strategy, Partnership and Market Development",
+      "category": "student_services",
+      "buildingId": "bldg-e",
+      "roomCode": "E2025",
+      "roomId": "room-e2025",
+      "status": "open",
+      "sourceIds": [
+        "campus-map"
+      ]
+    },
+    {
+      "id": "it-service-desk",
+      "name": "IT Service Desk",
+      "category": "student_services",
+      "buildingId": "bldg-e",
+      "roomCode": "E2030",
+      "roomId": "room-e2030",
+      "status": "open",
+      "sourceIds": [
+        "campus-map",
+        "std03"
+      ]
+    },
+    {
+      "id": "media-services",
+      "name": "Media Services",
+      "category": "student_services",
+      "buildingId": "bldg-d",
+      "roomCode": "D1025",
+      "roomId": "room-d1025",
+      "status": "open",
+      "sourceIds": [
+        "campus-map"
+      ]
+    },
+    {
+      "id": "office-of-the-registrar",
+      "name": "Office of the Registrar",
+      "category": "student_services",
+      "buildingId": "bldg-e",
+      "roomCode": "E1012",
+      "roomId": "room-e1012",
+      "status": "open",
+      "sourceIds": [
+        "campus-map"
+      ]
+    },
+    {
+      "id": "security-control-centre",
+      "name": "Security Control Centre & Lost and Found",
+      "category": "student_services",
+      "buildingId": "bldg-d",
+      "roomCode": "D1027",
+      "roomId": "room-d1027",
+      "status": "open",
+      "sourceIds": [
+        "campus-map",
+        "std03"
+      ]
+    },
+    {
+      "id": "donald-j-smith-school",
+      "name": "Donald J. Smith School of Building Technology and Design",
+      "category": "academic_office",
+      "buildingId": "bldg-t",
+      "roomCode": "T3010",
+      "roomId": "room-t3010",
+      "status": "open",
+      "subjectToChange": true,
+      "sourceIds": [
+        "campus-map"
+      ],
+      "notes": "The map overlays the Academic Offices legend with 'RESTRUCTURING - UPDATE LATER 2026'."
+    },
+    {
+      "id": "faculty-science-trades-technology-design",
+      "name": "Faculty of Science, Trades, Technology and Design",
+      "category": "academic_office",
+      "buildingId": "bldg-t",
+      "roomCode": "T3010",
+      "roomId": "room-t3010",
+      "status": "open",
+      "subjectToChange": true,
+      "sourceIds": [
+        "campus-map"
+      ],
+      "notes": "The map overlays the Academic Offices legend with 'RESTRUCTURING - UPDATE LATER 2026'."
+    },
+    {
+      "id": "lawrence-kinlin-school-of-business",
+      "name": "Lawrence Kinlin School of Business",
+      "category": "academic_office",
+      "buildingId": "bldg-b",
+      "roomCode": "B2015",
+      "roomId": "room-b2015",
+      "status": "open",
+      "subjectToChange": true,
+      "sourceIds": [
+        "campus-map"
+      ],
+      "notes": "The map overlays the Academic Offices legend with 'RESTRUCTURING - UPDATE LATER 2026'."
+    },
+    {
+      "id": "school-advanced-manufacturing",
+      "name": "School of Advanced Manufacturing, Science and Transportation",
+      "category": "academic_office",
+      "buildingId": "bldg-t",
+      "roomCode": "T3010",
+      "roomId": "room-t3010",
+      "status": "open",
+      "subjectToChange": true,
+      "sourceIds": [
+        "campus-map"
+      ],
+      "notes": "The map overlays the Academic Offices legend with 'RESTRUCTURING - UPDATE LATER 2026'."
+    },
+    {
+      "id": "school-hospitality-creative-industries",
+      "name": "School of Hospitality and Creative Industries (Office Admin)",
+      "category": "academic_office",
+      "buildingId": "bldg-b",
+      "roomCode": "B1048",
+      "roomId": "room-b1048",
+      "status": "open",
+      "subjectToChange": true,
+      "sourceIds": [
+        "campus-map"
+      ],
+      "notes": "The map overlays the Academic Offices legend with 'RESTRUCTURING - UPDATE LATER 2026'. The map also lists a Downtown Campus office (LDB603), which is outside this dataset."
+    },
+    {
+      "id": "don-crich-skilled-trades-accelerator",
+      "name": "The Don Crich Skilled Trades Accelerator",
+      "category": "academic_office",
+      "buildingId": null,
+      "roomCode": null,
+      "roomId": null,
+      "status": "open",
+      "subjectToChange": true,
+      "sourceIds": [
+        "campus-map"
+      ],
+      "notes": "The map overlays the Academic Offices legend with 'RESTRUCTURING - UPDATE LATER 2026'. The map gives no room or building; it is listed in the orange-zone (B/C/T) group."
+    },
+    {
+      "id": "faculty-business-hospitality-creative",
+      "name": "Faculty of Business, Hospitality and Creative Industries",
+      "category": "academic_office",
+      "buildingId": "bldg-b",
+      "roomCode": "B2015",
+      "roomId": "room-b2015",
+      "status": "open",
+      "subjectToChange": true,
+      "sourceIds": [
+        "campus-map"
+      ],
+      "notes": "The map overlays the Academic Offices legend with 'RESTRUCTURING - UPDATE LATER 2026'."
+    },
+    {
+      "id": "faculty-access-language-regional",
+      "name": "Faculty of Access, Language and Regional Campuses",
+      "category": "academic_office",
+      "buildingId": "bldg-a",
+      "roomCode": "A2058",
+      "roomId": "room-a2058",
+      "status": "open",
+      "subjectToChange": true,
+      "sourceIds": [
+        "campus-map"
+      ],
+      "notes": "The map overlays the Academic Offices legend with 'RESTRUCTURING - UPDATE LATER 2026'."
+    },
+    {
+      "id": "faculty-health-community-nursing-safety",
+      "name": "Faculty of Health, Community Studies, Nursing and Public Safety",
+      "category": "academic_office",
+      "buildingId": "bldg-d",
+      "roomCode": "D3018",
+      "roomId": "room-d3018",
+      "status": "open",
+      "subjectToChange": true,
+      "sourceIds": [
+        "campus-map"
+      ],
+      "notes": "The map overlays the Academic Offices legend with 'RESTRUCTURING - UPDATE LATER 2026'."
+    },
+    {
+      "id": "swac-office",
+      "name": "School College Work Initiative - SWAC Office",
+      "category": "academic_office",
+      "buildingId": "bldg-a",
+      "roomCode": "A1037",
+      "roomId": "room-a1037",
+      "status": "open",
+      "subjectToChange": true,
+      "sourceIds": [
+        "campus-map"
+      ],
+      "notes": "The map overlays the Academic Offices legend with 'RESTRUCTURING - UPDATE LATER 2026'."
+    },
+    {
+      "id": "school-arts-language",
+      "name": "School of Arts and Language",
+      "category": "academic_office",
+      "buildingId": "bldg-a",
+      "roomCode": "A2058",
+      "roomId": "room-a2058",
+      "status": "open",
+      "subjectToChange": true,
+      "sourceIds": [
+        "campus-map"
+      ],
+      "notes": "The map overlays the Academic Offices legend with 'RESTRUCTURING - UPDATE LATER 2026'."
+    },
+    {
+      "id": "school-community-studies",
+      "name": "School of Community Studies",
+      "category": "academic_office",
+      "buildingId": "bldg-d",
+      "roomCode": "D3018",
+      "roomId": "room-d3018",
+      "status": "open",
+      "subjectToChange": true,
+      "sourceIds": [
+        "campus-map"
+      ],
+      "notes": "The map overlays the Academic Offices legend with 'RESTRUCTURING - UPDATE LATER 2026'."
+    },
+    {
+      "id": "school-health-sciences-public-safety",
+      "name": "School of Health Sciences and Public Safety",
+      "category": "academic_office",
+      "buildingId": "bldg-d",
+      "roomCode": "D3018",
+      "roomId": "room-d3018",
+      "status": "open",
+      "subjectToChange": true,
+      "sourceIds": [
+        "campus-map"
+      ],
+      "notes": "The map overlays the Academic Offices legend with 'RESTRUCTURING - UPDATE LATER 2026'."
+    },
+    {
+      "id": "school-of-nursing",
+      "name": "School of Nursing",
+      "category": "academic_office",
+      "buildingId": "bldg-d",
+      "roomCode": "D3018",
+      "roomId": "room-d3018",
+      "status": "open",
+      "subjectToChange": true,
+      "sourceIds": [
+        "campus-map"
+      ],
+      "notes": "The map overlays the Academic Offices legend with 'RESTRUCTURING - UPDATE LATER 2026'."
+    },
+    {
+      "id": "school-transportation-technology",
+      "name": "School of Transportation Technology",
+      "category": "academic_office",
+      "buildingId": "bldg-z",
+      "roomCode": "Z1009",
+      "roomId": "room-z1009",
+      "status": "open",
+      "subjectToChange": true,
+      "sourceIds": [
+        "campus-map"
+      ],
+      "notes": "The map overlays the Academic Offices legend with 'RESTRUCTURING - UPDATE LATER 2026'."
+    },
+    {
+      "id": "norton-wolf-school",
+      "name": "Norton Wolf School of Aerospace, Information and Defence Technologies",
+      "category": "academic_office",
+      "buildingId": "bldg-y",
+      "roomCode": null,
+      "roomId": null,
+      "status": "open",
+      "subjectToChange": true,
+      "sourceIds": [
+        "campus-map"
+      ],
+      "notes": "The map overlays the Academic Offices legend with 'RESTRUCTURING - UPDATE LATER 2026'. Located at London International Airport; the map gives no room number."
+    },
+    {
+      "id": "athletics",
+      "name": "Athletics",
+      "category": "health_wellness",
+      "buildingId": "bldg-j",
+      "roomCode": "J2003",
+      "roomId": "room-j2003",
+      "status": "open",
+      "sourceIds": [
+        "campus-map"
+      ]
+    },
+    {
+      "id": "fitness-centre",
+      "name": "Fitness Centre",
+      "category": "health_wellness",
+      "buildingId": "bldg-j",
+      "roomCode": "J1003",
+      "roomId": "room-j1003",
+      "aliases": [
+        "Fitness 101"
+      ],
+      "status": "open",
+      "sourceIds": [
+        "campus-map"
+      ]
+    },
+    {
+      "id": "fowler-kennedy-sport-medicine",
+      "name": "Fowler Kennedy Sport Medicine Clinic",
+      "category": "health_wellness",
+      "buildingId": "bldg-j",
+      "roomCode": "J1004",
+      "roomId": "room-j1004",
+      "status": "open",
+      "sourceIds": [
+        "campus-map"
+      ]
+    },
+    {
+      "id": "gym-1-2",
+      "name": "Gym 1 & 2",
+      "category": "health_wellness",
+      "buildingId": "bldg-j",
+      "roomCode": "J1015",
+      "roomId": "room-j1015",
+      "aliases": [
+        "Glenn Johnston Athletics Centre"
+      ],
+      "status": "open",
+      "sourceIds": [
+        "campus-map"
+      ]
+    },
+    {
+      "id": "gym-3",
+      "name": "Gym 3",
+      "category": "health_wellness",
+      "buildingId": "bldg-j",
+      "roomCode": "J1032",
+      "roomId": "room-j1032",
+      "status": "open",
+      "sourceIds": [
+        "campus-map"
+      ]
+    },
+    {
+      "id": "student-health-services",
+      "name": "Student Health Services",
+      "category": "health_wellness",
+      "buildingId": "bldg-j",
+      "roomCode": "J1004",
+      "roomId": "room-j1004",
+      "status": "open",
+      "sourceIds": [
+        "campus-map"
+      ]
+    },
+    {
+      "id": "health-wellness-clinics",
+      "name": "Health and Wellness Clinics",
+      "category": "health_wellness",
+      "buildingId": "bldg-a",
+      "roomCode": "A1001",
+      "roomId": "room-a1001",
+      "status": "open",
+      "sourceIds": [
+        "campus-map"
+      ]
+    },
+    {
+      "id": "mend-massage-clinic",
+      "name": "mend Student Massage Clinic",
+      "category": "health_wellness",
+      "buildingId": "bldg-a",
+      "roomCode": "A1001",
+      "roomId": "room-a1001",
+      "status": "open",
+      "sourceIds": [
+        "campus-map"
+      ]
+    },
+    {
+      "id": "oral-health-clinic",
+      "name": "Oral Health Clinic",
+      "category": "health_wellness",
+      "buildingId": "bldg-a",
+      "roomCode": "A1001",
+      "roomId": "room-a1001",
+      "status": "open",
+      "sourceIds": [
+        "campus-map"
+      ]
+    },
+    {
+      "id": "ota-pta-clinic",
+      "name": "Occupational Therapist Assistant and Physiotherapy Assistant",
+      "category": "health_wellness",
+      "buildingId": "bldg-a",
+      "roomCode": "A1001",
+      "roomId": "room-a1001",
+      "status": "open",
+      "sourceIds": [
+        "campus-map"
+      ]
+    }
+  ]
+}
