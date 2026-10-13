@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "lastVerified": "2026-09-25",
   "timezone": "America/Toronto",
   "campus": {
@@ -36,7 +36,7 @@
     "food-services": {
       "title": "Meal Plan and Food Services",
       "url": "https://www.fanshawec.ca/students/life/campus-services/food",
-      "retrieved": "2026-09-25"
+      "retrieved": "2026-10-13"
     },
     "retail-services": {
       "title": "Retail Services",
@@ -88,6 +88,52 @@
       "title": "FSU - Hospitality Services",
       "url": "https://www.fsu.ca/hospitality",
       "retrieved": "2026-09-25"
+    },
+    "launch-list": {
+      "title": "Preliminary launch locations supplied by the project owner",
+      "path": "launch-locations.txt",
+      "retrieved": "2026-10-13",
+      "purpose": "scope_only"
+    },
+    "financial-aid": {
+      "title": "Financial Aid and Student Awards",
+      "url": "https://www.fanshawec.ca/admission-finance/financial-aid-awards",
+      "retrieved": "2026-10-13"
+    },
+    "indigenous-learning": {
+      "title": "The Institute of Indigenous Learning",
+      "url": "https://www.fanshawec.ca/students/support/indigenous-learning/institute-of-indigenous-learning",
+      "retrieved": "2026-10-13"
+    },
+    "international-centre": {
+      "title": "International Centre",
+      "url": "https://www.fanshawec.ca/international/students/international-centre",
+      "retrieved": "2026-10-13"
+    },
+    "makerspace": {
+      "title": "Makerspace - Fanshawe Library Learning Commons",
+      "url": "https://www.fanshawelibrary.com/makerspace/",
+      "retrieved": "2026-10-13"
+    },
+    "innovation-resources": {
+      "title": "Fanshawe Innovation Resources",
+      "url": "https://www.fanshawec.ca/leap-junction/events/community/leap-community/fanshawe-resources",
+      "retrieved": "2026-10-13"
+    },
+    "parking-lockers": {
+      "title": "Transportation, Parking and Lockers",
+      "url": "https://www.fanshawec.ca/students/life/campus-services/transportation-parking-lockers",
+      "retrieved": "2026-10-13"
+    },
+    "campus-security": {
+      "title": "Campus Security Services",
+      "url": "https://www.fanshawec.ca/students/life/campus-services/security",
+      "retrieved": "2026-10-13"
+    },
+    "continuing-education": {
+      "title": "Continuing Education",
+      "url": "https://www.fanshawec.ca/programs-and-courses/programs-type/part-time-studies/continuing-education",
+      "retrieved": "2026-10-13"
     }
   },
   "buildings": [
@@ -109,7 +155,13 @@
       "sourceIds": [
         "campus-map",
         "std03"
-      ]
+      ],
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "bldg-b",
@@ -129,7 +181,13 @@
       "sourceIds": [
         "campus-map",
         "std03"
-      ]
+      ],
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "bldg-c",
@@ -146,7 +204,13 @@
       "sourceIds": [
         "campus-map",
         "std03"
-      ]
+      ],
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "bldg-d",
@@ -167,7 +231,13 @@
       "sourceIds": [
         "campus-map",
         "std03"
-      ]
+      ],
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "bldg-e",
@@ -185,7 +255,13 @@
       "sourceIds": [
         "campus-map",
         "std03"
-      ]
+      ],
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "bldg-f",
@@ -204,7 +280,13 @@
       "sourceIds": [
         "campus-map",
         "std03"
-      ]
+      ],
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "bldg-g",
@@ -222,7 +304,13 @@
         "campus-map",
         "std03"
       ],
-      "notes": "STD03 lists the Telus Student Lounge (G1010) here."
+      "notes": "STD03 lists the Telus Student Lounge (G1010) here.",
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "bldg-h",
@@ -241,7 +329,13 @@
       "sourceIds": [
         "campus-map",
         "std03"
-      ]
+      ],
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "bldg-i",
@@ -259,7 +353,13 @@
         "campus-map",
         "std03"
       ],
-      "notes": "Campus Information booth (I1002) at the Main Entrance on Community Gate."
+      "notes": "Campus Information booth (I1002) at the Main Entrance on Community Gate.",
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "bldg-j",
@@ -278,7 +378,13 @@
       "sourceIds": [
         "campus-map",
         "std03"
-      ]
+      ],
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "bldg-k",
@@ -296,7 +402,13 @@
         "campus-map",
         "std03"
       ],
-      "notes": "No destinations for K are listed on the map legends or STD03."
+      "notes": "No destinations for K are listed on the map legends or STD03.",
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "bldg-l",
@@ -315,7 +427,13 @@
       "sourceIds": [
         "campus-map",
         "std03"
-      ]
+      ],
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "bldg-m",
@@ -333,7 +451,13 @@
         "campus-map",
         "std03"
       ],
-      "notes": "STD03 lists radio studios (CFRL, 106.9 The X) and seminar/study rooms here."
+      "notes": "STD03 lists radio studios (CFRL, 106.9 The X) and seminar/study rooms here.",
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "bldg-n",
@@ -350,7 +474,13 @@
       "sourceIds": [
         "campus-map",
         "std03"
-      ]
+      ],
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "bldg-o1",
@@ -368,7 +498,13 @@
         "campus-map",
         "std03"
       ],
-      "notes": "Exterior washrooms across from C Building."
+      "notes": "Exterior washrooms across from C Building.",
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "bldg-o2",
@@ -385,7 +521,13 @@
       "sourceIds": [
         "campus-map",
         "std03"
-      ]
+      ],
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "bldg-o3",
@@ -403,7 +545,13 @@
         "campus-map",
         "std03"
       ],
-      "notes": "Garbage enclosure next to A Building."
+      "notes": "Garbage enclosure next to A Building.",
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "bldg-r1",
@@ -420,7 +568,13 @@
       "sourceIds": [
         "campus-map",
         "std03"
-      ]
+      ],
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "bldg-r2",
@@ -437,7 +591,13 @@
       "sourceIds": [
         "campus-map",
         "std03"
-      ]
+      ],
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "bldg-r3",
@@ -454,7 +614,13 @@
       "sourceIds": [
         "campus-map",
         "std03"
-      ]
+      ],
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "bldg-r4",
@@ -472,7 +638,13 @@
         "campus-map",
         "std03"
       ],
-      "notes": "Address from the August 2026 map; STD03 (2024) lists 900 Fanshawe College Boulevard."
+      "notes": "Address from the August 2026 map; STD03 (2024) lists 900 Fanshawe College Boulevard.",
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "bldg-sc",
@@ -491,7 +663,13 @@
       "sourceIds": [
         "campus-map",
         "std03"
-      ]
+      ],
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "bldg-sub",
@@ -511,7 +689,13 @@
       "sourceIds": [
         "campus-map",
         "std03"
-      ]
+      ],
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "bldg-t",
@@ -530,7 +714,13 @@
         "campus-map",
         "std03"
       ],
-      "notes": "Home of the Centre for Construction Trades and Technology (CCTT)."
+      "notes": "Home of the Centre for Construction Trades and Technology (CCTT).",
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "bldg-u",
@@ -547,7 +737,13 @@
       "sourceIds": [
         "campus-map"
       ],
-      "notes": "Shown on the August 2026 map beside Lot 5; not listed in STD03 (2024). Official name and use unconfirmed."
+      "notes": "Shown on the August 2026 map beside Lot 5; not listed in STD03 (2024). Official name and use unconfirmed.",
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "bldg-y",
@@ -565,7 +761,13 @@
         "campus-map",
         "std03"
       ],
-      "notes": "Off the main campus, at London International Airport."
+      "notes": "Off the main campus, at London International Airport.",
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "bldg-z",
@@ -584,7 +786,13 @@
         "campus-map",
         "std03"
       ],
-      "notes": "One block east of the main campus; home of the Centre for Applied Transportation Technologies (CATT)."
+      "notes": "One block east of the main campus; home of the Centre for Applied Transportation Technologies (CATT).",
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     }
   ],
   "rooms": [
@@ -592,289 +800,638 @@
       "id": "room-a1001",
       "code": "A1001",
       "buildingId": "bldg-a",
-      "floor": 1
+      "floor": 1,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-a1037",
       "code": "A1037",
       "buildingId": "bldg-a",
-      "floor": 1
+      "floor": 1,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-a1046",
       "code": "A1046",
       "buildingId": "bldg-a",
-      "floor": 1
+      "floor": 1,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-a2036",
       "code": "A2036",
       "buildingId": "bldg-a",
-      "floor": 2
+      "floor": 2,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-a2058",
       "code": "A2058",
       "buildingId": "bldg-a",
-      "floor": 2
+      "floor": 2,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-b1002",
       "code": "B1002",
       "buildingId": "bldg-b",
-      "floor": 1
+      "floor": 1,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-b1048",
       "code": "B1048",
       "buildingId": "bldg-b",
-      "floor": 1
+      "floor": 1,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-b1081",
       "code": "B1081",
       "buildingId": "bldg-b",
-      "floor": 1
+      "floor": 1,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-b2015",
       "code": "B2015",
       "buildingId": "bldg-b",
-      "floor": 2
+      "floor": 2,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-d1001",
       "code": "D1001",
       "buildingId": "bldg-d",
-      "floor": 1
+      "floor": 1,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-d1025",
       "code": "D1025",
       "buildingId": "bldg-d",
-      "floor": 1
+      "floor": 1,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-d1027",
       "code": "D1027",
       "buildingId": "bldg-d",
-      "floor": 1
+      "floor": 1,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-d1043",
       "code": "D1043",
       "buildingId": "bldg-d",
-      "floor": 1
+      "floor": 1,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-d1045",
       "code": "D1045",
       "buildingId": "bldg-d",
-      "floor": 1
+      "floor": 1,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-d1063",
       "code": "D1063",
       "buildingId": "bldg-d",
-      "floor": 1
+      "floor": 1,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-d2030",
       "code": "D2030",
       "buildingId": "bldg-d",
-      "floor": 2
+      "floor": 2,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-d3018",
       "code": "D3018",
       "buildingId": "bldg-d",
-      "floor": 3
+      "floor": 3,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-e1012",
       "code": "E1012",
       "buildingId": "bldg-e",
-      "floor": 1
+      "floor": 1,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-e1013",
       "code": "E1013",
       "buildingId": "bldg-e",
-      "floor": 1
+      "floor": 1,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-e2020",
       "code": "E2020",
       "buildingId": "bldg-e",
-      "floor": 2
+      "floor": 2,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-e2025",
       "code": "E2025",
       "buildingId": "bldg-e",
-      "floor": 2
+      "floor": 2,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-e2030",
       "code": "E2030",
       "buildingId": "bldg-e",
-      "floor": 2
+      "floor": 2,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-f1002",
       "code": "F1002",
       "buildingId": "bldg-f",
-      "floor": 1
+      "floor": 1,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-f1019",
       "code": "F1019",
       "buildingId": "bldg-f",
-      "floor": 1
+      "floor": 1,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-f1043",
       "code": "F1043",
       "buildingId": "bldg-f",
-      "floor": 1
+      "floor": 1,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-f1066",
       "code": "F1066",
       "buildingId": "bldg-f",
-      "floor": 1
+      "floor": 1,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-f2010",
       "code": "F2010",
       "buildingId": "bldg-f",
-      "floor": 2
+      "floor": 2,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-f2028",
       "code": "F2028",
       "buildingId": "bldg-f",
-      "floor": 2
+      "floor": 2,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-f2042",
       "code": "F2042",
       "buildingId": "bldg-f",
-      "floor": 2
+      "floor": 2,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-f3005",
       "code": "F3005",
       "buildingId": "bldg-f",
-      "floor": 3
+      "floor": 3,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-h1000",
       "code": "H1000",
       "buildingId": "bldg-h",
-      "floor": 1
+      "floor": 1,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-h1015",
       "code": "H1015",
       "buildingId": "bldg-h",
-      "floor": 1
+      "floor": 1,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-j1000",
       "code": "J1000",
       "buildingId": "bldg-j",
-      "floor": 1
+      "floor": 1,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-j1002",
       "code": "J1002",
       "buildingId": "bldg-j",
-      "floor": 1
+      "floor": 1,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-j1003",
       "code": "J1003",
       "buildingId": "bldg-j",
-      "floor": 1
+      "floor": 1,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-j1004",
       "code": "J1004",
       "buildingId": "bldg-j",
-      "floor": 1
+      "floor": 1,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-j1015",
       "code": "J1015",
       "buildingId": "bldg-j",
-      "floor": 1
+      "floor": 1,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-j1032",
       "code": "J1032",
       "buildingId": "bldg-j",
-      "floor": 1
+      "floor": 1,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-j2003",
       "code": "J2003",
       "buildingId": "bldg-j",
-      "floor": 2
+      "floor": 2,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-l1001",
       "code": "L1001",
       "buildingId": "bldg-l",
-      "floor": 1
+      "floor": 1,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-l1002",
       "code": "L1002",
       "buildingId": "bldg-l",
-      "floor": 1
+      "floor": 1,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-l1012-3",
       "code": "L1012-3",
       "buildingId": "bldg-l",
-      "floor": 1
+      "floor": 1,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-sc1000",
       "code": "SC1000",
       "buildingId": "bldg-sc",
-      "floor": 1
+      "floor": 1,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-sc1002",
       "code": "SC1002",
       "buildingId": "bldg-sc",
-      "floor": 1
+      "floor": 1,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-sub1027",
       "code": "SUB1027",
       "buildingId": "bldg-sub",
-      "floor": 1
+      "floor": 1,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-t3010",
       "code": "T3010",
       "buildingId": "bldg-t",
-      "floor": 3
+      "floor": 3,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-z1009",
       "code": "Z1009",
       "buildingId": "bldg-z",
-      "floor": 1
+      "floor": 1,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     },
     {
       "id": "room-z1012",
       "code": "Z1012",
       "buildingId": "bldg-z",
-      "floor": 1
+      "floor": 1,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
+    },
+    {
+      "id": "room-f1061",
+      "code": "F1061",
+      "buildingId": "bldg-f",
+      "floor": 1,
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      }
     }
   ],
   "destinations": [
@@ -883,8 +1440,6 @@
       "name": "Biz Booth",
       "category": "retail",
       "buildingId": "bldg-sub",
-      "roomCode": null,
-      "roomId": null,
       "locationText": "Student Union Building",
       "operator": "Fanshawe Student Union",
       "status": "closed_temporarily",
@@ -898,8 +1453,6 @@
       "id": "falcon-shop-pickup",
       "name": "Falcon Shop online order pickup",
       "category": "retail",
-      "buildingId": "bldg-f",
-      "roomCode": "F1002",
       "roomId": "room-f1002",
       "aliases": [
         "Campus Store and Tech Zone"
@@ -962,21 +1515,20 @@
       "id": "dernier-cri-hair-group",
       "name": "Dernier CRI Hair Group",
       "category": "retail",
-      "buildingId": "bldg-l",
-      "roomCode": "L1002",
       "roomId": "room-l1002",
       "status": "unknown",
       "sourceIds": [
         "campus-map"
       ],
-      "notes": "Hours not published on an official Fanshawe or FSU page."
+      "notes": "Hours not published on an official Fanshawe or FSU page.",
+      "aliases": [
+        "Hair Salon"
+      ]
     },
     {
       "id": "cds-coffee-bar",
       "name": "CD's Coffee Bar",
       "category": "food",
-      "buildingId": "bldg-l",
-      "roomCode": "L1012-3",
       "roomId": "room-l1012-3",
       "aliases": [
         "Forwell Hall"
@@ -995,8 +1547,6 @@
       "id": "the-nest",
       "name": "The Nest Convenience Store",
       "category": "retail",
-      "buildingId": "bldg-l",
-      "roomCode": "L1001",
       "roomId": "room-l1001",
       "operator": "Fanshawe Student Union",
       "status": "open",
@@ -1056,8 +1606,6 @@
       "id": "out-back-shack",
       "name": "The Out Back Shack",
       "category": "food",
-      "buildingId": "bldg-sub",
-      "roomCode": "SUB1027",
       "roomId": "room-sub1027",
       "aliases": [
         "Outback Shack"
@@ -1120,8 +1668,6 @@
       "id": "booster-juice",
       "name": "Booster Juice",
       "category": "food",
-      "buildingId": "bldg-j",
-      "roomCode": "J1002",
       "roomId": "room-j1002",
       "operator": "Fanshawe Student Union",
       "status": "open",
@@ -1181,8 +1727,6 @@
       "id": "kettles-and-curry-bowls",
       "name": "Kettles and Curry Bowls",
       "category": "food",
-      "buildingId": "bldg-sc",
-      "roomCode": "SC1002",
       "roomId": "room-sc1002",
       "operator": "Fanshawe Student Union",
       "status": "unknown",
@@ -1196,8 +1740,6 @@
       "id": "oasis",
       "name": "Oasis",
       "category": "food",
-      "buildingId": "bldg-sc",
-      "roomCode": "SC1000",
       "roomId": "room-sc1000",
       "operator": "Fanshawe Student Union",
       "status": "open",
@@ -1270,8 +1812,6 @@
       "id": "pharmacy",
       "name": "Pharmacy",
       "category": "health_wellness",
-      "buildingId": "bldg-j",
-      "roomCode": "J1000",
       "roomId": "room-j1000",
       "status": "closed_permanently",
       "sourceIds": [
@@ -1284,11 +1824,10 @@
       "id": "b-cafe",
       "name": "B Cafe",
       "category": "food",
-      "buildingId": "bldg-b",
-      "roomCode": "B1081",
       "roomId": "room-b1081",
       "aliases": [
-        "B Cafeteria"
+        "B Cafeteria",
+        "B Food Court"
       ],
       "operator": "Chartwells",
       "status": "closed_temporarily",
@@ -1297,15 +1836,13 @@
         "std03",
         "chartwells-fall-2026"
       ],
-      "notes": "Chartwells lists B-Cafe as closed for Fall 2026. The food services page describes an 'Atrium Cafe' in the James A. Colvin Atrium (B Building) with Tim Hortons, Chicken Chicken, Chef Inspired and Bento Sushi."
+      "notes": "Chartwells lists B-Cafe as closed for Fall 2026. The food services page describes an 'Atrium Cafe' in the James A. Colvin Atrium (B Building) with Tim Hortons, Chicken Chicken, Chef Inspired and Bento Sushi.",
+      "markerType": "food_court"
     },
     {
       "id": "b-cafe-bento-sushi",
       "name": "bento SUSHI",
       "category": "food",
-      "buildingId": "bldg-b",
-      "roomCode": "B1081",
-      "roomId": "room-b1081",
       "parentId": "b-cafe",
       "operator": "Chartwells",
       "status": "closed_temporarily",
@@ -1318,9 +1855,6 @@
       "id": "b-cafe-chef-inspired",
       "name": "Chef Inspired",
       "category": "food",
-      "buildingId": "bldg-b",
-      "roomCode": "B1081",
-      "roomId": "room-b1081",
       "parentId": "b-cafe",
       "operator": "Chartwells",
       "status": "closed_temporarily",
@@ -1333,9 +1867,6 @@
       "id": "b-cafe-greens-and-grains",
       "name": "Greens and Grains",
       "category": "food",
-      "buildingId": "bldg-b",
-      "roomCode": "B1081",
-      "roomId": "room-b1081",
       "parentId": "b-cafe",
       "operator": "Chartwells",
       "status": "closed_temporarily",
@@ -1348,9 +1879,6 @@
       "id": "b-cafe-kettles",
       "name": "Kettles",
       "category": "food",
-      "buildingId": "bldg-b",
-      "roomCode": "B1081",
-      "roomId": "room-b1081",
       "parentId": "b-cafe",
       "operator": "Chartwells",
       "status": "closed_temporarily",
@@ -1363,9 +1891,6 @@
       "id": "b-cafe-on-the-go",
       "name": "On the Go",
       "category": "food",
-      "buildingId": "bldg-b",
-      "roomCode": "B1081",
-      "roomId": "room-b1081",
       "parentId": "b-cafe",
       "operator": "Chartwells",
       "status": "closed_temporarily",
@@ -1378,9 +1903,6 @@
       "id": "b-cafe-paramount",
       "name": "Paramount",
       "category": "food",
-      "buildingId": "bldg-b",
-      "roomCode": "B1081",
-      "roomId": "room-b1081",
       "parentId": "b-cafe",
       "operator": "Chartwells",
       "status": "closed_temporarily",
@@ -1393,9 +1915,6 @@
       "id": "b-cafe-smoke-s-poutinerie",
       "name": "Smoke's Poutinerie",
       "category": "food",
-      "buildingId": "bldg-b",
-      "roomCode": "B1081",
-      "roomId": "room-b1081",
       "parentId": "b-cafe",
       "operator": "Chartwells",
       "status": "closed_temporarily",
@@ -1408,9 +1927,6 @@
       "id": "b-cafe-tim-hortons",
       "name": "Tim Hortons",
       "category": "food",
-      "buildingId": "bldg-b",
-      "roomCode": "B1081",
-      "roomId": "room-b1081",
       "parentId": "b-cafe",
       "operator": "Chartwells",
       "status": "closed_temporarily",
@@ -1423,8 +1939,6 @@
       "id": "h-cafe",
       "name": "H Cafe",
       "category": "food",
-      "buildingId": "bldg-h",
-      "roomCode": "H1000",
       "roomId": "room-h1000",
       "aliases": [
         "H Cafeteria"
@@ -1435,15 +1949,13 @@
         "campus-map",
         "food-services"
       ],
-      "notes": "STD03 (2024) lists H-Cafeteria at H1013; the August 2026 map lists H1000."
+      "notes": "STD03 (2024) lists H-Cafeteria at H1013; the August 2026 map lists H1000.",
+      "markerType": "food_court"
     },
     {
       "id": "starbucks",
       "name": "Starbucks",
       "category": "food",
-      "buildingId": "bldg-h",
-      "roomCode": "H1000",
-      "roomId": "room-h1000",
       "parentId": "h-cafe",
       "operator": "Chartwells",
       "status": "open",
@@ -1548,8 +2060,6 @@
       "id": "live-chic",
       "name": "Live Chic",
       "category": "retail",
-      "buildingId": "bldg-h",
-      "roomCode": "H1015",
       "roomId": "room-h1015",
       "status": "unknown",
       "sourceIds": [
@@ -1562,8 +2072,6 @@
       "id": "d-cafe",
       "name": "D Cafe",
       "category": "food",
-      "buildingId": "bldg-d",
-      "roomCode": "D1001",
       "roomId": "room-d1001",
       "aliases": [
         "D Cafeteria",
@@ -1576,15 +2084,13 @@
         "std03",
         "food-services"
       ],
-      "notes": "The food services page places Harvey's and the self-serve Tim Hortons in the 'Southwest Cafe (B-D corner)'; the map places them in D Cafe (D1001), so both names refer to this location."
+      "notes": "The food services page places Harvey's and the self-serve Tim Hortons in the 'Southwest Cafe (B-D corner)'; the map places them in D Cafe (D1001), so both names refer to this location.",
+      "markerType": "food_court"
     },
     {
       "id": "harveys",
       "name": "Harvey's",
       "category": "food",
-      "buildingId": "bldg-d",
-      "roomCode": "D1001",
-      "roomId": "room-d1001",
       "parentId": "d-cafe",
       "operator": "Chartwells",
       "status": "open",
@@ -1658,9 +2164,6 @@
       "id": "d-cafe-on-the-go",
       "name": "On the Go",
       "category": "food",
-      "buildingId": "bldg-d",
-      "roomCode": "D1001",
-      "roomId": "room-d1001",
       "parentId": "d-cafe",
       "operator": "Chartwells",
       "status": "unknown",
@@ -1673,9 +2176,6 @@
       "id": "tim-hortons-self-serve",
       "name": "Tim Hortons (self-serve)",
       "category": "food",
-      "buildingId": "bldg-d",
-      "roomCode": "D1001",
-      "roomId": "room-d1001",
       "aliases": [
         "Tim Hortons Express"
       ],
@@ -1808,8 +2308,6 @@
       "id": "d-courtyard-cafe",
       "name": "D Courtyard Cafe",
       "category": "food",
-      "buildingId": "bldg-d",
-      "roomCode": "D1045",
       "roomId": "room-d1045",
       "aliases": [
         "Courtyard Cafe",
@@ -1823,15 +2321,13 @@
         "std03",
         "food-services"
       ],
-      "notes": "STD03 lists both 'Courtyard Cafe' and 'The Junction featuring Tim Hortons' at D1045."
+      "notes": "STD03 lists both 'Courtyard Cafe' and 'The Junction featuring Tim Hortons' at D1045.",
+      "markerType": "food_court"
     },
     {
       "id": "pizza-pizza",
       "name": "Pizza Pizza",
       "category": "food",
-      "buildingId": "bldg-d",
-      "roomCode": "D1045",
-      "roomId": "room-d1045",
       "parentId": "d-courtyard-cafe",
       "operator": "Chartwells",
       "status": "open",
@@ -1936,9 +2432,6 @@
       "id": "subway",
       "name": "Subway",
       "category": "food",
-      "buildingId": "bldg-d",
-      "roomCode": "D1045",
-      "roomId": "room-d1045",
       "parentId": "d-courtyard-cafe",
       "operator": "Chartwells",
       "status": "open",
@@ -2043,9 +2536,6 @@
       "id": "tim-hortons-junction",
       "name": "Tim Hortons (Junction)",
       "category": "food",
-      "buildingId": "bldg-d",
-      "roomCode": "D1045",
-      "roomId": "room-d1045",
       "parentId": "d-courtyard-cafe",
       "operator": "Chartwells",
       "status": "open",
@@ -2151,8 +2641,6 @@
       "id": "falcon-shop",
       "name": "The Falcon Shop",
       "category": "retail",
-      "buildingId": "bldg-f",
-      "roomCode": "F1019",
       "roomId": "room-f1019",
       "aliases": [
         "Campus Store",
@@ -2170,11 +2658,36 @@
             "from": null,
             "to": null,
             "weekly": {
-              "mon": [["09:00", "16:30"]],
-              "tue": [["09:00", "16:30"]],
-              "wed": [["09:00", "16:30"]],
-              "thu": [["09:00", "16:30"]],
-              "fri": [["09:00", "16:30"]]
+              "mon": [
+                [
+                  "09:00",
+                  "16:30"
+                ]
+              ],
+              "tue": [
+                [
+                  "09:00",
+                  "16:30"
+                ]
+              ],
+              "wed": [
+                [
+                  "09:00",
+                  "16:30"
+                ]
+              ],
+              "thu": [
+                [
+                  "09:00",
+                  "16:30"
+                ]
+              ],
+              "fri": [
+                [
+                  "09:00",
+                  "16:30"
+                ]
+              ]
             },
             "rawText": "Monday and Friday - 9:00 a.m. to 4:30 p.m."
           }
@@ -2193,8 +2706,6 @@
       "id": "variety-store",
       "name": "Variety Store",
       "category": "retail",
-      "buildingId": "bldg-d",
-      "roomCode": "D1043",
       "roomId": "room-d1043",
       "aliases": [
         "Convenience Store"
@@ -2256,8 +2767,6 @@
       "id": "print-shop",
       "name": "The Print Shop",
       "category": "retail",
-      "buildingId": "bldg-b",
-      "roomCode": "B1002",
       "roomId": "room-b1002",
       "operator": "Fanshawe Retail Services",
       "status": "open",
@@ -2316,8 +2825,6 @@
       "id": "brake-time-cafe",
       "name": "Brake Time Cafe",
       "category": "food",
-      "buildingId": "bldg-z",
-      "roomCode": "Z1012",
       "roomId": "room-z1012",
       "aliases": [
         "Automotive (Z-building)"
@@ -2426,8 +2933,6 @@
       "id": "counselling-accessibility",
       "name": "Counselling and Accessibility Services",
       "category": "student_services",
-      "buildingId": "bldg-f",
-      "roomCode": "F2010",
       "roomId": "room-f2010",
       "status": "open",
       "sourceIds": [
@@ -2438,8 +2943,6 @@
       "id": "homework-huddle",
       "name": "Homework Huddle",
       "category": "student_services",
-      "buildingId": "bldg-f",
-      "roomCode": "F2042",
       "roomId": "room-f2042",
       "status": "open",
       "sourceIds": [
@@ -2450,8 +2953,6 @@
       "id": "indigenous-spirit-assembly",
       "name": "Indigenous Spirit Assembly (Kalihwiyo Circle)",
       "category": "student_services",
-      "buildingId": "bldg-f",
-      "roomCode": "F1066",
       "roomId": "room-f1066",
       "status": "open",
       "sourceIds": [
@@ -2463,8 +2964,6 @@
       "id": "leap-junction",
       "name": "Leap Junction",
       "category": "student_services",
-      "buildingId": "bldg-f",
-      "roomCode": "F1043",
       "roomId": "room-f1043",
       "status": "open",
       "sourceIds": [
@@ -2475,8 +2974,6 @@
       "id": "library-learning-commons",
       "name": "Library Learning Commons",
       "category": "student_services",
-      "buildingId": "bldg-f",
-      "roomCode": "F1066",
       "roomId": "room-f1066",
       "status": "open",
       "sourceIds": [
@@ -2487,8 +2984,6 @@
       "id": "quiet-zone",
       "name": "Quiet Zone",
       "category": "student_services",
-      "buildingId": "bldg-f",
-      "roomCode": "F2028",
       "roomId": "room-f2028",
       "status": "open",
       "sourceIds": [
@@ -2499,8 +2994,6 @@
       "id": "test-centre",
       "name": "Test Centre",
       "category": "student_services",
-      "buildingId": "bldg-f",
-      "roomCode": "F3005",
       "roomId": "room-f3005",
       "status": "open",
       "sourceIds": [
@@ -2511,8 +3004,6 @@
       "id": "fanshawe-student-union",
       "name": "Fanshawe Student Union (FSU Office)",
       "category": "student_services",
-      "buildingId": "bldg-sc",
-      "roomCode": "SC1000",
       "roomId": "room-sc1000",
       "operator": "Fanshawe Student Union",
       "status": "open",
@@ -2565,14 +3056,15 @@
         "campus-map",
         "fsu-biz-booth"
       ],
-      "notes": "The map lists SC1001; FSU pages (source of truth) list the FSU Office in room SC 1000."
+      "notes": "The map lists SC1001; FSU pages (source of truth) list the FSU Office in room SC 1000.",
+      "aliases": [
+        "FSU Desk"
+      ]
     },
     {
       "id": "campus-tours",
       "name": "Campus Tours",
       "category": "student_services",
-      "buildingId": "bldg-e",
-      "roomCode": "E1013",
       "roomId": "room-e1013",
       "aliases": [
         "Welcome Zone"
@@ -2587,8 +3079,6 @@
       "id": "cice",
       "name": "Community Integration through Cooperative Education (CICE)",
       "category": "student_services",
-      "buildingId": "bldg-a",
-      "roomCode": "A2036",
       "roomId": "room-a2036",
       "status": "open",
       "sourceIds": [
@@ -2599,8 +3089,6 @@
       "id": "employment-entrepreneurial-services",
       "name": "Employment and Student Entrepreneurial Services",
       "category": "student_services",
-      "buildingId": "bldg-d",
-      "roomCode": "D1063",
       "roomId": "room-d1063",
       "status": "open",
       "sourceIds": [
@@ -2611,21 +3099,29 @@
       "id": "fancard-parking-lockers",
       "name": "FANCard, Parking and Lockers",
       "category": "student_services",
-      "buildingId": "bldg-e",
-      "roomCode": "E2020",
       "roomId": "room-e2020",
       "status": "open",
       "sourceIds": [
         "campus-map",
-        "food-services"
+        "food-services",
+        "parking-lockers"
+      ],
+      "aliases": [
+        "FANCard Service",
+        "Parking Office",
+        "Meal Plan"
+      ],
+      "services": [
+        "FANCard",
+        "Parking",
+        "Lockers",
+        "Meal plan account assistance"
       ]
     },
     {
       "id": "indigenous-reconciliation-dialogue-centre",
       "name": "Indigenous Reconciliation Dialogue Centre",
       "category": "student_services",
-      "buildingId": "bldg-d",
-      "roomCode": "D2030",
       "roomId": "room-d2030",
       "status": "open",
       "sourceIds": [
@@ -2636,49 +3132,51 @@
       "id": "institute-of-indigenous-learning",
       "name": "Institute of Indigenous Learning",
       "category": "student_services",
-      "buildingId": "bldg-a",
-      "roomCode": "A1046",
       "roomId": "room-a1046",
       "aliases": [
-        "Indigenous Learning Centre"
+        "Indigenous Learning Centre",
+        "First Nations Centre"
       ],
       "status": "open",
       "sourceIds": [
         "campus-map",
-        "std03"
+        "std03",
+        "indigenous-learning"
       ]
     },
     {
-      "id": "international-strategy",
-      "name": "International Strategy, Partnership and Market Development",
+      "id": "international-centre",
+      "name": "International Centre",
       "category": "student_services",
-      "buildingId": "bldg-e",
-      "roomCode": "E2025",
       "roomId": "room-e2025",
       "status": "open",
       "sourceIds": [
-        "campus-map"
-      ]
+        "campus-map",
+        "international-centre"
+      ],
+      "aliases": [
+        "International Services"
+      ],
+      "notes": "The launch entry represents the student-facing International Centre at E2025. The orientation map labels an international administrative department at the same room."
     },
     {
       "id": "it-service-desk",
       "name": "IT Service Desk",
       "category": "student_services",
-      "buildingId": "bldg-e",
-      "roomCode": "E2030",
       "roomId": "room-e2030",
       "status": "open",
       "sourceIds": [
         "campus-map",
         "std03"
+      ],
+      "aliases": [
+        "IT Service"
       ]
     },
     {
       "id": "media-services",
       "name": "Media Services",
       "category": "student_services",
-      "buildingId": "bldg-d",
-      "roomCode": "D1025",
       "roomId": "room-d1025",
       "status": "open",
       "sourceIds": [
@@ -2689,8 +3187,6 @@
       "id": "office-of-the-registrar",
       "name": "Office of the Registrar",
       "category": "student_services",
-      "buildingId": "bldg-e",
-      "roomCode": "E1012",
       "roomId": "room-e1012",
       "status": "open",
       "sourceIds": [
@@ -2701,21 +3197,21 @@
       "id": "security-control-centre",
       "name": "Security Control Centre & Lost and Found",
       "category": "student_services",
-      "buildingId": "bldg-d",
-      "roomCode": "D1027",
       "roomId": "room-d1027",
       "status": "open",
       "sourceIds": [
         "campus-map",
-        "std03"
+        "std03",
+        "campus-security"
+      ],
+      "aliases": [
+        "Campus Security"
       ]
     },
     {
       "id": "donald-j-smith-school",
       "name": "Donald J. Smith School of Building Technology and Design",
       "category": "academic_office",
-      "buildingId": "bldg-t",
-      "roomCode": "T3010",
       "roomId": "room-t3010",
       "status": "open",
       "subjectToChange": true,
@@ -2728,8 +3224,6 @@
       "id": "faculty-science-trades-technology-design",
       "name": "Faculty of Science, Trades, Technology and Design",
       "category": "academic_office",
-      "buildingId": "bldg-t",
-      "roomCode": "T3010",
       "roomId": "room-t3010",
       "status": "open",
       "subjectToChange": true,
@@ -2742,8 +3236,6 @@
       "id": "lawrence-kinlin-school-of-business",
       "name": "Lawrence Kinlin School of Business",
       "category": "academic_office",
-      "buildingId": "bldg-b",
-      "roomCode": "B2015",
       "roomId": "room-b2015",
       "status": "open",
       "subjectToChange": true,
@@ -2756,8 +3248,6 @@
       "id": "school-advanced-manufacturing",
       "name": "School of Advanced Manufacturing, Science and Transportation",
       "category": "academic_office",
-      "buildingId": "bldg-t",
-      "roomCode": "T3010",
       "roomId": "room-t3010",
       "status": "open",
       "subjectToChange": true,
@@ -2770,8 +3260,6 @@
       "id": "school-hospitality-creative-industries",
       "name": "School of Hospitality and Creative Industries (Office Admin)",
       "category": "academic_office",
-      "buildingId": "bldg-b",
-      "roomCode": "B1048",
       "roomId": "room-b1048",
       "status": "open",
       "subjectToChange": true,
@@ -2785,8 +3273,6 @@
       "name": "The Don Crich Skilled Trades Accelerator",
       "category": "academic_office",
       "buildingId": null,
-      "roomCode": null,
-      "roomId": null,
       "status": "open",
       "subjectToChange": true,
       "sourceIds": [
@@ -2798,8 +3284,6 @@
       "id": "faculty-business-hospitality-creative",
       "name": "Faculty of Business, Hospitality and Creative Industries",
       "category": "academic_office",
-      "buildingId": "bldg-b",
-      "roomCode": "B2015",
       "roomId": "room-b2015",
       "status": "open",
       "subjectToChange": true,
@@ -2812,8 +3296,6 @@
       "id": "faculty-access-language-regional",
       "name": "Faculty of Access, Language and Regional Campuses",
       "category": "academic_office",
-      "buildingId": "bldg-a",
-      "roomCode": "A2058",
       "roomId": "room-a2058",
       "status": "open",
       "subjectToChange": true,
@@ -2826,8 +3308,6 @@
       "id": "faculty-health-community-nursing-safety",
       "name": "Faculty of Health, Community Studies, Nursing and Public Safety",
       "category": "academic_office",
-      "buildingId": "bldg-d",
-      "roomCode": "D3018",
       "roomId": "room-d3018",
       "status": "open",
       "subjectToChange": true,
@@ -2840,8 +3320,6 @@
       "id": "swac-office",
       "name": "School College Work Initiative - SWAC Office",
       "category": "academic_office",
-      "buildingId": "bldg-a",
-      "roomCode": "A1037",
       "roomId": "room-a1037",
       "status": "open",
       "subjectToChange": true,
@@ -2854,8 +3332,6 @@
       "id": "school-arts-language",
       "name": "School of Arts and Language",
       "category": "academic_office",
-      "buildingId": "bldg-a",
-      "roomCode": "A2058",
       "roomId": "room-a2058",
       "status": "open",
       "subjectToChange": true,
@@ -2868,8 +3344,6 @@
       "id": "school-community-studies",
       "name": "School of Community Studies",
       "category": "academic_office",
-      "buildingId": "bldg-d",
-      "roomCode": "D3018",
       "roomId": "room-d3018",
       "status": "open",
       "subjectToChange": true,
@@ -2882,8 +3356,6 @@
       "id": "school-health-sciences-public-safety",
       "name": "School of Health Sciences and Public Safety",
       "category": "academic_office",
-      "buildingId": "bldg-d",
-      "roomCode": "D3018",
       "roomId": "room-d3018",
       "status": "open",
       "subjectToChange": true,
@@ -2896,8 +3368,6 @@
       "id": "school-of-nursing",
       "name": "School of Nursing",
       "category": "academic_office",
-      "buildingId": "bldg-d",
-      "roomCode": "D3018",
       "roomId": "room-d3018",
       "status": "open",
       "subjectToChange": true,
@@ -2910,8 +3380,6 @@
       "id": "school-transportation-technology",
       "name": "School of Transportation Technology",
       "category": "academic_office",
-      "buildingId": "bldg-z",
-      "roomCode": "Z1009",
       "roomId": "room-z1009",
       "status": "open",
       "subjectToChange": true,
@@ -2925,8 +3393,6 @@
       "name": "Norton Wolf School of Aerospace, Information and Defence Technologies",
       "category": "academic_office",
       "buildingId": "bldg-y",
-      "roomCode": null,
-      "roomId": null,
       "status": "open",
       "subjectToChange": true,
       "sourceIds": [
@@ -2938,20 +3404,19 @@
       "id": "athletics",
       "name": "Athletics",
       "category": "health_wellness",
-      "buildingId": "bldg-j",
-      "roomCode": "J2003",
       "roomId": "room-j2003",
       "status": "open",
       "sourceIds": [
         "campus-map"
+      ],
+      "aliases": [
+        "Athletics Office"
       ]
     },
     {
       "id": "fitness-centre",
       "name": "Fitness Centre",
       "category": "health_wellness",
-      "buildingId": "bldg-j",
-      "roomCode": "J1003",
       "roomId": "room-j1003",
       "aliases": [
         "Fitness 101"
@@ -2965,20 +3430,20 @@
       "id": "fowler-kennedy-sport-medicine",
       "name": "Fowler Kennedy Sport Medicine Clinic",
       "category": "health_wellness",
-      "buildingId": "bldg-j",
-      "roomCode": "J1004",
       "roomId": "room-j1004",
       "status": "open",
       "sourceIds": [
         "campus-map"
+      ],
+      "aliases": [
+        "Fowler Kennedy Center",
+        "Fowler Kennedy Centre"
       ]
     },
     {
       "id": "gym-1-2",
       "name": "Gym 1 & 2",
       "category": "health_wellness",
-      "buildingId": "bldg-j",
-      "roomCode": "J1015",
       "roomId": "room-j1015",
       "aliases": [
         "Glenn Johnston Athletics Centre"
@@ -2992,8 +3457,6 @@
       "id": "gym-3",
       "name": "Gym 3",
       "category": "health_wellness",
-      "buildingId": "bldg-j",
-      "roomCode": "J1032",
       "roomId": "room-j1032",
       "status": "open",
       "sourceIds": [
@@ -3004,20 +3467,19 @@
       "id": "student-health-services",
       "name": "Student Health Services",
       "category": "health_wellness",
-      "buildingId": "bldg-j",
-      "roomCode": "J1004",
       "roomId": "room-j1004",
       "status": "open",
       "sourceIds": [
         "campus-map"
+      ],
+      "aliases": [
+        "Doctor's Office"
       ]
     },
     {
       "id": "health-wellness-clinics",
       "name": "Health and Wellness Clinics",
       "category": "health_wellness",
-      "buildingId": "bldg-a",
-      "roomCode": "A1001",
       "roomId": "room-a1001",
       "status": "open",
       "sourceIds": [
@@ -3028,8 +3490,6 @@
       "id": "mend-massage-clinic",
       "name": "mend Student Massage Clinic",
       "category": "health_wellness",
-      "buildingId": "bldg-a",
-      "roomCode": "A1001",
       "roomId": "room-a1001",
       "status": "open",
       "sourceIds": [
@@ -3040,8 +3500,6 @@
       "id": "oral-health-clinic",
       "name": "Oral Health Clinic",
       "category": "health_wellness",
-      "buildingId": "bldg-a",
-      "roomCode": "A1001",
       "roomId": "room-a1001",
       "status": "open",
       "sourceIds": [
@@ -3052,13 +3510,383 @@
       "id": "ota-pta-clinic",
       "name": "Occupational Therapist Assistant and Physiotherapy Assistant",
       "category": "health_wellness",
-      "buildingId": "bldg-a",
-      "roomCode": "A1001",
       "roomId": "room-a1001",
       "status": "open",
       "sourceIds": [
         "campus-map"
       ]
+    },
+    {
+      "id": "financial-aid-student-awards",
+      "name": "Financial Aid and Student Awards",
+      "category": "student_services",
+      "roomId": "room-e1012",
+      "aliases": [
+        "Financial Aid",
+        "FA Office"
+      ],
+      "status": "open",
+      "sourceIds": [
+        "financial-aid"
+      ]
+    },
+    {
+      "id": "makerspace",
+      "name": "Makerspace",
+      "category": "student_services",
+      "roomId": "room-f1061",
+      "aliases": [
+        "3D Print",
+        "3D Printing"
+      ],
+      "status": "open",
+      "sourceIds": [
+        "makerspace",
+        "innovation-resources"
+      ],
+      "notes": "The Makerspace provides 3D printers. Its F1061 location is distinct from the general Library Learning Commons F1066 location."
+    },
+    {
+      "id": "continuing-education-office",
+      "name": "Continuing Education Office",
+      "category": "student_services",
+      "buildingId": null,
+      "status": "unknown",
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      },
+      "sourceIds": [
+        "launch-list",
+        "continuing-education"
+      ],
+      "notes": "Requested in the launch list. The current Continuing Education page does not establish an office room or building; those details remain unresolved."
+    },
+    {
+      "id": "foot-patrol",
+      "name": "Foot Patrol",
+      "category": "student_services",
+      "buildingId": null,
+      "status": "unknown",
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      },
+      "sourceIds": [
+        "launch-list",
+        "campus-security"
+      ],
+      "notes": "Requested in the launch list. Campus Security currently advertises Safe Walk escorts, but equivalence with the historical Foot Patrol service has not been established; its identity and location remain unresolved."
+    },
+    {
+      "id": "variety-store-second-location",
+      "name": "Variety Store (second location)",
+      "category": "retail",
+      "buildingId": null,
+      "status": "unknown",
+      "geometry": null,
+      "coordinateVerification": {
+        "status": "pending",
+        "method": null,
+        "verifiedAt": null,
+        "reference": null
+      },
+      "sourceIds": [
+        "launch-list"
+      ],
+      "notes": "The preliminary list requests both locations, but a second current Variety Store has not been identified. Do not assume it is The Nest or copy the D1043 coordinates."
+    }
+  ],
+  "launchSource": {
+    "sourceId": "launch-list",
+    "importedAt": "2026-10-13"
+  },
+  "launchGroups": [
+    {
+      "id": "admissions",
+      "label": "Admissions"
+    },
+    {
+      "id": "financial-aid",
+      "label": "Financial Aid"
+    },
+    {
+      "id": "food",
+      "label": "Food services"
+    },
+    {
+      "id": "health",
+      "label": "Health"
+    },
+    {
+      "id": "residence",
+      "label": "Residence"
+    },
+    {
+      "id": "retail",
+      "label": "Retail"
+    },
+    {
+      "id": "student-services",
+      "label": "Student Services"
+    },
+    {
+      "id": "student-union",
+      "label": "Student Union"
+    }
+  ],
+  "launchLocations": [
+    {
+      "sourceLabel": "Continuing Education Office",
+      "group": "admissions",
+      "destinationIds": [
+        "continuing-education-office"
+      ],
+      "resolutionStatus": "pending",
+      "notes": "Current office room and building require confirmation."
+    },
+    {
+      "sourceLabel": "Office of Registrar",
+      "group": "admissions",
+      "destinationIds": [
+        "office-of-the-registrar"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "FA Office",
+      "group": "financial-aid",
+      "destinationIds": [
+        "financial-aid-student-awards"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "B Food Court (show food courts icon, when user clicks show individual stores)",
+      "group": "food",
+      "destinationIds": [
+        "b-cafe"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "D Cafeteria/ Courtyard",
+      "group": "food",
+      "destinationIds": [
+        "d-cafe",
+        "d-courtyard-cafe"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "H cafetria",
+      "group": "food",
+      "destinationIds": [
+        "h-cafe"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "Athletics Office",
+      "group": "health",
+      "destinationIds": [
+        "athletics"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "Doctor's Office",
+      "group": "health",
+      "destinationIds": [
+        "student-health-services"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "Fowler Kennedy Center",
+      "group": "health",
+      "destinationIds": [
+        "fowler-kennedy-sport-medicine"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "Gyms",
+      "group": "health",
+      "destinationIds": [
+        "gym-1-2",
+        "gym-3"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "Pharmacy",
+      "group": "health",
+      "destinationIds": [
+        "pharmacy"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "Campus store",
+      "group": "retail",
+      "destinationIds": [
+        "falcon-shop"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "Variety Store (both locations)",
+      "group": "retail",
+      "destinationIds": [
+        "variety-store",
+        "variety-store-second-location"
+      ],
+      "resolutionStatus": "pending",
+      "notes": "D1043 is identified. The second current location is unresolved; The Nest has not been substituted."
+    },
+    {
+      "sourceLabel": "Biz Booth",
+      "group": "student-services",
+      "destinationIds": [
+        "biz-booth"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "Counselling",
+      "group": "student-services",
+      "destinationIds": [
+        "counselling-accessibility"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "First Nations Centre",
+      "group": "student-services",
+      "destinationIds": [
+        "institute-of-indigenous-learning"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "Foot Patrol",
+      "group": "student-services",
+      "destinationIds": [
+        "foot-patrol"
+      ],
+      "resolutionStatus": "pending",
+      "notes": "Confirm whether the intended service is current Safe Walk or another service."
+    },
+    {
+      "sourceLabel": "International services",
+      "group": "student-services",
+      "destinationIds": [
+        "international-centre"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "Library",
+      "group": "student-services",
+      "destinationIds": [
+        "library-learning-commons"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "Meal Plan",
+      "group": "student-services",
+      "destinationIds": [
+        "fancard-parking-lockers"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "Print shop",
+      "group": "student-services",
+      "destinationIds": [
+        "print-shop"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "3D print",
+      "group": "student-services",
+      "destinationIds": [
+        "makerspace"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "Test Centre",
+      "group": "student-services",
+      "destinationIds": [
+        "test-centre"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "Campus security",
+      "group": "student-services",
+      "destinationIds": [
+        "security-control-centre"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "Parking office",
+      "group": "student-services",
+      "destinationIds": [
+        "fancard-parking-lockers"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "Hair Salon",
+      "group": "student-services",
+      "destinationIds": [
+        "dernier-cri-hair-group"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "IT Service",
+      "group": "student-services",
+      "destinationIds": [
+        "it-service-desk"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "FanCard Service (parking and lockers in the new map)",
+      "group": "student-services",
+      "destinationIds": [
+        "fancard-parking-lockers"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "Media services",
+      "group": "student-services",
+      "destinationIds": [
+        "media-services"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "FSU desk",
+      "group": "student-union",
+      "destinationIds": [
+        "fanshawe-student-union"
+      ],
+      "resolutionStatus": "resolved"
     }
   ]
 }

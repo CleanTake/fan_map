@@ -1,0 +1,40 @@
+Admissions:
+	Continuing Education Office
+	Office of Registrar
+Financial Aid
+	FA Office
+Food services
+	B Food Court (show food courts icon, when user clicks show individual stores)
+	D Cafeteria/ Courtyard
+	H cafetria
+Health
+	Athletics Office
+	Doctor's Office
+	Fowler Kennedy Center
+	Gyms
+	Pharmacy
+Residence
+
+Retail
+	Campus store
+	Variety Store (both locations)
+
+Student Services
+	Biz Booth
+	Counselling
+	First Nations Centre
+	Foot Patrol
+	International services
+	Library
+	Meal Plan
+	Print shop
+	3D print
+	Test Centre
+	Campus security
+	Parking office
+	Hair Salon
+	IT Service
+	FanCard Service (parking and lockers in the new map)
+	Media services
+Student Union
+	FSU desk
