@@ -11,11 +11,6 @@ from urllib.parse import urlsplit
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 DATA_DIR = Path(__file__).resolve().parent
-BUILDING_CATEGORIES = {
-    "academic", "administrative", "student_services", "student_life", "food", "retail",
-    "recreational", "health_wellness", "library", "residence", "information", "utility",
-    "unclassified",
-}
 DESTINATION_CATEGORIES = {"food", "retail", "student_services", "academic_office", "health_wellness"}
 DESTINATION_STATUSES = {"open", "closed_temporarily", "closed_permanently", "unknown"}
 DAYS = {"mon", "tue", "wed", "thu", "fri", "sat", "sun"}
@@ -24,8 +19,13 @@ MONDAY_HOLIDAYS = {
 }
 ID_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 ROOM_CODE_RE = re.compile(r"^([A-Z]{1,3}?)(\d)\d{2,3}(-\d{1,2})?$")
+BUILDING_CODE_RE = re.compile(r"^[A-Z]{1,3}$")
 TIME_RE = re.compile(r"^([01]\d|2[0-3]):[0-5]\d$")
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+POSITION_ALIASES = {
+    "coordinateVerification", "coordinateStatus", "position", "coordinates",
+    "latitude", "longitude", "lat", "lng", "lon",
+}
 errors = []
 
 
@@ -176,12 +176,13 @@ def check_source_table(file, sources):
 
 
 def check_coordinates(where, item, required=False):
-    if required or "geometry" in item or "coordinateVerification" in item:
-        require(where, item, "geometry", "coordinateVerification")
-    else:
+    for alias in POSITION_ALIASES.intersection(item):
+        error(where + "." + alias, "unsupported position field; use geometry only")
+    if required:
+        require(where, item, "geometry")
+    elif "geometry" not in item:
         return
     geometry = item.get("geometry")
-    valid_point = False
     if geometry is not None:
         if not isinstance(geometry, dict):
             error(where + ".geometry", "must be a GeoJSON Point object or null")
@@ -195,23 +196,6 @@ def check_coordinates(where, item, required=False):
                 error(where + ".geometry.coordinates", "must contain two finite numbers")
             elif not (-180 <= coordinates[0] <= 180 and -90 <= coordinates[1] <= 90):
                 error(where + ".geometry.coordinates", "longitude/latitude are outside geographic bounds")
-            else:
-                valid_point = True
-    verification = object_value(where + ".coordinateVerification", item.get("coordinateVerification"))
-    require(where + ".coordinateVerification", verification, "status", "method", "verifiedAt", "reference")
-    status = verification.get("status")
-    enum_value(where + ".coordinateVerification.status", status, {"pending", "verified"})
-    for field in ("method", "reference"):
-        if verification.get(field) is not None:
-            nonempty(where + ".coordinateVerification." + field, verification[field])
-    if status == "verified":
-        if not valid_point:
-            error(where, "verified coordinates require a valid non-null Point")
-        nonempty(where + ".coordinateVerification.method", verification.get("method"))
-        nonempty(where + ".coordinateVerification.reference", verification.get("reference"))
-        parse_date(where + ".coordinateVerification.verifiedAt", verification.get("verifiedAt"), nonfuture=True)
-    elif verification.get("verifiedAt") is not None:
-        error(where + ".coordinateVerification.verifiedAt", "must be null until coordinates are verified")
 
 
 def check_hours(where, hours, sources):
@@ -299,36 +283,23 @@ def validate_places(data):
     if not isinstance(data, dict):
         error(file, "must be an object")
         return
-    sources = check_metadata(file, data, 2)
-    require(file, data, "buildings", "rooms", "destinations", "launchGroups", "launchLocations")
-    buildings = check_ids("buildings", data.get("buildings"))
-    codes = {}
-    for bid, building in buildings.items():
-        where = f"buildings.{bid}"
-        require(where, building, "code", "name", "categories", "zone", "sourceIds")
-        nonempty(where + ".name", building.get("name"))
-        code = building.get("code")
-        if nonempty(where + ".code", code):
-            if code in codes:
-                error(where, f"duplicate building code '{code}'")
-            codes[code] = bid
-            if bid != f"bldg-{code.lower()}":
-                error(where, "id must be 'bldg-' + lowercase code")
-        categories = array_value(where + ".categories", building.get("categories"))
-        if not categories:
-            error(where, "needs at least one category")
-        for category in categories:
-            enum_value(where + ".categories", category, BUILDING_CATEGORIES)
-        if building.get("zone") is not None:
-            enum_value(where + ".zone", building["zone"], {"red", "yellow", "blue", "orange", "green"})
-        check_sources(where, building, sources)
-        check_coordinates(where, building, required=True)
+    sources = check_metadata(file, data, 4)
+    require(file, data, "buildingNames", "rooms", "destinations", "launchGroups", "launchLocations", "excludedLaunchLocations")
+    if "buildings" in data:
+        error(file, "legacy buildings array must be replaced by buildingNames")
+    building_names = object_value("buildingNames", data.get("buildingNames"))
+    for code, name in building_names.items():
+        if not isinstance(code, str) or not BUILDING_CODE_RE.fullmatch(code):
+            error("buildingNames", f"invalid building code {code!r}")
+        nonempty(f"buildingNames.{code}", name)
 
     rooms = check_ids("rooms", data.get("rooms"))
     room_codes = set()
     for rid, room in rooms.items():
         where = f"rooms.{rid}"
-        require(where, room, "code", "buildingId", "floor")
+        require(where, room, "code", "buildingCode", "floor")
+        if "buildingId" in room:
+            error(where, "use buildingCode instead of legacy buildingId")
         code = room.get("code")
         match = ROOM_CODE_RE.fullmatch(code) if isinstance(code, str) else None
         if not match:
@@ -341,11 +312,11 @@ def validate_places(data):
                 error(where, "id must be 'room-' + lowercase code")
             if type(room.get("floor")) is not int or room["floor"] != int(match.group(2)):
                 error(where, f"floor does not match code '{code}'")
-        bid = room.get("buildingId")
-        if not isinstance(bid, str) or bid not in buildings:
-            error(where, f"unknown buildingId {bid!r}")
-        elif match and codes.get(match.group(1)) != bid:
-            error(where, f"code prefix '{match.group(1)}' does not match buildingId '{bid}'")
+        building_code = room.get("buildingCode")
+        if not isinstance(building_code, str) or building_code not in building_names:
+            error(where, f"unknown buildingCode {building_code!r}")
+        elif match and match.group(1) != building_code:
+            error(where, f"code prefix '{match.group(1)}' does not match buildingCode '{building_code}'")
         check_coordinates(where, room, required=True)
 
     destinations = check_ids("destinations", data.get("destinations"))
@@ -358,22 +329,21 @@ def validate_places(data):
         enum_value(where + ".status", dest.get("status"), DESTINATION_STATUSES)
         if "roomCode" in dest:
             error(where, "roomCode must be derived from the referenced room")
-        if not any(key in dest for key in ("roomId", "parentId", "buildingId", "geometry")):
-            error(where, "needs a room, parent, building, or explicit coordinate anchor")
+        if "buildingId" in dest:
+            error(where, "buildingId is a legacy field; use roomId or roomless buildingCode context")
+        if not any(key in dest for key in ("roomId", "parentId", "buildingCode", "geometry")):
+            error(where, "needs a room, parent, buildingCode context, or explicit coordinate anchor")
         rid = dest.get("roomId")
         if "roomId" in dest:
             if not isinstance(rid, str) or rid not in rooms:
                 error(where, f"unknown roomId {rid!r}")
             else:
                 used_rooms.add(rid)
-            if "buildingId" in dest:
-                error(where, "room-based destinations must derive buildingId from roomId")
-        bid = dest.get("buildingId")
-        if "buildingId" in dest and bid is not None:
-            if not isinstance(bid, str) or bid not in buildings:
-                error(where, f"unknown buildingId {bid!r}")
-        if "buildingId" in dest and bid is None and not dest.get("notes"):
-            error(where, "an unknown building must be explained in notes")
+            if "buildingCode" in dest:
+                error(where, "room-based destinations must derive buildingCode from roomId")
+        building_code = dest.get("buildingCode")
+        if "buildingCode" in dest and (not isinstance(building_code, str) or building_code not in building_names):
+            error(where, f"unknown buildingCode {building_code!r}")
         parent = dest.get("parentId")
         if "parentId" in dest and (not isinstance(parent, str) or parent not in destinations or parent == did):
             error(where, f"unknown or self-referencing parentId {parent!r}")
@@ -392,16 +362,16 @@ def validate_places(data):
             return (None, None)
         visiting.add(did)
         dest = destinations[did]
-        rid, bid = dest.get("roomId"), dest.get("buildingId")
+        rid, building_code = dest.get("roomId"), dest.get("buildingCode")
         own_room = rid if isinstance(rid, str) and rid in rooms else None
-        own_building = rooms[own_room].get("buildingId") if own_room else bid
+        own_building = rooms[own_room].get("buildingCode") if own_room else building_code
         parent = dest.get("parentId")
         inherited = resolve_anchor(parent) if isinstance(parent, str) and parent in destinations else (None, None)
         if "geometry" not in dest:
             if own_room and inherited[0] and own_room != inherited[0]:
                 error(f"destinations.{did}", "roomId conflicts with its parent anchor; use an explicit geometry override")
             if own_building and inherited[1] and own_building != inherited[1]:
-                error(f"destinations.{did}", "buildingId conflicts with its parent anchor; use an explicit geometry override")
+                error(f"destinations.{did}", "buildingCode conflicts with its parent anchor; use an explicit geometry override")
         visiting.remove(did)
         anchors[did] = (own_room or inherited[0], own_building or inherited[1])
         return anchors[did]
@@ -434,7 +404,9 @@ def validate_places(data):
                 error(where, "duplicate source label within launch group")
             seen_rows.add(key)
         status = row.get("resolutionStatus")
-        enum_value(where + ".resolutionStatus", status, {"resolved", "pending"})
+        enum_value(where + ".resolutionStatus", status, {"resolved"})
+        if status == "pending":
+            error(where, "unresolved identities belong in excludedLaunchLocations with a deferred decision")
         destination_ids = array_value(where + ".destinationIds", row.get("destinationIds"))
         if status == "resolved" and not destination_ids:
             error(where, "a resolved row needs at least one destinationId")
@@ -447,6 +419,29 @@ def validate_places(data):
             else:
                 seen_ids.add(did)
 
+    excluded_rows = array_value("excludedLaunchLocations", data.get("excludedLaunchLocations"))
+    for index, row in enumerate(excluded_rows):
+        where = f"excludedLaunchLocations[{index}]"
+        if not isinstance(row, dict):
+            error(where, "must be an object")
+            continue
+        require(where, row, "sourceLabel", "group", "reason", "decision")
+        label, group = row.get("sourceLabel"), row.get("group")
+        valid_label = nonempty(where + ".sourceLabel", label)
+        nonempty(where + ".reason", row.get("reason"))
+        enum_value(where + ".decision", row.get("decision"), {"excluded", "deferred"})
+        if not isinstance(group, str) or group not in groups:
+            error(where, f"unknown group {group!r}")
+        elif valid_label:
+            key = (group, label)
+            if key in seen_rows:
+                error(where, "duplicate active or excluded source label within launch group")
+            seen_rows.add(key)
+        if "destinationIds" in row:
+            error(where, "excluded rows must not select destinationIds")
+        if "sourceIds" in row:
+            check_sources(where, row, sources)
+
 
 def validate_launch_ready(data):
     """Run only after the catalog passes validate_places."""
@@ -454,7 +449,7 @@ def validate_launch_ready(data):
         return
     try:
         from generate_geojson import build_feature_collection
-        build_feature_collection(data, require_verified=True)
+        build_feature_collection(data, require_coordinates=True)
     except (ValueError, KeyError, TypeError) as exc:
         error("launch readiness", str(exc))
 
@@ -515,7 +510,7 @@ def validate_holidays(data):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--require-launch-ready", action="store_true", help="require resolved launch rows and verified map points")
+    parser.add_argument("--require-launch-ready", action="store_true", help="require resolved launch rows and valid map points; does not prove positional accuracy")
     args = parser.parse_args(argv)
     errors.clear()
     places, holidays = load("campus-places.json"), load("campus-holidays.json")
@@ -530,8 +525,9 @@ def main(argv=None):
         for problem in errors:
             print("  - " + problem)
         return 1
-    print(f"OK: {len(places['buildings'])} buildings, {len(places['rooms'])} rooms, "
+    print(f"OK: {len(places['buildingNames'])} building labels, {len(places['rooms'])} rooms, "
           f"{len(places['destinations'])} destinations, {len(places['launchLocations'])} launch rows, "
+          f"{len(places['excludedLaunchLocations'])} excluded/deferred rows, "
           f"{len(holidays['holidays'])} holidays, {len(holidays['closures'])} "
           f"{'closure' if len(holidays['closures']) == 1 else 'closures'}")
     if not args.require_launch_ready:

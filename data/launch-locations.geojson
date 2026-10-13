@@ -5,33 +5,6 @@
       "type": "Feature",
       "geometry": null,
       "properties": {
-        "id": "continuing-education-office",
-        "name": "Continuing Education Office",
-        "category": "service",
-        "catalogCategory": "student_services",
-        "description": "Continuing Education Office — Location awaiting confirmation",
-        "groups": [
-          "admissions"
-        ],
-        "launchLabels": [
-          "Continuing Education Office"
-        ],
-        "status": "unknown",
-        "coordinateStatus": "pending",
-        "resolutionStatus": "pending",
-        "roomCode": null,
-        "buildingCode": null,
-        "floor": null,
-        "sourceIds": [
-          "launch-list",
-          "continuing-education"
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": null,
-      "properties": {
         "id": "office-of-the-registrar",
         "name": "Office of the Registrar",
         "category": "service",
@@ -44,7 +17,6 @@
           "Office of Registrar"
         ],
         "status": "open",
-        "coordinateStatus": "pending",
         "resolutionStatus": "resolved",
         "roomCode": "E1012",
         "buildingCode": "E",
@@ -70,7 +42,6 @@
           "FA Office"
         ],
         "status": "open",
-        "coordinateStatus": "pending",
         "resolutionStatus": "resolved",
         "roomCode": "E1012",
         "buildingCode": "E",
@@ -82,49 +53,6 @@
           "Financial Aid",
           "FA Office"
         ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": null,
-      "properties": {
-        "id": "b-cafe",
-        "name": "B Cafe",
-        "category": "food",
-        "catalogCategory": "food",
-        "description": "B Cafe — Room B1081, B Building, Floor 1",
-        "groups": [
-          "food"
-        ],
-        "launchLabels": [
-          "B Food Court (show food courts icon, when user clicks show individual stores)"
-        ],
-        "status": "closed_temporarily",
-        "coordinateStatus": "pending",
-        "resolutionStatus": "resolved",
-        "roomCode": "B1081",
-        "buildingCode": "B",
-        "floor": 1,
-        "sourceIds": [
-          "campus-map",
-          "std03",
-          "chartwells-fall-2026"
-        ],
-        "aliases": [
-          "B Cafeteria",
-          "B Food Court"
-        ],
-        "childIds": [
-          "b-cafe-bento-sushi",
-          "b-cafe-chef-inspired",
-          "b-cafe-greens-and-grains",
-          "b-cafe-kettles",
-          "b-cafe-on-the-go",
-          "b-cafe-paramount",
-          "b-cafe-smoke-s-poutinerie",
-          "b-cafe-tim-hortons"
-        ],
-        "markerType": "food_court"
       }
     },
     {
@@ -143,7 +71,6 @@
           "D Cafeteria/ Courtyard"
         ],
         "status": "open",
-        "coordinateStatus": "pending",
         "resolutionStatus": "resolved",
         "roomCode": "D1001",
         "buildingCode": "D",
@@ -159,7 +86,6 @@
         ],
         "childIds": [
           "harveys",
-          "d-cafe-on-the-go",
           "tim-hortons-self-serve"
         ],
         "markerType": "food_court"
@@ -181,7 +107,6 @@
           "D Cafeteria/ Courtyard"
         ],
         "status": "open",
-        "coordinateStatus": "pending",
         "resolutionStatus": "resolved",
         "roomCode": "D1045",
         "buildingCode": "D",
@@ -220,7 +145,6 @@
           "H cafetria"
         ],
         "status": "open",
-        "coordinateStatus": "pending",
         "resolutionStatus": "resolved",
         "roomCode": "H1000",
         "buildingCode": "H",
@@ -254,7 +178,6 @@
           "Athletics Office"
         ],
         "status": "open",
-        "coordinateStatus": "pending",
         "resolutionStatus": "resolved",
         "roomCode": "J2003",
         "buildingCode": "J",
@@ -283,7 +206,6 @@
           "Doctor's Office"
         ],
         "status": "open",
-        "coordinateStatus": "pending",
         "resolutionStatus": "resolved",
         "roomCode": "J1004",
         "buildingCode": "J",
@@ -312,7 +234,6 @@
           "Fowler Kennedy Center"
         ],
         "status": "open",
-        "coordinateStatus": "pending",
         "resolutionStatus": "resolved",
         "roomCode": "J1004",
         "buildingCode": "J",
@@ -342,7 +263,6 @@
           "Gyms"
         ],
         "status": "open",
-        "coordinateStatus": "pending",
         "resolutionStatus": "resolved",
         "roomCode": "J1015",
         "buildingCode": "J",
@@ -371,40 +291,12 @@
           "Gyms"
         ],
         "status": "open",
-        "coordinateStatus": "pending",
         "resolutionStatus": "resolved",
         "roomCode": "J1032",
         "buildingCode": "J",
         "floor": 1,
         "sourceIds": [
           "campus-map"
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": null,
-      "properties": {
-        "id": "pharmacy",
-        "name": "Pharmacy",
-        "category": "service",
-        "catalogCategory": "health_wellness",
-        "description": "Pharmacy — Room J1000, J Building (Student Wellness Centre), Floor 1",
-        "groups": [
-          "health"
-        ],
-        "launchLabels": [
-          "Pharmacy"
-        ],
-        "status": "closed_permanently",
-        "coordinateStatus": "pending",
-        "resolutionStatus": "resolved",
-        "roomCode": "J1000",
-        "buildingCode": "J",
-        "floor": 1,
-        "sourceIds": [
-          "campus-map",
-          "fsu-pharmacy"
         ]
       }
     },
@@ -424,7 +316,6 @@
           "Campus store"
         ],
         "status": "open",
-        "coordinateStatus": "pending",
         "resolutionStatus": "resolved",
         "roomCode": "F1019",
         "buildingCode": "F",
@@ -457,8 +348,7 @@
           "Variety Store (both locations)"
         ],
         "status": "open",
-        "coordinateStatus": "pending",
-        "resolutionStatus": "pending",
+        "resolutionStatus": "resolved",
         "roomCode": "D1043",
         "buildingCode": "D",
         "floor": 1,
@@ -469,59 +359,6 @@
         ],
         "aliases": [
           "Convenience Store"
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": null,
-      "properties": {
-        "id": "variety-store-second-location",
-        "name": "Variety Store (second location)",
-        "category": "retail",
-        "catalogCategory": "retail",
-        "description": "Variety Store (second location) — Location awaiting confirmation",
-        "groups": [
-          "retail"
-        ],
-        "launchLabels": [
-          "Variety Store (both locations)"
-        ],
-        "status": "unknown",
-        "coordinateStatus": "pending",
-        "resolutionStatus": "pending",
-        "roomCode": null,
-        "buildingCode": null,
-        "floor": null,
-        "sourceIds": [
-          "launch-list"
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": null,
-      "properties": {
-        "id": "biz-booth",
-        "name": "Biz Booth",
-        "category": "retail",
-        "catalogCategory": "retail",
-        "description": "Biz Booth — Student Union Building",
-        "groups": [
-          "student-services"
-        ],
-        "launchLabels": [
-          "Biz Booth"
-        ],
-        "status": "closed_temporarily",
-        "coordinateStatus": "pending",
-        "resolutionStatus": "resolved",
-        "roomCode": null,
-        "buildingCode": "SUB",
-        "floor": null,
-        "sourceIds": [
-          "campus-map",
-          "fsu-biz-booth"
         ]
       }
     },
@@ -541,7 +378,6 @@
           "Counselling"
         ],
         "status": "open",
-        "coordinateStatus": "pending",
         "resolutionStatus": "resolved",
         "roomCode": "F2010",
         "buildingCode": "F",
@@ -567,7 +403,6 @@
           "First Nations Centre"
         ],
         "status": "open",
-        "coordinateStatus": "pending",
         "resolutionStatus": "resolved",
         "roomCode": "A1046",
         "buildingCode": "A",
@@ -587,33 +422,6 @@
       "type": "Feature",
       "geometry": null,
       "properties": {
-        "id": "foot-patrol",
-        "name": "Foot Patrol",
-        "category": "service",
-        "catalogCategory": "student_services",
-        "description": "Foot Patrol — Location awaiting confirmation",
-        "groups": [
-          "student-services"
-        ],
-        "launchLabels": [
-          "Foot Patrol"
-        ],
-        "status": "unknown",
-        "coordinateStatus": "pending",
-        "resolutionStatus": "pending",
-        "roomCode": null,
-        "buildingCode": null,
-        "floor": null,
-        "sourceIds": [
-          "launch-list",
-          "campus-security"
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": null,
-      "properties": {
         "id": "international-centre",
         "name": "International Centre",
         "category": "service",
@@ -626,7 +434,6 @@
           "International services"
         ],
         "status": "open",
-        "coordinateStatus": "pending",
         "resolutionStatus": "resolved",
         "roomCode": "E2025",
         "buildingCode": "E",
@@ -656,7 +463,6 @@
           "Library"
         ],
         "status": "open",
-        "coordinateStatus": "pending",
         "resolutionStatus": "resolved",
         "roomCode": "F1066",
         "buildingCode": "F",
@@ -684,7 +490,6 @@
           "FanCard Service (parking and lockers in the new map)"
         ],
         "status": "open",
-        "coordinateStatus": "pending",
         "resolutionStatus": "resolved",
         "roomCode": "E2020",
         "buildingCode": "E",
@@ -717,7 +522,6 @@
           "Print shop"
         ],
         "status": "open",
-        "coordinateStatus": "pending",
         "resolutionStatus": "resolved",
         "roomCode": "B1002",
         "buildingCode": "B",
@@ -744,7 +548,6 @@
           "3D print"
         ],
         "status": "open",
-        "coordinateStatus": "pending",
         "resolutionStatus": "resolved",
         "roomCode": "F1061",
         "buildingCode": "F",
@@ -775,7 +578,6 @@
           "Test Centre"
         ],
         "status": "open",
-        "coordinateStatus": "pending",
         "resolutionStatus": "resolved",
         "roomCode": "F3005",
         "buildingCode": "F",
@@ -801,7 +603,6 @@
           "Campus security"
         ],
         "status": "open",
-        "coordinateStatus": "pending",
         "resolutionStatus": "resolved",
         "roomCode": "D1027",
         "buildingCode": "D",
@@ -831,14 +632,14 @@
         "launchLabels": [
           "Hair Salon"
         ],
-        "status": "unknown",
-        "coordinateStatus": "pending",
+        "status": "open",
         "resolutionStatus": "resolved",
         "roomCode": "L1002",
         "buildingCode": "L",
         "floor": 1,
         "sourceIds": [
-          "campus-map"
+          "campus-map",
+          "fsu-dernier"
         ],
         "aliases": [
           "Hair Salon"
@@ -861,7 +662,6 @@
           "IT Service"
         ],
         "status": "open",
-        "coordinateStatus": "pending",
         "resolutionStatus": "resolved",
         "roomCode": "E2030",
         "buildingCode": "E",
@@ -891,7 +691,6 @@
           "Media services"
         ],
         "status": "open",
-        "coordinateStatus": "pending",
         "resolutionStatus": "resolved",
         "roomCode": "D1025",
         "buildingCode": "D",
@@ -917,7 +716,6 @@
           "FSU desk"
         ],
         "status": "open",
-        "coordinateStatus": "pending",
         "resolutionStatus": "resolved",
         "roomCode": "SC1000",
         "buildingCode": "SC",

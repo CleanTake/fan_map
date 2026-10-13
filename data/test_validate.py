@@ -2,7 +2,6 @@
 
 import copy
 from contextlib import redirect_stdout
-from datetime import timedelta
 import io
 import json
 from pathlib import Path
@@ -14,22 +13,17 @@ import validate
 
 
 def pending():
-    return {"geometry": None, "coordinateVerification": {
-        "status": "pending", "method": None, "verifiedAt": None, "reference": None,
-    }}
+    return {"geometry": None}
 
 
 def catalog():
     return {
-        "version": 2, "lastVerified": "2026-09-25", "timezone": "America/Toronto",
+        "version": 4, "lastVerified": "2026-09-25", "timezone": "America/Toronto",
         "sources": {"official": {
             "title": "College directory", "url": "https://example.edu/directory", "retrieved": "2026-09-25",
         }},
-        "buildings": [{
-            "id": "bldg-a", "code": "A", "name": "A Building", "zone": "green",
-            "categories": ["student_services"], "sourceIds": ["official"], **pending(),
-        }],
-        "rooms": [{"id": "room-a1001", "code": "A1001", "buildingId": "bldg-a", "floor": 1, **pending()}],
+        "buildingNames": {"A": "A Building"},
+        "rooms": [{"id": "room-a1001", "code": "A1001", "buildingCode": "A", "floor": 1, **pending()}],
         "destinations": [
             {"id": "service", "name": "Service", "category": "student_services", "roomId": "room-a1001",
              "status": "open", "sourceIds": ["official"]},
@@ -39,15 +33,12 @@ def catalog():
         "launchGroups": [{"id": "student_services", "label": "Student Services"}],
         "launchLocations": [{"sourceLabel": "Child service", "group": "student_services",
                              "destinationIds": ["child"], "resolutionStatus": "resolved"}],
+        "excludedLaunchLocations": [],
     }
 
 
-def verify(item):
+def set_point(item):
     item.update(geometry={"type": "Point", "coordinates": [-81.199, 43.014]})
-    item["coordinateVerification"] = {
-        "status": "verified", "method": "manual_map_check", "verifiedAt": validate.today().isoformat(),
-        "reference": "Checked against the campus orientation map",
-    }
 
 
 class ValidationTests(unittest.TestCase):
@@ -62,36 +53,78 @@ class ValidationTests(unittest.TestCase):
     def test_pending_catalog_is_valid_but_cannot_be_published(self):
         self.assertEqual(self.validate(), "")
         validate.validate_launch_ready(self.data)
-        self.assertIn("unverified coordinates", "\n".join(validate.errors))
+        self.assertIn("missing coordinates", "\n".join(validate.errors))
 
-    def test_verified_room_is_inherited_and_unused_pending_building_is_allowed(self):
-        verify(self.data["rooms"][0])
+    def test_valid_room_point_is_inherited_without_verification_metadata(self):
+        set_point(self.data["rooms"][0])
         self.assertEqual(self.validate(), "")
         validate.validate_launch_ready(self.data)
         self.assertEqual(validate.errors, [])
 
-    def test_unresolved_launch_row_blocks_verified_coordinate(self):
-        verify(self.data["rooms"][0])
+    def test_unresolved_identity_must_be_deferred_outside_active_selection(self):
+        set_point(self.data["rooms"][0])
         self.data["launchLocations"][0]["resolutionStatus"] = "pending"
+        self.assertIn("unresolved identities belong in excludedLaunchLocations", self.validate())
+
+    def test_deliberate_deferred_or_excluded_rows_do_not_block_coordinate_readiness(self):
+        set_point(self.data["rooms"][0])
+        self.data["excludedLaunchLocations"] = [
+            {"sourceLabel": "Foot Patrol", "group": "student_services", "decision": "deferred",
+             "reason": "Current service identity needs review."},
+            {"sourceLabel": "Pharmacy", "group": "student_services", "decision": "excluded",
+             "reason": "Permanently closed.", "sourceIds": ["official"]},
+        ]
         self.assertEqual(self.validate(), "")
         validate.validate_launch_ready(self.data)
-        self.assertIn("unresolved launch items", "\n".join(validate.errors))
+        self.assertEqual(validate.errors, [])
 
-    def test_explicit_pending_destination_masks_verified_room(self):
-        verify(self.data["rooms"][0])
+    def test_excluded_rows_must_explain_decision_and_cannot_select_destinations(self):
+        self.data["excludedLaunchLocations"] = [{
+            "sourceLabel": "Foot Patrol", "group": "student_services", "decision": "maybe",
+            "reason": " ", "destinationIds": ["child"],
+        }]
+        problems = self.validate()
+        self.assertIn(".reason", problems)
+        self.assertIn(".decision", problems)
+        self.assertIn("must not select destinationIds", problems)
+
+    def test_active_and_excluded_rows_cannot_repeat_same_source_item(self):
+        self.data["excludedLaunchLocations"] = [{
+            "sourceLabel": "Child service", "group": "student_services", "decision": "excluded",
+            "reason": "Out of scope.",
+        }]
+        self.assertIn("duplicate active or excluded source label", self.validate())
+
+    def test_slim_building_names_and_references_are_validated(self):
+        self.data["buildingNames"]["A"] = " "
+        self.data["rooms"][0]["buildingCode"] = "B"
+        problems = self.validate()
+        self.assertIn("buildingNames.A", problems)
+        self.assertIn("unknown buildingCode", problems)
+
+    def test_legacy_building_data_and_destination_location_fields_are_rejected(self):
+        self.data["buildings"] = []
+        self.data["rooms"][0]["buildingId"] = "bldg-a"
+        self.data["destinations"][0].update(buildingId="bldg-a", roomCode="A1001")
+        problems = self.validate()
+        self.assertIn("legacy buildings array", problems)
+        self.assertIn("legacy buildingId", problems)
+        self.assertIn("roomCode must be derived", problems)
+
+    def test_explicit_null_destination_masks_room_point(self):
+        set_point(self.data["rooms"][0])
         self.data["destinations"][1].update(pending())
         self.assertEqual(self.validate(), "")
         validate.validate_launch_ready(self.data)
-        self.assertIn("unverified coordinates", "\n".join(validate.errors))
+        self.assertIn("missing coordinates", "\n".join(validate.errors))
 
     def test_missing_geometry_cannot_be_treated_as_pending(self):
         del self.data["rooms"][0]["geometry"]
         self.assertIn("missing 'geometry'", self.validate())
 
-    def test_verified_null_point_is_rejected(self):
-        verify(self.data["rooms"][0])
-        self.data["rooms"][0]["geometry"] = None
-        self.assertIn("verified coordinates require", self.validate())
+    def test_legacy_verification_metadata_is_rejected(self):
+        self.data["rooms"][0]["coordinateVerification"] = {"status": "verified"}
+        self.assertIn("unsupported position field; use geometry only", self.validate())
 
     def test_points_require_finite_numeric_lon_lat_pairs_and_bounds(self):
         for value in ([181, 0], [0, 91], [True, 0], [float("nan"), 0], [float("inf"), 0],
@@ -102,15 +135,14 @@ class ValidationTests(unittest.TestCase):
                 self.data["rooms"][0]["geometry"] = {"type": "Point", "coordinates": value}
                 self.assertIn("geometry.coordinates", self.validate())
 
-    def test_verification_requires_manual_evidence_and_nonfuture_date(self):
-        verify(self.data["rooms"][0])
-        metadata = self.data["rooms"][0]["coordinateVerification"]
-        metadata.update(method="", reference=None,
-                        verifiedAt=(validate.today() + timedelta(days=1)).isoformat())
-        problems = self.validate()
-        self.assertIn(".method", problems)
-        self.assertIn(".reference", problems)
-        self.assertIn("must not be in the future", problems)
+    def test_position_aliases_cannot_duplicate_canonical_geometry(self):
+        for field in ("coordinateStatus", "position", "coordinates", "latitude", "longitude", "lat", "lng", "lon"):
+            for collection in ("rooms", "destinations"):
+                with self.subTest(field=field, collection=collection):
+                    validate.errors.clear()
+                    self.data = catalog()
+                    self.data[collection][0][field] = None
+                    self.assertIn("unsupported position field; use geometry only", self.validate())
 
     def test_parent_cycle_is_rejected(self):
         self.data["destinations"][0]["parentId"] = "child"

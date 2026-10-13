@@ -1,84 +1,91 @@
-# Campus data and launch GeoJSON
+# Launch locations
 
-`campus-places.json` is the source catalog. `launch-locations.txt` is a snapshot of
-the project owner's preliminary list with trailing whitespace removed.
-`launchLocations` records how each of its
-30 named entries maps to the catalog, and `launchGroups` preserves the requested
-sections, including the currently empty Residence section.
+`campus-places.json` is the curated launch catalog, using schema version 4. It
+contains 31 destinations: 25 locations selected for the initial map and six
+confirmed vendors shown inside their food courts. Its 23 room records hold the
+physical anchors. `buildingNames` contains only nine code-to-name labels for
+those rooms: A, B, D, E, F, H, J, L and SC. Building geometry, addresses, zones and
+the broader campus inventory are outside this catalog.
 
-`launch-locations.geojson` is a generated preview of the initial selection. It
-contains one feature per unique destination, rather than one per list entry.
-D Cafe and D Courtyard are separate destinations, as are the two gym locations.
-Meal Plan, Parking Office and FANCard Service share one office destination. Food
-courts have one feature each; their `childIds` refer to vendors in the catalog.
-Vendor hours and identities are preserved without creating overlapping vendor
-pins. Study-room features are outside this selection; second-floor F Building
-study rooms will be added later.
+`launch-locations.txt` preserves the owner's preliminary list, with trailing
+whitespace removed. The list has 30 named service entries and no explicit room
+numbers or study-room locations. There are 25 active `launchLocations` rows and
+five `excludedLaunchLocations` rows, so every original request remains accounted
+for. `launchGroups` preserves the original sections, including empty Residence.
 
-## Coordinates
+`launch-locations.geojson` is a generated preview with 25 map features. D Cafe
+and D Courtyard are separate locations; Gym 1 & 2 and Gym 3 are separate too.
+Meal Plan, Parking Office and FANCard Service resolve to one destination. Food
+courts have one feature each, with `childIds` referring to their vendors rather
+than overlapping vendor pins. D Cafe contains Harvey's and Tim Hortons
+self-serve; D Courtyard contains Pizza Pizza, Subway and Tim Hortons Junction;
+H Cafe contains Starbucks. Study rooms are deferred.
 
-All initial coordinates are unverified and are deliberately `null`. None of the
-prototype coordinates from the frontend is used as a verified location. A
-feature with `geometry: null` is valid GeoJSON but will not draw a map pin.
+## Exclusions and deferred locations
 
-Physical room locations belong in `rooms[].geometry`. Room-based destinations
-reference `roomId`; room code, building and floor are derived from the room.
-Destinations that share a food court inherit its location through `parentId`.
-Roomless locations may reference a building, but a missing room point is never
-replaced by the building's centre. A destination may have its own point if it
-needs a different position from its room or parent.
+The active catalog omits Pharmacy, B Cafe and its eight vendors, and Biz Booth.
+The sources report the pharmacy permanently closed after April 24, 2026, and
+B Cafe and Biz Booth closed for the Fall 2026 term. Their original request rows
+and reasons remain in `excludedLaunchLocations`; closed services are not drawn
+as launch destinations.
 
-For a checked point, set `geometry` to a GeoJSON Point with two finite numeric
-coordinates in **longitude, latitude** order. Set the accompanying
-`coordinateVerification` fields:
+Continuing Education Office and Foot Patrol are deferred because their current
+office or service identity needs confirmation. The Variety Store row includes
+only the confirmed D1043 location and explains that the second requested store
+is deferred. The Nest has not been substituted. D Cafe's unconfirmed On the Go
+vendor and the other locations outside the preliminary launch scope are removed.
+Revisit the recorded decisions when a service reopens or its location is confirmed.
 
-- `status`: `verified` after checking the actual marker location; otherwise
-  `pending`.
-- `method`: how the point was checked, for example `manual_map_review` or
-  `on_site_gps`.
-- `verifiedAt`: the check date in `YYYY-MM-DD` format.
-- `reference`: the annotated map, survey, field observation or other reference
-  used to check the position.
+Distinct services sharing a room remain searchable: Registrar and Financial Aid
+at E1012; Student Health and Fowler Kennedy at J1004. They share physical room
+anchors without losing their individual service names.
 
-Changing coordinates requires checking them again and updating the verification
-record. A checked indoor marker does not establish a usable outdoor entrance for
-walking directions. Keep entrance locations separate if routing is added.
+Official sources establish Financial Aid at E1012, Makerspace/3D printing at
+F1061, the Institute of Indigenous Learning at A1046, and the International Centre
+at E2025. The hair salon, Dernier CRI Hair Group, is operating in L1002 with
+published hours: Monday–Wednesday 10:00–17:00, Thursday 10:00–19:00, Friday
+10:00–18:00 and Saturday 11:00–14:00. Its hours are subject to change; Sunday hours
+are unpublished and remain unknown. Source retrieval dates are recorded per
+reference. A room assignment does not verify latitude or longitude.
 
-Omit both destination `geometry` and `coordinateVerification` to inherit a room,
-parent or roomless building anchor. Explicit destination `geometry: null` with
-pending verification means its own location is unresolved and blocks inheritance.
-Even if an estimated point is entered, the exporter keeps its geometry null
-until verification is marked complete. Do not edit the generated file directly.
+## Coordinates and the app preview
 
-## Scope and unresolved entries
+All 23 initial room geometries are deliberately `null`. Prototype coordinates
+have not been promoted to real locations. The app can preview the 25 selected
+locations in its list; their map pins remain pending until manually checked
+coordinates are entered.
+A feature with `geometry: null` is valid GeoJSON and cannot draw a pin.
 
-Three requested identities or locations still need review:
+Physical locations belong in `rooms[].geometry`. Room-based destinations use
+`roomId`, and their room code, floor and building label are derived from that
+room. Vendor destinations inherit their food court's anchor through `parentId`.
+There are no building geometry anchors or centroid fallbacks. A destination may
+override the point if it needs a distinct position within its room.
 
-- Continuing Education Office: current office room and building are unknown.
-- Foot Patrol: the current security page describes Safe Walk, but equivalence
-  with the requested historical service is not established.
-- The second Variety Store: do not assume this is The Nest or reuse D1043.
+For each manually checked location, enter a GeoJSON Point with two finite numeric
+coordinates in **longitude, latitude** order. Longitude must be between -180 and
+180, and latitude between -90 and 90. Leave the geometry null until the actual
+marker location has been checked; do not store estimated points as non-null
+geometry. No additional coordinate date, method, reference or status fields are
+required. Validation checks the shape and numeric bounds of a point; it cannot
+prove geographic accuracy. Review each location manually before populating it.
 
-These have explicit pending records and null geometry so the request is not lost.
-The local launch-list source establishes requested scope, not proof that an
-unresolved service or branch currently exists. Resolve the catalog references
-and change the affected launch row's `resolutionStatus` to `resolved` after
-confirmation.
+Changing a point requires checking the new location again.
+A checked indoor marker does not establish an outdoor entrance for walking
+directions; entrance locations need their own review if routing is added.
 
-New official references support Financial Aid at E1012, Makerspace/3D printing at
-F1061, the Institute of Indigenous Learning (formerly First Nations Centre) at
-A1046, and the International Centre at E2025. Meal Plan, Parking and FANCard map
-to the combined office at E2020. These references establish service and room
-metadata; they do not verify latitude or longitude.
+Omit destination `geometry` to inherit its room or parent anchor. An explicit
+destination `geometry: null` blocks inheritance. A valid non-null point is
+exported directly, so manual review must happen before it is entered. Do not edit
+the generated GeoJSON directly.
 
-Closed locations requested in the list remain in the export with their operating
-status: B Cafe and Biz Booth are temporarily closed; the pharmacy is permanently
-closed. `status: open` means generally operating, not "open now". Unknown or
-expired hours must not be interpreted as open. `campus-holidays.json` remains a
-separate reference; prior-year or assumed college closure decisions need review
-before using them to override an individual service's hours.
+`status: open` describes a generally operating service. It does not mean "open
+now". Unknown days, missing schedules or expired hours must not imply that a
+service is currently open or closed. `campus-holidays.json` remains unchanged and
+separate; prior-year or assumed college closure decisions need review before
+overriding an individual service's hours.
 
-## Generate and check
+## Generate and validate
 
 Run from the repository root:
 
@@ -89,21 +96,19 @@ python data/generate_geojson.py --check
 python -m unittest discover -s data -p 'test_*.py'
 ```
 
-After entering and verifying the launch coordinates and resolving pending scope,
-check readiness with:
+After manually checking and entering the launch coordinates, run:
 
 ```sh
 python data/validate.py --require-launch-ready
-python data/generate_geojson.py --check --require-verified
+python data/generate_geojson.py --check --require-coordinates
 ```
 
-The normal validation accepts an honest draft with null coordinates. Readiness
-checks deliberately fail while any selected entry is unresolved or any selected
-point is unverified. Non-launch catalog locations can remain pending.
+Default validation accepts a draft with null coordinates. Readiness checks fail
+until every selected point is present and structurally valid. They do not prove
+that a manual accuracy check happened. Recorded exclusions and deferred items
+are outside the active selection and do not block its readiness.
 
-The exporter maps catalog classifications to the current frontend's icon
-categories (`food`, `retail`, `service`), while retaining `catalogCategory` and
-the requested navigation groups. It does not infer current opening hours.
-The frontend is not changed by this data PR; when the export is connected to the
-map, only features with verified non-null geometry should be drawn, and closed
-services should be labelled clearly.
+The exporter maps catalog classifications to the app's icon categories (`food`,
+`retail`, `service`), preserves navigation groups and does not infer live opening
+hours. The frontend reads the generated GeoJSON and draws pins only for non-null,
+structurally valid Point geometries.
