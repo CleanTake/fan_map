@@ -71,7 +71,7 @@ function haversineMeters(a: mapboxgl.LngLat, b: number[]) {
   return 6371000 * 2 * Math.atan2(Math.sqrt(value), Math.sqrt(1 - Math.min(1, value)));
 }
 
-export default function CampusMap({ user }: { user: AuthUser | null }) {
+export default function CampusMap({ user, initialFavoriteIds = [] }: { user: AuthUser | null; initialFavoriteIds?: string[] }) {
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<mapboxgl.Map | null>(null);
   const userMarker = useRef<mapboxgl.Marker | null>(null);
@@ -84,6 +84,11 @@ export default function CampusMap({ user }: { user: AuthUser | null }) {
   const [gpsStatus, setGpsStatus] = useState<"ready" | "disabled" | "active">("ready");
   const [mapReady, setMapReady] = useState(false);
   const [mapFailed, setMapFailed] = useState(false);
+  const [favoriteIds, setFavoriteIds] = useState(initialFavoriteIds);
+  const [favoritePendingId, setFavoritePendingId] = useState<string | null>(null);
+  const [favoriteError, setFavoriteError] = useState("");
+  const [favoriteFeedback, setFavoriteFeedback] = useState("");
+  const [favoriteSignInRequired, setFavoriteSignInRequired] = useState(false);
   const campusDate = useSyncExternalStore(subscribeDate, getCampusDate, serverDate);
   const tokenMissing = !process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
   const selectedFeature = locationData?.features.find((feature) => feature.properties.id === selectedId && selectedCategories.includes(feature.properties.category));
@@ -95,6 +100,11 @@ export default function CampusMap({ user }: { user: AuthUser | null }) {
   const awaitingCount = locationData?.features.filter((feature) => !isMappedPoint(feature)).length ?? 0;
   const visibleFeatures = useMemo(() => (locationData?.features ?? []).filter((feature) => selectedCategories.includes(feature.properties.category)), [locationData, selectedCategories]);
   const mappedVisible = useMemo(() => visibleFeatures.filter(isMappedPoint), [visibleFeatures]);
+  const favoriteFeatures = useMemo(() => favoriteIds.flatMap((id) => {
+    const feature = locationData?.features.find((item) => item.properties.id === id);
+    return feature ? [feature] : [];
+  }), [favoriteIds, locationData]);
+  const selectedIsFavorite = selectedId !== null && favoriteIds.includes(selectedId);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -171,6 +181,43 @@ export default function CampusMap({ user }: { user: AuthUser | null }) {
       setLocationChoice("");
     }
   };
+  const selectFavorite = (feature: LocationFeature) => {
+    const { id, name, category } = feature.properties;
+    setSelectedCategories((current) => current.includes(category) ? current : [...current, category]);
+    setSelectedId(id);
+    setLocationChoice(name);
+    if (mapReady && !mapFailed && map.current && isMappedPoint(feature)) {
+      map.current.flyTo({ center: feature.geometry.coordinates as [number, number], zoom: 17 });
+    }
+  };
+  const updateFavorite = async (feature: LocationFeature, save: boolean) => {
+    if (!user || favoritePendingId || favoriteSignInRequired) return;
+    const { id, name } = feature.properties;
+    setFavoritePendingId(id);
+    setFavoriteError("");
+    setFavoriteFeedback("");
+    try {
+      const response = await fetch("/api/favorites", {
+        method: save ? "PUT" : "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ locationId: id }),
+      });
+      const result = await response.json();
+      if (!response.ok) {
+        if (response.status === 401) setFavoriteSignInRequired(true);
+        throw new Error(result.error ?? "Favorites could not be updated. Please try again.");
+      }
+      if (!Array.isArray(result.locationIds) || !result.locationIds.every((item: unknown) => typeof item === "string")) {
+        throw new Error("Favorites could not be updated. Please refresh to try again.");
+      }
+      setFavoriteIds(result.locationIds);
+      setFavoriteFeedback(save ? `${name} saved to favorites.` : `${name} removed from favorites.`);
+    } catch (error) {
+      setFavoriteError(error instanceof Error ? error.message : "We couldn’t connect. Please try again.");
+    } finally {
+      setFavoritePendingId(null);
+    }
+  };
   const showMyLocation = () => {
     if (!navigator.geolocation || document.cookie.split("; ").includes("gps_consent=denied")) { setGpsStatus("disabled"); return; }
     navigator.geolocation.getCurrentPosition((position) => {
@@ -218,6 +265,21 @@ export default function CampusMap({ user }: { user: AuthUser | null }) {
         <datalist id="location-options">
           {visibleFeatures.map((feature) => <option key={feature.properties.id} value={feature.properties.name} />)}
         </datalist>
+        <section className="favorites-section" aria-labelledby="favorites-heading">
+          <h3 id="favorites-heading">Favorites {user && <span className="favorites-count">{favoriteFeatures.length}</span>}</h3>
+          {user ? <>
+            {!locationData && !loadFailed ? <p className="favorites-hint">Loading favorites…</p> : favoriteFeatures.length ? <ul className="favorites-list">
+              {favoriteFeatures.map((feature) => <li key={feature.properties.id}>
+                <button className="favorite-open" type="button" onClick={() => selectFavorite(feature)} aria-label={`View ${feature.properties.name}`} aria-current={selectedId === feature.properties.id ? "true" : undefined}>
+                  <span aria-hidden="true">★</span><span>{feature.properties.name}</span>
+                </button>
+                <button className="favorite-remove" type="button" aria-label={`Remove ${feature.properties.name} from favorites`} title="Remove from favorites" onClick={() => updateFavorite(feature, false)} disabled={favoritePendingId !== null || favoriteSignInRequired}>×</button>
+              </li>)}
+            </ul> : <p className="favorites-hint">{loadFailed ? "Load campus locations to see your favorites." : "No favorites yet. Select a location and save it here."}</p>}
+            {favoriteError && <p className="favorite-error" role="alert">{favoriteError}{favoriteSignInRequired && <> <Link href="/sign-in">Sign in again</Link></>}</p>}
+            <p className="favorite-feedback" role="status">{favoriteFeedback}</p>
+          </> : <p className="favorites-hint"><Link href="/sign-in">Sign in</Link> to save your favorite campus locations.</p>}
+        </section>
       </aside>
       <section className="map-panel" aria-label="Interactive Fanshawe campus map"><div className="map" ref={mapContainer} />
         {tokenMissing && <div className="map-message"><h2>Mapbox token needed</h2><p>Add <code>NEXT_PUBLIC_MAPBOX_TOKEN</code> to <code>frontend/.env.local</code> to load the 3D map.</p></div>}
@@ -226,6 +288,10 @@ export default function CampusMap({ user }: { user: AuthUser | null }) {
       </section>
       <aside className="details-panel" aria-label="Location details" aria-live="polite">
         {selectedFeature && selectedDestination ? <><p className="eyebrow">{selectedGroupsLabel}</p><h2>{selectedDestination.name}</h2><p>{selectedFeature.properties.description}</p>
+          {user ? <button type="button" className={`favorite-toggle${selectedIsFavorite ? " is-saved" : ""}`} aria-pressed={selectedIsFavorite} disabled={favoritePendingId !== null || favoriteSignInRequired} onClick={() => updateFavorite(selectedFeature, !selectedIsFavorite)}>
+            <span aria-hidden="true">{selectedIsFavorite ? "★" : "☆"}</span>
+            {favoritePendingId === selectedId ? selectedIsFavorite ? "Removing…" : "Saving…" : selectedIsFavorite ? "Saved to favorites" : "Save to favorites"}
+          </button> : <Link href="/sign-in" className="favorite-sign-in">☆ Sign in to save this location</Link>}
           <div className="info-row"><span>Campus location</span><strong>{selectedRoom ? `Room ${selectedRoom.code}` : "Room awaiting confirmation"}</strong>{selectedBuildingCode && <p>{catalog.buildingNames[selectedBuildingCode] ?? `${selectedBuildingCode} Building`}{selectedRoom ? ` · Floor ${selectedRoom.floor}` : ""}</p>}</div>
           <div className="info-row"><span>Service status</span><strong>{statusLabel(selectedDestination.status)}</strong></div>
           {!isMappedPoint(selectedFeature) && <div className="info-row"><span>Map position</span><strong>Awaiting confirmation</strong></div>}

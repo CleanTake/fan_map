@@ -63,7 +63,7 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) {
         {error && <p className="auth-error" role="alert">{error}</p>}
         <button className="auth-submit" type="submit" disabled={pending}>{pending ? isSignup ? "Creating account…" : "Signing in…" : isSignup ? "Create account" : "Sign in"}<span aria-hidden="true">→</span></button>
       </form>
-      {isSignup && <p className="auth-note">Saved locations are coming soon. For now, explore the same campus map with your own account.</p>}
+      {isSignup && <p className="auth-note">Save your favorite campus locations and find them again whenever you sign in.</p>}
       <p className="auth-switch">{isSignup ? "Already have an account?" : "New to FanMap?"} <Link href={isSignup ? "/sign-in" : "/sign-up"}>{isSignup ? "Sign in" : "Create an account"}</Link></p>
     </>
   );

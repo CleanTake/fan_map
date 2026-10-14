@@ -2,8 +2,9 @@
 
 The Next.js app includes the campus map and minimal email/password authentication.
 Guests can explore the map immediately. Signing up creates a registered account;
-administrator access is granted separately by a trusted local command. Saving
-locations will be added later.
+administrator access is granted separately by a trusted local command. Registered
+users and administrators can save favorite locations to their account and find
+them again after signing in.
 
 ## Run locally
 
@@ -45,11 +46,13 @@ The command loads development environment files by default; set `NODE_ENV` to
 
 ## Authentication
 
-The schema has two tables:
+The schema has three tables:
 
 - `users`: UUID, unique normalized email, password hash, role (`registered` or
   `admin`), and creation/update timestamps.
 - `sessions`: SHA-256 token digest, user reference, creation time, and expiry.
+- `favorites`: user reference, location ID, and creation time, unique per user and
+  location. Deleting a user also deletes their sessions and favorites.
 
 Guests have no user record or session. Passwords accept 15–128 characters without
 composition rules and are hashed using asynchronous scrypt (`N=32768`, `r=8`,
@@ -84,8 +87,36 @@ across the instance and eight submissions per email per ten minutes, with bounde
 key storage. At most two scrypt jobs run concurrently. For production, run one
 Node server with a persistent writable disk for SQLite, and back up the database.
 Ephemeral or multi-instance hosting requires a shared database and shared rate
-limiter before deployment. Password resets, email verification and saved locations
-are outside this initial implementation.
+limiter before deployment. Password resets and email verification are outside
+this initial implementation.
+
+## Saved locations
+
+Select a location and use its star button to save or remove it. The Favorites
+list in the sidebar opens saved locations and has a remove button for each one.
+Opening a favorite restores its category and recenters the map when coordinates
+are available. Guests can continue exploring the map and are
+invited to sign in or create an account to save locations. Favorites persist in
+the same SQLite database as accounts; existing databases gain the table
+automatically without a separate migration command.
+
+Every favorites endpoint requires a valid session and derives the account from
+its session cookie. Registered users and admins have the same saving behavior.
+PUT and DELETE require same-origin JSON requests containing only `locationId`.
+PUT accepts IDs from `data/launch-locations.geojson`, including entries awaiting
+coordinates. DELETE can also remove obsolete saved IDs after catalog changes.
+Saving or removing the same location twice is harmless.
+
+| Endpoint | Request | Response |
+| --- | --- | --- |
+| `GET /api/favorites` | No body | `{ "locationIds": ["…"] }` |
+| `PUT /api/favorites` | `{ "locationId": "…" }` | `{ "locationIds": ["…"] }` |
+| `DELETE /api/favorites` | `{ "locationId": "…" }` | `{ "locationIds": ["…"] }` |
+
+Responses use `Cache-Control: no-store`. Errors return `{ "error": "message" }`,
+with 401 for guests or expired sessions, 400 for invalid locations, and 403 for
+foreign origins. Mutations are limited to 60 per account per minute in each
+server process; GET requests remain available when this limit is reached.
 
 ## Check and build
 
@@ -96,5 +127,6 @@ npm run build
 npm start
 ```
 
-Auth tests exercise password hashing, persisted SQLite accounts, session expiry
-and revocation, role restrictions, origin/body validation, and rate limits.
+Tests exercise password hashing, persisted SQLite accounts and favorites, session
+expiry and revocation, per-account favorites isolation, role restrictions,
+origin/body validation, rate limits, and automatic favorites-table migration.

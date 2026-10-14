@@ -47,6 +47,12 @@ export class AuthStore {
       ) STRICT;
       CREATE INDEX IF NOT EXISTS sessions_user_id ON sessions(user_id);
       CREATE INDEX IF NOT EXISTS sessions_expires_at ON sessions(expires_at);
+      CREATE TABLE IF NOT EXISTS favorites (
+        user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+        location_id TEXT NOT NULL,
+        created_at INTEGER NOT NULL,
+        PRIMARY KEY (user_id, location_id)
+      ) STRICT;
     `);
   }
 
@@ -97,20 +103,40 @@ export class AuthStore {
     ).run(now, normalizeEmail(email)).changes > 0;
   }
 
+  listFavoriteIds(userId: string): string[] {
+    const rows = this.database.prepare(
+      "SELECT location_id FROM favorites WHERE user_id = ? ORDER BY created_at, location_id",
+    ).all(userId) as { location_id: string }[];
+    return rows.map((row) => row.location_id);
+  }
+
+  addFavorite(userId: string, locationId: string): void {
+    this.database.prepare(
+      "INSERT INTO favorites (user_id, location_id, created_at) VALUES (?, ?, ?) ON CONFLICT (user_id, location_id) DO NOTHING",
+    ).run(userId, locationId, Date.now());
+  }
+
+  removeFavorite(userId: string, locationId: string): void {
+    this.database.prepare("DELETE FROM favorites WHERE user_id = ? AND location_id = ?").run(userId, locationId);
+  }
+
   close(): void {
     this.database.close();
   }
 }
 
 const shared = globalThis as typeof globalThis & {
-  fanmapAuthStore?: { path: string; store: AuthStore };
+  fanmapAuthStore?: { path: string; version: number; store: AuthStore };
 };
+
+// Recreate an older hot-reloaded singleton so it gets the current schema and methods.
+const AUTH_STORE_VERSION = 2;
 
 export function getAuthStore(): AuthStore {
   const path = resolve(/* turbopackIgnore: true */ process.env.FANMAP_AUTH_DB || ".data/auth.sqlite");
-  if (shared.fanmapAuthStore?.path !== path) {
+  if (shared.fanmapAuthStore?.path !== path || shared.fanmapAuthStore.version !== AUTH_STORE_VERSION) {
     shared.fanmapAuthStore?.store.close();
-    shared.fanmapAuthStore = { path, store: new AuthStore(path) };
+    shared.fanmapAuthStore = { path, version: AUTH_STORE_VERSION, store: new AuthStore(path) };
   }
   return shared.fanmapAuthStore.store;
 }
