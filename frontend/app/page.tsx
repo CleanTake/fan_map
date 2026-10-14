@@ -164,6 +164,18 @@ function iconSvg(color: string, symbol: string) {
   return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="54" height="54"><circle cx="27" cy="27" r="24" fill="${color}" stroke="white" stroke-width="4"/><text x="27" y="35" text-anchor="middle" font-family="Arial,sans-serif" font-size="26" font-weight="700" fill="white">${symbol}</text></svg>`)}`;
 }
 
+function createUserLocationMarker() {
+  const element = document.createElement("div");
+  element.setAttribute("role", "img");
+  element.setAttribute("aria-label", "Your location");
+  element.innerHTML = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" aria-hidden="true">
+      <circle cx="18" cy="18" r="16" fill="#4285f4" fill-opacity="0.2"/>
+      <circle cx="18" cy="18" r="8" fill="#4285f4" stroke="white" stroke-width="2.5"/>
+    </svg>`;
+  return new mapboxgl.Marker({ element, anchor: "center" });
+}
+
 function haversineMeters(a: mapboxgl.LngLat, b: number[]) {
   const toRadians = (value: number) => (value * Math.PI) / 180;
   const radius = 6371000;
@@ -181,6 +193,9 @@ export default function Home() {
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<mapboxgl.Map | null>(null);
   const userMarker = useRef<mapboxgl.Marker | null>(null);
+  const locationInterval = useRef<ReturnType<typeof setInterval> | null>(null);
+  const locationRequestInFlight = useRef(false);
+  const hasCenteredOnLocation = useRef(false);
   const [selectedCategories, setSelectedCategories] = useState<Category[]>(
     categories.map(({ id }) => id),
   );
@@ -328,33 +343,60 @@ export default function Home() {
       setGpsStatus("disabled");
       return;
     }
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        const point = new mapboxgl.LngLat(
-          position.coords.longitude,
-          position.coords.latitude,
-        );
-        document.cookie =
-          "gps_consent=granted; max-age=86400; path=/; samesite=lax";
-        setUserPosition(point);
-        setGpsStatus("active");
-        if (map.current) {
-          if (!userMarker.current)
-            userMarker.current = new mapboxgl.Marker({
-              color: "#14213d",
-            }).addTo(map.current);
-          userMarker.current.setLngLat(point);
-          map.current.flyTo({ center: point, zoom: 16.5 });
-        }
-      },
-      () => {
-        document.cookie =
-          "gps_consent=denied; max-age=86400; path=/; samesite=lax";
-        setGpsStatus("disabled");
-      },
-      { enableHighAccuracy: true, timeout: 10000 },
-    );
+
+    if (locationInterval.current !== null) return;
+
+    const updateLocation = () => {
+      if (locationRequestInFlight.current) return;
+      locationRequestInFlight.current = true;
+
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          locationRequestInFlight.current = false;
+          const point = new mapboxgl.LngLat(
+            position.coords.longitude,
+            position.coords.latitude,
+          );
+          document.cookie =
+            "gps_consent=granted; max-age=86400; path=/; samesite=lax";
+          setUserPosition(point);
+          setGpsStatus("active");
+          if (map.current) {
+            if (!userMarker.current) {
+              userMarker.current = createUserLocationMarker();
+            }
+            userMarker.current.setLngLat(point).addTo(map.current);
+            if (!hasCenteredOnLocation.current) {
+              map.current.flyTo({ center: point, zoom: 16.5 });
+              hasCenteredOnLocation.current = true;
+            }
+          }
+        },
+        () => {
+          locationRequestInFlight.current = false;
+          if (locationInterval.current !== null) {
+            clearInterval(locationInterval.current);
+            locationInterval.current = null;
+          }
+          document.cookie =
+            "gps_consent=denied; max-age=86400; path=/; samesite=lax";
+          setGpsStatus("disabled");
+        },
+        { enableHighAccuracy: true, timeout: 1000, maximumAge: 0 },
+      );
+    };
+
+    updateLocation();
+    locationInterval.current = setInterval(updateLocation, 1000);
   };
+
+  useEffect(() => {
+    return () => {
+      if (locationInterval.current !== null) {
+        clearInterval(locationInterval.current);
+      }
+    };
+  }, []);
 
   const stopRoutes = selectedLocation?.properties.stop
     ? routes.filter((route) => route.stop === selectedLocation.properties.stop)
