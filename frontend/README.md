@@ -1,36 +1,100 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FanMap frontend
 
-## Getting Started
+The Next.js app includes the campus map and minimal email/password authentication.
+Guests can explore the map immediately. Signing up creates a registered account;
+administrator access is granted separately by a trusted local command. Saving
+locations will be added later.
 
-First, run the development server:
+## Run locally
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Use **Node.js 24 or later**; authentication uses Node's built-in SQLite module.
+
+```sh
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Copy `.env.example` to `.env.local`, add your Mapbox access token, then run:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```sh
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open `http://localhost:3000`. Account pages are `/sign-up`, `/sign-in` and
+`/sign-out`. Registration signs the user in immediately. Sign-out returns them to
+guest access.
 
-## Learn More
+The database is created automatically at `.data/auth.sqlite`. No separate database
+server, migration command, secret signing key or seed password is required. The
+database and its journal files are ignored by Git. `FANMAP_AUTH_DB` can select
+another file; relative paths resolve from the frontend working directory. The
+server and admin command both load the Next.js environment files.
 
-To learn more about Next.js, take a look at the following resources:
+## Create an administrator
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+First create a regular account through `/sign-up`. From this directory, run:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```sh
+npm run auth:admin -- account@example.com
+```
 
-## Deploy on Vercel
+This promotes that existing account in the configured database. There are no
+default administrators, public role-selection fields or hardcoded passwords.
+Existing sessions read the current role from the database on every request.
+The command loads development environment files by default; set `NODE_ENV` to
+`production` when promoting an account in a production configuration.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Authentication
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The schema has two tables:
+
+- `users`: UUID, unique normalized email, password hash, role (`registered` or
+  `admin`), and creation/update timestamps.
+- `sessions`: SHA-256 token digest, user reference, creation time, and expiry.
+
+Guests have no user record or session. Passwords accept 15–128 characters without
+composition rules and are hashed using asynchronous scrypt (`N=32768`, `r=8`,
+`p=3`), a random 16-byte salt, and timing-safe verification. The stored format
+includes its version and parameters. Raw passwords and session tokens are never
+stored in the database.
+
+Sessions use random 32-byte opaque tokens and expire after seven days. Cookies are
+`HttpOnly`, `SameSite=Lax`, and `Secure` in production. Signing in rotates the
+current browser session; signing out revokes it in the database and clears the
+cookie. All auth responses use `Cache-Control: no-store`.
+
+The API accepts JSON and requires same-origin POST requests. Browser fetch
+metadata is also checked when supplied. If hosting behind a reverse proxy, set
+`FANMAP_AUTH_ORIGIN` to the public origin, for example
+`https://fanmap.example.com`, and serve production over HTTPS.
+
+| Endpoint | Request | Response |
+| --- | --- | --- |
+| `POST /api/auth/signup` | `{ "email": "…", "password": "…" }` | `{ "user": { "id", "email", "role" } }`, status 201 |
+| `POST /api/auth/login` | `{ "email": "…", "password": "…" }` | `{ "user": { "id", "email", "role" } }` |
+| `POST /api/auth/logout` | No body required | `{ "ok": true }` |
+| `GET /api/auth/session` | No body | `{ "user": { "id", "email", "role" } }` or `{ "user": null }` |
+
+Errors return `{ "error": "message" }` and a corresponding non-2xx status.
+Server Components can call `getCurrentUser()` from `lib/auth/server.ts` to obtain
+`Promise<AuthUser | null>`; client-safe types are in `lib/auth/types.ts`. Protected
+server operations must check the current user and role themselves.
+
+Rate limiting is intentionally simple and per process: 60 submissions per minute
+across the instance and eight submissions per email per ten minutes, with bounded
+key storage. At most two scrypt jobs run concurrently. For production, run one
+Node server with a persistent writable disk for SQLite, and back up the database.
+Ephemeral or multi-instance hosting requires a shared database and shared rate
+limiter before deployment. Password resets, email verification and saved locations
+are outside this initial implementation.
+
+## Check and build
+
+```sh
+npm run test:auth
+npm run lint
+npm run build
+npm start
+```
+
+Auth tests exercise password hashing, persisted SQLite accounts, session expiry
+and revocation, role restrictions, origin/body validation, and rate limits.

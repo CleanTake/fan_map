@@ -6,7 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test:auth": "node --test tests/*.test.ts",
+    "auth:admin": "node scripts/promote-admin.ts"
+  },
+  "engines": {
+    "node": ">=24"
   },
   "dependencies": {
     "mapbox-gl": "^3.31.0",
@@ -17,7 +22,7 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/geojson": "^7946.0.16",
-    "@types/node": "^20",
+    "@types/node": "^24.19.2",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
