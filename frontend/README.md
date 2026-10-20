@@ -16,6 +16,18 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Admin map editing
+
+Set an admin key in the local environment before starting the app:
+
+```bash
+ADMIN_API_KEY=use-a-long-random-secret
+```
+
+For local development, put that setting in `frontend/.env.local`. Select **Admin**, enter the key, then click a spot on the map to add a place. New places are saved in `data/places.json`.
+
+The JSON file store is intended for local development or a single persistent Node.js server. Serverless deployments need a persistent database in place of the local JSON repository.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.

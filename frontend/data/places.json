@@ -1,0 +1,18 @@
+[
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-347f5800-cab1-4db9-9a03-3241bf4754d1",
+      "name": "hello there buddy",
+      "category": "room",
+      "description": "wo hoo"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19974304802066,
+        43.01357823529162
+      ]
+    }
+  }
+]
