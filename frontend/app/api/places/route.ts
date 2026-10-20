@@ -1,5 +1,10 @@
 import { isValidAdminKey } from "@/lib/admin-auth";
-import { readPlaces, savePlace } from "@/lib/places-repository";
+import {
+  deletePlace,
+  readDeletedPlaceIds,
+  readPlaces,
+  savePlace,
+} from "@/lib/places-repository";
 import type { Category, PlaceInput } from "@/lib/place-types";
 
 const categories: Category[] = [
@@ -15,7 +20,11 @@ const categories: Category[] = [
 
 export async function GET() {
   try {
-    return Response.json(await readPlaces());
+    const [places, deletedIds] = await Promise.all([
+      readPlaces(),
+      readDeletedPlaceIds(),
+    ]);
+    return Response.json({ places, deletedIds });
   } catch {
     return Response.json({ error: "Could not load places." }, { status: 500 });
   }
@@ -61,5 +70,27 @@ export async function POST(request: Request) {
     return Response.json(place, { status: 201 });
   } catch {
     return Response.json({ error: "Could not save this place." }, { status: 500 });
+  }
+}
+
+export async function DELETE(request: Request) {
+  const key = request.headers.get("authorization")?.replace(/^Bearer\s+/i, "");
+  if (!isValidAdminKey(key)) {
+    return Response.json({ error: "Admin access required." }, { status: 401 });
+  }
+
+  const id = new URL(request.url).searchParams.get("id");
+  if (!id || !/^[a-z0-9-]{1,100}$/i.test(id)) {
+    return Response.json({ error: "Invalid place ID." }, { status: 400 });
+  }
+
+  try {
+    const removed = await deletePlace(id);
+    if (!removed) {
+      return Response.json({ error: "Place not found." }, { status: 404 });
+    }
+    return new Response(null, { status: 204 });
+  } catch {
+    return Response.json({ error: "Could not delete this place." }, { status: 500 });
   }
 }

@@ -76,6 +76,11 @@ legend { padding: 0 0 10px; font-size: .72rem; letter-spacing: .08em; color: var
 .form-field textarea { resize: vertical; }
 .coordinate-note { margin: 0; color: var(--muted); font-size: .78rem; }
 .form-error { margin: 10px 0; color: #d92d20; font-size: .82rem; }
+.delete-place-button { border: 1px solid var(--accent); border-radius: 7px; padding: 10px 14px; color: var(--on-accent); background: var(--accent); font-size: .84rem; font-weight: 700; cursor: pointer; }
+.delete-place-button:hover { background: var(--accent-hover); }
+.delete-place-button:disabled { opacity: .65; cursor: default; }
+.details-delete-button { width: 100%; margin-top: 18px; }
+.delete-actions { display: flex; justify-content: flex-end; gap: 9px; margin-top: 20px; }
 .details-panel { overflow-y: auto; }
 .details-panel h2 { margin-bottom: 7px; }
 .info-row { margin-top: 17px; border-top: 1px solid var(--line); padding-top: 13px; }

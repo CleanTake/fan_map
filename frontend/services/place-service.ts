@@ -1,6 +1,9 @@
 import type { LocationFeature, PlaceInput } from "@/lib/place-types";
 
-export async function fetchPlaces(): Promise<LocationFeature[]> {
+export async function fetchPlaces(): Promise<{
+  places: LocationFeature[];
+  deletedIds: string[];
+}> {
   const response = await fetch("/api/places");
   if (!response.ok) throw new Error("Could not load saved places.");
   return response.json();
@@ -34,4 +37,17 @@ export async function createPlace(
     throw new Error(body?.error ?? "Could not save this place.");
   }
   return response.json();
+}
+
+export async function deletePlace(key: string, id: string): Promise<void> {
+  const response = await fetch(`/api/places?id=${encodeURIComponent(id)}`, {
+    method: "DELETE",
+    headers: { Authorization: `Bearer ${key}` },
+  });
+  if (!response.ok) {
+    const body = (await response.json().catch(() => null)) as
+      | { error?: string }
+      | null;
+    throw new Error(body?.error ?? "Could not delete this place.");
+  }
 }

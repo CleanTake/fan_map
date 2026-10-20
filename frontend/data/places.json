@@ -2,6 +2,333 @@
   {
     "type": "Feature",
     "properties": {
+      "id": "f-building",
+      "name": "F Building",
+      "category": "building",
+      "description": "Main academic building.",
+      "availability": "Study rooms available in the building."
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.1994,
+        43.013
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "main-entrance",
+      "name": "Main Entrance",
+      "category": "entrance",
+      "description": "Primary entrance to F Building."
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19891,
+        43.01281
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "study-27743",
+      "name": "Study Room 27743",
+      "category": "room",
+      "description": "Bookable study room in F Building.",
+      "availability": "Check the booking calendar for availability.",
+      "studyId": "27743"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19917,
+        43.01319
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "room-f2059",
+      "name": "F2059",
+      "category": "room",
+      "description": "Room F2059."
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.199807,
+        43.0135252
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "room-f2057",
+      "name": "F2057",
+      "category": "room",
+      "description": "Room F2057."
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.199802,
+        43.013533
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "room-f2055",
+      "name": "F2055",
+      "category": "room",
+      "description": "Room F2055."
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.199802,
+        43.013533
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "room-f2049",
+      "name": "F2049",
+      "category": "room",
+      "description": "Room F2049."
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.1996622,
+        43.0136105
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "room-f2047",
+      "name": "F2047",
+      "category": "room",
+      "description": "Room F2047."
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.1996659,
+        43.013611
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "room-f2045",
+      "name": "F2045",
+      "category": "room",
+      "description": "Room F2045."
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.1996659,
+        43.0136076
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "room-f2039",
+      "name": "F2039",
+      "category": "room",
+      "description": "Room F2039."
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.1996699,
+        43.0136083
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "room-f2041",
+      "name": "F2041",
+      "category": "room",
+      "description": "Room F2041."
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.1995522,
+        43.0136375
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "room-f2034",
+      "name": "F2034",
+      "category": "room",
+      "description": "Room F2034."
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.1996561,
+        43.0136127
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "room-f2036",
+      "name": "F2036",
+      "category": "room",
+      "description": "Room F2036."
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.1996695,
+        43.0136108
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "room-f2038",
+      "name": "F2038",
+      "category": "room",
+      "description": "Room F2038."
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.1996752,
+        43.01361
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "lot-5",
+      "name": "Parking Lot 5",
+      "category": "parking",
+      "description": "Visitor and student parking area."
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20106,
+        43.01277
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "cafeteria",
+      "name": "Campus Cafeteria",
+      "category": "food",
+      "description": "Food and beverage service.",
+      "hours": "Mon–Fri: 7:30 AM–4:00 PM"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19874,
+        43.01335
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "bookstore",
+      "name": "Campus Store",
+      "category": "retail",
+      "description": "Books, supplies, and Fanshawe merchandise.",
+      "hours": "Mon–Fri: 9:00 AM–4:00 PM"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19976,
+        43.01345
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "student-services",
+      "name": "Student Services",
+      "category": "service",
+      "description": "Student support and campus services."
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19993,
+        43.01259
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "north-stop",
+      "name": "Fanshawe College Main Entrance",
+      "category": "bus",
+      "description": "Bus stop at the main entrance.",
+      "stop": "Fanshawe College Main Entrance"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19854,
+        43.01262
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "south-stop",
+      "name": "Fanshawe College South Stop",
+      "category": "bus",
+      "description": "Bus stop on the south side of campus.",
+      "stop": "Fanshawe College South Stop"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20012,
+        43.01196
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
       "id": "place-347f5800-cab1-4db9-9a03-3241bf4754d1",
       "name": "hello there buddy",
       "category": "room",
@@ -12,6 +339,38 @@
       "coordinates": [
         -81.19974304802066,
         43.01357823529162
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-e8898574-a6d1-4bb6-867d-e282af1b171a",
+      "name": "F2089",
+      "category": "room",
+      "description": "Study room"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20001343500986,
+        43.01356839132339
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-266ed846-6ce0-4072-942f-4cf287a6ef8a",
+      "name": "F2057",
+      "category": "room",
+      "description": "Study room"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20004479326059,
+        43.013624560317396
       ]
     }
   }

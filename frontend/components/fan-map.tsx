@@ -4,9 +4,9 @@ import mapboxgl from "mapbox-gl";
 import { Moon, Sun } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import type { FormEvent } from "react";
-import type { Category, FeatureProperties, LocationFeature } from "@/lib/place-types";
+import type { Category, LocationFeature } from "@/lib/place-types";
 import { haversineMeters, iconSvg, roomIconSvg } from "@/lib/map-utils";
-import { createPlace, fetchPlaces, verifyAdminKey } from "@/services/place-service";
+import { createPlace, deletePlace, fetchPlaces, verifyAdminKey } from "@/services/place-service";
 
 type Route = {
   route: string;
@@ -37,167 +37,6 @@ const categoryColors: Record<Category, string> = {
   bus: "#227660",
 };
 
-const locationData: GeoJSON.FeatureCollection<
-  GeoJSON.Point,
-  FeatureProperties
-> = {
-  type: "FeatureCollection",
-  features: [
-    {
-      type: "Feature",
-      properties: {
-        id: "f-building",
-        category: "building",
-        name: "F Building",
-        description: "Main academic building.",
-        availability: "Study rooms available in the building.",
-      },
-      geometry: { type: "Point", coordinates: [-81.1994, 43.013] },
-    },
-    {
-      type: "Feature",
-      properties: {
-        id: "main-entrance",
-        category: "entrance",
-        name: "Main Entrance",
-        description: "Primary entrance to F Building.",
-      },
-      geometry: { type: "Point", coordinates: [-81.19891, 43.01281] },
-    },
-    {
-      type: "Feature",
-      properties: {
-        id: "study-27743",
-        category: "room",
-        name: "Study Room 27743",
-        description: "Bookable study room in F Building.",
-        availability: "Check the booking calendar for availability.",
-        studyId: "27743",
-      },
-      geometry: { type: "Point", coordinates: [-81.19917, 43.01319] },
-    },
-    {
-      type: "Feature",
-      properties: { id: "room-f2059", category: "room", name: "F2059", description: "Room F2059." },
-      geometry: { type: "Point", coordinates: [-81.199807, 43.0135252] },
-    },
-    {
-      type: "Feature",
-      properties: { id: "room-f2057", category: "room", name: "F2057", description: "Room F2057." },
-      geometry: { type: "Point", coordinates: [-81.199802, 43.013533] },
-    },
-    {
-      type: "Feature",
-      properties: { id: "room-f2055", category: "room", name: "F2055", description: "Room F2055." },
-      geometry: { type: "Point", coordinates: [-81.199802, 43.013533] },
-    },
-    {
-      type: "Feature",
-      properties: { id: "room-f2049", category: "room", name: "F2049", description: "Room F2049." },
-      geometry: { type: "Point", coordinates: [-81.1996622, 43.0136105] },
-    },
-    {
-      type: "Feature",
-      properties: { id: "room-f2047", category: "room", name: "F2047", description: "Room F2047." },
-      geometry: { type: "Point", coordinates: [-81.1996659, 43.013611] },
-    },
-    {
-      type: "Feature",
-      properties: { id: "room-f2045", category: "room", name: "F2045", description: "Room F2045." },
-      geometry: { type: "Point", coordinates: [-81.1996659, 43.0136076] },
-    },
-    {
-      type: "Feature",
-      properties: { id: "room-f2039", category: "room", name: "F2039", description: "Room F2039." },
-      geometry: { type: "Point", coordinates: [-81.1996699, 43.0136083] },
-    },
-    {
-      type: "Feature",
-      properties: { id: "room-f2041", category: "room", name: "F2041", description: "Room F2041." },
-      geometry: { type: "Point", coordinates: [-81.1995522, 43.0136375] },
-    },
-    {
-      type: "Feature",
-      properties: { id: "room-f2034", category: "room", name: "F2034", description: "Room F2034." },
-      geometry: { type: "Point", coordinates: [-81.1996561, 43.0136127] },
-    },
-    {
-      type: "Feature",
-      properties: { id: "room-f2036", category: "room", name: "F2036", description: "Room F2036." },
-      geometry: { type: "Point", coordinates: [-81.1996695, 43.0136108] },
-    },
-    {
-      type: "Feature",
-      properties: { id: "room-f2038", category: "room", name: "F2038", description: "Room F2038." },
-      geometry: { type: "Point", coordinates: [-81.1996752, 43.01361] },
-    },
-    {
-      type: "Feature",
-      properties: {
-        id: "lot-5",
-        category: "parking",
-        name: "Parking Lot 5",
-        description: "Visitor and student parking area.",
-      },
-      geometry: { type: "Point", coordinates: [-81.20106, 43.01277] },
-    },
-    {
-      type: "Feature",
-      properties: {
-        id: "cafeteria",
-        category: "food",
-        name: "Campus Cafeteria",
-        description: "Food and beverage service.",
-        hours: "Mon–Fri: 7:30 AM–4:00 PM",
-      },
-      geometry: { type: "Point", coordinates: [-81.19874, 43.01335] },
-    },
-    {
-      type: "Feature",
-      properties: {
-        id: "bookstore",
-        category: "retail",
-        name: "Campus Store",
-        description: "Books, supplies, and Fanshawe merchandise.",
-        hours: "Mon–Fri: 9:00 AM–4:00 PM",
-      },
-      geometry: { type: "Point", coordinates: [-81.19976, 43.01345] },
-    },
-    {
-      type: "Feature",
-      properties: {
-        id: "student-services",
-        category: "service",
-        name: "Student Services",
-        description: "Student support and campus services.",
-      },
-      geometry: { type: "Point", coordinates: [-81.19993, 43.01259] },
-    },
-    {
-      type: "Feature",
-      properties: {
-        id: "north-stop",
-        category: "bus",
-        name: "Fanshawe College Main Entrance",
-        description: "Bus stop at the main entrance.",
-        stop: "Fanshawe College Main Entrance",
-      },
-      geometry: { type: "Point", coordinates: [-81.19854, 43.01262] },
-    },
-    {
-      type: "Feature",
-      properties: {
-        id: "south-stop",
-        category: "bus",
-        name: "Fanshawe College South Stop",
-        description: "Bus stop on the south side of campus.",
-        stop: "Fanshawe College South Stop",
-      },
-      geometry: { type: "Point", coordinates: [-81.20012, 43.01196] },
-    },
-  ],
-};
-
 function createUserLocationMarker() {
   const element = document.createElement("div");
   element.setAttribute("role", "img");
@@ -222,7 +61,8 @@ export default function Home() {
   );
   const [selectedLocation, setSelectedLocation] =
     useState<LocationFeature | null>(null);
-  const [addedPlaces, setAddedPlaces] = useState<LocationFeature[]>([]);
+  const [places, setPlaces] = useState<LocationFeature[]>([]);
+  const [deletedPlaceIds, setDeletedPlaceIds] = useState<string[]>([]);
   const [adminKey, setAdminKey] = useState("");
   const [theme, setTheme] = useState<"light" | "dark">("light");
   const [adminUnlocked, setAdminUnlocked] = useState(false);
@@ -234,6 +74,9 @@ export default function Home() {
   const [placeDescription, setPlaceDescription] = useState("");
   const [savingPlace, setSavingPlace] = useState(false);
   const [placeError, setPlaceError] = useState("");
+  const [placeToDelete, setPlaceToDelete] = useState<LocationFeature | null>(null);
+  const [deleteError, setDeleteError] = useState("");
+  const [deletingPlace, setDeletingPlace] = useState(false);
   const [mapError, setMapError] = useState("");
   const [routes, setRoutes] = useState<Route[]>([]);
   const [userPosition, setUserPosition] = useState<mapboxgl.LngLat | null>(
@@ -243,7 +86,8 @@ export default function Home() {
     "ready",
   );
   const adminUnlockedRef = useRef(false);
-  const addedPlacesRef = useRef(addedPlaces);
+  const placesRef = useRef(places);
+  const deletedPlaceIdsRef = useRef(deletedPlaceIds);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("fanmap-theme");
@@ -264,7 +108,15 @@ export default function Home() {
   }, [adminUnlocked]);
 
   useEffect(() => {
-    fetchPlaces().then(setAddedPlaces).catch(() => setAddedPlaces([]));
+    fetchPlaces()
+      .then(({ places, deletedIds }) => {
+        setPlaces(places);
+        setDeletedPlaceIds(deletedIds);
+      })
+      .catch(() => {
+        setPlaces([]);
+        setDeletedPlaceIds([]);
+      });
   }, []);
 
   useEffect(() => {
@@ -315,8 +167,11 @@ export default function Home() {
       instance.addSource("locations", {
         type: "geojson",
         data: {
-          ...locationData,
-          features: [...locationData.features, ...addedPlacesRef.current],
+          type: "FeatureCollection",
+          features: placesRef.current.filter(
+            (feature) =>
+              !deletedPlaceIdsRef.current.includes(feature.properties.id),
+          ),
         },
       });
       instance.addLayer({
@@ -377,17 +232,20 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    addedPlacesRef.current = addedPlaces;
+    placesRef.current = places;
+    deletedPlaceIdsRef.current = deletedPlaceIds;
     const source = map.current?.getSource("locations") as
       | mapboxgl.GeoJSONSource
       | undefined;
     if (source) {
       source.setData({
-        ...locationData,
-        features: [...locationData.features, ...addedPlaces],
+        type: "FeatureCollection",
+        features: places.filter(
+          (feature) => !deletedPlaceIds.includes(feature.properties.id),
+        ),
       });
     }
-  }, [addedPlaces]);
+  }, [places, deletedPlaceIds]);
 
   useEffect(() => {
     const instance = map.current;
@@ -478,13 +336,44 @@ export default function Home() {
         description: placeDescription,
         coordinates: draftCoordinates,
       });
-      setAddedPlaces((current) => [...current, place]);
+      setPlaces((current) => [...current, place]);
       setSelectedLocation(place);
       setDraftCoordinates(null);
     } catch (error) {
       setPlaceError(error instanceof Error ? error.message : "Could not save place.");
     } finally {
       setSavingPlace(false);
+    }
+  };
+
+  const confirmDeletePlace = async () => {
+    if (!placeToDelete) return;
+    setDeletingPlace(true);
+    setDeleteError("");
+    try {
+      await deletePlace(adminKey, placeToDelete.properties.id);
+      if (placeToDelete.properties.id.startsWith("place-")) {
+        setPlaces((current) =>
+          current.filter(
+            (place) => place.properties.id !== placeToDelete.properties.id,
+          ),
+        );
+      } else {
+        setDeletedPlaceIds((current) => [
+          ...current,
+          placeToDelete.properties.id,
+        ]);
+      }
+      if (selectedLocation?.properties.id === placeToDelete.properties.id) {
+        setSelectedLocation(null);
+      }
+      setPlaceToDelete(null);
+    } catch (error) {
+      setDeleteError(
+        error instanceof Error ? error.message : "Could not delete this place.",
+      );
+    } finally {
+      setDeletingPlace(false);
     }
   };
 
@@ -723,6 +612,43 @@ export default function Home() {
               </form>
             </div>
           )}
+          {placeToDelete && (
+            <div className="map-modal-backdrop">
+              <section
+                className="map-modal"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="delete-place-title"
+              >
+                <p className="eyebrow">REMOVE MAP PLACE</p>
+                <h2 id="delete-place-title">
+                  Delete {placeToDelete.properties.name}?
+                </h2>
+                <p className="sidebar-intro">
+                  This removes the place from the map and saved place list.
+                </p>
+                {deleteError && <p className="form-error">{deleteError}</p>}
+                <div className="delete-actions">
+                  <button
+                    className="admin-button"
+                    type="button"
+                    onClick={() => setPlaceToDelete(null)}
+                    disabled={deletingPlace}
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    className="delete-place-button"
+                    type="button"
+                    onClick={confirmDeletePlace}
+                    disabled={deletingPlace}
+                  >
+                    {deletingPlace ? "Deleting…" : "Delete place"}
+                  </button>
+                </div>
+              </section>
+            </div>
+          )}
           {tokenMissing && (
             <div className="map-message">
               <h2>Mapbox token needed</h2>
@@ -779,6 +705,18 @@ export default function Home() {
                   Book this study room
                 </a>
               )}
+              {adminUnlocked && (
+                  <button
+                    className="delete-place-button details-delete-button"
+                    type="button"
+                    onClick={() => {
+                      setDeleteError("");
+                      setPlaceToDelete(selectedLocation);
+                    }}
+                  >
+                    Delete this place
+                  </button>
+                )}
               {stopRoutes.length > 0 && (
                 <div className="bus-details">
                   <h3>Upcoming buses</h3>

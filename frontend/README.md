@@ -24,7 +24,7 @@ Set an admin key in the local environment before starting the app:
 ADMIN_API_KEY=use-a-long-random-secret
 ```
 
-For local development, put that setting in `frontend/.env.local`. Select **Admin**, enter the key, then click a spot on the map to add a place. New places are saved in `data/places.json`.
+For local development, put that setting in `frontend/.env.local`. Select **Admin** and enter the key. Click a spot on the map to add a place. Select a place and use **Delete this place** to remove it. The built-in campus locations and admin-created places are all stored together in `data/places.json`.
 
 The JSON file store is intended for local development or a single persistent Node.js server. Serverless deployments need a persistent database in place of the local JSON repository.
 
