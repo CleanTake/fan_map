@@ -1,13 +1,9 @@
-import { readFile } from "node:fs/promises";
-import { resolve } from "node:path";
+import { readPlaceState } from "../places-repository.ts";
+import type { PlaceFiles } from "../places-repository.ts";
 
-export async function getLaunchLocationIds(): Promise<ReadonlySet<string>> {
-  const path = resolve(process.cwd(), "..", "data", "launch-locations.geojson");
-  const collection = JSON.parse(await readFile(path, "utf8")) as {
-    features: { properties?: { id?: unknown } }[];
-  };
-  // Save any catalog location, including entries whose coordinates are pending.
-  return new Set(collection.features.flatMap((feature) =>
-    typeof feature.properties?.id === "string" ? [feature.properties.id] : [],
-  ));
+export async function getLaunchLocationIds(files?: PlaceFiles): Promise<ReadonlySet<string>> {
+  // Favorites use the same active catalog and stored places as the map,
+  // including curated entries whose coordinates are still pending.
+  const { places } = await readPlaceState(files);
+  return new Set(places.map((place) => place.properties.id));
 }

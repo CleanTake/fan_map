@@ -1,6 +1,7 @@
 # FanMap frontend
 
-The Next.js app includes the campus map and minimal email/password authentication.
+The Next.js app includes the campus map, light/dark themes, admin map editing,
+and minimal email/password authentication.
 Guests can explore the map immediately. Signing up creates a registered account;
 administrator access is granted separately by a trusted local command. Registered
 users and administrators can save favorite locations to their account and find
@@ -43,6 +44,34 @@ default administrators, public role-selection fields or hardcoded passwords.
 Existing sessions read the current role from the database on every request.
 The command loads development environment files by default; set `NODE_ENV` to
 `production` when promoting an account in a production configuration.
+
+## Admin map editing
+
+Set a long, random `ADMIN_API_KEY` in `frontend/.env.local` before starting the
+app. Select **Admin** and enter that key. Click an empty spot on the map to add
+a place. Select a place and choose **Delete this place** to remove it.
+
+Map-editing key access and account roles are independent. Promoting an account
+with `auth:admin` does not configure the map key, and possessing the map key
+does not grant an account an administrator role.
+
+The map combines two existing data sources through `GET /api/places`:
+
+- The file-backed store at `frontend/data/places.json`, including the existing
+  main-branch places and admin-created places. Deletions are persisted in
+  `frontend/data/deleted-place-ids.json` when needed.
+- The curated launch selection generated at `data/launch-locations.geojson`
+  in the repository root. `GET /api/locations` remains a curated-only export.
+
+Existing stored coordinates are preserved. Curated locations with unknown
+positions keep `geometry: null`; they remain selectable for details and favorites
+without creating map pins or distance lines. The merge does not add, remove,
+geocode or estimate location coordinates. Regenerate the curated export after
+editing its catalog; see `../data/README.md` for that workflow.
+
+The JSON store is intended for local development or a single persistent Node.js
+server. Serverless deployments require a persistent database instead of the local
+JSON repository, alongside persistent storage for accounts and favorites.
 
 ## Authentication
 
@@ -103,8 +132,9 @@ automatically without a separate migration command.
 Every favorites endpoint requires a valid session and derives the account from
 its session cookie. Registered users and admins have the same saving behavior.
 PUT and DELETE require same-origin JSON requests containing only `locationId`.
-PUT accepts IDs from `data/launch-locations.geojson`, including entries awaiting
-coordinates. DELETE can also remove obsolete saved IDs after catalog changes.
+PUT accepts active IDs from the combined map data, including curated entries
+awaiting coordinates and places in the file-backed store. Deleted locations are
+excluded. DELETE can also remove obsolete saved IDs after catalog changes.
 Saving or removing the same location twice is harmless.
 
 | Endpoint | Request | Response |
