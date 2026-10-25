@@ -40,33 +40,60 @@ npm run auth:admin -- account@example.com
 ```
 
 This promotes that existing account in the configured database. There are no
-default administrators, public role-selection fields or hardcoded passwords.
+automatically created administrators, public role-selection fields or hardcoded passwords.
 Existing sessions read the current role from the database on every request.
 The command loads development environment files by default; set `NODE_ENV` to
 `production` when promoting an account in a production configuration.
 
+For a local administrator with a username, set a password through the environment
+and run the local setup command (PowerShell):
+
+```powershell
+$env:FANMAP_ADMIN_PASSWORD = 'your-local-test-password'
+npm run auth:local-admin -- admin
+Remove-Item Env:FANMAP_ADMIN_PASSWORD
+```
+
+This creates username `admin` in the configured SQLite database with a scrypt
+password hash and an internal `admin@fanmap.local` email. Running it again resets
+that username's password and revokes its existing sessions. The command refuses
+production mode and never runs automatically. Sign in through `/sign-in` using
+the username and chosen password. Existing email sign-ins continue to work.
+
 ## Admin map editing
 
-Set a long, random `ADMIN_API_KEY` in `frontend/.env.local` before starting the
-app. Select **Admin** and enter that key. Click an empty spot on the map to add
-a place. Select a place and choose **Delete this place** to remove it.
+Sign in to an administrator account, then select **Admin** to enable map editing.
+Click an empty spot on the map to add a place. Click an existing map pin (or select
+any location from the list) and choose **Edit this place** or **Delete this place**.
+Edits can change its name, type, description, latitude and longitude. Locations
+awaiting map positions can keep both coordinates empty. Deletion asks for
+confirmation before saving. Changes persist after a page refresh.
 
-Map-editing key access and account roles are independent. Promoting an account
-with `auth:admin` does not configure the map key, and possessing the map key
-does not grant an account an administrator role.
+Guests and registered users can explore and save favorites as before, but cannot
+edit the map. Every add, update and delete request checks the current session and
+administrator role in the database and requires the app's own origin. The old
+`ADMIN_API_KEY` is no longer used. Signing out or revoking the admin role immediately
+removes API access, including for already open browser tabs.
+
+`POST /api/places` adds a place, `PATCH /api/places?id=...` updates one, and
+`DELETE /api/places?id=...` removes one. Add/update bodies contain `name`, `category`,
+`description` and `coordinates` (`[longitude, latitude]`; `null` is allowed for updates).
+Unknown or deleted IDs return 404; guests receive 401 and non-admin accounts 403.
 
 The map combines two existing data sources through `GET /api/places`:
 
 - The file-backed store at `frontend/data/places.json`, including the existing
   main-branch places and admin-created places. Deletions are persisted in
-  `frontend/data/deleted-place-ids.json` when needed.
+  `frontend/data/deleted-place-ids.json` when needed. Explicit admin edits are
+  persisted in `frontend/data/place-overrides.json`, preserving location IDs,
+  favorites, and additional catalog metadata without rewriting the source catalog.
 - The curated launch selection generated at `data/launch-locations.geojson`
   in the repository root. `GET /api/locations` remains a curated-only export.
 
-Existing stored coordinates are preserved. Curated locations with unknown
+Existing stored coordinates are preserved unless an administrator edits them. Curated locations with unknown
 positions keep `geometry: null`; they remain selectable for details and favorites
-without creating map pins or distance lines. The merge does not add, remove,
-geocode or estimate location coordinates. Regenerate the curated export after
+without creating map pins or distance lines. The merge does not geocode or estimate
+location coordinates. Regenerate the curated export after
 editing its catalog; see `../data/README.md` for that workflow.
 
 The JSON store is intended for local development or a single persistent Node.js
@@ -77,17 +104,20 @@ JSON repository, alongside persistent storage for accounts and favorites.
 
 The schema has three tables:
 
-- `users`: UUID, unique normalized email, password hash, role (`registered` or
+- `users`: UUID, unique normalized email, optional unique username, password hash, role (`registered` or
   `admin`), and creation/update timestamps.
 - `sessions`: SHA-256 token digest, user reference, creation time, and expiry.
 - `favorites`: user reference, location ID, and creation time, unique per user and
   location. Deleting a user also deletes their sessions and favorites.
 
-Guests have no user record or session. Passwords accept 15–128 characters without
+Guests have no user record or session. Public signup passwords accept 15–128 characters without
 composition rules and are hashed using asynchronous scrypt (`N=32768`, `r=8`,
 `p=3`), a random 16-byte salt, and timing-safe verification. The stored format
 includes its version and parameters. Raw passwords and session tokens are never
-stored in the database.
+stored in the database. Sign-in accepts the password already assigned to an
+account, including shorter local test passwords. Public signup cannot assign a
+username or administrator role. Existing databases gain the optional username
+column automatically while preserving accounts, sessions and favorites.
 
 Sessions use random 32-byte opaque tokens and expire after seven days. Cookies are
 `HttpOnly`, `SameSite=Lax`, and `Secure` in production. Signing in rotates the

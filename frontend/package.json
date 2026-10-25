@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "test:auth": "node --test tests/*.test.ts",
-    "auth:admin": "node scripts/promote-admin.ts"
+    "auth:admin": "node scripts/promote-admin.ts",
+    "auth:local-admin": "node scripts/setup-local-admin.ts"
   },
   "engines": {
     "node": ">=24"

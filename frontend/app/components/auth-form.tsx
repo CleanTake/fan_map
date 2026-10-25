@@ -49,8 +49,8 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) {
       </div>
       <form className="auth-form" onSubmit={submit} aria-busy={pending}>
         <div className="auth-field">
-          <label htmlFor="email">Email address</label>
-          <input id="email" name="email" type="email" autoComplete="email" placeholder="you@example.com" maxLength={254} required disabled={pending} />
+          <label htmlFor="email">{isSignup ? "Email address" : "Email or username"}</label>
+          <input id="email" name="email" type={isSignup ? "email" : "text"} autoComplete={isSignup ? "email" : "username"} placeholder={isSignup ? "you@example.com" : "Email address or username"} autoCapitalize="none" maxLength={254} required disabled={pending} />
         </div>
         <div className="auth-field">
           <label htmlFor="password">Password</label>

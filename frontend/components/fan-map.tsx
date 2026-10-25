@@ -10,7 +10,7 @@ import { isMappedPoint } from "@/lib/place-types";
 import type { AuthUser } from "@/lib/auth/types";
 import PublishedLocationDetails from "@/components/published-location-details";
 import { haversineMeters, iconSvg, roomIconSvg } from "@/lib/map-utils";
-import { createPlace, deletePlace, fetchPlaces, verifyAdminKey } from "@/services/place-service";
+import { createPlace, deletePlace, fetchPlaces, updatePlace } from "@/services/place-service";
 
 type Route = {
   route: string;
@@ -76,12 +76,14 @@ export default function FanMap({ user, initialFavoriteIds = [] }: { user: AuthUs
   const [favoriteFeedback, setFavoriteFeedback] = useState("");
   const [favoriteSignInRequired, setFavoriteSignInRequired] = useState(false);
   const [deletedPlaceIds, setDeletedPlaceIds] = useState<string[]>([]);
-  const [adminKey, setAdminKey] = useState("");
   const [theme, setTheme] = useState<"light" | "dark">("light");
-  const [adminUnlocked, setAdminUnlocked] = useState(false);
-  const [adminPromptOpen, setAdminPromptOpen] = useState(false);
-  const [adminError, setAdminError] = useState("");
-  const [draftCoordinates, setDraftCoordinates] = useState<[number, number] | null>(null);
+  const [adminMode, setAdminMode] = useState(false);
+  const adminUnlocked = user?.role === "admin" && adminMode;
+  const [placeEditorOpen, setPlaceEditorOpen] = useState(false);
+  const [editingPlaceId, setEditingPlaceId] = useState<string | null>(null);
+  const [placeLongitude, setPlaceLongitude] = useState("");
+  const [placeLatitude, setPlaceLatitude] = useState("");
+  const [adminFeedback, setAdminFeedback] = useState("");
   const [placeName, setPlaceName] = useState("");
   const [placeCategory, setPlaceCategory] = useState<Category>("room");
   const [placeDescription, setPlaceDescription] = useState("");
@@ -267,7 +269,11 @@ export default function FanMap({ user, initialFavoriteIds = [] }: { user: AuthUs
         if (instance.queryRenderedFeatures(event.point, { layers: ["locations-layer"] }).length) return;
         setSelectedLocation(null);
         setLocationChoice("");
-        setDraftCoordinates([event.lngLat.lng, event.lngLat.lat]);
+        setEditingPlaceId(null);
+        setPlaceEditorOpen(true);
+        setPlaceLongitude(String(event.lngLat.lng));
+        setPlaceLatitude(String(event.lngLat.lat));
+        setAdminFeedback("");
         setPlaceName("");
         setPlaceDescription("");
         setPlaceCategory("room");
@@ -413,34 +419,35 @@ export default function FanMap({ user, initialFavoriteIds = [] }: { user: AuthUs
     }
   };
 
-  const unlockAdmin = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setAdminError("");
-    try {
-      await verifyAdminKey(adminKey);
-      setAdminUnlocked(true);
-      setAdminPromptOpen(false);
-    } catch (error) {
-      setAdminError(error instanceof Error ? error.message : "Could not sign in.");
-    }
+  const editPlace = (place: LocationFeature) => {
+    setEditingPlaceId(place.properties.id);
+    setPlaceName(place.properties.name);
+    setPlaceCategory(place.properties.category);
+    setPlaceDescription(place.properties.description);
+    setPlaceLongitude(isMappedPoint(place) ? String(place.geometry.coordinates[0]) : "");
+    setPlaceLatitude(isMappedPoint(place) ? String(place.geometry.coordinates[1]) : "");
+    setPlaceError("");
+    setAdminFeedback("");
+    setPlaceEditorOpen(true);
   };
 
-  const saveNewPlace = async (event: FormEvent<HTMLFormElement>) => {
+  const savePlace = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!draftCoordinates) return;
+    if (!adminUnlocked || savingPlace) return;
     setSavingPlace(true);
     setPlaceError("");
     try {
-      const place = await createPlace(adminKey, {
+      const input = {
         name: placeName,
         category: placeCategory,
         description: placeDescription,
-        coordinates: draftCoordinates,
-      });
-      setPlaces((current) => [...current, place]);
-      setSelectedLocation(place);
-      setLocationChoice(place.properties.name);
-      setDraftCoordinates(null);
+        coordinates: placeLongitude === "" && placeLatitude === "" ? null : [Number(placeLongitude), Number(placeLatitude)] as [number, number],
+      };
+      const place = editingPlaceId ? await updatePlace(editingPlaceId, input) : await createPlace(input);
+      setPlaces((current) => editingPlaceId ? current.map((item) => item.properties.id === editingPlaceId ? place : item) : [...current, place]);
+      selectPlace(place);
+      setPlaceEditorOpen(false);
+      setAdminFeedback(`${place.properties.name} ${editingPlaceId ? "updated" : "added"}.`);
     } catch (error) {
       setPlaceError(error instanceof Error ? error.message : "Could not save place.");
     } finally {
@@ -449,23 +456,14 @@ export default function FanMap({ user, initialFavoriteIds = [] }: { user: AuthUs
   };
 
   const confirmDeletePlace = async () => {
-    if (!placeToDelete) return;
+    if (!adminUnlocked || !placeToDelete || deletingPlace) return;
     setDeletingPlace(true);
     setDeleteError("");
     try {
-      await deletePlace(adminKey, placeToDelete.properties.id);
-      if (placeToDelete.properties.id.startsWith("place-")) {
-        setPlaces((current) =>
-          current.filter(
-            (place) => place.properties.id !== placeToDelete.properties.id,
-          ),
-        );
-      } else {
-        setDeletedPlaceIds((current) => [
-          ...current,
-          placeToDelete.properties.id,
-        ]);
-      }
+      await deletePlace(placeToDelete.properties.id);
+      setPlaces((current) => current.filter((place) => place.properties.id !== placeToDelete.properties.id));
+      setDeletedPlaceIds((current) => [...current, placeToDelete.properties.id]);
+      setAdminFeedback(`${placeToDelete.properties.name} deleted.`);
       if (selectedLocation?.properties.id === placeToDelete.properties.id) {
         setSelectedLocation(null);
         setLocationChoice("");
@@ -571,21 +569,20 @@ export default function FanMap({ user, initialFavoriteIds = [] }: { user: AuthUs
             {theme === "dark" ? <Sun size={17} /> : <Moon size={17} />}
             {theme === "dark" ? "Light mode" : "Dark mode"}
           </button>
-          <button
+          {user?.role === "admin" && <button
             className={adminUnlocked ? "admin-button active" : "admin-button"}
+            type="button"
+            aria-pressed={adminUnlocked}
+            disabled={savingPlace || deletingPlace}
             onClick={() => {
-              if (adminUnlocked) {
-                setAdminUnlocked(false);
-                setAdminKey("");
-                setDraftCoordinates(null);
-              } else {
-                setAdminError("");
-                setAdminPromptOpen(true);
-              }
+              setAdminMode(!adminMode);
+              setPlaceEditorOpen(false);
+              setPlaceToDelete(null);
+              setAdminFeedback("");
             }}
           >
             {adminUnlocked ? "Exit admin mode" : "Admin"}
-          </button>
+          </button>}
           <button
             className="location-button"
             onClick={showMyLocation}
@@ -599,7 +596,7 @@ export default function FanMap({ user, initialFavoriteIds = [] }: { user: AuthUs
           </button>
           <nav className="account-nav" aria-label="Account">
             {user ? <>
-              <span className="account-email" title={user.email}>{user.email}</span>
+              <span className="account-email" title={user.username ?? user.email}>{user.username ?? user.email}</span>
               <span className="account-role">{user.role === "admin" ? "Admin" : "Registered"}</span>
               <Link className="account-link" href="/sign-out" prefetch={false}>Sign out</Link>
             </> : <>
@@ -616,6 +613,8 @@ export default function FanMap({ user, initialFavoriteIds = [] }: { user: AuthUs
           <p className="sidebar-intro">
             Choose what you want to see on the map.
           </p>
+          {adminUnlocked && <p className="sidebar-intro">Select a location to edit or delete it. Click an empty map spot to add a place.</p>}
+          <p className="favorite-feedback" role="status">{adminFeedback}</p>
           <fieldset>
             <legend>Location types</legend>
             {categories.map(({ id, label, symbol }) => (
@@ -671,53 +670,23 @@ export default function FanMap({ user, initialFavoriteIds = [] }: { user: AuthUs
         >
           <div className="map" ref={mapContainer} />
           {adminUnlocked && (
-            <div className="admin-map-hint">Admin mode · click an empty map spot to add a place</div>
+            <div className="admin-map-hint">Admin mode · select a location to edit, or click an empty spot to add</div>
           )}
-          {adminPromptOpen && (
+          {adminUnlocked && placeEditorOpen && (
             <div className="map-modal-backdrop">
-              <form className="map-modal" onSubmit={unlockAdmin}>
+              <form className="map-modal" onSubmit={savePlace} role="dialog" aria-modal="true" aria-labelledby="place-editor-title" aria-busy={savingPlace}>
                 <button
                   className="modal-close"
                   type="button"
-                  aria-label="Close admin sign in"
-                  onClick={() => setAdminPromptOpen(false)}
+                  aria-label="Cancel place changes"
+                  disabled={savingPlace}
+                  onClick={() => setPlaceEditorOpen(false)}
                 >
                   ×
                 </button>
-                <p className="eyebrow">ADMIN ACCESS</p>
-                <h2>Sign in to edit the map</h2>
-                <label className="form-field">
-                  Admin key
-                  <input
-                    type="password"
-                    value={adminKey}
-                    onChange={(event) => setAdminKey(event.target.value)}
-                    autoComplete="current-password"
-                    required
-                    autoFocus
-                  />
-                </label>
-                {adminError && <p className="form-error">{adminError}</p>}
-                <button className="location-button" type="submit">Continue</button>
-              </form>
-            </div>
-          )}
-          {draftCoordinates && (
-            <div className="map-modal-backdrop">
-              <form className="map-modal" onSubmit={saveNewPlace}>
-                <button
-                  className="modal-close"
-                  type="button"
-                  aria-label="Cancel adding place"
-                  onClick={() => setDraftCoordinates(null)}
-                >
-                  ×
-                </button>
-                <p className="eyebrow">NEW MAP PLACE</p>
-                <h2>Add a place</h2>
-                <p className="coordinate-note">
-                  {draftCoordinates[1].toFixed(6)}, {draftCoordinates[0].toFixed(6)}
-                </p>
+                <p className="eyebrow">{editingPlaceId ? "EDIT MAP PLACE" : "NEW MAP PLACE"}</p>
+                <h2 id="place-editor-title">{editingPlaceId ? "Edit place" : "Add a place"}</h2>
+                <fieldset className="place-editor-fields" disabled={savingPlace}>
                 <label className="form-field">
                   Place name
                   <input
@@ -748,14 +717,24 @@ export default function FanMap({ user, initialFavoriteIds = [] }: { user: AuthUs
                     rows={3}
                   />
                 </label>
-                {placeError && <p className="form-error">{placeError}</p>}
+                <div className="coordinate-fields">
+                  <label className="form-field">Latitude
+                    <input type="number" step="any" min={-90} max={90} required={!editingPlaceId || placeLongitude !== ""} value={placeLatitude} onChange={(event) => setPlaceLatitude(event.target.value)} />
+                  </label>
+                  <label className="form-field">Longitude
+                    <input type="number" step="any" min={-180} max={180} required={!editingPlaceId || placeLatitude !== ""} value={placeLongitude} onChange={(event) => setPlaceLongitude(event.target.value)} />
+                  </label>
+                </div>
+                {editingPlaceId && <p className="coordinate-note">Leave both coordinates empty if the map position is unknown.</p>}
+                </fieldset>
+                {placeError && <p className="form-error" role="alert">{placeError}</p>}
                 <button className="location-button" type="submit" disabled={savingPlace}>
-                  {savingPlace ? "Saving…" : "Save place"}
+                  {savingPlace ? "Saving…" : editingPlaceId ? "Save changes" : "Save place"}
                 </button>
               </form>
             </div>
           )}
-          {placeToDelete && (
+          {adminUnlocked && placeToDelete && (
             <div className="map-modal-backdrop">
               <section
                 className="map-modal"
@@ -770,7 +749,7 @@ export default function FanMap({ user, initialFavoriteIds = [] }: { user: AuthUs
                 <p className="sidebar-intro">
                   This removes the place from the map and saved place list.
                 </p>
-                {deleteError && <p className="form-error">{deleteError}</p>}
+                {deleteError && <p className="form-error" role="alert">{deleteError}</p>}
                 <div className="delete-actions">
                   <button
                     className="admin-button"
@@ -852,9 +831,12 @@ export default function FanMap({ user, initialFavoriteIds = [] }: { user: AuthUs
                 </a>
               )}
               {adminUnlocked && (
+                <div className="details-admin-actions">
+                  <button className="admin-button" type="button" onClick={() => editPlace(selectedLocation)} disabled={savingPlace || deletingPlace}>Edit this place</button>
                   <button
-                    className="delete-place-button details-delete-button"
+                    className="delete-place-button"
                     type="button"
+                    disabled={savingPlace || deletingPlace}
                     onClick={() => {
                       setDeleteError("");
                       setPlaceToDelete(selectedLocation);
@@ -862,6 +844,7 @@ export default function FanMap({ user, initialFavoriteIds = [] }: { user: AuthUs
                   >
                     Delete this place
                   </button>
+                </div>
                 )}
               {stopRoutes.length > 0 && (
                 <div className="bus-details">

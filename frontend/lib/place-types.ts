@@ -44,5 +44,5 @@ export type PlaceInput = {
   name: string;
   category: Category;
   description: string;
-  coordinates: [number, number];
+  coordinates: [number, number] | null;
 };

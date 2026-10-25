@@ -4,5 +4,6 @@ export type AuthRole = "admin" | "registered";
 export type AuthUser = {
   id: string;
   email: string;
+  username?: string;
   role: AuthRole;
 };

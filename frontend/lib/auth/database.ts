@@ -9,6 +9,11 @@ export const SESSION_MAX_AGE = 7 * 24 * 60 * 60;
 
 type UserRecord = AuthUser & { password_hash: string };
 
+function withUsername<T extends AuthUser>(row: T & { username?: string | null }): T {
+  const { username, ...rest } = row;
+  return { ...rest, ...(username ? { username } : {}) } as T;
+}
+
 export function normalizeEmail(email: string): string {
   return email.trim().toLowerCase();
 }
@@ -54,13 +59,18 @@ export class AuthStore {
         PRIMARY KEY (user_id, location_id)
       ) STRICT;
     `);
+    const columns = this.database.prepare("PRAGMA table_info(users)").all();
+    if (!columns.some((column) => column.name === "username")) {
+      this.database.exec("ALTER TABLE users ADD COLUMN username TEXT");
+    }
+    this.database.exec("CREATE UNIQUE INDEX IF NOT EXISTS users_username ON users(username COLLATE NOCASE) WHERE username IS NOT NULL");
   }
 
   findUser(email: string): UserRecord | null {
     const row = this.database.prepare(
-      "SELECT id, email, role, password_hash FROM users WHERE email = ?",
-    ).get(normalizeEmail(email)) as UserRecord | undefined;
-    return row ? { ...row } : null;
+      "SELECT id, email, username, role, password_hash FROM users WHERE email = ? OR username = ? COLLATE NOCASE",
+    ).get(normalizeEmail(email), normalizeEmail(email)) as UserRecord | undefined;
+    return row ? withUsername(row) : null;
   }
 
   createUser(email: string, passwordHash: string, now = Date.now()): AuthUser {
@@ -84,11 +94,11 @@ export class AuthStore {
   findSession(token: string | undefined, now = Date.now()): AuthUser | null {
     if (!isSessionToken(token)) return null;
     const row = this.database.prepare(`
-      SELECT users.id, users.email, users.role FROM sessions
+      SELECT users.id, users.email, users.username, users.role FROM sessions
       JOIN users ON users.id = sessions.user_id
       WHERE sessions.token_hash = ? AND sessions.expires_at > ?
     `).get(hashSessionToken(token), now) as AuthUser | undefined;
-    return row ? { id: row.id, email: row.email, role: row.role } : null;
+    return row ? withUsername(row) : null;
   }
 
   revokeSession(token: string | undefined): void {
@@ -108,6 +118,25 @@ export class AuthStore {
       "SELECT location_id FROM favorites WHERE user_id = ? ORDER BY created_at, location_id",
     ).all(userId) as { location_id: string }[];
     return rows.map((row) => row.location_id);
+  }
+
+  // Trusted local setup only; never exposed through public registration.
+  setLocalAdmin(username: string, passwordHash: string): AuthUser {
+    username = normalizeEmail(username);
+    if (!/^[a-z][a-z0-9_-]{0,31}$/.test(username)) throw new Error("Use a username of 1–32 letters, numbers, underscores or hyphens, starting with a letter.");
+    this.database.exec("BEGIN IMMEDIATE");
+    try {
+      const existing = this.findUser(username);
+      const user = existing ?? this.createUser(`${username}@fanmap.local`, passwordHash);
+      this.database.prepare("UPDATE users SET username = ?, password_hash = ?, role = 'admin', updated_at = ? WHERE id = ?")
+        .run(username, passwordHash, Date.now(), user.id);
+      this.database.prepare("DELETE FROM sessions WHERE user_id = ?").run(user.id);
+      this.database.exec("COMMIT");
+      return { id: user.id, email: user.email, username, role: "admin" };
+    } catch (error) {
+      this.database.exec("ROLLBACK");
+      throw error;
+    }
   }
 
   addFavorite(userId: string, locationId: string): void {
@@ -130,7 +159,7 @@ const shared = globalThis as typeof globalThis & {
 };
 
 // Recreate an older hot-reloaded singleton so it gets the current schema and methods.
-const AUTH_STORE_VERSION = 2;
+const AUTH_STORE_VERSION = 3;
 
 export function getAuthStore(): AuthStore {
   const path = resolve(/* turbopackIgnore: true */ process.env.FANMAP_AUTH_DB || ".data/auth.sqlite");
