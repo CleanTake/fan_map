@@ -53,8 +53,8 @@ h3 { font-size: .9rem; }
 .details-panel { border-left: 1px solid var(--line); }
 .sidebar h2 { margin-bottom: 5px; }
 .sidebar-intro, .details-panel > p { color: var(--muted); font-size: .88rem; line-height: 1.55; }
-fieldset { border: 0; padding: 18px 0 0; margin: 0; }
-legend { padding: 0 0 10px; font-size: .72rem; letter-spacing: .08em; color: var(--muted); font-weight: 800; text-transform: uppercase; }
+fieldset { border: 0; padding: 0; margin: 0; }
+legend { padding: 16px 0 10px; font-size: .72rem; letter-spacing: .08em; color: var(--muted); font-weight: 800; text-transform: uppercase; }
 .filter { display: flex; align-items: center; gap: 9px; padding: 7px 0; cursor: pointer; font-size: .88rem; }
 .filter input { accent-color: var(--accent); }
 .filter-icon { display: inline-grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; color: #fff; font-size: .72rem; font-weight: 800; }
