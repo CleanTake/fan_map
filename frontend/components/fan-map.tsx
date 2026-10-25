@@ -2,6 +2,7 @@
 
 import mapboxgl from "mapbox-gl";
 import Link from "next/link";
+import Image from "next/image";
 import { Moon, Sun } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { FormEvent } from "react";
@@ -9,7 +10,7 @@ import type { Category, LocationFeature } from "@/lib/place-types";
 import { isMappedPoint } from "@/lib/place-types";
 import type { AuthUser } from "@/lib/auth/types";
 import PublishedLocationDetails from "@/components/published-location-details";
-import { haversineMeters, iconSvg, roomIconSvg } from "@/lib/map-utils";
+import { haversineMeters, iconSvg } from "@/lib/map-utils";
 import { createPlace, deletePlace, fetchPlaces, verifyAdminKey } from "@/services/place-service";
 
 type Route = {
@@ -39,6 +40,17 @@ const categoryColors: Record<Category, string> = {
   retail: "#a24f78",
   service: "#96721f",
   bus: "#227660",
+};
+
+const categoryIcons: Record<Category, string> = {
+  building: "/resources/map-icons/Buildings-map-icon.svg",
+  entrance: "/resources/map-icons/Entrances-map-icon.svg",
+  room: "/resources/map-icons/Study-rooms-map-icon.svg",
+  parking: "/resources/map-icons/Parking-map-icon.svg",
+  food: "/resources/map-icons/Food-and-retail-map-icon.svg",
+  retail: "/resources/map-icons/Food-and-retail-map-icon.svg",
+  service: "/resources/map-icons/Student-services-map-icon.svg",
+  bus: "/resources/map-icons/Bus-stops-map-icon.svg",
 };
 
 function createUserLocationMarker() {
@@ -194,7 +206,7 @@ export default function FanMap({ user, initialFavoriteIds = [] }: { user: AuthUs
     map.current = instance;
     instance.addControl(new mapboxgl.NavigationControl(), "bottom-right");
 
-    const loadSvgImage = (src: string, label: string) =>
+    const loadImage = (src: string, label: string) =>
       new Promise<HTMLImageElement>((resolve, reject) => {
         const img = new Image();
         img.onload = () => resolve(img);
@@ -208,12 +220,36 @@ export default function FanMap({ user, initialFavoriteIds = [] }: { user: AuthUs
       await Promise.all(
         categories.map(async ({ id, symbol }) => {
           if (instance.hasImage(id)) return;
-          const image = id === "room"
-            ? roomIconSvg()
-            : iconSvg(categoryColors[id], symbol);
-          const img = await loadSvgImage(image, id);
+          let image: string;
+          switch (id) {
+            case "building":
+              image = "/resources/map-icons/Buildings-map-icon.png";
+              break;
+            case "entrance":
+              image = "/resources/map-icons/Entrances-map-icon.png";
+              break;
+            case "room":
+              image = "/resources/map-icons/Study-rooms-map-icon.png";
+              break;
+            case "parking":
+              image = "/resources/map-icons/Parking-map-icon.png";
+              break;
+            case "food":
+            case "retail":
+              image = "/resources/map-icons/Food-and-retail-map-icon.png";
+              break;
+            case "service":
+              image = "/resources/map-icons/Student-services-map-icon.png";
+              break;
+            case "bus":
+              image = "/resources/map-icons/Bus-stops-map-icon.png";
+              break;
+            default:
+              image = iconSvg(categoryColors[id], symbol);
+          }
+          const img = await loadImage(image, id);
           if (disposed) return;
-          instance.addImage(id, img, { pixelRatio: 2 });
+          instance.addImage(id, img, { pixelRatio: image.startsWith("/resources/map-icons/") ? 1 : 2 });
         }),
       );
       if (disposed) return;
@@ -230,7 +266,7 @@ export default function FanMap({ user, initialFavoriteIds = [] }: { user: AuthUs
         source: "locations",
         layout: {
           "icon-image": ["get", "category"],
-          "icon-size": ["match", ["get", "category"], "room", 1.05, 0.62],
+          "icon-size": ["match", ["get", "category"], "room", 1.05, 1.3],
           "icon-allow-overlap": true,
         },
       });
@@ -629,7 +665,7 @@ export default function FanMap({ user, initialFavoriteIds = [] }: { user: AuthUs
                   className="filter-icon"
                   style={{ backgroundColor: categoryColors[id] }}
                 >
-                  {symbol}
+                  <Image src={categoryIcons[id]} alt="" width={12} height={12} />
                 </span>
                 {label}
               </label>

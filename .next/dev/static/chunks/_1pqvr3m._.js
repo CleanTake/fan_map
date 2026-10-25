@@ -17,6 +17,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$
 var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$mapbox$2d$gl$2f$dist$2f$mapbox$2d$gl$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/mapbox-gl/dist/mapbox-gl.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/next/dist/client/app-dir/link.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/next/image.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$moon$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Moon$3e$__ = __turbopack_context__.i("[project]/frontend/node_modules/lucide-react/dist/esm/icons/moon.mjs [app-client] (ecmascript) <export default as Moon>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$sun$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Sun$3e$__ = __turbopack_context__.i("[project]/frontend/node_modules/lucide-react/dist/esm/icons/sun.mjs [app-client] (ecmascript) <export default as Sun>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
@@ -27,6 +28,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$services$2f$plac
 ;
 var _s = __turbopack_context__.k.signature();
 "use client";
+;
 ;
 ;
 ;
@@ -86,6 +88,16 @@ const categoryColors = {
     retail: "#a24f78",
     service: "#96721f",
     bus: "#227660"
+};
+const categoryIcons = {
+    building: "/resources/map-icons/Buildings-map-icon.svg",
+    entrance: "/resources/map-icons/Entrances-map-icon.svg",
+    room: "/resources/map-icons/Study-rooms-map-icon.svg",
+    parking: "/resources/map-icons/Parking-map-icon.svg",
+    food: "/resources/map-icons/Food-and-retail-map-icon.svg",
+    retail: "/resources/map-icons/Food-and-retail-map-icon.svg",
+    service: "/resources/map-icons/Student-services-map-icon.svg",
+    bus: "/resources/map-icons/Bus-stops-map-icon.svg"
 };
 function createUserLocationMarker() {
     const element = document.createElement("div");
@@ -282,20 +294,20 @@ function FanMap({ user, initialFavoriteIds = [] }) {
             });
             map.current = instance;
             instance.addControl(new __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$mapbox$2d$gl$2f$dist$2f$mapbox$2d$gl$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].NavigationControl(), "bottom-right");
-            const loadSvgImage = {
-                "FanMap.useEffect.loadSvgImage": (src, label)=>new Promise({
-                        "FanMap.useEffect.loadSvgImage": (resolve, reject)=>{
-                            const img = new Image();
+            const loadImage = {
+                "FanMap.useEffect.loadImage": (src, label)=>new Promise({
+                        "FanMap.useEffect.loadImage": (resolve, reject)=>{
+                            const img = new __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"]();
                             img.onload = ({
-                                "FanMap.useEffect.loadSvgImage": ()=>resolve(img)
-                            })["FanMap.useEffect.loadSvgImage"];
+                                "FanMap.useEffect.loadImage": ()=>resolve(img)
+                            })["FanMap.useEffect.loadImage"];
                             img.onerror = ({
-                                "FanMap.useEffect.loadSvgImage": ()=>reject(new Error(`Failed to load map image: ${label}`))
-                            })["FanMap.useEffect.loadSvgImage"];
+                                "FanMap.useEffect.loadImage": ()=>reject(new Error(`Failed to load map image: ${label}`))
+                            })["FanMap.useEffect.loadImage"];
                             img.src = src;
                         }
-                    }["FanMap.useEffect.loadSvgImage"])
-            }["FanMap.useEffect.loadSvgImage"];
+                    }["FanMap.useEffect.loadImage"])
+            }["FanMap.useEffect.loadImage"];
             instance.on("load", {
                 "FanMap.useEffect": async ()=>{
                     if (disposed) return;
@@ -303,11 +315,37 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                         await Promise.all(categories.map({
                             "FanMap.useEffect": async ({ id, symbol })=>{
                                 if (instance.hasImage(id)) return;
-                                const image = id === "room" ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$lib$2f$map$2d$utils$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["roomIconSvg"])() : (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$lib$2f$map$2d$utils$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["iconSvg"])(categoryColors[id], symbol);
-                                const img = await loadSvgImage(image, id);
+                                let image;
+                                switch(id){
+                                    case "building":
+                                        image = "/resources/map-icons/Buildings-map-icon.png";
+                                        break;
+                                    case "entrance":
+                                        image = "/resources/map-icons/Entrances-map-icon.png";
+                                        break;
+                                    case "room":
+                                        image = "/resources/map-icons/Study-rooms-map-icon.png";
+                                        break;
+                                    case "parking":
+                                        image = "/resources/map-icons/Parking-map-icon.png";
+                                        break;
+                                    case "food":
+                                    case "retail":
+                                        image = "/resources/map-icons/Food-and-retail-map-icon.png";
+                                        break;
+                                    case "service":
+                                        image = "/resources/map-icons/Student-services-map-icon.png";
+                                        break;
+                                    case "bus":
+                                        image = "/resources/map-icons/Bus-stops-map-icon.png";
+                                        break;
+                                    default:
+                                        image = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$lib$2f$map$2d$utils$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["iconSvg"])(categoryColors[id], symbol);
+                                }
+                                const img = await loadImage(image, id);
                                 if (disposed) return;
                                 instance.addImage(id, img, {
-                                    pixelRatio: 2
+                                    pixelRatio: image.startsWith("/resources/map-icons/") ? 1 : 2
                                 });
                             }
                         }["FanMap.useEffect"]));
@@ -336,7 +374,7 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                     ],
                                     "room",
                                     1.05,
-                                    0.62
+                                    1.3
                                 ],
                                 "icon-allow-overlap": true
                             }
@@ -705,20 +743,20 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                 children: "FANSHAWE COLLEGE"
                             }, void 0, false, {
                                 fileName: "[project]/frontend/components/fan-map.tsx",
-                                lineNumber: 556,
+                                lineNumber: 592,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
                                 children: "FanMap"
                             }, void 0, false, {
                                 fileName: "[project]/frontend/components/fan-map.tsx",
-                                lineNumber: 557,
+                                lineNumber: 593,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/frontend/components/fan-map.tsx",
-                        lineNumber: 555,
+                        lineNumber: 591,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -739,20 +777,20 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                         size: 17
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/components/fan-map.tsx",
-                                        lineNumber: 571,
+                                        lineNumber: 607,
                                         columnNumber: 33
                                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$moon$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Moon$3e$__["Moon"], {
                                         size: 17
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/components/fan-map.tsx",
-                                        lineNumber: 571,
+                                        lineNumber: 607,
                                         columnNumber: 53
                                     }, this),
                                     theme === "dark" ? "Light mode" : "Dark mode"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/frontend/components/fan-map.tsx",
-                                lineNumber: 560,
+                                lineNumber: 596,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -770,7 +808,7 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                 children: adminUnlocked ? "Exit admin mode" : "Admin"
                             }, void 0, false, {
                                 fileName: "[project]/frontend/components/fan-map.tsx",
-                                lineNumber: 574,
+                                lineNumber: 610,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -778,7 +816,7 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                 children: "Guest"
                             }, void 0, false, {
                                 fileName: "[project]/frontend/components/fan-map.tsx",
-                                lineNumber: 589,
+                                lineNumber: 625,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -788,7 +826,7 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                 children: gpsStatus === "active" ? "Location active" : gpsStatus === "disabled" ? "Location unavailable" : "Show my location"
                             }, void 0, false, {
                                 fileName: "[project]/frontend/components/fan-map.tsx",
-                                lineNumber: 590,
+                                lineNumber: 626,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
@@ -802,7 +840,7 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                             children: user.email
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/components/fan-map.tsx",
-                                            lineNumber: 603,
+                                            lineNumber: 639,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -810,7 +848,7 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                             children: user.role === "admin" ? "Admin" : "Registered"
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/components/fan-map.tsx",
-                                            lineNumber: 604,
+                                            lineNumber: 640,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -820,13 +858,13 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                             children: "Sign out"
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/components/fan-map.tsx",
-                                            lineNumber: 605,
+                                            lineNumber: 641,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/frontend/components/fan-map.tsx",
-                                    lineNumber: 602,
+                                    lineNumber: 638,
                                     columnNumber: 21
                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
                                     children: [
@@ -836,7 +874,7 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                             children: "Sign in"
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/components/fan-map.tsx",
-                                            lineNumber: 607,
+                                            lineNumber: 643,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -845,30 +883,30 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                             children: "Create account"
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/components/fan-map.tsx",
-                                            lineNumber: 608,
+                                            lineNumber: 644,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/frontend/components/fan-map.tsx",
-                                    lineNumber: 606,
+                                    lineNumber: 642,
                                     columnNumber: 19
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/frontend/components/fan-map.tsx",
-                                lineNumber: 601,
+                                lineNumber: 637,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/frontend/components/fan-map.tsx",
-                        lineNumber: 559,
+                        lineNumber: 595,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/frontend/components/fan-map.tsx",
-                lineNumber: 554,
+                lineNumber: 590,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -881,7 +919,7 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                 children: "Explore campus"
                             }, void 0, false, {
                                 fileName: "[project]/frontend/components/fan-map.tsx",
-                                lineNumber: 615,
+                                lineNumber: 651,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -889,7 +927,7 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                 children: "Choose what you want to see on the map."
                             }, void 0, false, {
                                 fileName: "[project]/frontend/components/fan-map.tsx",
-                                lineNumber: 616,
+                                lineNumber: 652,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("fieldset", {
@@ -898,7 +936,7 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                         children: "Location types"
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/components/fan-map.tsx",
-                                        lineNumber: 620,
+                                        lineNumber: 656,
                                         columnNumber: 13
                                     }, this),
                                     categories.map(({ id, label, symbol })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -910,7 +948,7 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                                     onChange: ()=>toggleCategory(id)
                                                 }, void 0, false, {
                                                     fileName: "[project]/frontend/components/fan-map.tsx",
-                                                    lineNumber: 623,
+                                                    lineNumber: 659,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -918,23 +956,32 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                                     style: {
                                                         backgroundColor: categoryColors[id]
                                                     },
-                                                    children: symbol
+                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                                        src: categoryIcons[id],
+                                                        alt: "",
+                                                        width: 12,
+                                                        height: 12
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/frontend/components/fan-map.tsx",
+                                                        lineNumber: 668,
+                                                        columnNumber: 19
+                                                    }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/frontend/components/fan-map.tsx",
-                                                    lineNumber: 628,
+                                                    lineNumber: 664,
                                                     columnNumber: 17
                                                 }, this),
                                                 label
                                             ]
                                         }, id, true, {
                                             fileName: "[project]/frontend/components/fan-map.tsx",
-                                            lineNumber: 622,
+                                            lineNumber: 658,
                                             columnNumber: 15
                                         }, this))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/frontend/components/fan-map.tsx",
-                                lineNumber: 619,
+                                lineNumber: 655,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -943,7 +990,7 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                 children: placesLoaded ? `${visiblePlaces.length} of ${activePlaces.length} locations. ${awaitingCount} awaiting map position checks.` : placesFailed ? "Locations could not be loaded. Please refresh to try again." : "Loading campus locations…"
                             }, void 0, false, {
                                 fileName: "[project]/frontend/components/fan-map.tsx",
-                                lineNumber: 638,
+                                lineNumber: 674,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -951,7 +998,7 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                 children: "Select a location"
                             }, void 0, false, {
                                 fileName: "[project]/frontend/components/fan-map.tsx",
-                                lineNumber: 641,
+                                lineNumber: 677,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -970,7 +1017,7 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                 }
                             }, void 0, false, {
                                 fileName: "[project]/frontend/components/fan-map.tsx",
-                                lineNumber: 642,
+                                lineNumber: 678,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("datalist", {
@@ -979,12 +1026,12 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                         value: choiceLabels.get(place.properties.id)
                                     }, place.properties.id, false, {
                                         fileName: "[project]/frontend/components/fan-map.tsx",
-                                        lineNumber: 650,
+                                        lineNumber: 686,
                                         columnNumber: 43
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/frontend/components/fan-map.tsx",
-                                lineNumber: 649,
+                                lineNumber: 685,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -1000,13 +1047,13 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                                 children: favoriteFeatures.length
                                             }, void 0, false, {
                                                 fileName: "[project]/frontend/components/fan-map.tsx",
-                                                lineNumber: 653,
+                                                lineNumber: 689,
                                                 columnNumber: 59
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/frontend/components/fan-map.tsx",
-                                        lineNumber: 653,
+                                        lineNumber: 689,
                                         columnNumber: 13
                                     }, this),
                                     user ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
@@ -1016,7 +1063,7 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                                 children: "Loading favorites…"
                                             }, void 0, false, {
                                                 fileName: "[project]/frontend/components/fan-map.tsx",
-                                                lineNumber: 655,
+                                                lineNumber: 691,
                                                 columnNumber: 49
                                             }, this) : favoriteFeatures.length ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
                                                 className: "favorites-list",
@@ -1034,20 +1081,20 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                                                         children: "★"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/frontend/components/fan-map.tsx",
-                                                                        lineNumber: 658,
+                                                                        lineNumber: 694,
                                                                         columnNumber: 21
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                         children: feature.properties.name
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/frontend/components/fan-map.tsx",
-                                                                        lineNumber: 658,
+                                                                        lineNumber: 694,
                                                                         columnNumber: 54
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/frontend/components/fan-map.tsx",
-                                                                lineNumber: 657,
+                                                                lineNumber: 693,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1060,25 +1107,25 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                                                 children: "×"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/frontend/components/fan-map.tsx",
-                                                                lineNumber: 660,
+                                                                lineNumber: 696,
                                                                 columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, feature.properties.id, true, {
                                                         fileName: "[project]/frontend/components/fan-map.tsx",
-                                                        lineNumber: 656,
+                                                        lineNumber: 692,
                                                         columnNumber: 52
                                                     }, this))
                                             }, void 0, false, {
                                                 fileName: "[project]/frontend/components/fan-map.tsx",
-                                                lineNumber: 655,
+                                                lineNumber: 691,
                                                 columnNumber: 130
                                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                 className: "favorites-hint",
                                                 children: placesFailed ? "Load campus locations to see your favorites." : "No favorites yet. Select a location and save it here."
                                             }, void 0, false, {
                                                 fileName: "[project]/frontend/components/fan-map.tsx",
-                                                lineNumber: 662,
+                                                lineNumber: 698,
                                                 columnNumber: 23
                                             }, this),
                                             favoriteError && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1094,19 +1141,19 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                                                 children: "Sign in again"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/frontend/components/fan-map.tsx",
-                                                                lineNumber: 663,
+                                                                lineNumber: 699,
                                                                 columnNumber: 121
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/frontend/components/fan-map.tsx",
-                                                        lineNumber: 663,
+                                                        lineNumber: 699,
                                                         columnNumber: 118
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/frontend/components/fan-map.tsx",
-                                                lineNumber: 663,
+                                                lineNumber: 699,
                                                 columnNumber: 33
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1115,13 +1162,13 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                                 children: favoriteFeedback
                                             }, void 0, false, {
                                                 fileName: "[project]/frontend/components/fan-map.tsx",
-                                                lineNumber: 664,
+                                                lineNumber: 700,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/frontend/components/fan-map.tsx",
-                                        lineNumber: 654,
+                                        lineNumber: 690,
                                         columnNumber: 21
                                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                         className: "favorites-hint",
@@ -1131,26 +1178,26 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                                 children: "Sign in"
                                             }, void 0, false, {
                                                 fileName: "[project]/frontend/components/fan-map.tsx",
-                                                lineNumber: 665,
+                                                lineNumber: 701,
                                                 columnNumber: 49
                                             }, this),
                                             " to save your favorite campus locations."
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/frontend/components/fan-map.tsx",
-                                        lineNumber: 665,
+                                        lineNumber: 701,
                                         columnNumber: 19
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/frontend/components/fan-map.tsx",
-                                lineNumber: 652,
+                                lineNumber: 688,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/frontend/components/fan-map.tsx",
-                        lineNumber: 614,
+                        lineNumber: 650,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -1162,7 +1209,7 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                 ref: mapContainer
                             }, void 0, false, {
                                 fileName: "[project]/frontend/components/fan-map.tsx",
-                                lineNumber: 672,
+                                lineNumber: 708,
                                 columnNumber: 11
                             }, this),
                             adminUnlocked && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1170,7 +1217,7 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                 children: "Admin mode · click an empty map spot to add a place"
                             }, void 0, false, {
                                 fileName: "[project]/frontend/components/fan-map.tsx",
-                                lineNumber: 674,
+                                lineNumber: 710,
                                 columnNumber: 13
                             }, this),
                             adminPromptOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1187,7 +1234,7 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                             children: "×"
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/components/fan-map.tsx",
-                                            lineNumber: 679,
+                                            lineNumber: 715,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1195,14 +1242,14 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                             children: "ADMIN ACCESS"
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/components/fan-map.tsx",
-                                            lineNumber: 687,
+                                            lineNumber: 723,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                                             children: "Sign in to edit the map"
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/components/fan-map.tsx",
-                                            lineNumber: 688,
+                                            lineNumber: 724,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -1218,13 +1265,13 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                                     autoFocus: true
                                                 }, void 0, false, {
                                                     fileName: "[project]/frontend/components/fan-map.tsx",
-                                                    lineNumber: 691,
+                                                    lineNumber: 727,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/frontend/components/fan-map.tsx",
-                                            lineNumber: 689,
+                                            lineNumber: 725,
                                             columnNumber: 17
                                         }, this),
                                         adminError && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1232,7 +1279,7 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                             children: adminError
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/components/fan-map.tsx",
-                                            lineNumber: 700,
+                                            lineNumber: 736,
                                             columnNumber: 32
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1241,18 +1288,18 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                             children: "Continue"
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/components/fan-map.tsx",
-                                            lineNumber: 701,
+                                            lineNumber: 737,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/frontend/components/fan-map.tsx",
-                                    lineNumber: 678,
+                                    lineNumber: 714,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/frontend/components/fan-map.tsx",
-                                lineNumber: 677,
+                                lineNumber: 713,
                                 columnNumber: 13
                             }, this),
                             draftCoordinates && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1269,7 +1316,7 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                             children: "×"
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/components/fan-map.tsx",
-                                            lineNumber: 708,
+                                            lineNumber: 744,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1277,14 +1324,14 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                             children: "NEW MAP PLACE"
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/components/fan-map.tsx",
-                                            lineNumber: 716,
+                                            lineNumber: 752,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                                             children: "Add a place"
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/components/fan-map.tsx",
-                                            lineNumber: 717,
+                                            lineNumber: 753,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1296,7 +1343,7 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/frontend/components/fan-map.tsx",
-                                            lineNumber: 718,
+                                            lineNumber: 754,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -1311,13 +1358,13 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                                     autoFocus: true
                                                 }, void 0, false, {
                                                     fileName: "[project]/frontend/components/fan-map.tsx",
-                                                    lineNumber: 723,
+                                                    lineNumber: 759,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/frontend/components/fan-map.tsx",
-                                            lineNumber: 721,
+                                            lineNumber: 757,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -1332,18 +1379,18 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                                             children: label
                                                         }, id, false, {
                                                             fileName: "[project]/frontend/components/fan-map.tsx",
-                                                            lineNumber: 738,
+                                                            lineNumber: 774,
                                                             columnNumber: 23
                                                         }, this))
                                                 }, void 0, false, {
                                                     fileName: "[project]/frontend/components/fan-map.tsx",
-                                                    lineNumber: 733,
+                                                    lineNumber: 769,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/frontend/components/fan-map.tsx",
-                                            lineNumber: 731,
+                                            lineNumber: 767,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -1357,13 +1404,13 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                                     rows: 3
                                                 }, void 0, false, {
                                                     fileName: "[project]/frontend/components/fan-map.tsx",
-                                                    lineNumber: 744,
+                                                    lineNumber: 780,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/frontend/components/fan-map.tsx",
-                                            lineNumber: 742,
+                                            lineNumber: 778,
                                             columnNumber: 17
                                         }, this),
                                         placeError && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1371,7 +1418,7 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                             children: placeError
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/components/fan-map.tsx",
-                                            lineNumber: 751,
+                                            lineNumber: 787,
                                             columnNumber: 32
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1381,18 +1428,18 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                             children: savingPlace ? "Saving…" : "Save place"
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/components/fan-map.tsx",
-                                            lineNumber: 752,
+                                            lineNumber: 788,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/frontend/components/fan-map.tsx",
-                                    lineNumber: 707,
+                                    lineNumber: 743,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/frontend/components/fan-map.tsx",
-                                lineNumber: 706,
+                                lineNumber: 742,
                                 columnNumber: 13
                             }, this),
                             placeToDelete && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1408,7 +1455,7 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                             children: "REMOVE MAP PLACE"
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/components/fan-map.tsx",
-                                            lineNumber: 766,
+                                            lineNumber: 802,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -1420,7 +1467,7 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/frontend/components/fan-map.tsx",
-                                            lineNumber: 767,
+                                            lineNumber: 803,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1428,7 +1475,7 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                             children: "This removes the place from the map and saved place list."
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/components/fan-map.tsx",
-                                            lineNumber: 770,
+                                            lineNumber: 806,
                                             columnNumber: 17
                                         }, this),
                                         deleteError && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1436,7 +1483,7 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                             children: deleteError
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/components/fan-map.tsx",
-                                            lineNumber: 773,
+                                            lineNumber: 809,
                                             columnNumber: 33
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1450,7 +1497,7 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                                     children: "Cancel"
                                                 }, void 0, false, {
                                                     fileName: "[project]/frontend/components/fan-map.tsx",
-                                                    lineNumber: 775,
+                                                    lineNumber: 811,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1461,24 +1508,24 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                                     children: deletingPlace ? "Deleting…" : "Delete place"
                                                 }, void 0, false, {
                                                     fileName: "[project]/frontend/components/fan-map.tsx",
-                                                    lineNumber: 783,
+                                                    lineNumber: 819,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/frontend/components/fan-map.tsx",
-                                            lineNumber: 774,
+                                            lineNumber: 810,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/frontend/components/fan-map.tsx",
-                                    lineNumber: 760,
+                                    lineNumber: 796,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/frontend/components/fan-map.tsx",
-                                lineNumber: 759,
+                                lineNumber: 795,
                                 columnNumber: 13
                             }, this),
                             tokenMissing && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1488,20 +1535,20 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                         children: "Campus map unavailable in this preview"
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/components/fan-map.tsx",
-                                        lineNumber: 797,
+                                        lineNumber: 833,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                         children: "Select a location to explore its details."
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/components/fan-map.tsx",
-                                        lineNumber: 798,
+                                        lineNumber: 834,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/frontend/components/fan-map.tsx",
-                                lineNumber: 796,
+                                lineNumber: 832,
                                 columnNumber: 13
                             }, this),
                             mapError && !tokenMissing && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1511,20 +1558,20 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                         children: "Map failed to load"
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/components/fan-map.tsx",
-                                        lineNumber: 803,
+                                        lineNumber: 839,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                         children: mapError
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/components/fan-map.tsx",
-                                        lineNumber: 804,
+                                        lineNumber: 840,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/frontend/components/fan-map.tsx",
-                                lineNumber: 802,
+                                lineNumber: 838,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1534,20 +1581,20 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                         className: "map-dot"
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/components/fan-map.tsx",
-                                        lineNumber: 808,
+                                        lineNumber: 844,
                                         columnNumber: 13
                                     }, this),
                                     " Fanshawe College campus · 43.0130° N, 81.1994° W"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/frontend/components/fan-map.tsx",
-                                lineNumber: 807,
+                                lineNumber: 843,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/frontend/components/fan-map.tsx",
-                        lineNumber: 668,
+                        lineNumber: 704,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("aside", {
@@ -1561,21 +1608,21 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                     children: selectedLocation.properties.category
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/components/fan-map.tsx",
-                                    lineNumber: 815,
+                                    lineNumber: 851,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                                     children: selectedLocation.properties.name
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/components/fan-map.tsx",
-                                    lineNumber: 816,
+                                    lineNumber: 852,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                     children: selectedLocation.properties.description
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/components/fan-map.tsx",
-                                    lineNumber: 817,
+                                    lineNumber: 853,
                                     columnNumber: 15
                                 }, this),
                                 user ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1590,14 +1637,14 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                             children: selectedIsFavorite ? "★" : "☆"
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/components/fan-map.tsx",
-                                            lineNumber: 819,
+                                            lineNumber: 855,
                                             columnNumber: 17
                                         }, this),
                                         favoritePendingId === selectedLocation.properties.id ? selectedIsFavorite ? "Removing…" : "Saving…" : selectedIsFavorite ? "Saved to favorites" : "Save to favorites"
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/frontend/components/fan-map.tsx",
-                                    lineNumber: 818,
+                                    lineNumber: 854,
                                     columnNumber: 23
                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                     href: "/sign-in",
@@ -1605,14 +1652,14 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                     children: "☆ Sign in to save this location"
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/components/fan-map.tsx",
-                                    lineNumber: 821,
+                                    lineNumber: 857,
                                     columnNumber: 27
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$published$2d$location$2d$details$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                     feature: selectedLocation
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/components/fan-map.tsx",
-                                    lineNumber: 822,
+                                    lineNumber: 858,
                                     columnNumber: 15
                                 }, this),
                                 selectedLocation.properties.availability && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1622,20 +1669,20 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                             children: "Availability"
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/components/fan-map.tsx",
-                                            lineNumber: 825,
+                                            lineNumber: 861,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
                                             children: selectedLocation.properties.availability
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/components/fan-map.tsx",
-                                            lineNumber: 826,
+                                            lineNumber: 862,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/frontend/components/fan-map.tsx",
-                                    lineNumber: 824,
+                                    lineNumber: 860,
                                     columnNumber: 17
                                 }, this),
                                 selectedLocation.properties.hours && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1645,20 +1692,20 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                             children: "Hours"
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/components/fan-map.tsx",
-                                            lineNumber: 831,
+                                            lineNumber: 867,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
                                             children: selectedLocation.properties.hours
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/components/fan-map.tsx",
-                                            lineNumber: 832,
+                                            lineNumber: 868,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/frontend/components/fan-map.tsx",
-                                    lineNumber: 830,
+                                    lineNumber: 866,
                                     columnNumber: 17
                                 }, this),
                                 distance !== null && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1668,27 +1715,27 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                             children: "Distance"
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/components/fan-map.tsx",
-                                            lineNumber: 837,
+                                            lineNumber: 873,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
                                             children: distance < 1000 ? `${Math.round(distance)} m away` : `${(distance / 1000).toFixed(1)} km away`
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/components/fan-map.tsx",
-                                            lineNumber: 838,
+                                            lineNumber: 874,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                             children: "This is a straight-line distance."
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/components/fan-map.tsx",
-                                            lineNumber: 843,
+                                            lineNumber: 879,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/frontend/components/fan-map.tsx",
-                                    lineNumber: 836,
+                                    lineNumber: 872,
                                     columnNumber: 17
                                 }, this),
                                 selectedLocation.properties.studyId && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -1697,7 +1744,7 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                     children: "Book this study room"
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/components/fan-map.tsx",
-                                    lineNumber: 847,
+                                    lineNumber: 883,
                                     columnNumber: 17
                                 }, this),
                                 adminUnlocked && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1710,7 +1757,7 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                     children: "Delete this place"
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/components/fan-map.tsx",
-                                    lineNumber: 855,
+                                    lineNumber: 891,
                                     columnNumber: 19
                                 }, this),
                                 stopRoutes.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1720,7 +1767,7 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                             children: "Upcoming buses"
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/components/fan-map.tsx",
-                                            lineNumber: 868,
+                                            lineNumber: 904,
                                             columnNumber: 19
                                         }, this),
                                         stopRoutes.map((route)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1730,7 +1777,7 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                                         children: route.route
                                                     }, void 0, false, {
                                                         fileName: "[project]/frontend/components/fan-map.tsx",
-                                                        lineNumber: 871,
+                                                        lineNumber: 907,
                                                         columnNumber: 23
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1739,62 +1786,62 @@ function FanMap({ user, initialFavoriteIds = [] }) {
                                                                 children: route.name
                                                             }, void 0, false, {
                                                                 fileName: "[project]/frontend/components/fan-map.tsx",
-                                                                lineNumber: 873,
+                                                                lineNumber: 909,
                                                                 columnNumber: 25
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                                 children: route.arrivals.join(" · ")
                                                             }, void 0, false, {
                                                                 fileName: "[project]/frontend/components/fan-map.tsx",
-                                                                lineNumber: 874,
+                                                                lineNumber: 910,
                                                                 columnNumber: 25
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/frontend/components/fan-map.tsx",
-                                                        lineNumber: 872,
+                                                        lineNumber: 908,
                                                         columnNumber: 23
                                                     }, this)
                                                 ]
                                             }, route.route, true, {
                                                 fileName: "[project]/frontend/components/fan-map.tsx",
-                                                lineNumber: 870,
+                                                lineNumber: 906,
                                                 columnNumber: 21
                                             }, this))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/frontend/components/fan-map.tsx",
-                                    lineNumber: 867,
+                                    lineNumber: 903,
                                     columnNumber: 17
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/frontend/components/fan-map.tsx",
-                            lineNumber: 814,
+                            lineNumber: 850,
                             columnNumber: 13
                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                             className: "sidebar-intro",
                             children: "Click a location on the map or select one from the list to see more details."
                         }, void 0, false, {
                             fileName: "[project]/frontend/components/fan-map.tsx",
-                            lineNumber: 882,
+                            lineNumber: 918,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/frontend/components/fan-map.tsx",
-                        lineNumber: 812,
+                        lineNumber: 848,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/frontend/components/fan-map.tsx",
-                lineNumber: 613,
+                lineNumber: 649,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/frontend/components/fan-map.tsx",
-        lineNumber: 553,
+        lineNumber: 589,
         columnNumber: 5
     }, this);
 }
