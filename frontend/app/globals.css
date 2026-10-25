@@ -128,9 +128,9 @@ legend { padding: 0 0 10px; font-size: .72rem; letter-spacing: .08em; color: var
 .account-nav a, .auth-switch a, .guest-link a, .favorites-hint a, .favorite-error a { color: var(--blue); }
 .account-nav a:focus-visible, .auth-shell a:focus-visible, .auth-shell button:focus-visible, .auth-shell input:focus-visible, .favorites-section a:focus-visible, .favorites-section button:focus-visible, .favorite-toggle:focus-visible, .favorite-sign-in:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 .account-nav { display: flex; align-items: center; gap: 12px; font-size: .82rem; }
-.account-role { border: 1px solid var(--line); background: var(--paper); padding: 4px 8px; border-radius: 5px; color: var(--muted); font-size: .7rem; }
+.account-role { border: 1px solid var(--line); background: var(--paper); padding: 10px 14px; border-radius: 5px; color: var(--muted); font-size: .86rem; }
 .account-email { max-width: 190px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--muted); }
-.account-link { font-weight: 600; text-decoration: none; }
+.account-link { border: 1px solid var(--line); font-weight: 600; padding: 10px 14px; text-decoration: none; }
 .account-link:hover, .back-to-map:hover, .guest-link a:hover, .auth-switch a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .account-create { border: 1px solid var(--line); border-radius: 6px; padding: 9px 12px; text-decoration: none; font-weight: 600; }
 .account-create:hover { background: var(--paper); border-color: var(--accent); }

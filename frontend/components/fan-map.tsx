@@ -586,6 +586,7 @@ export default function FanMap({ user, initialFavoriteIds = [] }: { user: AuthUs
           >
             {adminUnlocked ? "Exit admin mode" : "Admin"}
           </button>
+          <button className="account-role">Guest</button>
           <button
             className="location-button"
             onClick={showMyLocation}
@@ -603,7 +604,6 @@ export default function FanMap({ user, initialFavoriteIds = [] }: { user: AuthUs
               <span className="account-role">{user.role === "admin" ? "Admin" : "Registered"}</span>
               <Link className="account-link" href="/sign-out" prefetch={false}>Sign out</Link>
             </> : <>
-              <span className="account-role">Guest</span>
               <Link className="account-link" href="/sign-in">Sign in</Link>
               <Link className="account-create" href="/sign-up">Create account</Link>
             </>}

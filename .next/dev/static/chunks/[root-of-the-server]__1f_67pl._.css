@@ -1962,8 +1962,8 @@ legend {
   background: var(--paper);
   color: var(--muted);
   border-radius: 5px;
-  padding: 4px 8px;
-  font-size: .7rem;
+  padding: 10px 14px;
+  font-size: .86rem;
 }
 
 .account-email {
@@ -1975,6 +1975,8 @@ legend {
 }
 
 .account-link {
+  border: 1px solid var(--line);
+  padding: 10px 14px;
   font-weight: 600;
   text-decoration: none;
 }
