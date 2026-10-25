@@ -198,9 +198,31 @@ legend { padding: 0 0 10px; font-size: .72rem; letter-spacing: .08em; color: var
 .favorite-error { margin: 12px 0 0; color: var(--accent); font-size: .79rem; line-height: 1.5; }
 .favorite-feedback { margin: 12px 0 0; color: var(--muted); font-size: .77rem; line-height: 1.5; }
 .favorite-feedback:empty { display: none; }
+.location-report { margin-top: 16px; }
+.report-link { padding: 0; border: 0; background: none; color: var(--accent); text-decoration: underline; text-underline-offset: 3px; font-size: .82rem; cursor: pointer; }
+.location-report textarea { width: 100%; border: 1px solid var(--line); border-radius: 6px; padding: 10px; color: var(--ink); background: var(--surface-raised); font-size: .88rem; resize: vertical; }
+.report-actions, .report-filters, .report-pagination { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.report-actions { margin-top: 14px; }
+.reports-page { width: min(100%, 900px); margin: 0 auto; padding: 32px 24px; }
+.reports-heading, .reports-toolbar, .report-card-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.reports-heading { margin-bottom: 16px; }
+.reports-toolbar { margin: 24px 0 16px; }
+.report-list { list-style: none; margin: 20px 0; padding: 0; display: grid; gap: 14px; }
+.report-card { min-width: 0; padding: 20px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+.report-card h2 { margin: 0; font-size: 1rem; overflow-wrap: anywhere; }
+.report-meta { margin: 10px 0 0; font-size: .76rem; color: var(--muted); line-height: 1.5; }
+.report-message { white-space: pre-wrap; overflow-wrap: anywhere; margin: 16px 0; font-size: .9rem; line-height: 1.6; }
+.report-actions .account-link { color: var(--accent); font-size: .82rem; text-decoration: underline; text-underline-offset: 3px; }
+.reports-empty { padding: 30px 0; color: var(--muted); }
+.report-pagination { justify-content: center; font-size: .82rem; }
+.reports-panel button:disabled, .report-link:disabled { opacity: .6; cursor: default; }
+.location-report :focus-visible, .reports-page :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 @media (max-width: 920px) { .account-email { max-width: 130px; } }
 @media (max-width: 680px) {
   .account-nav { gap: 9px; }
+  .fanmap-shell .topbar { align-items: flex-start; flex-direction: column; gap: 12px; }
+  .fanmap-shell .topbar-actions { width: 100%; flex-wrap: wrap; }
+  .fanmap-shell .account-nav { flex-wrap: wrap; }
   .account-email { max-width: 105px; }
   .account-create { padding: 8px 9px; }
   .auth-topbar { flex-wrap: nowrap; }

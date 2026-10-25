@@ -102,13 +102,17 @@ JSON repository, alongside persistent storage for accounts and favorites.
 
 ## Authentication
 
-The schema has three tables:
+The schema has four tables:
 
 - `users`: UUID, unique normalized email, optional unique username, password hash, role (`registered` or
   `admin`), and creation/update timestamps.
 - `sessions`: SHA-256 token digest, user reference, creation time, and expiry.
 - `favorites`: user reference, location ID, and creation time, unique per user and
   location. Deleting a user also deletes their sessions and favorites.
+- `location_reports`: location ID and name at submission, problem description,
+  guest/registered reporter type, optional user reference, open/resolved status,
+  reviewing administrator, and creation/update timestamps. Reports remain after a
+  location or account is removed; deleted accounts have their references cleared.
 
 Guests have no user record or session. Public signup passwords accept 15–128 characters without
 composition rules and are hashed using asynchronous scrypt (`N=32768`, `r=8`,
@@ -178,6 +182,46 @@ with 401 for guests or expired sessions, 400 for invalid locations, and 403 for
 foreign origins. Mutations are limited to 60 per account per minute in each
 server process; GET requests remain available when this limit is reached.
 
+## Inaccurate location reports
+
+Guests and registered users can select a location and choose **Report inaccurate
+location** beneath the favorite control. Enter a short description (up to 1,000
+characters) and choose **Send report**. No account or contact details are required
+for guests. A confirmation appears after submission. Signed-in administrators
+cannot submit reports; they can edit the map directly.
+
+Administrators can open **Reports** in the map header, or visit `/admin/reports`.
+The minimal tracker shows the location, description, report number, guest/user
+type and timestamps. Filter by **Open**, **Resolved**, or **All**, open the location
+on the map, and choose **Mark resolved** or **Reopen report**. Resolving a report
+changes its tracking status; location changes are made through the existing map
+editor. Use **Refresh** to fetch new reports. Lists are paginated at 25 reports.
+
+Reports use the same `.data/auth.sqlite` database (or `FANMAP_AUTH_DB`) as accounts
+and favorites. The table is added automatically to existing databases. No separate
+database, migration command, or seed is needed. Location IDs and the submitted
+location names are preserved even if a location is later renamed or deleted.
+Report descriptions are visible only to admins, and reports do not change map data.
+
+| Endpoint | Access and request | Response |
+| --- | --- | --- |
+| `POST /api/reports` | Guest/registered; `{ "locationId": "…", "message": "…" }` | `{ "id": 1, "status": "open" }`, status 201 |
+| `GET /api/reports?status=open&page=1` | Admin; status is `open`, `resolved`, or `all` | `{ "reports": [...], "page", "pageCount", "total", "counts" }` |
+| `PATCH /api/reports` | Admin; `{ "id": 1, "status": "resolved" }` or `"open"` | `{ "report": {...} }` |
+
+Mutations require same-origin JSON and bounded request bodies. Unknown/deleted
+locations cannot receive new reports. Reporter identity comes from the session,
+never the request body. Guests and regular users cannot list reports or change
+their statuses; every admin request checks the current database role.
+All responses use `Cache-Control: no-store`.
+
+Submission limits are intentionally basic and per server process: 30 attempts
+per minute globally and five per minute per signed-in account or shared guest
+bucket. Guests do not receive a tracking cookie and IP addresses are not stored.
+Rate-limited requests receive 429 with `Retry-After`; admin review remains available.
+For a larger public deployment, replace these coarse in-memory limits with shared
+abuse protection. The existing single-server SQLite persistence requirements apply.
+
 ## Check and build
 
 ```sh
@@ -189,4 +233,5 @@ npm start
 
 Tests exercise password hashing, persisted SQLite accounts and favorites, session
 expiry and revocation, per-account favorites isolation, role restrictions,
-origin/body validation, rate limits, and automatic favorites-table migration.
+origin/body validation, rate limits, report submission/review restrictions,
+report persistence and pagination, and automatic database-table migration.

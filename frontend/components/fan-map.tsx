@@ -9,6 +9,7 @@ import type { Category, LocationFeature } from "@/lib/place-types";
 import { isMappedPoint } from "@/lib/place-types";
 import type { AuthUser } from "@/lib/auth/types";
 import PublishedLocationDetails from "@/components/published-location-details";
+import LocationReportForm from "@/components/location-report-form";
 import { haversineMeters, iconSvg, roomIconSvg } from "@/lib/map-utils";
 import { createPlace, deletePlace, fetchPlaces, updatePlace } from "@/services/place-service";
 
@@ -53,13 +54,15 @@ function createUserLocationMarker() {
   return new mapboxgl.Marker({ element, anchor: "center" });
 }
 
-export default function FanMap({ user, initialFavoriteIds = [] }: { user: AuthUser | null; initialFavoriteIds?: string[] }) {
+export default function FanMap({ user, initialFavoriteIds = [], initialLocationId }: { user: AuthUser | null; initialFavoriteIds?: string[]; initialLocationId?: string }) {
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<mapboxgl.Map | null>(null);
   const userMarker = useRef<mapboxgl.Marker | null>(null);
   const locationInterval = useRef<ReturnType<typeof setInterval> | null>(null);
   const locationRequestInFlight = useRef(false);
   const hasCenteredOnLocation = useRef(false);
+  const initialLocationFocused = useRef(false);
+  const [requestedLocationMissing, setRequestedLocationMissing] = useState(false);
   const [selectedCategories, setSelectedCategories] = useState<Category[]>(
     categories.map(({ id }) => id),
   );
@@ -162,13 +165,28 @@ export default function FanMap({ user, initialFavoriteIds = [] }: { user: AuthUs
         setPlaces(places);
         setDeletedPlaceIds(deletedIds);
         setPlacesLoaded(true);
+        if (initialLocationId) {
+          const location = places.find((place) => place.properties.id === initialLocationId);
+          setSelectedLocation(location ?? null);
+          setLocationChoice(location?.properties.name ?? "");
+          setRequestedLocationMissing(!location);
+        }
       })
       .catch(() => {
         setPlaces([]);
         setDeletedPlaceIds([]);
         setPlacesFailed(true);
       });
-  }, []);
+  }, [initialLocationId]);
+
+  useEffect(() => {
+    if (!initialLocationId || !mapReady || initialLocationFocused.current) return;
+    const location = places.find((place) => place.properties.id === initialLocationId);
+    if (location && isMappedPoint(location)) {
+      map.current?.flyTo({ center: location.geometry.coordinates as [number, number], zoom: 17 });
+      initialLocationFocused.current = true;
+    }
+  }, [initialLocationId, mapReady, places]);
 
   useEffect(() => {
     fetch("/api/routes")
@@ -596,6 +614,7 @@ export default function FanMap({ user, initialFavoriteIds = [] }: { user: AuthUs
           </button>
           <nav className="account-nav" aria-label="Account">
             {user ? <>
+              {user.role === "admin" && <Link className="account-link" href="/admin/reports" prefetch={false}>Reports</Link>}
               <span className="account-email" title={user.username ?? user.email}>{user.username ?? user.email}</span>
               <span className="account-role">{user.role === "admin" ? "Admin" : "Registered"}</span>
               <Link className="account-link" href="/sign-out" prefetch={false}>Sign out</Link>
@@ -615,6 +634,7 @@ export default function FanMap({ user, initialFavoriteIds = [] }: { user: AuthUs
           </p>
           {adminUnlocked && <p className="sidebar-intro">Select a location to edit or delete it. Click an empty map spot to add a place.</p>}
           <p className="favorite-feedback" role="status">{adminFeedback}</p>
+          {requestedLocationMissing && <p className="favorite-error" role="status">The requested location is no longer available on the map.</p>}
           <fieldset>
             <legend>Location types</legend>
             {categories.map(({ id, label, symbol }) => (
@@ -798,6 +818,7 @@ export default function FanMap({ user, initialFavoriteIds = [] }: { user: AuthUs
                 <span aria-hidden="true">{selectedIsFavorite ? "★" : "☆"}</span>
                 {favoritePendingId === selectedLocation.properties.id ? selectedIsFavorite ? "Removing…" : "Saving…" : selectedIsFavorite ? "Saved to favorites" : "Save to favorites"}
               </button> : <Link href="/sign-in" className="favorite-sign-in">☆ Sign in to save this location</Link>}
+              {user?.role !== "admin" && <LocationReportForm key={selectedLocation.properties.id} location={selectedLocation} />}
               <PublishedLocationDetails feature={selectedLocation} />
               {selectedLocation.properties.availability && (
                 <div className="info-row">

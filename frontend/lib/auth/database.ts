@@ -58,6 +58,19 @@ export class AuthStore {
         created_at INTEGER NOT NULL,
         PRIMARY KEY (user_id, location_id)
       ) STRICT;
+      CREATE TABLE IF NOT EXISTS location_reports (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        location_id TEXT NOT NULL,
+        location_name TEXT NOT NULL,
+        message TEXT NOT NULL CHECK (length(message) BETWEEN 1 AND 1000),
+        reporter_type TEXT NOT NULL CHECK (reporter_type IN ('guest', 'registered')),
+        reporter_user_id TEXT REFERENCES users(id) ON DELETE SET NULL,
+        status TEXT NOT NULL DEFAULT 'open' CHECK (status IN ('open', 'resolved')),
+        reviewed_by TEXT REFERENCES users(id) ON DELETE SET NULL,
+        created_at INTEGER NOT NULL,
+        updated_at INTEGER NOT NULL
+      ) STRICT;
+      CREATE INDEX IF NOT EXISTS location_reports_status_id ON location_reports(status, id DESC);
     `);
     const columns = this.database.prepare("PRAGMA table_info(users)").all();
     if (!columns.some((column) => column.name === "username")) {
@@ -159,7 +172,7 @@ const shared = globalThis as typeof globalThis & {
 };
 
 // Recreate an older hot-reloaded singleton so it gets the current schema and methods.
-const AUTH_STORE_VERSION = 3;
+const AUTH_STORE_VERSION = 4;
 
 export function getAuthStore(): AuthStore {
   const path = resolve(/* turbopackIgnore: true */ process.env.FANMAP_AUTH_DB || ".data/auth.sqlite");
