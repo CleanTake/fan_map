@@ -1,0 +1,1791 @@
+{
+  "version": 4,
+  "lastVerified": "2026-09-25",
+  "timezone": "America/Toronto",
+  "campus": {
+    "id": "fanshawe-london",
+    "name": "Fanshawe College London Campus",
+    "address": "1001 Fanshawe College Blvd., London, ON N5Y 5R6"
+  },
+  "sourcePolicy": "Official Fanshawe College and Fanshawe Student Union (fsu.ca) web pages override the orientation map when they disagree; each override is explained in the destination's notes.",
+  "sources": {
+    "campus-map": {
+      "title": "London Campus Orientation Map (Revised: August 2026)",
+      "url": "https://www.fanshawec.ca/sites/default/files/2025-02/Fanshawe_College_London_Campus_Map.pdf",
+      "retrieved": "2026-09-25",
+      "published": "2026-08"
+    },
+    "std03": {
+      "title": "College Standard STD03: Titles of Organizational Units and College Property",
+      "url": "https://www.fanshawec.ca/sites/default/files/2024-05/STD03_Titles_of_Organizational_Units_and_College_Property.pdf",
+      "retrieved": "2026-09-25",
+      "published": "2024-05-24"
+    },
+    "chartwells-fall-2026": {
+      "title": "Chartwells food services hours of operation - Fall 2026",
+      "url": "https://www.fanshawec.ca/current-students/news/chartwells-food-services-hours-operation-fall-2026",
+      "retrieved": "2026-09-25",
+      "published": "2026-09-01"
+    },
+    "food-services": {
+      "title": "Meal Plan and Food Services",
+      "url": "https://www.fanshawec.ca/students/life/campus-services/food",
+      "retrieved": "2026-10-13"
+    },
+    "retail-services": {
+      "title": "Retail Services",
+      "url": "https://www.fanshawec.ca/students/life/campus-services/retail",
+      "retrieved": "2026-09-25"
+    },
+    "falcon-shop-move": {
+      "title": "The Campus Store (F1019) is now the new Falcon Shop",
+      "url": "https://www.fanshawec.ca/current-students/news/campus-store-f1019-now-new-falcon-shop",
+      "retrieved": "2026-09-25",
+      "published": "2025-08-21"
+    },
+    "fsu-biz-booth": {
+      "title": "FSU - The Biz Booth",
+      "url": "https://www.fsu.ca/biz-booth",
+      "retrieved": "2026-09-25"
+    },
+    "fsu-pharmacy": {
+      "title": "FSU - Pharmacy",
+      "url": "https://www.fsu.ca/pharmacy",
+      "retrieved": "2026-09-25"
+    },
+    "launch-list": {
+      "title": "Preliminary launch locations supplied by the project owner",
+      "path": "launch-locations.txt",
+      "retrieved": "2026-10-13",
+      "purpose": "scope_only"
+    },
+    "financial-aid": {
+      "title": "Financial Aid and Student Awards",
+      "url": "https://www.fanshawec.ca/admission-finance/financial-aid-awards",
+      "retrieved": "2026-10-13"
+    },
+    "indigenous-learning": {
+      "title": "The Institute of Indigenous Learning",
+      "url": "https://www.fanshawec.ca/students/support/indigenous-learning/institute-of-indigenous-learning",
+      "retrieved": "2026-10-13"
+    },
+    "international-centre": {
+      "title": "International Centre",
+      "url": "https://www.fanshawec.ca/international/students/international-centre",
+      "retrieved": "2026-10-13"
+    },
+    "makerspace": {
+      "title": "Makerspace - Fanshawe Library Learning Commons",
+      "url": "https://www.fanshawelibrary.com/makerspace/",
+      "retrieved": "2026-10-13"
+    },
+    "innovation-resources": {
+      "title": "Fanshawe Innovation Resources",
+      "url": "https://www.fanshawec.ca/leap-junction/events/community/leap-community/fanshawe-resources",
+      "retrieved": "2026-10-13"
+    },
+    "parking-lockers": {
+      "title": "Transportation, Parking and Lockers",
+      "url": "https://www.fanshawec.ca/students/life/campus-services/transportation-parking-lockers",
+      "retrieved": "2026-10-13"
+    },
+    "campus-security": {
+      "title": "Campus Security Services",
+      "url": "https://www.fanshawec.ca/students/life/campus-services/security",
+      "retrieved": "2026-10-13"
+    },
+    "continuing-education": {
+      "title": "Continuing Education",
+      "url": "https://www.fanshawec.ca/programs-and-courses/programs-type/part-time-studies/continuing-education",
+      "retrieved": "2026-10-13"
+    },
+    "fsu-dernier": {
+      "title": "FSU - Dernier CRI Hair Group",
+      "url": "https://www.fsu.ca/dernier",
+      "retrieved": "2026-10-13"
+    }
+  },
+  "buildingNames": {
+    "A": "A Building",
+    "B": "B Building",
+    "D": "D Building",
+    "E": "E Building",
+    "F": "F Building",
+    "H": "H Building",
+    "J": "J Building (Student Wellness Centre)",
+    "L": "L Building",
+    "SC": "Student Centre"
+  },
+  "rooms": [
+    {
+      "id": "room-a1046",
+      "code": "A1046",
+      "buildingCode": "A",
+      "floor": 1,
+      "geometry": null
+    },
+    {
+      "id": "room-b1002",
+      "code": "B1002",
+      "buildingCode": "B",
+      "floor": 1,
+      "geometry": null
+    },
+    {
+      "id": "room-d1001",
+      "code": "D1001",
+      "buildingCode": "D",
+      "floor": 1,
+      "geometry": null
+    },
+    {
+      "id": "room-d1025",
+      "code": "D1025",
+      "buildingCode": "D",
+      "floor": 1,
+      "geometry": null
+    },
+    {
+      "id": "room-d1027",
+      "code": "D1027",
+      "buildingCode": "D",
+      "floor": 1,
+      "geometry": null
+    },
+    {
+      "id": "room-d1043",
+      "code": "D1043",
+      "buildingCode": "D",
+      "floor": 1,
+      "geometry": null
+    },
+    {
+      "id": "room-d1045",
+      "code": "D1045",
+      "buildingCode": "D",
+      "floor": 1,
+      "geometry": null
+    },
+    {
+      "id": "room-e1012",
+      "code": "E1012",
+      "buildingCode": "E",
+      "floor": 1,
+      "geometry": null
+    },
+    {
+      "id": "room-e2020",
+      "code": "E2020",
+      "buildingCode": "E",
+      "floor": 2,
+      "geometry": null
+    },
+    {
+      "id": "room-e2025",
+      "code": "E2025",
+      "buildingCode": "E",
+      "floor": 2,
+      "geometry": null
+    },
+    {
+      "id": "room-e2030",
+      "code": "E2030",
+      "buildingCode": "E",
+      "floor": 2,
+      "geometry": null
+    },
+    {
+      "id": "room-f1019",
+      "code": "F1019",
+      "buildingCode": "F",
+      "floor": 1,
+      "geometry": null
+    },
+    {
+      "id": "room-f1066",
+      "code": "F1066",
+      "buildingCode": "F",
+      "floor": 1,
+      "geometry": null
+    },
+    {
+      "id": "room-f2010",
+      "code": "F2010",
+      "buildingCode": "F",
+      "floor": 2,
+      "geometry": null
+    },
+    {
+      "id": "room-f3005",
+      "code": "F3005",
+      "buildingCode": "F",
+      "floor": 3,
+      "geometry": null
+    },
+    {
+      "id": "room-h1000",
+      "code": "H1000",
+      "buildingCode": "H",
+      "floor": 1,
+      "geometry": null
+    },
+    {
+      "id": "room-j1004",
+      "code": "J1004",
+      "buildingCode": "J",
+      "floor": 1,
+      "geometry": null
+    },
+    {
+      "id": "room-j1015",
+      "code": "J1015",
+      "buildingCode": "J",
+      "floor": 1,
+      "geometry": null
+    },
+    {
+      "id": "room-j1032",
+      "code": "J1032",
+      "buildingCode": "J",
+      "floor": 1,
+      "geometry": null
+    },
+    {
+      "id": "room-j2003",
+      "code": "J2003",
+      "buildingCode": "J",
+      "floor": 2,
+      "geometry": null
+    },
+    {
+      "id": "room-l1002",
+      "code": "L1002",
+      "buildingCode": "L",
+      "floor": 1,
+      "geometry": null
+    },
+    {
+      "id": "room-sc1000",
+      "code": "SC1000",
+      "buildingCode": "SC",
+      "floor": 1,
+      "geometry": null
+    },
+    {
+      "id": "room-f1061",
+      "code": "F1061",
+      "buildingCode": "F",
+      "floor": 1,
+      "geometry": null
+    }
+  ],
+  "destinations": [
+    {
+      "id": "dernier-cri-hair-group",
+      "name": "Dernier CRI Hair Group",
+      "category": "retail",
+      "roomId": "room-l1002",
+      "status": "open",
+      "sourceIds": [
+        "campus-map",
+        "fsu-dernier"
+      ],
+      "notes": "The FSU page lists Dernier CRI Hair Group in L1002. Published hours are subject to change; Sunday hours are not published and remain unknown.",
+      "aliases": [
+        "Hair Salon"
+      ],
+      "hours": {
+        "timezone": "America/Toronto",
+        "sourceId": "fsu-dernier",
+        "periods": [
+          {
+            "label": "Published regular hours",
+            "from": null,
+            "to": null,
+            "weekly": {
+              "mon": [
+                [
+                  "10:00",
+                  "17:00"
+                ]
+              ],
+              "tue": [
+                [
+                  "10:00",
+                  "17:00"
+                ]
+              ],
+              "wed": [
+                [
+                  "10:00",
+                  "17:00"
+                ]
+              ],
+              "thu": [
+                [
+                  "10:00",
+                  "19:00"
+                ]
+              ],
+              "fri": [
+                [
+                  "10:00",
+                  "18:00"
+                ]
+              ],
+              "sat": [
+                [
+                  "11:00",
+                  "14:00"
+                ]
+              ]
+            },
+            "rawText": "Monday to Wednesday 10:00 a.m. to 5:00 p.m.; Thursday 10:00 a.m. to 7:00 p.m.; Friday 10:00 a.m. to 6:00 p.m.; Saturday 11:00 a.m. to 2:00 p.m."
+          }
+        ],
+        "notes": "Hours are subject to change. Sunday hours are not published; do not infer that Sunday is closed."
+      }
+    },
+    {
+      "id": "h-cafe",
+      "name": "H Cafe",
+      "category": "food",
+      "roomId": "room-h1000",
+      "aliases": [
+        "H Cafeteria"
+      ],
+      "operator": "Chartwells",
+      "status": "open",
+      "sourceIds": [
+        "campus-map",
+        "food-services"
+      ],
+      "notes": "STD03 (2024) lists H-Cafeteria at H1013; the August 2026 map lists H1000.",
+      "markerType": "food_court"
+    },
+    {
+      "id": "starbucks",
+      "name": "Starbucks",
+      "category": "food",
+      "parentId": "h-cafe",
+      "operator": "Chartwells",
+      "status": "open",
+      "hours": {
+        "timezone": "America/Toronto",
+        "sourceId": "chartwells-fall-2026",
+        "closedOnCollegeClosures": true,
+        "periods": [
+          {
+            "label": "Fall 2026 regular",
+            "from": "2026-09-08",
+            "to": "2026-12-13",
+            "weekly": {
+              "mon": [
+                [
+                  "08:00",
+                  "16:00"
+                ]
+              ],
+              "tue": [
+                [
+                  "08:00",
+                  "16:00"
+                ]
+              ],
+              "wed": [
+                [
+                  "08:00",
+                  "16:00"
+                ]
+              ],
+              "thu": [
+                [
+                  "08:00",
+                  "16:00"
+                ]
+              ],
+              "fri": [
+                [
+                  "08:00",
+                  "16:00"
+                ]
+              ]
+            },
+            "rawText": "Mon-Thu 08:00-16:00; Fri 08:00-16:00"
+          },
+          {
+            "label": "Fall 2026 exam week",
+            "from": "2026-12-14",
+            "to": "2026-12-18",
+            "weekly": {
+              "mon": [
+                [
+                  "09:00",
+                  "14:00"
+                ]
+              ],
+              "tue": [
+                [
+                  "09:00",
+                  "14:00"
+                ]
+              ],
+              "wed": [
+                [
+                  "09:00",
+                  "14:00"
+                ]
+              ],
+              "thu": [
+                [
+                  "09:00",
+                  "14:00"
+                ]
+              ],
+              "fri": [
+                [
+                  "09:00",
+                  "14:00"
+                ]
+              ]
+            },
+            "rawText": "09:00-14:00"
+          },
+          {
+            "label": "Fall 2026 interterm week",
+            "from": "2026-12-21",
+            "to": "2026-12-24",
+            "weekly": {},
+            "rawText": "Closed"
+          }
+        ],
+        "notes": "Weekends are not listed and are treated as closed. The published table does not mention the October 8-9 study break."
+      },
+      "sourceIds": [
+        "campus-map",
+        "chartwells-fall-2026",
+        "food-services"
+      ]
+    },
+    {
+      "id": "d-cafe",
+      "name": "D Cafe",
+      "category": "food",
+      "roomId": "room-d1001",
+      "aliases": [
+        "D Cafeteria",
+        "Southwest Cafe (B-D corner)"
+      ],
+      "operator": "Chartwells",
+      "status": "open",
+      "sourceIds": [
+        "campus-map",
+        "std03",
+        "food-services"
+      ],
+      "notes": "The food services page places Harvey's and the self-serve Tim Hortons in the 'Southwest Cafe (B-D corner)'; the map places them in D Cafe (D1001), so both names refer to this location.",
+      "markerType": "food_court"
+    },
+    {
+      "id": "harveys",
+      "name": "Harvey's",
+      "category": "food",
+      "parentId": "d-cafe",
+      "operator": "Chartwells",
+      "status": "open",
+      "hours": {
+        "timezone": "America/Toronto",
+        "sourceId": "chartwells-fall-2026",
+        "closedOnCollegeClosures": true,
+        "periods": [
+          {
+            "label": "Fall 2026 regular",
+            "from": "2026-09-08",
+            "to": "2026-12-13",
+            "weekly": {
+              "mon": [
+                [
+                  "11:00",
+                  "16:00"
+                ]
+              ],
+              "tue": [
+                [
+                  "11:00",
+                  "16:00"
+                ]
+              ],
+              "wed": [
+                [
+                  "11:00",
+                  "16:00"
+                ]
+              ],
+              "thu": [
+                [
+                  "11:00",
+                  "16:00"
+                ]
+              ],
+              "fri": [
+                [
+                  "11:00",
+                  "15:00"
+                ]
+              ]
+            },
+            "rawText": "Mon-Thu 11:00-16:00; Fri 11:00-15:00"
+          },
+          {
+            "label": "Fall 2026 exam week",
+            "from": "2026-12-14",
+            "to": "2026-12-18",
+            "weekly": {},
+            "rawText": "Closed"
+          },
+          {
+            "label": "Fall 2026 interterm week",
+            "from": "2026-12-21",
+            "to": "2026-12-24",
+            "weekly": {},
+            "rawText": "Closed"
+          }
+        ],
+        "notes": "Weekends are not listed and are treated as closed. The published table does not mention the October 8-9 study break."
+      },
+      "sourceIds": [
+        "campus-map",
+        "chartwells-fall-2026",
+        "food-services"
+      ]
+    },
+    {
+      "id": "tim-hortons-self-serve",
+      "name": "Tim Hortons (self-serve)",
+      "category": "food",
+      "aliases": [
+        "Tim Hortons Express"
+      ],
+      "parentId": "d-cafe",
+      "operator": "Chartwells",
+      "status": "open",
+      "hours": {
+        "timezone": "America/Toronto",
+        "sourceId": "chartwells-fall-2026",
+        "closedOnCollegeClosures": true,
+        "periods": [
+          {
+            "label": "Fall 2026 regular",
+            "from": "2026-09-08",
+            "to": "2026-12-13",
+            "weekly": {
+              "mon": [
+                [
+                  "06:45",
+                  "14:00"
+                ]
+              ],
+              "tue": [
+                [
+                  "06:45",
+                  "14:00"
+                ]
+              ],
+              "wed": [
+                [
+                  "06:45",
+                  "14:00"
+                ]
+              ],
+              "thu": [
+                [
+                  "06:45",
+                  "14:00"
+                ]
+              ],
+              "fri": [
+                [
+                  "06:45",
+                  "14:00"
+                ]
+              ]
+            },
+            "rawText": "Mon-Thu 06:45-14:00; Fri 06:45-14:00"
+          },
+          {
+            "label": "Fall 2026 exam week",
+            "from": "2026-12-14",
+            "to": "2026-12-18",
+            "weekly": {
+              "mon": [
+                [
+                  "06:45",
+                  "14:00"
+                ]
+              ],
+              "tue": [
+                [
+                  "06:45",
+                  "14:00"
+                ]
+              ],
+              "wed": [
+                [
+                  "06:45",
+                  "14:00"
+                ]
+              ],
+              "thu": [
+                [
+                  "06:45",
+                  "14:00"
+                ]
+              ],
+              "fri": [
+                [
+                  "06:45",
+                  "14:00"
+                ]
+              ]
+            },
+            "rawText": "06:45-14:00"
+          },
+          {
+            "label": "Fall 2026 interterm week",
+            "from": "2026-12-21",
+            "to": "2026-12-24",
+            "weekly": {
+              "mon": [
+                [
+                  "06:45",
+                  "16:00"
+                ]
+              ],
+              "tue": [
+                [
+                  "06:45",
+                  "16:00"
+                ]
+              ],
+              "wed": [
+                [
+                  "06:45",
+                  "16:00"
+                ]
+              ],
+              "thu": [
+                [
+                  "06:45",
+                  "16:00"
+                ]
+              ]
+            },
+            "rawText": "06:45-16:00"
+          }
+        ],
+        "notes": "Weekends are not listed and are treated as closed. The published table does not mention the October 8-9 study break."
+      },
+      "sourceIds": [
+        "campus-map",
+        "chartwells-fall-2026",
+        "food-services"
+      ]
+    },
+    {
+      "id": "d-courtyard-cafe",
+      "name": "D Courtyard Cafe",
+      "category": "food",
+      "roomId": "room-d1045",
+      "aliases": [
+        "Courtyard Cafe",
+        "The Junction",
+        "D-E-F Junction"
+      ],
+      "operator": "Chartwells",
+      "status": "open",
+      "sourceIds": [
+        "campus-map",
+        "std03",
+        "food-services"
+      ],
+      "notes": "STD03 lists both 'Courtyard Cafe' and 'The Junction featuring Tim Hortons' at D1045.",
+      "markerType": "food_court"
+    },
+    {
+      "id": "pizza-pizza",
+      "name": "Pizza Pizza",
+      "category": "food",
+      "parentId": "d-courtyard-cafe",
+      "operator": "Chartwells",
+      "status": "open",
+      "hours": {
+        "timezone": "America/Toronto",
+        "sourceId": "chartwells-fall-2026",
+        "closedOnCollegeClosures": true,
+        "periods": [
+          {
+            "label": "Fall 2026 regular",
+            "from": "2026-09-08",
+            "to": "2026-12-13",
+            "weekly": {
+              "mon": [
+                [
+                  "10:30",
+                  "16:00"
+                ]
+              ],
+              "tue": [
+                [
+                  "10:30",
+                  "16:00"
+                ]
+              ],
+              "wed": [
+                [
+                  "10:30",
+                  "16:00"
+                ]
+              ],
+              "thu": [
+                [
+                  "10:30",
+                  "16:00"
+                ]
+              ],
+              "fri": [
+                [
+                  "10:30",
+                  "15:00"
+                ]
+              ]
+            },
+            "rawText": "Mon-Thu 10:30-16:00; Fri 10:30-15:00"
+          },
+          {
+            "label": "Fall 2026 exam week",
+            "from": "2026-12-14",
+            "to": "2026-12-18",
+            "weekly": {
+              "mon": [
+                [
+                  "10:30",
+                  "15:00"
+                ]
+              ],
+              "tue": [
+                [
+                  "10:30",
+                  "15:00"
+                ]
+              ],
+              "wed": [
+                [
+                  "10:30",
+                  "15:00"
+                ]
+              ],
+              "thu": [
+                [
+                  "10:30",
+                  "15:00"
+                ]
+              ],
+              "fri": [
+                [
+                  "10:30",
+                  "15:00"
+                ]
+              ]
+            },
+            "rawText": "10:30-15:00"
+          },
+          {
+            "label": "Fall 2026 interterm week",
+            "from": "2026-12-21",
+            "to": "2026-12-24",
+            "weekly": {},
+            "rawText": "Closed"
+          }
+        ],
+        "notes": "Weekends are not listed and are treated as closed. The published table does not mention the October 8-9 study break."
+      },
+      "sourceIds": [
+        "campus-map",
+        "chartwells-fall-2026",
+        "food-services"
+      ]
+    },
+    {
+      "id": "subway",
+      "name": "Subway",
+      "category": "food",
+      "parentId": "d-courtyard-cafe",
+      "operator": "Chartwells",
+      "status": "open",
+      "hours": {
+        "timezone": "America/Toronto",
+        "sourceId": "chartwells-fall-2026",
+        "closedOnCollegeClosures": true,
+        "periods": [
+          {
+            "label": "Fall 2026 regular",
+            "from": "2026-09-08",
+            "to": "2026-12-13",
+            "weekly": {
+              "mon": [
+                [
+                  "10:30",
+                  "16:00"
+                ]
+              ],
+              "tue": [
+                [
+                  "10:30",
+                  "16:00"
+                ]
+              ],
+              "wed": [
+                [
+                  "10:30",
+                  "16:00"
+                ]
+              ],
+              "thu": [
+                [
+                  "10:30",
+                  "16:00"
+                ]
+              ],
+              "fri": [
+                [
+                  "10:30",
+                  "15:00"
+                ]
+              ]
+            },
+            "rawText": "Mon-Thu 10:30-16:00; Fri 10:30-15:00"
+          },
+          {
+            "label": "Fall 2026 exam week",
+            "from": "2026-12-14",
+            "to": "2026-12-18",
+            "weekly": {
+              "mon": [
+                [
+                  "11:00",
+                  "16:00"
+                ]
+              ],
+              "tue": [
+                [
+                  "11:00",
+                  "16:00"
+                ]
+              ],
+              "wed": [
+                [
+                  "11:00",
+                  "16:00"
+                ]
+              ],
+              "thu": [
+                [
+                  "11:00",
+                  "16:00"
+                ]
+              ],
+              "fri": [
+                [
+                  "11:00",
+                  "16:00"
+                ]
+              ]
+            },
+            "rawText": "11:00-16:00"
+          },
+          {
+            "label": "Fall 2026 interterm week",
+            "from": "2026-12-21",
+            "to": "2026-12-24",
+            "weekly": {},
+            "rawText": "Closed"
+          }
+        ],
+        "notes": "Weekends are not listed and are treated as closed. The published table does not mention the October 8-9 study break."
+      },
+      "sourceIds": [
+        "campus-map",
+        "chartwells-fall-2026",
+        "food-services"
+      ]
+    },
+    {
+      "id": "tim-hortons-junction",
+      "name": "Tim Hortons (Junction)",
+      "category": "food",
+      "parentId": "d-courtyard-cafe",
+      "operator": "Chartwells",
+      "status": "open",
+      "hours": {
+        "timezone": "America/Toronto",
+        "sourceId": "chartwells-fall-2026",
+        "closedOnCollegeClosures": true,
+        "periods": [
+          {
+            "label": "Fall 2026 regular",
+            "from": "2026-09-08",
+            "to": "2026-12-13",
+            "weekly": {
+              "mon": [
+                [
+                  "07:00",
+                  "17:00"
+                ]
+              ],
+              "tue": [
+                [
+                  "07:00",
+                  "17:00"
+                ]
+              ],
+              "wed": [
+                [
+                  "07:00",
+                  "17:00"
+                ]
+              ],
+              "thu": [
+                [
+                  "07:00",
+                  "17:00"
+                ]
+              ],
+              "fri": [
+                [
+                  "07:00",
+                  "17:00"
+                ]
+              ]
+            },
+            "rawText": "Mon-Thu 07:00-17:00; Fri 07:00-17:00"
+          },
+          {
+            "label": "Fall 2026 exam week",
+            "from": "2026-12-14",
+            "to": "2026-12-18",
+            "weekly": {
+              "mon": [
+                [
+                  "07:00",
+                  "15:00"
+                ]
+              ],
+              "tue": [
+                [
+                  "07:00",
+                  "15:00"
+                ]
+              ],
+              "wed": [
+                [
+                  "07:00",
+                  "15:00"
+                ]
+              ],
+              "thu": [
+                [
+                  "07:00",
+                  "15:00"
+                ]
+              ],
+              "fri": [
+                [
+                  "07:00",
+                  "15:00"
+                ]
+              ]
+            },
+            "rawText": "07:00-15:00"
+          },
+          {
+            "label": "Fall 2026 interterm week",
+            "from": "2026-12-21",
+            "to": "2026-12-24",
+            "weekly": {},
+            "rawText": "Closed"
+          }
+        ],
+        "notes": "Weekends are not listed and are treated as closed. The published table does not mention the October 8-9 study break."
+      },
+      "sourceIds": [
+        "campus-map",
+        "std03",
+        "chartwells-fall-2026",
+        "food-services"
+      ]
+    },
+    {
+      "id": "falcon-shop",
+      "name": "The Falcon Shop",
+      "category": "retail",
+      "roomId": "room-f1019",
+      "aliases": [
+        "Campus Store",
+        "Bookstore"
+      ],
+      "operator": "Fanshawe Retail Services",
+      "status": "open",
+      "hours": {
+        "timezone": "America/Toronto",
+        "sourceId": "retail-services",
+        "closedOnCollegeClosures": true,
+        "periods": [
+          {
+            "label": "Regular",
+            "from": null,
+            "to": null,
+            "weekly": {
+              "mon": [
+                [
+                  "09:00",
+                  "16:30"
+                ]
+              ],
+              "tue": [
+                [
+                  "09:00",
+                  "16:30"
+                ]
+              ],
+              "wed": [
+                [
+                  "09:00",
+                  "16:30"
+                ]
+              ],
+              "thu": [
+                [
+                  "09:00",
+                  "16:30"
+                ]
+              ],
+              "fri": [
+                [
+                  "09:00",
+                  "16:30"
+                ]
+              ]
+            },
+            "rawText": "Monday and Friday - 9:00 a.m. to 4:30 p.m."
+          }
+        ],
+        "notes": "The official page says 'Monday and Friday'; interpreted as Monday to Friday per the team's decision."
+      },
+      "sourceIds": [
+        "campus-map",
+        "retail-services",
+        "falcon-shop-move",
+        "std03"
+      ],
+      "notes": "The map still lists The Falcon Shop at D1042. Retail Services moved it to F1019 (the former Campus Store) in August 2025."
+    },
+    {
+      "id": "variety-store",
+      "name": "Variety Store",
+      "category": "retail",
+      "roomId": "room-d1043",
+      "aliases": [
+        "Convenience Store"
+      ],
+      "operator": "Fanshawe Retail Services",
+      "status": "open",
+      "hours": {
+        "timezone": "America/Toronto",
+        "sourceId": "retail-services",
+        "closedOnCollegeClosures": true,
+        "periods": [
+          {
+            "label": "Regular",
+            "from": null,
+            "to": null,
+            "weekly": {
+              "mon": [
+                [
+                  "09:00",
+                  "16:00"
+                ]
+              ],
+              "tue": [
+                [
+                  "09:00",
+                  "16:00"
+                ]
+              ],
+              "wed": [
+                [
+                  "09:00",
+                  "16:00"
+                ]
+              ],
+              "thu": [
+                [
+                  "09:00",
+                  "16:00"
+                ]
+              ],
+              "fri": [
+                [
+                  "09:00",
+                  "16:00"
+                ]
+              ]
+            },
+            "rawText": "Monday to Friday 9:00 a.m. - 4:00 p.m."
+          }
+        ]
+      },
+      "sourceIds": [
+        "campus-map",
+        "retail-services",
+        "std03"
+      ]
+    },
+    {
+      "id": "print-shop",
+      "name": "The Print Shop",
+      "category": "retail",
+      "roomId": "room-b1002",
+      "operator": "Fanshawe Retail Services",
+      "status": "open",
+      "hours": {
+        "timezone": "America/Toronto",
+        "sourceId": "retail-services",
+        "closedOnCollegeClosures": true,
+        "periods": [
+          {
+            "label": "Regular",
+            "from": null,
+            "to": null,
+            "weekly": {
+              "mon": [
+                [
+                  "08:30",
+                  "16:00"
+                ]
+              ],
+              "tue": [
+                [
+                  "08:30",
+                  "16:00"
+                ]
+              ],
+              "wed": [
+                [
+                  "08:30",
+                  "16:00"
+                ]
+              ],
+              "thu": [
+                [
+                  "08:30",
+                  "16:00"
+                ]
+              ],
+              "fri": [
+                [
+                  "08:30",
+                  "16:00"
+                ]
+              ]
+            },
+            "rawText": "Monday to Friday, 8:30 a.m. - 4:00 p.m."
+          }
+        ]
+      },
+      "sourceIds": [
+        "retail-services",
+        "std03"
+      ],
+      "notes": "Not on the map legend; included because Retail Services publishes its location and hours."
+    },
+    {
+      "id": "counselling-accessibility",
+      "name": "Counselling and Accessibility Services",
+      "category": "student_services",
+      "roomId": "room-f2010",
+      "status": "open",
+      "sourceIds": [
+        "campus-map"
+      ]
+    },
+    {
+      "id": "library-learning-commons",
+      "name": "Library Learning Commons",
+      "category": "student_services",
+      "roomId": "room-f1066",
+      "status": "open",
+      "sourceIds": [
+        "campus-map"
+      ]
+    },
+    {
+      "id": "test-centre",
+      "name": "Test Centre",
+      "category": "student_services",
+      "roomId": "room-f3005",
+      "status": "open",
+      "sourceIds": [
+        "campus-map"
+      ]
+    },
+    {
+      "id": "fanshawe-student-union",
+      "name": "Fanshawe Student Union (FSU Office)",
+      "category": "student_services",
+      "roomId": "room-sc1000",
+      "operator": "Fanshawe Student Union",
+      "status": "open",
+      "hours": {
+        "timezone": "America/Toronto",
+        "sourceId": "fsu-biz-booth",
+        "closedOnCollegeClosures": true,
+        "periods": [
+          {
+            "label": "Regular",
+            "from": null,
+            "to": null,
+            "weekly": {
+              "mon": [
+                [
+                  "09:00",
+                  "16:30"
+                ]
+              ],
+              "tue": [
+                [
+                  "09:00",
+                  "16:30"
+                ]
+              ],
+              "wed": [
+                [
+                  "09:00",
+                  "16:30"
+                ]
+              ],
+              "thu": [
+                [
+                  "09:00",
+                  "16:30"
+                ]
+              ],
+              "fri": [
+                [
+                  "09:00",
+                  "16:30"
+                ]
+              ]
+            },
+            "rawText": "Monday through Friday, 9:00 a.m. to 4:30 p.m."
+          }
+        ]
+      },
+      "sourceIds": [
+        "campus-map",
+        "fsu-biz-booth"
+      ],
+      "notes": "The map lists SC1001; FSU pages (source of truth) list the FSU Office in room SC 1000.",
+      "aliases": [
+        "FSU Desk"
+      ]
+    },
+    {
+      "id": "fancard-parking-lockers",
+      "name": "FANCard, Parking and Lockers",
+      "category": "student_services",
+      "roomId": "room-e2020",
+      "status": "open",
+      "sourceIds": [
+        "campus-map",
+        "food-services",
+        "parking-lockers"
+      ],
+      "aliases": [
+        "FANCard Service",
+        "Parking Office",
+        "Meal Plan"
+      ],
+      "services": [
+        "FANCard",
+        "Parking",
+        "Lockers",
+        "Meal plan account assistance"
+      ]
+    },
+    {
+      "id": "institute-of-indigenous-learning",
+      "name": "Institute of Indigenous Learning",
+      "category": "student_services",
+      "roomId": "room-a1046",
+      "aliases": [
+        "Indigenous Learning Centre",
+        "First Nations Centre"
+      ],
+      "status": "open",
+      "sourceIds": [
+        "campus-map",
+        "std03",
+        "indigenous-learning"
+      ]
+    },
+    {
+      "id": "international-centre",
+      "name": "International Centre",
+      "category": "student_services",
+      "roomId": "room-e2025",
+      "status": "open",
+      "sourceIds": [
+        "campus-map",
+        "international-centre"
+      ],
+      "aliases": [
+        "International Services"
+      ],
+      "notes": "The launch entry represents the student-facing International Centre at E2025. The orientation map labels an international administrative department at the same room."
+    },
+    {
+      "id": "it-service-desk",
+      "name": "IT Service Desk",
+      "category": "student_services",
+      "roomId": "room-e2030",
+      "status": "open",
+      "sourceIds": [
+        "campus-map",
+        "std03"
+      ],
+      "aliases": [
+        "IT Service"
+      ]
+    },
+    {
+      "id": "media-services",
+      "name": "Media Services",
+      "category": "student_services",
+      "roomId": "room-d1025",
+      "status": "open",
+      "sourceIds": [
+        "campus-map"
+      ]
+    },
+    {
+      "id": "office-of-the-registrar",
+      "name": "Office of the Registrar",
+      "category": "student_services",
+      "roomId": "room-e1012",
+      "status": "open",
+      "sourceIds": [
+        "campus-map"
+      ]
+    },
+    {
+      "id": "security-control-centre",
+      "name": "Security Control Centre & Lost and Found",
+      "category": "student_services",
+      "roomId": "room-d1027",
+      "status": "open",
+      "sourceIds": [
+        "campus-map",
+        "std03",
+        "campus-security"
+      ],
+      "aliases": [
+        "Campus Security"
+      ]
+    },
+    {
+      "id": "athletics",
+      "name": "Athletics",
+      "category": "health_wellness",
+      "roomId": "room-j2003",
+      "status": "open",
+      "sourceIds": [
+        "campus-map"
+      ],
+      "aliases": [
+        "Athletics Office"
+      ]
+    },
+    {
+      "id": "fowler-kennedy-sport-medicine",
+      "name": "Fowler Kennedy Sport Medicine Clinic",
+      "category": "health_wellness",
+      "roomId": "room-j1004",
+      "status": "open",
+      "sourceIds": [
+        "campus-map"
+      ],
+      "aliases": [
+        "Fowler Kennedy Center",
+        "Fowler Kennedy Centre"
+      ]
+    },
+    {
+      "id": "gym-1-2",
+      "name": "Gym 1 & 2",
+      "category": "health_wellness",
+      "roomId": "room-j1015",
+      "aliases": [
+        "Glenn Johnston Athletics Centre"
+      ],
+      "status": "open",
+      "sourceIds": [
+        "campus-map"
+      ]
+    },
+    {
+      "id": "gym-3",
+      "name": "Gym 3",
+      "category": "health_wellness",
+      "roomId": "room-j1032",
+      "status": "open",
+      "sourceIds": [
+        "campus-map"
+      ]
+    },
+    {
+      "id": "student-health-services",
+      "name": "Student Health Services",
+      "category": "health_wellness",
+      "roomId": "room-j1004",
+      "status": "open",
+      "sourceIds": [
+        "campus-map"
+      ],
+      "aliases": [
+        "Doctor's Office"
+      ]
+    },
+    {
+      "id": "financial-aid-student-awards",
+      "name": "Financial Aid and Student Awards",
+      "category": "student_services",
+      "roomId": "room-e1012",
+      "aliases": [
+        "Financial Aid",
+        "FA Office"
+      ],
+      "status": "open",
+      "sourceIds": [
+        "financial-aid"
+      ]
+    },
+    {
+      "id": "makerspace",
+      "name": "Makerspace",
+      "category": "student_services",
+      "roomId": "room-f1061",
+      "aliases": [
+        "3D Print",
+        "3D Printing"
+      ],
+      "status": "open",
+      "sourceIds": [
+        "makerspace",
+        "innovation-resources"
+      ],
+      "notes": "The Makerspace provides 3D printers. Its F1061 location is distinct from the general Library Learning Commons F1066 location."
+    }
+  ],
+  "launchSource": {
+    "sourceId": "launch-list",
+    "importedAt": "2026-10-13"
+  },
+  "launchGroups": [
+    {
+      "id": "admissions",
+      "label": "Admissions"
+    },
+    {
+      "id": "financial-aid",
+      "label": "Financial Aid"
+    },
+    {
+      "id": "food",
+      "label": "Food services"
+    },
+    {
+      "id": "health",
+      "label": "Health"
+    },
+    {
+      "id": "residence",
+      "label": "Residence"
+    },
+    {
+      "id": "retail",
+      "label": "Retail"
+    },
+    {
+      "id": "student-services",
+      "label": "Student Services"
+    },
+    {
+      "id": "student-union",
+      "label": "Student Union"
+    }
+  ],
+  "launchLocations": [
+    {
+      "sourceLabel": "Office of Registrar",
+      "group": "admissions",
+      "destinationIds": [
+        "office-of-the-registrar"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "FA Office",
+      "group": "financial-aid",
+      "destinationIds": [
+        "financial-aid-student-awards"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "D Cafeteria/ Courtyard",
+      "group": "food",
+      "destinationIds": [
+        "d-cafe",
+        "d-courtyard-cafe"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "H cafetria",
+      "group": "food",
+      "destinationIds": [
+        "h-cafe"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "Athletics Office",
+      "group": "health",
+      "destinationIds": [
+        "athletics"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "Doctor's Office",
+      "group": "health",
+      "destinationIds": [
+        "student-health-services"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "Fowler Kennedy Center",
+      "group": "health",
+      "destinationIds": [
+        "fowler-kennedy-sport-medicine"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "Gyms",
+      "group": "health",
+      "destinationIds": [
+        "gym-1-2",
+        "gym-3"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "Campus store",
+      "group": "retail",
+      "destinationIds": [
+        "falcon-shop"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "Variety Store (both locations)",
+      "group": "retail",
+      "destinationIds": [
+        "variety-store"
+      ],
+      "resolutionStatus": "resolved",
+      "notes": "Only the confirmed Variety Store at D1043 is included. The requested second location is deferred until its identity and room are confirmed; The Nest has not been substituted."
+    },
+    {
+      "sourceLabel": "Counselling",
+      "group": "student-services",
+      "destinationIds": [
+        "counselling-accessibility"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "First Nations Centre",
+      "group": "student-services",
+      "destinationIds": [
+        "institute-of-indigenous-learning"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "International services",
+      "group": "student-services",
+      "destinationIds": [
+        "international-centre"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "Library",
+      "group": "student-services",
+      "destinationIds": [
+        "library-learning-commons"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "Meal Plan",
+      "group": "student-services",
+      "destinationIds": [
+        "fancard-parking-lockers"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "Print shop",
+      "group": "student-services",
+      "destinationIds": [
+        "print-shop"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "3D print",
+      "group": "student-services",
+      "destinationIds": [
+        "makerspace"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "Test Centre",
+      "group": "student-services",
+      "destinationIds": [
+        "test-centre"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "Campus security",
+      "group": "student-services",
+      "destinationIds": [
+        "security-control-centre"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "Parking office",
+      "group": "student-services",
+      "destinationIds": [
+        "fancard-parking-lockers"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "Hair Salon",
+      "group": "student-services",
+      "destinationIds": [
+        "dernier-cri-hair-group"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "IT Service",
+      "group": "student-services",
+      "destinationIds": [
+        "it-service-desk"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "FanCard Service (parking and lockers in the new map)",
+      "group": "student-services",
+      "destinationIds": [
+        "fancard-parking-lockers"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "Media services",
+      "group": "student-services",
+      "destinationIds": [
+        "media-services"
+      ],
+      "resolutionStatus": "resolved"
+    },
+    {
+      "sourceLabel": "FSU desk",
+      "group": "student-union",
+      "destinationIds": [
+        "fanshawe-student-union"
+      ],
+      "resolutionStatus": "resolved"
+    }
+  ],
+  "excludedLaunchLocations": [
+    {
+      "sourceLabel": "Continuing Education Office",
+      "group": "admissions",
+      "decision": "deferred",
+      "reason": "Current office room and building have not been confirmed.",
+      "sourceIds": [
+        "launch-list",
+        "continuing-education"
+      ]
+    },
+    {
+      "sourceLabel": "B Food Court (show food courts icon, when user clicks show individual stores)",
+      "group": "food",
+      "decision": "excluded",
+      "reason": "B Cafe and its vendors are reported closed for the Fall 2026 term.",
+      "sourceIds": [
+        "chartwells-fall-2026"
+      ]
+    },
+    {
+      "sourceLabel": "Pharmacy",
+      "group": "health",
+      "decision": "excluded",
+      "reason": "The campus pharmacy permanently closed after April 24, 2026.",
+      "sourceIds": [
+        "fsu-pharmacy"
+      ]
+    },
+    {
+      "sourceLabel": "Biz Booth",
+      "group": "student-services",
+      "decision": "excluded",
+      "reason": "The Biz Booth is reported closed for the Fall 2026 term; the FSU Office handles ticket sales meanwhile.",
+      "sourceIds": [
+        "fsu-biz-booth"
+      ]
+    },
+    {
+      "sourceLabel": "Foot Patrol",
+      "group": "student-services",
+      "decision": "deferred",
+      "reason": "The intended service and its location require confirmation; do not substitute current Safe Walk without confirmation.",
+      "sourceIds": [
+        "launch-list",
+        "campus-security"
+      ]
+    }
+  ]
+}
