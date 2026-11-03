@@ -2,7 +2,6 @@
 
 import mapboxgl from "mapbox-gl";
 import Link from "next/link";
-import { Moon, Sun } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { FormEvent } from "react";
 import type { Category, LocationFeature } from "@/lib/place-types";
@@ -79,7 +78,6 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
   const [favoriteFeedback, setFavoriteFeedback] = useState("");
   const [favoriteSignInRequired, setFavoriteSignInRequired] = useState(false);
   const [deletedPlaceIds, setDeletedPlaceIds] = useState<string[]>([]);
-  const [theme, setTheme] = useState<"light" | "dark">("light");
   const [adminMode, setAdminMode] = useState(false);
   const adminUnlocked = user?.role === "admin" && adminMode;
   const [placeEditorOpen, setPlaceEditorOpen] = useState(false);
@@ -142,20 +140,6 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
   const awaitingCount = activePlaces.filter((place) => !isMappedPoint(place)).length;
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("fanmap-theme");
-    const initialTheme =
-      savedTheme === "light" || savedTheme === "dark"
-        ? savedTheme
-        : window.matchMedia("(prefers-color-scheme: dark)").matches
-          ? "dark"
-          : "light";
-    // Restore the saved or system theme after hydration to keep server markup stable.
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setTheme(initialTheme);
-    document.documentElement.dataset.theme = initialTheme;
-  }, []);
-
-  useEffect(() => {
     adminUnlockedRef.current = adminUnlocked;
   }, [adminUnlocked]);
 
@@ -205,6 +189,12 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
     const instance = new mapboxgl.Map({
       container: mapContainer.current,
       style: "mapbox://styles/mapbox/standard",
+      config: {
+        basemap: {
+          showPointOfInterestLabels: false,
+          lightPreset: "day",
+        },
+      },
       center: [-81.1994, 43.013],
       zoom: 16.2,
       pitch: 58,
@@ -237,6 +227,32 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
         }),
       );
       if (disposed) return;
+      instance.addSource("campus-boundary", {
+        type: "geojson",
+        data: "/campus-boundary.geojson",
+        attribution: "© OpenStreetMap contributors",
+      });
+      instance.addLayer({
+        id: "campus-boundary-fill",
+        type: "fill",
+        source: "campus-boundary",
+        slot: "bottom",
+        paint: {
+          "fill-color": "#78a95b",
+          "fill-opacity": 0.2,
+        },
+      });
+      instance.addLayer({
+        id: "campus-boundary-outline",
+        type: "line",
+        source: "campus-boundary",
+        slot: "middle",
+        paint: {
+          "line-color": "#557c3b",
+          "line-width": 3,
+          "line-opacity": 0.85,
+        },
+      });
       instance.addSource("locations", {
         type: "geojson",
         data: {
@@ -342,26 +358,6 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
       ]);
     }
   }, [selectedCategories]);
-
-  useEffect(() => {
-    const instance = map.current;
-    if (!instance) return;
-    const applyMapTheme = () => {
-      instance.setConfigProperty(
-        "basemap",
-        "lightPreset",
-        theme === "dark" ? "night" : "day",
-      );
-    };
-    if (instance.isStyleLoaded()) {
-      applyMapTheme();
-      return;
-    }
-    instance.once("style.load", applyMapTheme);
-    return () => {
-      instance.off("style.load", applyMapTheme);
-    };
-  }, [theme]);
 
   useEffect(() => {
     const instance = map.current;
@@ -573,20 +569,6 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
           <h1>FanMap</h1>
         </div>
         <div className="topbar-actions">
-          <button
-            className="theme-button"
-            type="button"
-            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
-            onClick={() => {
-              const nextTheme = theme === "dark" ? "light" : "dark";
-              setTheme(nextTheme);
-              localStorage.setItem("fanmap-theme", nextTheme);
-              document.documentElement.dataset.theme = nextTheme;
-            }}
-          >
-            {theme === "dark" ? <Sun size={17} /> : <Moon size={17} />}
-            {theme === "dark" ? "Light mode" : "Dark mode"}
-          </button>
           {user?.role === "admin" && <button
             className={adminUnlocked ? "admin-button active" : "admin-button"}
             type="button"

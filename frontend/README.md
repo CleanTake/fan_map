@@ -1,6 +1,6 @@
 # FanMap frontend
 
-The Next.js app includes the campus map, light/dark themes, admin map editing,
+The Next.js app includes the campus map, a light-only interface, admin map editing,
 and minimal email/password authentication.
 Guests can explore the map immediately. Signing up creates a registered account;
 administrator access is granted separately by a trusted local command. Registered

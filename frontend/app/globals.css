@@ -15,20 +15,6 @@
   --shadow: #34131c24;
 }
 
-:root[data-theme="dark"] {
-  color-scheme: dark;
-  --ink: #f6eef0;
-  --muted: #c0afb4;
-  --line: #45373b;
-  --paper: #171315;
-  --surface: #211a1d;
-  --surface-raised: #2b2226;
-  --accent: #ed2945;
-  --accent-hover: #ff405b;
-  --on-accent: #fff;
-  --shadow: #0008;
-}
-
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--paper); color: var(--ink); font-family: Arial, Helvetica, sans-serif; }
 button, input, select, textarea { font: inherit; }
@@ -44,8 +30,8 @@ h3 { font-size: .9rem; }
 .location-button:hover { background: var(--accent-hover); }
 .location-button:disabled { background: #858085; cursor: default; }
 .topbar-actions { display: flex; align-items: center; gap: 10px; }
-.theme-button, .admin-button { display: inline-flex; align-items: center; justify-content: center; gap: 7px; border: 1px solid var(--line); border-radius: 7px; padding: 10px 14px; color: var(--ink); background: var(--surface); font-size: .86rem; font-weight: 700; cursor: pointer; }
-.theme-button:hover, .admin-button:hover { background: var(--surface-raised); }
+.admin-button { display: inline-flex; align-items: center; justify-content: center; gap: 7px; border: 1px solid var(--line); border-radius: 7px; padding: 10px 14px; color: var(--ink); background: var(--surface); font-size: .86rem; font-weight: 700; cursor: pointer; }
+.admin-button:hover { background: var(--surface-raised); }
 .admin-button.active { color: var(--on-accent); background: var(--accent); border-color: var(--accent); }
 .content-grid { display: grid; grid-template-columns: 245px minmax(420px, 1fr) 300px; min-height: calc(100vh - 84px); }
 .sidebar, .details-panel { padding: 29px 24px; background: var(--surface); }
@@ -106,7 +92,6 @@ legend { padding: 0 0 10px; font-size: .72rem; letter-spacing: .08em; color: var
 .mapboxgl-ctrl-group button { background-color: var(--surface) !important; }
 .mapboxgl-ctrl-group button:hover { background-color: var(--surface-raised) !important; }
 .mapboxgl-ctrl-group button + button { border-top-color: var(--line) !important; }
-:root[data-theme="dark"] .mapboxgl-ctrl-icon { filter: invert(1); }
 
 @media (max-width: 1050px) {
   .content-grid { grid-template-columns: 210px minmax(380px, 1fr); }
@@ -122,7 +107,7 @@ legend { padding: 0 0 10px; font-size: .72rem; letter-spacing: .08em; color: var
   .filter { display: inline-flex; margin-right: 15px; }
   .map-panel { min-height: 500px; }
   .details-panel { padding: 23px 18px; }
-  .location-button, .admin-button, .theme-button { padding: 9px 11px; font-size: .75rem; }
+  .location-button, .admin-button { padding: 9px 11px; font-size: .75rem; }
   .topbar-actions { gap: 6px; }
   .admin-map-hint { max-width: calc(100% - 20px); overflow: hidden; text-overflow: ellipsis; }
 }
