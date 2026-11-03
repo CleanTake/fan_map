@@ -373,5 +373,53 @@
         43.013624560317396
       ]
     }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-886b658a-c24c-41d7-a235-f2c9036d3246",
+      "name": "Entrance B",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20067943359861,
+        43.0111701310513
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-0676eac0-54f7-47e6-9d63-b5106b1f1b0b",
+      "name": "A",
+      "category": "building",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.201490288416,
+        43.01347095538543
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-78959012-2390-464c-9cef-c7a2058059c9",
+      "name": "Gym 1",
+      "category": "gym",
+      "description": "Hello"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20156942290701,
+        43.01355235347174
+      ]
+    }
   }
 ]

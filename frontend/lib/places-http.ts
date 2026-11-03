@@ -3,7 +3,7 @@ import { getAuthStore, type AuthStore } from "./auth/database.ts";
 import { deletePlace, readPlaceState, savePlace, updatePlace, type PlaceFiles } from "./places-repository.ts";
 import type { Category, PlaceInput } from "./place-types.ts";
 
-const categories: Category[] = ["building", "entrance", "room", "parking", "food", "retail", "service", "bus"];
+const categories: Category[] = ["building", "entrance", "room", "parking", "food", "retail", "service", "bus", "court", "gym"];
 const headers = { "Cache-Control": "no-store", Vary: "Cookie" };
 const json = (body: unknown, status = 200) => Response.json(body, { status, headers });
 

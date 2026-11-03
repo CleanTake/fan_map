@@ -6,7 +6,9 @@ export type Category =
   | "food"
   | "retail"
   | "service"
-  | "bus";
+  | "bus"
+  | "court"
+  | "gym";
 
 export type FeatureProperties = {
   id: string;

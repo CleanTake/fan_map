@@ -1,6 +1,7 @@
 "use client";
 
 import mapboxgl from "mapbox-gl";
+import NextImage from "next/image";
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { FormEvent } from "react";
@@ -9,7 +10,7 @@ import { isMappedPoint } from "@/lib/place-types";
 import type { AuthUser } from "@/lib/auth/types";
 import PublishedLocationDetails from "@/components/published-location-details";
 import LocationReportForm from "@/components/location-report-form";
-import { haversineMeters, iconSvg, roomIconSvg } from "@/lib/map-utils";
+import { haversineMeters } from "@/lib/map-utils";
 import { createPlace, deletePlace, fetchPlaces, updatePlace } from "@/services/place-service";
 
 type Route = {
@@ -19,26 +20,34 @@ type Route = {
   arrivals: string[];
 };
 
-const categories: { id: Category; label: string; symbol: string }[] = [
-  { id: "building", label: "Buildings", symbol: "⌂" },
-  { id: "entrance", label: "Entrances", symbol: "↗" },
-  { id: "room", label: "Study rooms", symbol: "▣" },
-  { id: "parking", label: "Parking", symbol: "P" },
-  { id: "food", label: "Food", symbol: "●" },
-  { id: "retail", label: "Retail", symbol: "◇" },
-  { id: "service", label: "Services", symbol: "+" },
-  { id: "bus", label: "Bus stops", symbol: "▰" },
+const categories: { id: Category; label: string }[] = [
+  { id: "building", label: "Buildings" },
+  { id: "entrance", label: "Entrances" },
+  { id: "room", label: "Study rooms" },
+  { id: "parking", label: "Parking" },
+  { id: "food", label: "Food" },
+  { id: "retail", label: "Retail" },
+  { id: "service", label: "Services" },
+  { id: "bus", label: "Bus stops" },
+  { id: "court", label: "Courts" },
+  { id: "gym", label: "Gyms" },
 ];
 
-const categoryColors: Record<Category, string> = {
-  building: "#3859a7",
-  entrance: "#526e30",
-  room: "#c8102e",
-  parking: "#357c8e",
-  food: "#c85c2d",
-  retail: "#a24f78",
-  service: "#96721f",
-  bus: "#227660",
+const markerAssetVersion = "2";
+
+const markerAssetPath = (name: string) =>
+  `/markers/${name}.png?v=${markerAssetVersion}`;
+
+const categoryIconPath = (category: Category) => {
+  if (category === "gym") return markerAssetPath("gym-dumbbell");
+  if (category === "entrance") return markerAssetPath("entrance-door");
+  return markerAssetPath(category);
+};
+
+const categoryIconImage = (category: Category) => {
+  if (category === "gym") return "gym-dumbbell";
+  if (category === "entrance") return "entrance-door";
+  return category;
 };
 
 function createUserLocationMarker() {
@@ -204,7 +213,7 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
     map.current = instance;
     instance.addControl(new mapboxgl.NavigationControl(), "bottom-right");
 
-    const loadSvgImage = (src: string, label: string) =>
+    const loadMapImage = (src: string, label: string) =>
       new Promise<HTMLImageElement>((resolve, reject) => {
         const img = new Image();
         img.onload = () => resolve(img);
@@ -216,14 +225,12 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
       if (disposed) return;
       try {
       await Promise.all(
-        categories.map(async ({ id, symbol }) => {
-          if (instance.hasImage(id)) return;
-          const image = id === "room"
-            ? roomIconSvg()
-            : iconSvg(categoryColors[id], symbol);
-          const img = await loadSvgImage(image, id);
+        categories.filter(({ id }) => id !== "building").map(async ({ id }) => {
+          const imageId = categoryIconImage(id);
+          if (instance.hasImage(imageId)) return;
+          const img = await loadMapImage(categoryIconPath(id), id);
           if (disposed) return;
-          instance.addImage(id, img, { pixelRatio: 2 });
+          instance.addImage(imageId, img, { pixelRatio: 2 });
         }),
       );
       if (disposed) return;
@@ -261,13 +268,44 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
         },
       });
       instance.addLayer({
+        id: "building-locations-layer",
+        type: "circle",
+        source: "locations",
+        filter: ["==", ["get", "category"], "building"],
+        paint: {
+          "circle-radius": 10,
+          "circle-color": "#526678",
+          "circle-stroke-color": "#ffffff",
+          "circle-stroke-width": 2,
+          "circle-opacity": ["interpolate", ["linear"], ["zoom"], 14.8, 0, 16, 1],
+          "circle-stroke-opacity": ["interpolate", ["linear"], ["zoom"], 14.8, 0, 16, 1],
+        },
+      });
+      instance.addLayer({
         id: "locations-layer",
         type: "symbol",
         source: "locations",
+        filter: ["!=", ["get", "category"], "building"],
         layout: {
-          "icon-image": ["get", "category"],
-          "icon-size": ["match", ["get", "category"], "room", 1.05, 0.62],
+          "icon-image": [
+            "match",
+            ["get", "category"],
+            "entrance", "entrance-door",
+            "gym", "gym-dumbbell",
+            ["get", "category"],
+          ],
+          "icon-size": [
+            "match",
+            ["get", "category"],
+            "service", 0.8,
+            "bus", 0.8,
+            "court", 0.96,
+            0.078,
+          ],
           "icon-allow-overlap": true,
+        },
+        paint: {
+          "icon-opacity": ["interpolate", ["linear"], ["zoom"], 14.8, 0, 16, 1],
         },
       });
       instance.addSource("route-line", {
@@ -292,15 +330,29 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
           setLocationChoice(feature.properties.name);
         }
       });
+      instance.on("click", "building-locations-layer", (event) => {
+        const id = event.features?.[0]?.properties?.id;
+        const feature = placesRef.current.find((place) => place.properties.id === id);
+        if (feature && !deletedPlaceIdsRef.current.includes(feature.properties.id)) {
+          setSelectedLocation(feature);
+          setLocationChoice(feature.properties.name);
+        }
+      });
       instance.on("mouseenter", "locations-layer", () => {
+        instance.getCanvas().style.cursor = "pointer";
+      });
+      instance.on("mouseenter", "building-locations-layer", () => {
         instance.getCanvas().style.cursor = "pointer";
       });
       instance.on("mouseleave", "locations-layer", () => {
         instance.getCanvas().style.cursor = "";
       });
+      instance.on("mouseleave", "building-locations-layer", () => {
+        instance.getCanvas().style.cursor = "";
+      });
       instance.on("click", (event) => {
         if (!adminUnlockedRef.current) return;
-        if (instance.queryRenderedFeatures(event.point, { layers: ["locations-layer"] }).length) return;
+        if (instance.queryRenderedFeatures(event.point, { layers: ["locations-layer", "building-locations-layer"] }).length) return;
         setSelectedLocation(null);
         setLocationChoice("");
         setEditingPlaceId(null);
@@ -352,9 +404,9 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
     const instance = map.current;
     if (instance?.isStyleLoaded() && instance.getLayer("locations-layer")) {
       instance.setFilter("locations-layer", [
-        "in",
-        ["get", "category"],
-        ["literal", selectedCategories],
+        "all",
+        ["!=", ["get", "category"], "building"],
+        ["in", ["get", "category"], ["literal", selectedCategories]],
       ]);
     }
   }, [selectedCategories]);
@@ -610,32 +662,33 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
       </header>
       <section className="content-grid">
         <aside className="sidebar">
-          <h2>Explore campus</h2>
-          <p className="sidebar-intro">
-            Choose what you want to see on the map.
-          </p>
+          <h2>Map filters</h2>
           {adminUnlocked && <p className="sidebar-intro">Select a location to edit or delete it. Click an empty map spot to add a place.</p>}
           <p className="favorite-feedback" role="status">{adminFeedback}</p>
           {requestedLocationMissing && <p className="favorite-error" role="status">The requested location is no longer available on the map.</p>}
           <fieldset>
             <legend>Location types</legend>
-            {categories.map(({ id, label, symbol }) => (
-              <label className="filter" key={id}>
-                <input
-                  type="checkbox"
-                  checked={selectedCategories.includes(id)}
-                  onChange={() => toggleCategory(id)}
-                />
-                <span
-                  className="filter-icon"
-                  style={{ backgroundColor: categoryColors[id] }}
-                >
-                  {symbol}
-                </span>
-                {label}
-              </label>
-            ))}
+            <div className="category-filter-grid">
+              {categories.map(({ id, label }) => (
+                <label className={selectedCategories.includes(id) ? "filter active" : "filter"} key={id}>
+                  <input
+                    type="checkbox"
+                    checked={selectedCategories.includes(id)}
+                    onChange={() => toggleCategory(id)}
+                  />
+                  {id === "building" ? (
+                    <span className="filter-icon-placeholder" aria-hidden="true" />
+                  ) : (
+                    <NextImage className="filter-icon" src={categoryIconPath(id)} alt="" width={24} height={24} unoptimized />
+                  )}
+                  <span className="filter-label">{label}</span>
+                </label>
+              ))}
+            </div>
           </fieldset>
+          <p className="icon-attribution">
+            Entrance marker by <a href="https://www.flaticon.com/free-icon/entrance_15615407" target="_blank" rel="noreferrer">gravisio from Flaticon</a>; other icons by <a href="https://icons8.com" target="_blank" rel="noreferrer">Icons8</a>.
+          </p>
           <p className="sidebar-intro" role="status">
             {placesLoaded ? `${visiblePlaces.length} of ${activePlaces.length} locations. ${awaitingCount} awaiting map position checks.` : placesFailed ? "Locations could not be loaded. Please refresh to try again." : "Loading campus locations…"}
           </p>
