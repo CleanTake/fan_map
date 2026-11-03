@@ -421,5 +421,37 @@
         43.01355235347174
       ]
     }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-4dcfd1de-569d-48bb-826b-eb0a2dbdc709",
+      "name": "Basketball Court",
+      "category": "court",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.2017285737812,
+        43.01386851588629
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-be606421-e523-4f91-bea5-80eb5202ebb2",
+      "name": "bus stop 1",
+      "category": "bus",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19763152970259,
+        43.01198306044253
+      ]
+    }
   }
 ]
