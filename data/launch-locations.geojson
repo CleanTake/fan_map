@@ -1,0 +1,733 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "id": "office-of-the-registrar",
+        "name": "Office of the Registrar",
+        "category": "service",
+        "catalogCategory": "student_services",
+        "description": "Office of the Registrar — Room E1012, E Building, Floor 1",
+        "groups": [
+          "admissions"
+        ],
+        "launchLabels": [
+          "Office of Registrar"
+        ],
+        "status": "open",
+        "resolutionStatus": "resolved",
+        "roomCode": "E1012",
+        "buildingCode": "E",
+        "floor": 1,
+        "sourceIds": [
+          "campus-map"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "id": "financial-aid-student-awards",
+        "name": "Financial Aid and Student Awards",
+        "category": "service",
+        "catalogCategory": "student_services",
+        "description": "Financial Aid and Student Awards — Room E1012, E Building, Floor 1",
+        "groups": [
+          "financial-aid"
+        ],
+        "launchLabels": [
+          "FA Office"
+        ],
+        "status": "open",
+        "resolutionStatus": "resolved",
+        "roomCode": "E1012",
+        "buildingCode": "E",
+        "floor": 1,
+        "sourceIds": [
+          "financial-aid"
+        ],
+        "aliases": [
+          "Financial Aid",
+          "FA Office"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "id": "d-cafe",
+        "name": "D Cafe",
+        "category": "food",
+        "catalogCategory": "food",
+        "description": "D Cafe — Room D1001, D Building, Floor 1",
+        "groups": [
+          "food"
+        ],
+        "launchLabels": [
+          "D Cafeteria/ Courtyard"
+        ],
+        "status": "open",
+        "resolutionStatus": "resolved",
+        "roomCode": "D1001",
+        "buildingCode": "D",
+        "floor": 1,
+        "sourceIds": [
+          "campus-map",
+          "std03",
+          "food-services"
+        ],
+        "aliases": [
+          "D Cafeteria",
+          "Southwest Cafe (B-D corner)"
+        ],
+        "childIds": [
+          "harveys",
+          "tim-hortons-self-serve"
+        ],
+        "markerType": "food_court"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "id": "d-courtyard-cafe",
+        "name": "D Courtyard Cafe",
+        "category": "food",
+        "catalogCategory": "food",
+        "description": "D Courtyard Cafe — Room D1045, D Building, Floor 1",
+        "groups": [
+          "food"
+        ],
+        "launchLabels": [
+          "D Cafeteria/ Courtyard"
+        ],
+        "status": "open",
+        "resolutionStatus": "resolved",
+        "roomCode": "D1045",
+        "buildingCode": "D",
+        "floor": 1,
+        "sourceIds": [
+          "campus-map",
+          "std03",
+          "food-services"
+        ],
+        "aliases": [
+          "Courtyard Cafe",
+          "The Junction",
+          "D-E-F Junction"
+        ],
+        "childIds": [
+          "pizza-pizza",
+          "subway",
+          "tim-hortons-junction"
+        ],
+        "markerType": "food_court"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "id": "h-cafe",
+        "name": "H Cafe",
+        "category": "food",
+        "catalogCategory": "food",
+        "description": "H Cafe — Room H1000, H Building, Floor 1",
+        "groups": [
+          "food"
+        ],
+        "launchLabels": [
+          "H cafetria"
+        ],
+        "status": "open",
+        "resolutionStatus": "resolved",
+        "roomCode": "H1000",
+        "buildingCode": "H",
+        "floor": 1,
+        "sourceIds": [
+          "campus-map",
+          "food-services"
+        ],
+        "aliases": [
+          "H Cafeteria"
+        ],
+        "childIds": [
+          "starbucks"
+        ],
+        "markerType": "food_court"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "id": "athletics",
+        "name": "Athletics",
+        "category": "service",
+        "catalogCategory": "health_wellness",
+        "description": "Athletics — Room J2003, J Building (Student Wellness Centre), Floor 2",
+        "groups": [
+          "health"
+        ],
+        "launchLabels": [
+          "Athletics Office"
+        ],
+        "status": "open",
+        "resolutionStatus": "resolved",
+        "roomCode": "J2003",
+        "buildingCode": "J",
+        "floor": 2,
+        "sourceIds": [
+          "campus-map"
+        ],
+        "aliases": [
+          "Athletics Office"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "id": "student-health-services",
+        "name": "Student Health Services",
+        "category": "service",
+        "catalogCategory": "health_wellness",
+        "description": "Student Health Services — Room J1004, J Building (Student Wellness Centre), Floor 1",
+        "groups": [
+          "health"
+        ],
+        "launchLabels": [
+          "Doctor's Office"
+        ],
+        "status": "open",
+        "resolutionStatus": "resolved",
+        "roomCode": "J1004",
+        "buildingCode": "J",
+        "floor": 1,
+        "sourceIds": [
+          "campus-map"
+        ],
+        "aliases": [
+          "Doctor's Office"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "id": "fowler-kennedy-sport-medicine",
+        "name": "Fowler Kennedy Sport Medicine Clinic",
+        "category": "service",
+        "catalogCategory": "health_wellness",
+        "description": "Fowler Kennedy Sport Medicine Clinic — Room J1004, J Building (Student Wellness Centre), Floor 1",
+        "groups": [
+          "health"
+        ],
+        "launchLabels": [
+          "Fowler Kennedy Center"
+        ],
+        "status": "open",
+        "resolutionStatus": "resolved",
+        "roomCode": "J1004",
+        "buildingCode": "J",
+        "floor": 1,
+        "sourceIds": [
+          "campus-map"
+        ],
+        "aliases": [
+          "Fowler Kennedy Center",
+          "Fowler Kennedy Centre"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "id": "gym-1-2",
+        "name": "Gym 1 & 2",
+        "category": "service",
+        "catalogCategory": "health_wellness",
+        "description": "Gym 1 & 2 — Room J1015, J Building (Student Wellness Centre), Floor 1",
+        "groups": [
+          "health"
+        ],
+        "launchLabels": [
+          "Gyms"
+        ],
+        "status": "open",
+        "resolutionStatus": "resolved",
+        "roomCode": "J1015",
+        "buildingCode": "J",
+        "floor": 1,
+        "sourceIds": [
+          "campus-map"
+        ],
+        "aliases": [
+          "Glenn Johnston Athletics Centre"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "id": "gym-3",
+        "name": "Gym 3",
+        "category": "service",
+        "catalogCategory": "health_wellness",
+        "description": "Gym 3 — Room J1032, J Building (Student Wellness Centre), Floor 1",
+        "groups": [
+          "health"
+        ],
+        "launchLabels": [
+          "Gyms"
+        ],
+        "status": "open",
+        "resolutionStatus": "resolved",
+        "roomCode": "J1032",
+        "buildingCode": "J",
+        "floor": 1,
+        "sourceIds": [
+          "campus-map"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "id": "falcon-shop",
+        "name": "The Falcon Shop",
+        "category": "retail",
+        "catalogCategory": "retail",
+        "description": "The Falcon Shop — Room F1019, F Building, Floor 1",
+        "groups": [
+          "retail"
+        ],
+        "launchLabels": [
+          "Campus store"
+        ],
+        "status": "open",
+        "resolutionStatus": "resolved",
+        "roomCode": "F1019",
+        "buildingCode": "F",
+        "floor": 1,
+        "sourceIds": [
+          "campus-map",
+          "retail-services",
+          "falcon-shop-move",
+          "std03"
+        ],
+        "aliases": [
+          "Campus Store",
+          "Bookstore"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "id": "variety-store",
+        "name": "Variety Store",
+        "category": "retail",
+        "catalogCategory": "retail",
+        "description": "Variety Store — Room D1043, D Building, Floor 1",
+        "groups": [
+          "retail"
+        ],
+        "launchLabels": [
+          "Variety Store (both locations)"
+        ],
+        "status": "open",
+        "resolutionStatus": "resolved",
+        "roomCode": "D1043",
+        "buildingCode": "D",
+        "floor": 1,
+        "sourceIds": [
+          "campus-map",
+          "retail-services",
+          "std03"
+        ],
+        "aliases": [
+          "Convenience Store"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "id": "counselling-accessibility",
+        "name": "Counselling and Accessibility Services",
+        "category": "service",
+        "catalogCategory": "student_services",
+        "description": "Counselling and Accessibility Services — Room F2010, F Building, Floor 2",
+        "groups": [
+          "student-services"
+        ],
+        "launchLabels": [
+          "Counselling"
+        ],
+        "status": "open",
+        "resolutionStatus": "resolved",
+        "roomCode": "F2010",
+        "buildingCode": "F",
+        "floor": 2,
+        "sourceIds": [
+          "campus-map"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "id": "institute-of-indigenous-learning",
+        "name": "Institute of Indigenous Learning",
+        "category": "service",
+        "catalogCategory": "student_services",
+        "description": "Institute of Indigenous Learning — Room A1046, A Building, Floor 1",
+        "groups": [
+          "student-services"
+        ],
+        "launchLabels": [
+          "First Nations Centre"
+        ],
+        "status": "open",
+        "resolutionStatus": "resolved",
+        "roomCode": "A1046",
+        "buildingCode": "A",
+        "floor": 1,
+        "sourceIds": [
+          "campus-map",
+          "std03",
+          "indigenous-learning"
+        ],
+        "aliases": [
+          "Indigenous Learning Centre",
+          "First Nations Centre"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "id": "international-centre",
+        "name": "International Centre",
+        "category": "service",
+        "catalogCategory": "student_services",
+        "description": "International Centre — Room E2025, E Building, Floor 2",
+        "groups": [
+          "student-services"
+        ],
+        "launchLabels": [
+          "International services"
+        ],
+        "status": "open",
+        "resolutionStatus": "resolved",
+        "roomCode": "E2025",
+        "buildingCode": "E",
+        "floor": 2,
+        "sourceIds": [
+          "campus-map",
+          "international-centre"
+        ],
+        "aliases": [
+          "International Services"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "id": "library-learning-commons",
+        "name": "Library Learning Commons",
+        "category": "service",
+        "catalogCategory": "student_services",
+        "description": "Library Learning Commons — Room F1066, F Building, Floor 1",
+        "groups": [
+          "student-services"
+        ],
+        "launchLabels": [
+          "Library"
+        ],
+        "status": "open",
+        "resolutionStatus": "resolved",
+        "roomCode": "F1066",
+        "buildingCode": "F",
+        "floor": 1,
+        "sourceIds": [
+          "campus-map"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "id": "fancard-parking-lockers",
+        "name": "FANCard, Parking and Lockers",
+        "category": "service",
+        "catalogCategory": "student_services",
+        "description": "FANCard, Parking and Lockers — Room E2020, E Building, Floor 2",
+        "groups": [
+          "student-services"
+        ],
+        "launchLabels": [
+          "Meal Plan",
+          "Parking office",
+          "FanCard Service (parking and lockers in the new map)"
+        ],
+        "status": "open",
+        "resolutionStatus": "resolved",
+        "roomCode": "E2020",
+        "buildingCode": "E",
+        "floor": 2,
+        "sourceIds": [
+          "campus-map",
+          "food-services",
+          "parking-lockers"
+        ],
+        "aliases": [
+          "FANCard Service",
+          "Parking Office",
+          "Meal Plan"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "id": "print-shop",
+        "name": "The Print Shop",
+        "category": "retail",
+        "catalogCategory": "retail",
+        "description": "The Print Shop — Room B1002, B Building, Floor 1",
+        "groups": [
+          "student-services"
+        ],
+        "launchLabels": [
+          "Print shop"
+        ],
+        "status": "open",
+        "resolutionStatus": "resolved",
+        "roomCode": "B1002",
+        "buildingCode": "B",
+        "floor": 1,
+        "sourceIds": [
+          "retail-services",
+          "std03"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "id": "makerspace",
+        "name": "Makerspace",
+        "category": "service",
+        "catalogCategory": "student_services",
+        "description": "Makerspace — Room F1061, F Building, Floor 1",
+        "groups": [
+          "student-services"
+        ],
+        "launchLabels": [
+          "3D print"
+        ],
+        "status": "open",
+        "resolutionStatus": "resolved",
+        "roomCode": "F1061",
+        "buildingCode": "F",
+        "floor": 1,
+        "sourceIds": [
+          "makerspace",
+          "innovation-resources"
+        ],
+        "aliases": [
+          "3D Print",
+          "3D Printing"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "id": "test-centre",
+        "name": "Test Centre",
+        "category": "service",
+        "catalogCategory": "student_services",
+        "description": "Test Centre — Room F3005, F Building, Floor 3",
+        "groups": [
+          "student-services"
+        ],
+        "launchLabels": [
+          "Test Centre"
+        ],
+        "status": "open",
+        "resolutionStatus": "resolved",
+        "roomCode": "F3005",
+        "buildingCode": "F",
+        "floor": 3,
+        "sourceIds": [
+          "campus-map"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "id": "security-control-centre",
+        "name": "Security Control Centre & Lost and Found",
+        "category": "service",
+        "catalogCategory": "student_services",
+        "description": "Security Control Centre & Lost and Found — Room D1027, D Building, Floor 1",
+        "groups": [
+          "student-services"
+        ],
+        "launchLabels": [
+          "Campus security"
+        ],
+        "status": "open",
+        "resolutionStatus": "resolved",
+        "roomCode": "D1027",
+        "buildingCode": "D",
+        "floor": 1,
+        "sourceIds": [
+          "campus-map",
+          "std03",
+          "campus-security"
+        ],
+        "aliases": [
+          "Campus Security"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "id": "dernier-cri-hair-group",
+        "name": "Dernier CRI Hair Group",
+        "category": "retail",
+        "catalogCategory": "retail",
+        "description": "Dernier CRI Hair Group — Room L1002, L Building, Floor 1",
+        "groups": [
+          "student-services"
+        ],
+        "launchLabels": [
+          "Hair Salon"
+        ],
+        "status": "open",
+        "resolutionStatus": "resolved",
+        "roomCode": "L1002",
+        "buildingCode": "L",
+        "floor": 1,
+        "sourceIds": [
+          "campus-map",
+          "fsu-dernier"
+        ],
+        "aliases": [
+          "Hair Salon"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "id": "it-service-desk",
+        "name": "IT Service Desk",
+        "category": "service",
+        "catalogCategory": "student_services",
+        "description": "IT Service Desk — Room E2030, E Building, Floor 2",
+        "groups": [
+          "student-services"
+        ],
+        "launchLabels": [
+          "IT Service"
+        ],
+        "status": "open",
+        "resolutionStatus": "resolved",
+        "roomCode": "E2030",
+        "buildingCode": "E",
+        "floor": 2,
+        "sourceIds": [
+          "campus-map",
+          "std03"
+        ],
+        "aliases": [
+          "IT Service"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "id": "media-services",
+        "name": "Media Services",
+        "category": "service",
+        "catalogCategory": "student_services",
+        "description": "Media Services — Room D1025, D Building, Floor 1",
+        "groups": [
+          "student-services"
+        ],
+        "launchLabels": [
+          "Media services"
+        ],
+        "status": "open",
+        "resolutionStatus": "resolved",
+        "roomCode": "D1025",
+        "buildingCode": "D",
+        "floor": 1,
+        "sourceIds": [
+          "campus-map"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "id": "fanshawe-student-union",
+        "name": "Fanshawe Student Union (FSU Office)",
+        "category": "service",
+        "catalogCategory": "student_services",
+        "description": "Fanshawe Student Union (FSU Office) — Room SC1000, Student Centre, Floor 1",
+        "groups": [
+          "student-union"
+        ],
+        "launchLabels": [
+          "FSU desk"
+        ],
+        "status": "open",
+        "resolutionStatus": "resolved",
+        "roomCode": "SC1000",
+        "buildingCode": "SC",
+        "floor": 1,
+        "sourceIds": [
+          "campus-map",
+          "fsu-biz-booth"
+        ],
+        "aliases": [
+          "FSU Desk"
+        ]
+      }
+    }
+  ]
+}
