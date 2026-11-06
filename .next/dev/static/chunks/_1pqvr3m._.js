@@ -276,8 +276,9 @@ function FanMap({ user, initialFavoriteIds = [] }) {
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "FanMap.useEffect": ()=>{
             if (!mapContainer.current || map.current) return;
-            const token = __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env.NEXT_PUBLIC_MAPBOX_TOKEN;
-            if (!token) return;
+            const token = ("TURBOPACK compile-time value", "pk.eyJ1Ijoidml2Y2hlbjkzOSIsImEiOiJjbXZubHE3M2UwNXhkMnlweWpqYmV4NmhkIn0.qMa0QT_iXeSxDZvSdKIdtg");
+            if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+            ;
             let disposed = false;
             __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$mapbox$2d$gl$2f$dist$2f$mapbox$2d$gl$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].accessToken = token;
             const instance = new __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$mapbox$2d$gl$2f$dist$2f$mapbox$2d$gl$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].Map({
@@ -297,7 +298,7 @@ function FanMap({ user, initialFavoriteIds = [] }) {
             const loadImage = {
                 "FanMap.useEffect.loadImage": (src, label)=>new Promise({
                         "FanMap.useEffect.loadImage": (resolve, reject)=>{
-                            const img = new __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"]();
+                            const img = new window.Image();
                             img.onload = ({
                                 "FanMap.useEffect.loadImage": ()=>resolve(img)
                             })["FanMap.useEffect.loadImage"];
@@ -729,7 +730,7 @@ function FanMap({ user, initialFavoriteIds = [] }) {
     }["FanMap.useEffect"], []);
     const stopRoutes = selectedLocation?.properties.stop ? routes.filter((route)=>route.stop === selectedLocation.properties.stop) : [];
     const distance = userPosition && selectedLocation && (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$lib$2f$place$2d$types$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isMappedPoint"])(selectedLocation) ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$lib$2f$map$2d$utils$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["haversineMeters"])(userPosition, selectedLocation.geometry.coordinates) : null;
-    const tokenMissing = !__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env.NEXT_PUBLIC_MAPBOX_TOKEN;
+    const tokenMissing = !("TURBOPACK compile-time value", "pk.eyJ1Ijoidml2Y2hlbjkzOSIsImEiOiJjbXZubHE3M2UwNXhkMnlweWpqYmV4NmhkIn0.qMa0QT_iXeSxDZvSdKIdtg");
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
         className: "fanmap-shell",
         children: [

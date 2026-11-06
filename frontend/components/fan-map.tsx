@@ -208,7 +208,7 @@ export default function FanMap({ user, initialFavoriteIds = [] }: { user: AuthUs
 
     const loadImage = (src: string, label: string) =>
       new Promise<HTMLImageElement>((resolve, reject) => {
-        const img = new Image();
+        const img = new window.Image();
         img.onload = () => resolve(img);
         img.onerror = () => reject(new Error(`Failed to load map image: ${label}`));
         img.src = src;
