@@ -12,6 +12,7 @@ import PublishedLocationDetails from "@/components/published-location-details";
 import LocationReportForm from "@/components/location-report-form";
 import { haversineMeters } from "@/lib/map-utils";
 import { createPlace, deletePlace, fetchPlaces, updatePlace } from "@/services/place-service";
+import { Star } from "lucide-react";
 
 type Route = {
   route: string;
@@ -82,6 +83,7 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
   const [locationChoice, setLocationChoice] = useState("");
   const [mapReady, setMapReady] = useState(false);
   const [favoriteIds, setFavoriteIds] = useState(initialFavoriteIds);
+  const [favoritesOpen, setfavoritesOpen] = useState(false);
   const [favoritePendingId, setFavoritePendingId] = useState<string | null>(null);
   const [favoriteError, setFavoriteError] = useState("");
   const [favoriteFeedback, setFavoriteFeedback] = useState("");
@@ -631,6 +633,8 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
     };
 }, []);
 
+  
+
   return (
     <main className="fanmap-shell">
       <header className="topbar">
@@ -747,6 +751,33 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
                 ))}
               </datalist>
             </div>
+            <div className="favorites-container">
+                <button
+                  className={`favorites-fab ${favoritesOpen ? "active" : ""}`}
+                  onClick={() => setfavoritesOpen((current) => !current)}
+                  aria-label="Toggle favorites"
+                  aria-expanded={favoritesOpen}
+                >
+                  <Star size={20} />
+                </button>
+                {favoritesOpen && (
+                  <section className="favorites-section" aria-labelledby="favorites-heading">
+                    <h3 id="favorites-heading">Favorites {user && <span className="favorites-count">{favoriteFeatures.length}</span>}</h3>
+                    {user ? <>
+                      {!placesLoaded && !placesFailed ? <p className="favorites-hint">Loading favorites…</p> : favoriteFeatures.length ? <ul className="favorites-list">
+                        {favoriteFeatures.map((feature) => <li key={feature.properties.id}>
+                          <button className="favorite-open" type="button" onClick={() => selectPlace(feature)} aria-label={`View ${feature.properties.name}`} aria-current={selectedLocation?.properties.id === feature.properties.id ? "true" : undefined}>
+                            <span aria-hidden="true">★</span><span>{feature.properties.name}</span>
+                          </button>
+                          <button className="favorite-remove" type="button" aria-label={`Remove ${feature.properties.name} from favorites`} title="Remove from favorites" onClick={() => updateFavorite(feature, false)} disabled={favoritePendingId !== null || favoriteSignInRequired}>×</button>
+                        </li>)}
+                      </ul> : <p className="favorites-hint">{placesFailed ? "Load campus locations to see your favorites." : "No favorites yet. Select a location and save it here."}</p>}
+                      {favoriteError && <p className="favorite-error" role="alert">{favoriteError}{favoriteSignInRequired && <> <Link href="/sign-in">Sign in again</Link></>}</p>}
+                      <p className="favorite-feedback" role="status">{favoriteFeedback}</p>
+                    </> : <p className="favorites-hint"><Link href="/sign-in">Sign in</Link> to save your favorite campus locations.</p>}
+                  </section>
+                )}
+              </div>
         </div>
         </aside>
         <section
