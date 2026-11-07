@@ -78,5 +78,21 @@
         43.01198378443431
       ]
     }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-0676eac0-54f7-47e6-9d63-b5106b1f1b0b",
+      "name": "Building A",
+      "category": "building",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.201490288416,
+        43.01347095538543
+      ]
+    }
   }
 ]

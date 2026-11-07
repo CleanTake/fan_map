@@ -639,7 +639,19 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
           <h1>FanMap</h1>
         </div>
         <div className="topbar-actions">
-          {user?.role === "admin" && <button
+          <button
+            className="location-button"
+            onClick={showMyLocation}
+            disabled={!mapReady || !!mapError || gpsStatus === "disabled"}
+          >
+            {gpsStatus === "active"
+              ? "Location active"
+              : gpsStatus === "disabled"
+                ? "Location unavailable"
+                : "Show my location"}
+          </button>
+          <nav className="account-nav" aria-label="Account">
+            {user?.role === "admin" && <button
             className={adminUnlocked ? "admin-button active" : "admin-button"}
             type="button"
             aria-pressed={adminUnlocked}
@@ -653,25 +665,11 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
           >
             {adminUnlocked ? "Exit admin mode" : "Admin"}
           </button>}
-          <button
-            className="location-button"
-            onClick={showMyLocation}
-            disabled={!mapReady || !!mapError || gpsStatus === "disabled"}
-          >
-            {gpsStatus === "active"
-              ? "Location active"
-              : gpsStatus === "disabled"
-                ? "Location unavailable"
-                : "Show my location"}
-          </button>
-          <nav className="account-nav" aria-label="Account">
             {user ? <>
               {user.role === "admin" && <Link className="account-link" href="/admin/reports" prefetch={false}>Reports</Link>}
               <span className="account-email" title={user.username ?? user.email}>{user.username ?? user.email}</span>
-              <span className="account-role">{user.role === "admin" ? "Admin" : "Registered"}</span>
               <Link className="account-link" href="/sign-out" prefetch={false}>Sign out</Link>
             </> : <>
-              <span className="account-role">Guest</span>
               <Link className="account-link" href="/sign-in">Sign in</Link>
               <Link className="account-create" href="/sign-up">Create account</Link>
             </>}
@@ -839,8 +837,18 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
             </div>
           )}
           <div className="map-caption">
-            <span className="map-dot" /> Fanshawe College campus · 43.0135° N,
-            81.2008° W
+            <span className="map-dot" />
+            {selectedLocation && isMappedPoint(selectedLocation) ? (
+              <>
+                {selectedLocation.properties.name} ·{" "}
+                {Math.abs(selectedLocation.geometry.coordinates[1]).toFixed(4)}°{" "}
+                {selectedLocation.geometry.coordinates[1] >= 0 ? "N" : "S"},{" "}
+                {Math.abs(selectedLocation.geometry.coordinates[0]).toFixed(4)}°{" "}
+                {selectedLocation.geometry.coordinates[0] >= 0 ? "E" : "W"}
+              </>
+            ) : (
+              <>Fanshawe College campus · 43.0135° N, 81.2008° W</>
+            )}
           </div>
         </section>
         <aside className="details-panel" aria-label="Location details" aria-live="polite">
