@@ -33,17 +33,20 @@ h3 { font-size: .9rem; }
 .admin-button { display: inline-flex; align-items: center; justify-content: center; gap: 7px; border: 1px solid var(--line); border-radius: 7px; padding: 10px 14px; color: var(--ink); background: var(--surface); font-size: .86rem; font-weight: 700; cursor: pointer; }
 .admin-button:hover { background: var(--surface-raised); }
 .admin-button.active { color: var(--on-accent); background: var(--accent); border-color: var(--accent); }
-.content-grid { display: grid; grid-template-columns: 1px minmax(420px, 1fr) 300px; min-height: calc(100vh - 5.5rem); }
+.content-grid { display: grid; grid-template-columns: 1px minmax(420px, 1fr) 300px; height: calc(100vh - 5.5rem); }
 .sidebar, .details-panel { padding: 29px 24px; background: var(--surface); }
 .sidebar { border-right: 1px solid var(--line); }
 .details-panel { border-left: 1px solid var(--line); }
 .sidebar h2 { margin-bottom: 5px; }
 .sidebar-intro, .details-panel > p { color: var(--muted); font-size: .88rem; line-height: 1.55; }
-.filter-fab-container {
+.fab-container {
   position: fixed;
   top: 6rem;
   left: 24px;
   z-index: 1000;
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 .filter-fab {
     display: flex;
@@ -92,6 +95,22 @@ h3 { font-size: .9rem; }
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
 }
+.location-search {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 260px;
+  background: #fff;
+  border: none;
+  border-radius: 10px;
+}
+
+.location-search input {
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
 fieldset { border: 0; padding: 18px 0 0; margin: 0; }
 legend { padding: 0 0 9px; font-size: .68rem; letter-spacing: .08em; color: var(--muted); font-weight: 800; text-transform: uppercase; }
 .category-filter-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; }
@@ -132,7 +151,7 @@ legend { padding: 0 0 9px; font-size: .68rem; letter-spacing: .08em; color: var(
 .delete-place-button:disabled { opacity: .65; cursor: default; }
 .details-delete-button { width: 100%; margin-top: 18px; }
 .delete-actions { display: flex; justify-content: flex-end; gap: 9px; margin-top: 20px; }
-.details-panel { overflow-y: auto; }
+.details-panel { overflow-y: auto; min-height: 0;}
 .details-panel h2 { margin-bottom: 7px; }
 .info-row { margin-top: 17px; border-top: 1px solid var(--line); padding-top: 13px; }
 .info-row span { display: block; margin-bottom: 4px; color: var(--muted); font-size: .7rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }

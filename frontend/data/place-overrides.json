@@ -94,5 +94,37 @@
         43.01347095538543
       ]
     }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-886b658a-c24c-41d7-a235-f2c9036d3246",
+      "name": "Entrance to Building B",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20067943359861,
+        43.0111701310513
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-009c565a-4077-4f3f-a7bb-0278adb6bbda",
+      "name": "Entrance to Building A",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19815236757539,
+        43.01198966452398
+      ]
+    }
   }
 ]

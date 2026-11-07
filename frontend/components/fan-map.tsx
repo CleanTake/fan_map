@@ -619,7 +619,7 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
     function handleClickOutside(event: MouseEvent) {
         const target = event.target as HTMLElement;
 
-        if (!target.closest(".filter-fab-container")) {
+        if (!target.closest(".fab-container")) {
             setIsFilterOpen(false);
         }
     }
@@ -678,7 +678,7 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
       </header>
       <section className="content-grid">
         <aside className="sidebar" aria-label="Location filters">
-          <div className="filter-fab-container">
+          <div className="fab-container">
             <button
                 className="filter-fab"
                 type="button"
@@ -715,6 +715,38 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
                     </fieldset>
                 </div>
             )}
+            <div className="location-search">
+              <input
+                id="location-select"
+                list="location-options"
+                value={
+                  selectedLocation
+                    ? choiceLabels.get(selectedLocation.properties.id) ??
+                      selectedLocation.properties.name
+                    : locationChoice
+                }
+                placeholder="Search locations..."
+                disabled={!placesLoaded || !visiblePlaces.length}
+                onChange={(event) => {
+                  const value = event.target.value;
+                  setLocationChoice(value);
+
+                  const feature = visiblePlaces.find(
+                    (place) => choiceLabels.get(place.properties.id) === value
+                  );
+                  if (feature) selectPlace(feature);
+                  else setSelectedLocation(null);
+                }}
+              />
+              <datalist id="location-options">
+                {visiblePlaces.map((place) => (
+                  <option
+                    key={place.properties.id}
+                    value={choiceLabels.get(place.properties.id)}
+                  />
+                ))}
+              </datalist>
+            </div>
         </div>
         </aside>
         <section
