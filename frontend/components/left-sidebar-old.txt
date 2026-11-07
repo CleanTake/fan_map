@@ -1,0 +1,59 @@
+<aside className="sidebar">
+          <h2>Map filters</h2>
+          {adminUnlocked && <p className="sidebar-intro">Select a location to edit or delete it. Click an empty map spot to add a place.</p>}
+          <p className="favorite-feedback" role="status">{adminFeedback}</p>
+          {requestedLocationMissing && <p className="favorite-error" role="status">The requested location is no longer available on the map.</p>}
+          
+          <fieldset>
+            <legend>Location types</legend>
+            <div className="category-filter-grid">
+              {categories.map(({ id, label }) => (
+                <label className={selectedCategories.includes(id) ? "filter active" : "filter"} key={id}>
+                  <input
+                    type="checkbox"
+                    checked={selectedCategories.includes(id)}
+                    onChange={() => toggleCategory(id)}
+                  />
+                  {id === "building" ? (
+                    <span className="filter-icon-placeholder" aria-hidden="true" />
+                  ) : (
+                    <NextImage className="filter-icon" src={categoryIconPath(id)} alt="" width={24} height={24} unoptimized />
+                  )}
+                  <span className="filter-label">{label}</span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+          <p className="icon-attribution">
+            Entrance marker by <a href="https://www.flaticon.com/free-icon/entrance_15615407" target="_blank" rel="noreferrer">gravisio from Flaticon</a>; other icons by <a href="https://icons8.com" target="_blank" rel="noreferrer">Icons8</a>.
+          </p>
+          <p className="sidebar-intro" role="status">
+            {placesLoaded ? `${visiblePlaces.length} of ${activePlaces.length} locations. ${awaitingCount} awaiting map position checks.` : placesFailed ? "Locations could not be loaded. Please refresh to try again." : "Loading campus locations…"}
+          </p>
+          <label htmlFor="location-select">Select a location</label>
+          <input id="location-select" list="location-options" size={14} value={selectedLocation ? choiceLabels.get(selectedLocation.properties.id) ?? selectedLocation.properties.name : locationChoice} placeholder="Choose a location" disabled={!placesLoaded || !visiblePlaces.length} onChange={(event) => {
+            const value = event.target.value;
+            setLocationChoice(value);
+            const feature = visiblePlaces.find((place) => choiceLabels.get(place.properties.id) === value);
+            if (feature) selectPlace(feature);
+            else setSelectedLocation(null);
+          }} />
+          <datalist id="location-options">
+            {visiblePlaces.map((place) => <option key={place.properties.id} value={choiceLabels.get(place.properties.id)} />)}
+          </datalist>
+          <section className="favorites-section" aria-labelledby="favorites-heading">
+            <h3 id="favorites-heading">Favorites {user && <span className="favorites-count">{favoriteFeatures.length}</span>}</h3>
+            {user ? <>
+              {!placesLoaded && !placesFailed ? <p className="favorites-hint">Loading favorites…</p> : favoriteFeatures.length ? <ul className="favorites-list">
+                {favoriteFeatures.map((feature) => <li key={feature.properties.id}>
+                  <button className="favorite-open" type="button" onClick={() => selectPlace(feature)} aria-label={`View ${feature.properties.name}`} aria-current={selectedLocation?.properties.id === feature.properties.id ? "true" : undefined}>
+                    <span aria-hidden="true">★</span><span>{feature.properties.name}</span>
+                  </button>
+                  <button className="favorite-remove" type="button" aria-label={`Remove ${feature.properties.name} from favorites`} title="Remove from favorites" onClick={() => updateFavorite(feature, false)} disabled={favoritePendingId !== null || favoriteSignInRequired}>×</button>
+                </li>)}
+              </ul> : <p className="favorites-hint">{placesFailed ? "Load campus locations to see your favorites." : "No favorites yet. Select a location and save it here."}</p>}
+              {favoriteError && <p className="favorite-error" role="alert">{favoriteError}{favoriteSignInRequired && <> <Link href="/sign-in">Sign in again</Link></>}</p>}
+              <p className="favorite-feedback" role="status">{favoriteFeedback}</p>
+            </> : <p className="favorites-hint"><Link href="/sign-in">Sign in</Link> to save your favorite campus locations.</p>}
+          </section>
+        </aside>
