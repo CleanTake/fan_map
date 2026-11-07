@@ -1,12 +1,12 @@
-import { timingSafeEqual } from "node:crypto";
+import { getAuthStore, type AuthStore } from "./auth/database.ts";
+import { isSameOrigin, readSessionToken } from "./auth/http.ts";
 
-export function isValidAdminKey(candidate: unknown) {
-  const expected = process.env.ADMIN_API_KEY;
-  if (typeof candidate !== "string" || !expected) return false;
-  const candidateBuffer = Buffer.from(candidate);
-  const expectedBuffer = Buffer.from(expected);
-  return (
-    candidateBuffer.length === expectedBuffer.length &&
-    timingSafeEqual(candidateBuffer, expectedBuffer)
-  );
+export function requireAdmin(request: Request, store: () => AuthStore = getAuthStore): Response | null {
+  const user = store().findSession(readSessionToken(request));
+  const status = !user ? 401 : user.role !== "admin" || !isSameOrigin(request) ? 403 : null;
+  if (!status) return null;
+  return Response.json({ error: status === 401 ? "Sign in as an administrator to edit the map." : "Administrator access from FanMap is required." }, {
+    status,
+    headers: { "Cache-Control": "no-store", Vary: "Cookie" },
+  });
 }

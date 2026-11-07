@@ -1,17 +1,17 @@
 "use client";
 
 import mapboxgl from "mapbox-gl";
+import NextImage from "next/image";
 import Link from "next/link";
-import Image from "next/image";
-import { Moon, Sun } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { FormEvent } from "react";
 import type { Category, LocationFeature } from "@/lib/place-types";
 import { isMappedPoint } from "@/lib/place-types";
 import type { AuthUser } from "@/lib/auth/types";
 import PublishedLocationDetails from "@/components/published-location-details";
-import { haversineMeters, iconSvg } from "@/lib/map-utils";
-import { createPlace, deletePlace, fetchPlaces, verifyAdminKey } from "@/services/place-service";
+import LocationReportForm from "@/components/location-report-form";
+import { haversineMeters } from "@/lib/map-utils";
+import { createPlace, deletePlace, fetchPlaces, updatePlace } from "@/services/place-service";
 
 type Route = {
   route: string;
@@ -20,37 +20,34 @@ type Route = {
   arrivals: string[];
 };
 
-const categories: { id: Category; label: string; symbol: string }[] = [
-  { id: "building", label: "Buildings", symbol: "⌂" },
-  { id: "entrance", label: "Entrances", symbol: "↗" },
-  { id: "room", label: "Study rooms", symbol: "▣" },
-  { id: "parking", label: "Parking", symbol: "P" },
-  { id: "food", label: "Food", symbol: "●" },
-  { id: "retail", label: "Retail", symbol: "◇" },
-  { id: "service", label: "Services", symbol: "+" },
-  { id: "bus", label: "Bus stops", symbol: "▰" },
+const categories: { id: Category; label: string }[] = [
+  { id: "building", label: "Buildings" },
+  { id: "entrance", label: "Entrances" },
+  { id: "room", label: "Study rooms" },
+  { id: "parking", label: "Parking" },
+  { id: "food", label: "Food" },
+  { id: "retail", label: "Retail" },
+  { id: "service", label: "Services" },
+  { id: "bus", label: "Bus stops" },
+  { id: "court", label: "Courts" },
+  { id: "gym", label: "Gyms" },
 ];
 
-const categoryColors: Record<Category, string> = {
-  building: "#3859a7",
-  entrance: "#526e30",
-  room: "#c8102e",
-  parking: "#357c8e",
-  food: "#c85c2d",
-  retail: "#a24f78",
-  service: "#96721f",
-  bus: "#227660",
+const markerAssetVersion = "2";
+
+const markerAssetPath = (name: string) =>
+  `/markers/${name}.png?v=${markerAssetVersion}`;
+
+const categoryIconPath = (category: Category) => {
+  if (category === "gym") return markerAssetPath("gym-dumbbell");
+  if (category === "entrance") return markerAssetPath("entrance-door");
+  return markerAssetPath(category);
 };
 
-const categoryIcons: Record<Category, string> = {
-  building: "/resources/map-icons/Buildings-map-icon.svg",
-  entrance: "/resources/map-icons/Entrances-map-icon.svg",
-  room: "/resources/map-icons/Study-rooms-map-icon.svg",
-  parking: "/resources/map-icons/Parking-map-icon.svg",
-  food: "/resources/map-icons/Food-and-retail-map-icon.svg",
-  retail: "/resources/map-icons/Food-and-retail-map-icon.svg",
-  service: "/resources/map-icons/Student-services-map-icon.svg",
-  bus: "/resources/map-icons/Bus-stops-map-icon.svg",
+const categoryIconImage = (category: Category) => {
+  if (category === "gym") return "gym-dumbbell";
+  if (category === "entrance") return "entrance-door";
+  return category;
 };
 
 function createUserLocationMarker() {
@@ -65,13 +62,15 @@ function createUserLocationMarker() {
   return new mapboxgl.Marker({ element, anchor: "center" });
 }
 
-export default function FanMap({ user, initialFavoriteIds = [] }: { user: AuthUser | null; initialFavoriteIds?: string[] }) {
+export default function FanMap({ user, initialFavoriteIds = [], initialLocationId }: { user: AuthUser | null; initialFavoriteIds?: string[]; initialLocationId?: string }) {
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<mapboxgl.Map | null>(null);
   const userMarker = useRef<mapboxgl.Marker | null>(null);
   const locationInterval = useRef<ReturnType<typeof setInterval> | null>(null);
   const locationRequestInFlight = useRef(false);
   const hasCenteredOnLocation = useRef(false);
+  const initialLocationFocused = useRef(false);
+  const [requestedLocationMissing, setRequestedLocationMissing] = useState(false);
   const [selectedCategories, setSelectedCategories] = useState<Category[]>(
     categories.map(({ id }) => id),
   );
@@ -88,12 +87,13 @@ export default function FanMap({ user, initialFavoriteIds = [] }: { user: AuthUs
   const [favoriteFeedback, setFavoriteFeedback] = useState("");
   const [favoriteSignInRequired, setFavoriteSignInRequired] = useState(false);
   const [deletedPlaceIds, setDeletedPlaceIds] = useState<string[]>([]);
-  const [adminKey, setAdminKey] = useState("");
-  const [theme, setTheme] = useState<"light" | "dark">("light");
-  const [adminUnlocked, setAdminUnlocked] = useState(false);
-  const [adminPromptOpen, setAdminPromptOpen] = useState(false);
-  const [adminError, setAdminError] = useState("");
-  const [draftCoordinates, setDraftCoordinates] = useState<[number, number] | null>(null);
+  const [adminMode, setAdminMode] = useState(false);
+  const adminUnlocked = user?.role === "admin" && adminMode;
+  const [placeEditorOpen, setPlaceEditorOpen] = useState(false);
+  const [editingPlaceId, setEditingPlaceId] = useState<string | null>(null);
+  const [placeLongitude, setPlaceLongitude] = useState("");
+  const [placeLatitude, setPlaceLatitude] = useState("");
+  const [adminFeedback, setAdminFeedback] = useState("");
   const [placeName, setPlaceName] = useState("");
   const [placeCategory, setPlaceCategory] = useState<Category>("room");
   const [placeDescription, setPlaceDescription] = useState("");
@@ -149,20 +149,6 @@ export default function FanMap({ user, initialFavoriteIds = [] }: { user: AuthUs
   const awaitingCount = activePlaces.filter((place) => !isMappedPoint(place)).length;
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("fanmap-theme");
-    const initialTheme =
-      savedTheme === "light" || savedTheme === "dark"
-        ? savedTheme
-        : window.matchMedia("(prefers-color-scheme: dark)").matches
-          ? "dark"
-          : "light";
-    // Restore the saved or system theme after hydration to keep server markup stable.
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setTheme(initialTheme);
-    document.documentElement.dataset.theme = initialTheme;
-  }, []);
-
-  useEffect(() => {
     adminUnlockedRef.current = adminUnlocked;
   }, [adminUnlocked]);
 
@@ -172,13 +158,28 @@ export default function FanMap({ user, initialFavoriteIds = [] }: { user: AuthUs
         setPlaces(places);
         setDeletedPlaceIds(deletedIds);
         setPlacesLoaded(true);
+        if (initialLocationId) {
+          const location = places.find((place) => place.properties.id === initialLocationId);
+          setSelectedLocation(location ?? null);
+          setLocationChoice(location?.properties.name ?? "");
+          setRequestedLocationMissing(!location);
+        }
       })
       .catch(() => {
         setPlaces([]);
         setDeletedPlaceIds([]);
         setPlacesFailed(true);
       });
-  }, []);
+  }, [initialLocationId]);
+
+  useEffect(() => {
+    if (!initialLocationId || !mapReady || initialLocationFocused.current) return;
+    const location = places.find((place) => place.properties.id === initialLocationId);
+    if (location && isMappedPoint(location)) {
+      map.current?.flyTo({ center: location.geometry.coordinates as [number, number], zoom: 17 });
+      initialLocationFocused.current = true;
+    }
+  }, [initialLocationId, mapReady, places]);
 
   useEffect(() => {
     fetch("/api/routes")
@@ -197,6 +198,12 @@ export default function FanMap({ user, initialFavoriteIds = [] }: { user: AuthUs
     const instance = new mapboxgl.Map({
       container: mapContainer.current,
       style: "mapbox://styles/mapbox/standard",
+      config: {
+        basemap: {
+          showPointOfInterestLabels: false,
+          lightPreset: "day",
+        },
+      },
       center: [-81.1994, 43.013],
       zoom: 16.2,
       pitch: 58,
@@ -206,7 +213,7 @@ export default function FanMap({ user, initialFavoriteIds = [] }: { user: AuthUs
     map.current = instance;
     instance.addControl(new mapboxgl.NavigationControl(), "bottom-right");
 
-    const loadImage = (src: string, label: string) =>
+    const loadMapImage = (src: string, label: string) =>
       new Promise<HTMLImageElement>((resolve, reject) => {
         const img = new window.Image();
         img.onload = () => resolve(img);
@@ -218,41 +225,41 @@ export default function FanMap({ user, initialFavoriteIds = [] }: { user: AuthUs
       if (disposed) return;
       try {
       await Promise.all(
-        categories.map(async ({ id, symbol }) => {
-          if (instance.hasImage(id)) return;
-          let image: string;
-          switch (id) {
-            case "building":
-              image = "/resources/map-icons/Buildings-map-icon.png";
-              break;
-            case "entrance":
-              image = "/resources/map-icons/Entrances-map-icon.png";
-              break;
-            case "room":
-              image = "/resources/map-icons/Study-rooms-map-icon.png";
-              break;
-            case "parking":
-              image = "/resources/map-icons/Parking-map-icon.png";
-              break;
-            case "food":
-            case "retail":
-              image = "/resources/map-icons/Food-and-retail-map-icon.png";
-              break;
-            case "service":
-              image = "/resources/map-icons/Student-services-map-icon.png";
-              break;
-            case "bus":
-              image = "/resources/map-icons/Bus-stops-map-icon.png";
-              break;
-            default:
-              image = iconSvg(categoryColors[id], symbol);
-          }
-          const img = await loadImage(image, id);
+        categories.filter(({ id }) => id !== "building").map(async ({ id }) => {
+          const imageId = categoryIconImage(id);
+          if (instance.hasImage(imageId)) return;
+          const img = await loadMapImage(categoryIconPath(id), id);
           if (disposed) return;
-          instance.addImage(id, img, { pixelRatio: image.startsWith("/resources/map-icons/") ? 1 : 2 });
+          instance.addImage(imageId, img, { pixelRatio: 2 });
         }),
       );
       if (disposed) return;
+      instance.addSource("campus-boundary", {
+        type: "geojson",
+        data: "/campus-boundary.geojson",
+        attribution: "© OpenStreetMap contributors",
+      });
+      instance.addLayer({
+        id: "campus-boundary-fill",
+        type: "fill",
+        source: "campus-boundary",
+        slot: "bottom",
+        paint: {
+          "fill-color": "#78a95b",
+          "fill-opacity": 0.2,
+        },
+      });
+      instance.addLayer({
+        id: "campus-boundary-outline",
+        type: "line",
+        source: "campus-boundary",
+        slot: "middle",
+        paint: {
+          "line-color": "#557c3b",
+          "line-width": 3,
+          "line-opacity": 0.85,
+        },
+      });
       instance.addSource("locations", {
         type: "geojson",
         data: {
@@ -261,13 +268,44 @@ export default function FanMap({ user, initialFavoriteIds = [] }: { user: AuthUs
         },
       });
       instance.addLayer({
+        id: "building-locations-layer",
+        type: "circle",
+        source: "locations",
+        filter: ["==", ["get", "category"], "building"],
+        paint: {
+          "circle-radius": 10,
+          "circle-color": "#526678",
+          "circle-stroke-color": "#ffffff",
+          "circle-stroke-width": 2,
+          "circle-opacity": ["interpolate", ["linear"], ["zoom"], 14.8, 0, 16, 1],
+          "circle-stroke-opacity": ["interpolate", ["linear"], ["zoom"], 14.8, 0, 16, 1],
+        },
+      });
+      instance.addLayer({
         id: "locations-layer",
         type: "symbol",
         source: "locations",
+        filter: ["!=", ["get", "category"], "building"],
         layout: {
-          "icon-image": ["get", "category"],
-          "icon-size": ["match", ["get", "category"], "room", 1.05, 1.3],
+          "icon-image": [
+            "match",
+            ["get", "category"],
+            "entrance", "entrance-door",
+            "gym", "gym-dumbbell",
+            ["get", "category"],
+          ],
+          "icon-size": [
+            "match",
+            ["get", "category"],
+            "service", 0.8,
+            "bus", 0.8,
+            "court", 0.96,
+            0.078,
+          ],
           "icon-allow-overlap": true,
+        },
+        paint: {
+          "icon-opacity": ["interpolate", ["linear"], ["zoom"], 14.8, 0, 16, 1],
         },
       });
       instance.addSource("route-line", {
@@ -292,18 +330,36 @@ export default function FanMap({ user, initialFavoriteIds = [] }: { user: AuthUs
           setLocationChoice(feature.properties.name);
         }
       });
+      instance.on("click", "building-locations-layer", (event) => {
+        const id = event.features?.[0]?.properties?.id;
+        const feature = placesRef.current.find((place) => place.properties.id === id);
+        if (feature && !deletedPlaceIdsRef.current.includes(feature.properties.id)) {
+          setSelectedLocation(feature);
+          setLocationChoice(feature.properties.name);
+        }
+      });
       instance.on("mouseenter", "locations-layer", () => {
+        instance.getCanvas().style.cursor = "pointer";
+      });
+      instance.on("mouseenter", "building-locations-layer", () => {
         instance.getCanvas().style.cursor = "pointer";
       });
       instance.on("mouseleave", "locations-layer", () => {
         instance.getCanvas().style.cursor = "";
       });
+      instance.on("mouseleave", "building-locations-layer", () => {
+        instance.getCanvas().style.cursor = "";
+      });
       instance.on("click", (event) => {
         if (!adminUnlockedRef.current) return;
-        if (instance.queryRenderedFeatures(event.point, { layers: ["locations-layer"] }).length) return;
+        if (instance.queryRenderedFeatures(event.point, { layers: ["locations-layer", "building-locations-layer"] }).length) return;
         setSelectedLocation(null);
         setLocationChoice("");
-        setDraftCoordinates([event.lngLat.lng, event.lngLat.lat]);
+        setEditingPlaceId(null);
+        setPlaceEditorOpen(true);
+        setPlaceLongitude(String(event.lngLat.lng));
+        setPlaceLatitude(String(event.lngLat.lat));
+        setAdminFeedback("");
         setPlaceName("");
         setPlaceDescription("");
         setPlaceCategory("room");
@@ -348,32 +404,12 @@ export default function FanMap({ user, initialFavoriteIds = [] }: { user: AuthUs
     const instance = map.current;
     if (instance?.isStyleLoaded() && instance.getLayer("locations-layer")) {
       instance.setFilter("locations-layer", [
-        "in",
-        ["get", "category"],
-        ["literal", selectedCategories],
+        "all",
+        ["!=", ["get", "category"], "building"],
+        ["in", ["get", "category"], ["literal", selectedCategories]],
       ]);
     }
   }, [selectedCategories]);
-
-  useEffect(() => {
-    const instance = map.current;
-    if (!instance) return;
-    const applyMapTheme = () => {
-      instance.setConfigProperty(
-        "basemap",
-        "lightPreset",
-        theme === "dark" ? "night" : "day",
-      );
-    };
-    if (instance.isStyleLoaded()) {
-      applyMapTheme();
-      return;
-    }
-    instance.once("style.load", applyMapTheme);
-    return () => {
-      instance.off("style.load", applyMapTheme);
-    };
-  }, [theme]);
 
   useEffect(() => {
     const instance = map.current;
@@ -449,34 +485,35 @@ export default function FanMap({ user, initialFavoriteIds = [] }: { user: AuthUs
     }
   };
 
-  const unlockAdmin = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setAdminError("");
-    try {
-      await verifyAdminKey(adminKey);
-      setAdminUnlocked(true);
-      setAdminPromptOpen(false);
-    } catch (error) {
-      setAdminError(error instanceof Error ? error.message : "Could not sign in.");
-    }
+  const editPlace = (place: LocationFeature) => {
+    setEditingPlaceId(place.properties.id);
+    setPlaceName(place.properties.name);
+    setPlaceCategory(place.properties.category);
+    setPlaceDescription(place.properties.description);
+    setPlaceLongitude(isMappedPoint(place) ? String(place.geometry.coordinates[0]) : "");
+    setPlaceLatitude(isMappedPoint(place) ? String(place.geometry.coordinates[1]) : "");
+    setPlaceError("");
+    setAdminFeedback("");
+    setPlaceEditorOpen(true);
   };
 
-  const saveNewPlace = async (event: FormEvent<HTMLFormElement>) => {
+  const savePlace = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!draftCoordinates) return;
+    if (!adminUnlocked || savingPlace) return;
     setSavingPlace(true);
     setPlaceError("");
     try {
-      const place = await createPlace(adminKey, {
+      const input = {
         name: placeName,
         category: placeCategory,
         description: placeDescription,
-        coordinates: draftCoordinates,
-      });
-      setPlaces((current) => [...current, place]);
-      setSelectedLocation(place);
-      setLocationChoice(place.properties.name);
-      setDraftCoordinates(null);
+        coordinates: placeLongitude === "" && placeLatitude === "" ? null : [Number(placeLongitude), Number(placeLatitude)] as [number, number],
+      };
+      const place = editingPlaceId ? await updatePlace(editingPlaceId, input) : await createPlace(input);
+      setPlaces((current) => editingPlaceId ? current.map((item) => item.properties.id === editingPlaceId ? place : item) : [...current, place]);
+      selectPlace(place);
+      setPlaceEditorOpen(false);
+      setAdminFeedback(`${place.properties.name} ${editingPlaceId ? "updated" : "added"}.`);
     } catch (error) {
       setPlaceError(error instanceof Error ? error.message : "Could not save place.");
     } finally {
@@ -485,23 +522,14 @@ export default function FanMap({ user, initialFavoriteIds = [] }: { user: AuthUs
   };
 
   const confirmDeletePlace = async () => {
-    if (!placeToDelete) return;
+    if (!adminUnlocked || !placeToDelete || deletingPlace) return;
     setDeletingPlace(true);
     setDeleteError("");
     try {
-      await deletePlace(adminKey, placeToDelete.properties.id);
-      if (placeToDelete.properties.id.startsWith("place-")) {
-        setPlaces((current) =>
-          current.filter(
-            (place) => place.properties.id !== placeToDelete.properties.id,
-          ),
-        );
-      } else {
-        setDeletedPlaceIds((current) => [
-          ...current,
-          placeToDelete.properties.id,
-        ]);
-      }
+      await deletePlace(placeToDelete.properties.id);
+      setPlaces((current) => current.filter((place) => place.properties.id !== placeToDelete.properties.id));
+      setDeletedPlaceIds((current) => [...current, placeToDelete.properties.id]);
+      setAdminFeedback(`${placeToDelete.properties.name} deleted.`);
       if (selectedLocation?.properties.id === placeToDelete.properties.id) {
         setSelectedLocation(null);
         setLocationChoice("");
@@ -593,36 +621,20 @@ export default function FanMap({ user, initialFavoriteIds = [] }: { user: AuthUs
           <h1>FanMap</h1>
         </div>
         <div className="topbar-actions">
-          <button
-            className="theme-button"
-            type="button"
-            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
-            onClick={() => {
-              const nextTheme = theme === "dark" ? "light" : "dark";
-              setTheme(nextTheme);
-              localStorage.setItem("fanmap-theme", nextTheme);
-              document.documentElement.dataset.theme = nextTheme;
-            }}
-          >
-            {theme === "dark" ? <Sun size={17} /> : <Moon size={17} />}
-            {theme === "dark" ? "Light mode" : "Dark mode"}
-          </button>
-          <button
+          {user?.role === "admin" && <button
             className={adminUnlocked ? "admin-button active" : "admin-button"}
+            type="button"
+            aria-pressed={adminUnlocked}
+            disabled={savingPlace || deletingPlace}
             onClick={() => {
-              if (adminUnlocked) {
-                setAdminUnlocked(false);
-                setAdminKey("");
-                setDraftCoordinates(null);
-              } else {
-                setAdminError("");
-                setAdminPromptOpen(true);
-              }
+              setAdminMode(!adminMode);
+              setPlaceEditorOpen(false);
+              setPlaceToDelete(null);
+              setAdminFeedback("");
             }}
           >
             {adminUnlocked ? "Exit admin mode" : "Admin"}
-          </button>
-          <button className="account-role">Guest</button>
+          </button>}
           <button
             className="location-button"
             onClick={showMyLocation}
@@ -636,10 +648,12 @@ export default function FanMap({ user, initialFavoriteIds = [] }: { user: AuthUs
           </button>
           <nav className="account-nav" aria-label="Account">
             {user ? <>
-              <span className="account-email" title={user.email}>{user.email}</span>
+              {user.role === "admin" && <Link className="account-link" href="/admin/reports" prefetch={false}>Reports</Link>}
+              <span className="account-email" title={user.username ?? user.email}>{user.username ?? user.email}</span>
               <span className="account-role">{user.role === "admin" ? "Admin" : "Registered"}</span>
               <Link className="account-link" href="/sign-out" prefetch={false}>Sign out</Link>
             </> : <>
+              <span className="account-role">Guest</span>
               <Link className="account-link" href="/sign-in">Sign in</Link>
               <Link className="account-create" href="/sign-up">Create account</Link>
             </>}
@@ -648,29 +662,33 @@ export default function FanMap({ user, initialFavoriteIds = [] }: { user: AuthUs
       </header>
       <section className="content-grid">
         <aside className="sidebar">
-          <h2>Explore campus</h2>
-          <p className="sidebar-intro">
-            Choose what you want to see on the map.
-          </p>
+          <h2>Map filters</h2>
+          {adminUnlocked && <p className="sidebar-intro">Select a location to edit or delete it. Click an empty map spot to add a place.</p>}
+          <p className="favorite-feedback" role="status">{adminFeedback}</p>
+          {requestedLocationMissing && <p className="favorite-error" role="status">The requested location is no longer available on the map.</p>}
           <fieldset>
             <legend>Location types</legend>
-            {categories.map(({ id, label, symbol }) => (
-              <label className="filter" key={id}>
-                <input
-                  type="checkbox"
-                  checked={selectedCategories.includes(id)}
-                  onChange={() => toggleCategory(id)}
-                />
-                <span
-                  className="filter-icon"
-                  style={{ backgroundColor: categoryColors[id] }}
-                >
-                  <Image src={categoryIcons[id]} alt="" width={12} height={12} />
-                </span>
-                {label}
-              </label>
-            ))}
+            <div className="category-filter-grid">
+              {categories.map(({ id, label }) => (
+                <label className={selectedCategories.includes(id) ? "filter active" : "filter"} key={id}>
+                  <input
+                    type="checkbox"
+                    checked={selectedCategories.includes(id)}
+                    onChange={() => toggleCategory(id)}
+                  />
+                  {id === "building" ? (
+                    <span className="filter-icon-placeholder" aria-hidden="true" />
+                  ) : (
+                    <NextImage className="filter-icon" src={categoryIconPath(id)} alt="" width={24} height={24} unoptimized />
+                  )}
+                  <span className="filter-label">{label}</span>
+                </label>
+              ))}
+            </div>
           </fieldset>
+          <p className="icon-attribution">
+            Entrance marker by <a href="https://www.flaticon.com/free-icon/entrance_15615407" target="_blank" rel="noreferrer">gravisio from Flaticon</a>; other icons by <a href="https://icons8.com" target="_blank" rel="noreferrer">Icons8</a>.
+          </p>
           <p className="sidebar-intro" role="status">
             {placesLoaded ? `${visiblePlaces.length} of ${activePlaces.length} locations. ${awaitingCount} awaiting map position checks.` : placesFailed ? "Locations could not be loaded. Please refresh to try again." : "Loading campus locations…"}
           </p>
@@ -707,53 +725,23 @@ export default function FanMap({ user, initialFavoriteIds = [] }: { user: AuthUs
         >
           <div className="map" ref={mapContainer} />
           {adminUnlocked && (
-            <div className="admin-map-hint">Admin mode · click an empty map spot to add a place</div>
+            <div className="admin-map-hint">Admin mode · select a location to edit, or click an empty spot to add</div>
           )}
-          {adminPromptOpen && (
+          {adminUnlocked && placeEditorOpen && (
             <div className="map-modal-backdrop">
-              <form className="map-modal" onSubmit={unlockAdmin}>
+              <form className="map-modal" onSubmit={savePlace} role="dialog" aria-modal="true" aria-labelledby="place-editor-title" aria-busy={savingPlace}>
                 <button
                   className="modal-close"
                   type="button"
-                  aria-label="Close admin sign in"
-                  onClick={() => setAdminPromptOpen(false)}
+                  aria-label="Cancel place changes"
+                  disabled={savingPlace}
+                  onClick={() => setPlaceEditorOpen(false)}
                 >
                   ×
                 </button>
-                <p className="eyebrow">ADMIN ACCESS</p>
-                <h2>Sign in to edit the map</h2>
-                <label className="form-field">
-                  Admin key
-                  <input
-                    type="password"
-                    value={adminKey}
-                    onChange={(event) => setAdminKey(event.target.value)}
-                    autoComplete="current-password"
-                    required
-                    autoFocus
-                  />
-                </label>
-                {adminError && <p className="form-error">{adminError}</p>}
-                <button className="location-button" type="submit">Continue</button>
-              </form>
-            </div>
-          )}
-          {draftCoordinates && (
-            <div className="map-modal-backdrop">
-              <form className="map-modal" onSubmit={saveNewPlace}>
-                <button
-                  className="modal-close"
-                  type="button"
-                  aria-label="Cancel adding place"
-                  onClick={() => setDraftCoordinates(null)}
-                >
-                  ×
-                </button>
-                <p className="eyebrow">NEW MAP PLACE</p>
-                <h2>Add a place</h2>
-                <p className="coordinate-note">
-                  {draftCoordinates[1].toFixed(6)}, {draftCoordinates[0].toFixed(6)}
-                </p>
+                <p className="eyebrow">{editingPlaceId ? "EDIT MAP PLACE" : "NEW MAP PLACE"}</p>
+                <h2 id="place-editor-title">{editingPlaceId ? "Edit place" : "Add a place"}</h2>
+                <fieldset className="place-editor-fields" disabled={savingPlace}>
                 <label className="form-field">
                   Place name
                   <input
@@ -784,14 +772,24 @@ export default function FanMap({ user, initialFavoriteIds = [] }: { user: AuthUs
                     rows={3}
                   />
                 </label>
-                {placeError && <p className="form-error">{placeError}</p>}
+                <div className="coordinate-fields">
+                  <label className="form-field">Latitude
+                    <input type="number" step="any" min={-90} max={90} required={!editingPlaceId || placeLongitude !== ""} value={placeLatitude} onChange={(event) => setPlaceLatitude(event.target.value)} />
+                  </label>
+                  <label className="form-field">Longitude
+                    <input type="number" step="any" min={-180} max={180} required={!editingPlaceId || placeLatitude !== ""} value={placeLongitude} onChange={(event) => setPlaceLongitude(event.target.value)} />
+                  </label>
+                </div>
+                {editingPlaceId && <p className="coordinate-note">Leave both coordinates empty if the map position is unknown.</p>}
+                </fieldset>
+                {placeError && <p className="form-error" role="alert">{placeError}</p>}
                 <button className="location-button" type="submit" disabled={savingPlace}>
-                  {savingPlace ? "Saving…" : "Save place"}
+                  {savingPlace ? "Saving…" : editingPlaceId ? "Save changes" : "Save place"}
                 </button>
               </form>
             </div>
           )}
-          {placeToDelete && (
+          {adminUnlocked && placeToDelete && (
             <div className="map-modal-backdrop">
               <section
                 className="map-modal"
@@ -806,7 +804,7 @@ export default function FanMap({ user, initialFavoriteIds = [] }: { user: AuthUs
                 <p className="sidebar-intro">
                   This removes the place from the map and saved place list.
                 </p>
-                {deleteError && <p className="form-error">{deleteError}</p>}
+                {deleteError && <p className="form-error" role="alert">{deleteError}</p>}
                 <div className="delete-actions">
                   <button
                     className="admin-button"
@@ -855,6 +853,7 @@ export default function FanMap({ user, initialFavoriteIds = [] }: { user: AuthUs
                 <span aria-hidden="true">{selectedIsFavorite ? "★" : "☆"}</span>
                 {favoritePendingId === selectedLocation.properties.id ? selectedIsFavorite ? "Removing…" : "Saving…" : selectedIsFavorite ? "Saved to favorites" : "Save to favorites"}
               </button> : <Link href="/sign-in" className="favorite-sign-in">☆ Sign in to save this location</Link>}
+              {user?.role !== "admin" && <LocationReportForm key={selectedLocation.properties.id} location={selectedLocation} />}
               <PublishedLocationDetails feature={selectedLocation} />
               {selectedLocation.properties.availability && (
                 <div className="info-row">
@@ -888,9 +887,12 @@ export default function FanMap({ user, initialFavoriteIds = [] }: { user: AuthUs
                 </a>
               )}
               {adminUnlocked && (
+                <div className="details-admin-actions">
+                  <button className="admin-button" type="button" onClick={() => editPlace(selectedLocation)} disabled={savingPlace || deletingPlace}>Edit this place</button>
                   <button
-                    className="delete-place-button details-delete-button"
+                    className="delete-place-button"
                     type="button"
+                    disabled={savingPlace || deletingPlace}
                     onClick={() => {
                       setDeleteError("");
                       setPlaceToDelete(selectedLocation);
@@ -898,6 +900,7 @@ export default function FanMap({ user, initialFavoriteIds = [] }: { user: AuthUs
                   >
                     Delete this place
                   </button>
+                </div>
                 )}
               {stopRoutes.length > 0 && (
                 <div className="bus-details">

@@ -224,3 +224,29 @@ test("trusted admin CLI loads .env.local and promotes only an existing account",
     rmSync(directory, { recursive: true, force: true });
   }
 });
+
+test("local admins sign in by username with a hashed password, while signup keeps its restrictions", async () => {
+  const store = new AuthStore(":memory:");
+  const handlers = createAuthHandlers(() => store, createAuthLimits());
+  try {
+    const localPassword = "local-test";
+    const user = store.setLocalAdmin("admin", await hashPassword(localPassword));
+    assert.equal(user.username, "admin");
+    assert.equal(user.role, "admin");
+    assert.notEqual(store.findUser("admin")?.password_hash, localPassword);
+    const login = await handlers.login(request("login", { email: " ADMIN ", password: localPassword }));
+    assert.equal(login.status, 200);
+    assert.deepEqual(await login.json(), { user });
+    const cookie = sessionCookie(login);
+    assert.deepEqual(await (await handlers.session(request("session", undefined, cookie))).json(), { user });
+    assert.equal((await handlers.login(request("login", { email: "admin", password: "wrong" }))).status, 401);
+    assert.equal((await handlers.signup(request("signup", { email: "admin", password }))).status, 400);
+    assert.equal((await handlers.signup(request("signup", { email: "new@example.com", password: localPassword }))).status, 400);
+    assert.equal((await handlers.signup(request("signup", { email: "new@example.com", password, username: "admin" }))).status, 400);
+    const reset = store.setLocalAdmin("ADMIN", await hashPassword("replacement"));
+    assert.equal(reset.id, user.id);
+    assert.deepEqual(await (await handlers.session(request("session", undefined, cookie))).json(), { user: null });
+  } finally {
+    store.close();
+  }
+});

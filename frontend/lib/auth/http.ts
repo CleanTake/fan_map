@@ -41,7 +41,7 @@ function requireSameOrigin(request: Request): void {
   if (!isSameOrigin(request)) throw new HttpError(403, "Please submit this form from FanMap.");
 }
 
-async function readCredentials(request: Request): Promise<{ email: string; password: string }> {
+async function readCredentials(request: Request, signup: boolean): Promise<{ email: string; password: string }> {
   if (request.headers.get("content-type")?.split(";")[0].trim().toLowerCase() !== "application/json") {
     throw new HttpError(415, "Submit an email and password as JSON.");
   }
@@ -80,11 +80,13 @@ async function readCredentials(request: Request): Promise<{ email: string; passw
     throw new HttpError(400, "Enter your email and password.");
   }
   const email = body.email.trim().toLowerCase();
-  if (email.length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    throw new HttpError(400, "Enter a valid email address.");
+  const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const validUsername = /^[a-z][a-z0-9_-]{0,31}$/.test(email);
+  if (email.length > 254 || !(validEmail || (!signup && validUsername))) {
+    throw new HttpError(400, signup ? "Enter a valid email address." : "Enter a valid email address or username.");
   }
-  if (body.password.length < 15 || body.password.length > 128) {
-    throw new HttpError(400, "Use a password between 15 and 128 characters.");
+  if (body.password.length < (signup ? 15 : 1) || body.password.length > 128) {
+    throw new HttpError(400, signup ? "Use a password between 15 and 128 characters." : "Enter your password (up to 128 characters).");
   }
   return { email, password: body.password };
 }
@@ -125,10 +127,10 @@ function failure(error: unknown): Response {
 }
 
 export function createAuthHandlers(store: () => AuthStore, limits: AuthLimits) {
-  async function credentials(request: Request) {
+  async function credentials(request: Request, signup = false) {
     requireSameOrigin(request);
     if (!limits.global.consume("auth")) throw new HttpError(429, "Too many attempts. Please try again in a few minutes.");
-    const input = await readCredentials(request);
+    const input = await readCredentials(request, signup);
     const emailKey = createHash("sha256").update(input.email).digest("hex");
     if (!limits.email.consume(emailKey)) throw new HttpError(429, "Too many attempts. Please try again in a few minutes.");
     return input;
@@ -145,7 +147,7 @@ export function createAuthHandlers(store: () => AuthStore, limits: AuthLimits) {
   return {
     async signup(request: Request): Promise<Response> {
       try {
-        const { email, password } = await credentials(request);
+        const { email, password } = await credentials(request, true);
         const database = store();
         if (database.findUser(email)) throw new HttpError(409, "An account with this email already exists. Sign in instead.");
         const passwordHash = await hashPassword(password);
@@ -170,8 +172,8 @@ export function createAuthHandlers(store: () => AuthStore, limits: AuthLimits) {
         const database = store();
         const account = database.findUser(email);
         const valid = await verifyPassword(password, account?.password_hash ?? DUMMY_PASSWORD_HASH);
-        if (!account || !valid) throw new HttpError(401, "Email or password is incorrect.");
-        const user: AuthUser = { id: account.id, email: account.email, role: account.role };
+        if (!account || !valid) throw new HttpError(401, "Email, username or password is incorrect.");
+        const user: AuthUser = { id: account.id, email: account.email, role: account.role, ...(account.username ? { username: account.username } : {}) };
         return signedIn(request, database, user);
       } catch (error) {
         return failure(error);

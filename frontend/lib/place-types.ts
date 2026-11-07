@@ -6,7 +6,9 @@ export type Category =
   | "food"
   | "retail"
   | "service"
-  | "bus";
+  | "bus"
+  | "court"
+  | "gym";
 
 export type FeatureProperties = {
   id: string;
@@ -44,5 +46,5 @@ export type PlaceInput = {
   name: string;
   category: Category;
   description: string;
-  coordinates: [number, number];
+  coordinates: [number, number] | null;
 };
