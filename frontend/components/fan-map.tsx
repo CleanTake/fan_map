@@ -12,7 +12,7 @@ import PublishedLocationDetails from "@/components/published-location-details";
 import LocationReportForm from "@/components/location-report-form";
 import { haversineMeters } from "@/lib/map-utils";
 import { createPlace, deletePlace, fetchPlaces, updatePlace } from "@/services/place-service";
-import { Star } from "lucide-react";
+import { SlidersHorizontal, Star } from "lucide-react";
 
 type Route = {
   route: string;
@@ -690,7 +690,7 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
                 aria-expanded={isFilterOpen}
                 aria-label="Toggle location filters"
             >
-                <span>Filters</span>
+                <SlidersHorizontal size={20} />
                 <span className="filter-count">
                     {selectedCategories.length}
                 </span>
