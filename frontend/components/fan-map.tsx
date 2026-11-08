@@ -201,6 +201,7 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
       config: {
         basemap: {
           showPointOfInterestLabels: false,
+          show3dBuildings: false,
           lightPreset: "day",
         },
       },
@@ -258,6 +259,44 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
           "line-color": "#557c3b",
           "line-width": 3,
           "line-opacity": 0.85,
+        },
+      });
+      instance.addSource("building-outlines", {
+        type: "geojson",
+        data: "/api/building-outlines",
+      });
+      const outlineColors: Record<string, string> = {
+        A: "#DEB4D0",
+        B: "#96B6DD",
+        C: "#EDAEA9",
+        D: "#D2BFA4",
+        E: "#BCD6EE",
+        F: "#E9E19E",
+        G: "#D18B88",
+        H: "#BCC19F",
+        J: "#C6D99C",
+        K: "#BA909D",
+        L: "#BDBDB2",
+        M: "#B8BFDE",
+        N: "#75C6DE",
+        falcon_house: "#F4C282",
+        preg_house: "#F4C282",
+        merlin_house: "#F4C282",
+        student_center: "#FADFAE",
+        Student_union: "#9ECED3",
+        T: "#ECA56C",
+      };
+      const colorMatch = Object.entries(outlineColors).flatMap(([key, color]) => [key, color]);
+      instance.addLayer({
+        id: "building-outlines-extrusion",
+        type: "fill-extrusion",
+        source: "building-outlines",
+        slot: "middle",
+        paint: {
+          "fill-extrusion-color": ["match", ["get", "outlineKey"], ...colorMatch, "#999999"],
+          "fill-extrusion-height": ["get", "extrusionHeight"],
+          "fill-extrusion-base": 0,
+          "fill-extrusion-opacity": 1,
         },
       });
       instance.addSource("locations", {
