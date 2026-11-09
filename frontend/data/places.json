@@ -453,5 +453,117 @@
         43.01198306044253
       ]
     }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-cc927d5d-bb32-48ea-84de-25afc33518d8",
+      "name": "Bus Stop 1",
+      "category": "bus",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19916363563624,
+        43.01160257287083
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-13b2fd7b-617d-4393-a5c4-13f6e7a4b2f9",
+      "name": "Bus Stop 2",
+      "category": "bus",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19901659917817,
+        43.011648842298285
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-30e9c267-c773-4bde-947f-98db15957c2f",
+      "name": "Bus Stop 3",
+      "category": "bus",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19888338155691,
+        43.01168824345828
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-0d2e1f3a-4238-405f-9527-1d7f493f231b",
+      "name": "Bus",
+      "category": "room",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19770981900693,
+        43.01202903923871
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-4a500019-2d50-484a-bc39-84e7ec3dbed4",
+      "name": "A Building Entrance",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19805900286147,
+        43.01198378443431
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-009c565a-4077-4f3f-a7bb-0278adb6bbda",
+      "name": "Entrance A",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19815236757539,
+        43.01198966452398
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-3055642b-eed1-474a-b5d2-b85f08c999a0",
+      "name": "Taxi waiting",
+      "category": "parking",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19927454759652,
+        43.01163473962427
+      ]
+    }
   }
 ]

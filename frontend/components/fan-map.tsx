@@ -12,6 +12,7 @@ import PublishedLocationDetails from "@/components/published-location-details";
 import LocationReportForm from "@/components/location-report-form";
 import { haversineMeters } from "@/lib/map-utils";
 import { createPlace, deletePlace, fetchPlaces, updatePlace } from "@/services/place-service";
+import { SlidersHorizontal, Star } from "lucide-react";
 
 type Route = {
   route: string;
@@ -82,6 +83,7 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
   const [locationChoice, setLocationChoice] = useState("");
   const [mapReady, setMapReady] = useState(false);
   const [favoriteIds, setFavoriteIds] = useState(initialFavoriteIds);
+  const [favoritesOpen, setFavoritesOpen] = useState(false);
   const [favoritePendingId, setFavoritePendingId] = useState<string | null>(null);
   const [favoriteError, setFavoriteError] = useState("");
   const [favoriteFeedback, setFavoriteFeedback] = useState("");
@@ -205,9 +207,9 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
           lightPreset: "day",
         },
       },
-      center: [-81.1994, 43.013],
+      center: [-81.2008, 43.0135],
       zoom: 16.2,
-      pitch: 58,
+      pitch: 0,
       bearing: -22,
       antialias: true,
     });
@@ -216,7 +218,7 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
 
     const loadMapImage = (src: string, label: string) =>
       new Promise<HTMLImageElement>((resolve, reject) => {
-        const img = new Image();
+        const img = new window.Image();
         img.onload = () => resolve(img);
         img.onerror = () => reject(new Error(`Failed to load map image: ${label}`));
         img.src = src;
@@ -652,6 +654,30 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
       : null;
   const tokenMissing = !process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+        const target = event.target as HTMLElement;
+
+        if (!target.closest(".fab-container")) {
+          setIsFilterOpen(false);
+        }
+
+        if (!target.closest(".favorites-container")) {
+          setFavoritesOpen(false);
+        }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+    };
+}, []);
+
+  
+
   return (
     <main className="fanmap-shell">
       <header className="topbar">
@@ -660,7 +686,19 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
           <h1>FanMap</h1>
         </div>
         <div className="topbar-actions">
-          {user?.role === "admin" && <button
+          <button
+            className="location-button"
+            onClick={showMyLocation}
+            disabled={!mapReady || !!mapError || gpsStatus === "disabled"}
+          >
+            {gpsStatus === "active"
+              ? "Location active"
+              : gpsStatus === "disabled"
+                ? "Location unavailable"
+                : "Show my location"}
+          </button>
+          <nav className="account-nav" aria-label="Account">
+            {user?.role === "admin" && <button
             className={adminUnlocked ? "admin-button active" : "admin-button"}
             type="button"
             aria-pressed={adminUnlocked}
@@ -674,25 +712,11 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
           >
             {adminUnlocked ? "Exit admin mode" : "Admin"}
           </button>}
-          <button
-            className="location-button"
-            onClick={showMyLocation}
-            disabled={!mapReady || !!mapError || gpsStatus === "disabled"}
-          >
-            {gpsStatus === "active"
-              ? "Location active"
-              : gpsStatus === "disabled"
-                ? "Location unavailable"
-                : "Show my location"}
-          </button>
-          <nav className="account-nav" aria-label="Account">
             {user ? <>
               {user.role === "admin" && <Link className="account-link" href="/admin/reports" prefetch={false}>Reports</Link>}
               <span className="account-email" title={user.username ?? user.email}>{user.username ?? user.email}</span>
-              <span className="account-role">{user.role === "admin" ? "Admin" : "Registered"}</span>
               <Link className="account-link" href="/sign-out" prefetch={false}>Sign out</Link>
             </> : <>
-              <span className="account-role">Guest</span>
               <Link className="account-link" href="/sign-in">Sign in</Link>
               <Link className="account-create" href="/sign-up">Create account</Link>
             </>}
@@ -700,63 +724,104 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
         </div>
       </header>
       <section className="content-grid">
-        <aside className="sidebar">
-          <h2>Map filters</h2>
-          {adminUnlocked && <p className="sidebar-intro">Select a location to edit or delete it. Click an empty map spot to add a place.</p>}
-          <p className="favorite-feedback" role="status">{adminFeedback}</p>
-          {requestedLocationMissing && <p className="favorite-error" role="status">The requested location is no longer available on the map.</p>}
-          <fieldset>
-            <legend>Location types</legend>
-            <div className="category-filter-grid">
-              {categories.map(({ id, label }) => (
-                <label className={selectedCategories.includes(id) ? "filter active" : "filter"} key={id}>
-                  <input
-                    type="checkbox"
-                    checked={selectedCategories.includes(id)}
-                    onChange={() => toggleCategory(id)}
+        <aside className="sidebar" aria-label="Location filters">
+          <div className="fab-container">
+            <div className="favorites-container">
+                <button
+                  className={`favorites-fab ${favoritesOpen ? "active" : ""}`}
+                  onClick={() => setFavoritesOpen((current) => !current)}
+                  aria-label="Toggle favorites"
+                  aria-expanded={favoritesOpen}
+                >
+                  <Star size={20} />
+                </button>
+                {favoritesOpen && (
+                  <section className="favorites-section" aria-labelledby="favorites-heading">
+                    <h3 id="favorites-heading">Favorites {user && <span className="favorites-count">{favoriteFeatures.length}</span>}</h3>
+                    {user ? <>
+                      {!placesLoaded && !placesFailed ? <p className="favorites-hint">Loading favorites…</p> : favoriteFeatures.length ? <ul className="favorites-list">
+                        {favoriteFeatures.map((feature) => <li key={feature.properties.id}>
+                          <button className="favorite-open" type="button" onClick={() => selectPlace(feature)} aria-label={`View ${feature.properties.name}`} aria-current={selectedLocation?.properties.id === feature.properties.id ? "true" : undefined}>
+                            <span aria-hidden="true">★</span><span>{feature.properties.name}</span>
+                          </button>
+                          <button className="favorite-remove" type="button" aria-label={`Remove ${feature.properties.name} from favorites`} title="Remove from favorites" onClick={() => updateFavorite(feature, false)} disabled={favoritePendingId !== null || favoriteSignInRequired}>×</button>
+                        </li>)}
+                      </ul> : <p className="favorites-hint">{placesFailed ? "Load campus locations to see your favorites." : "No favorites yet. Select a location and save it here."}</p>}
+                      {favoriteError && <p className="favorite-error" role="alert">{favoriteError}{favoriteSignInRequired && <> <Link href="/sign-in">Sign in again</Link></>}</p>}
+                      <p className="favorite-feedback" role="status">{favoriteFeedback}</p>
+                    </> : <p className="favorites-hint"><Link href="/sign-in">Sign in</Link> to save your favorite campus locations.</p>}
+                  </section>
+                )}
+              </div>
+            <button
+                className="filter-fab"
+                type="button"
+                onClick={() => setIsFilterOpen(prev => !prev)}
+                aria-expanded={isFilterOpen}
+                aria-label="Toggle location filters"
+            >
+                <SlidersHorizontal size={20} />
+                <span className="filter-count">
+                    {selectedCategories.length}
+                </span>
+            </button>
+            {isFilterOpen && (
+                <div className="filter-popup">
+                    <fieldset>
+                        <legend>Location types</legend>
+                        <div className="category-filter-grid">
+                          {categories.map(({ id, label }) => (
+                            <label className={selectedCategories.includes(id) ? "filter active" : "filter"} key={id}>
+                              <input
+                                type="checkbox"
+                                checked={selectedCategories.includes(id)}
+                                onChange={() => toggleCategory(id)}
+                              />
+                              {id === "building" ? (
+                                <span className="filter-icon-placeholder" aria-hidden="true" />
+                              ) : (
+                                <NextImage className="filter-icon" src={categoryIconPath(id)} alt="" width={24} height={24} unoptimized />
+                              )}
+                              <span className="filter-label">{label}</span>
+                            </label>
+                          ))}
+                        </div>
+                    </fieldset>
+                </div>
+            )}
+            <div className="location-search">
+              <input
+                id="location-select"
+                list="location-options"
+                value={
+                  selectedLocation
+                    ? choiceLabels.get(selectedLocation.properties.id) ??
+                      selectedLocation.properties.name
+                    : locationChoice
+                }
+                placeholder="Search locations..."
+                disabled={!placesLoaded || !visiblePlaces.length}
+                onChange={(event) => {
+                  const value = event.target.value;
+                  setLocationChoice(value);
+
+                  const feature = visiblePlaces.find(
+                    (place) => choiceLabels.get(place.properties.id) === value
+                  );
+                  if (feature) selectPlace(feature);
+                  else setSelectedLocation(null);
+                }}
+              />
+              <datalist id="location-options">
+                {visiblePlaces.map((place) => (
+                  <option
+                    key={place.properties.id}
+                    value={choiceLabels.get(place.properties.id)}
                   />
-                  {id === "building" ? (
-                    <span className="filter-icon-placeholder" aria-hidden="true" />
-                  ) : (
-                    <NextImage className="filter-icon" src={categoryIconPath(id)} alt="" width={24} height={24} unoptimized />
-                  )}
-                  <span className="filter-label">{label}</span>
-                </label>
-              ))}
+                ))}
+              </datalist>
             </div>
-          </fieldset>
-          <p className="icon-attribution">
-            Entrance marker by <a href="https://www.flaticon.com/free-icon/entrance_15615407" target="_blank" rel="noreferrer">gravisio from Flaticon</a>; other icons by <a href="https://icons8.com" target="_blank" rel="noreferrer">Icons8</a>.
-          </p>
-          <p className="sidebar-intro" role="status">
-            {placesLoaded ? `${visiblePlaces.length} of ${activePlaces.length} locations. ${awaitingCount} awaiting map position checks.` : placesFailed ? "Locations could not be loaded. Please refresh to try again." : "Loading campus locations…"}
-          </p>
-          <label htmlFor="location-select">Select a location</label>
-          <input id="location-select" list="location-options" size={14} value={selectedLocation ? choiceLabels.get(selectedLocation.properties.id) ?? selectedLocation.properties.name : locationChoice} placeholder="Choose a location" disabled={!placesLoaded || !visiblePlaces.length} onChange={(event) => {
-            const value = event.target.value;
-            setLocationChoice(value);
-            const feature = visiblePlaces.find((place) => choiceLabels.get(place.properties.id) === value);
-            if (feature) selectPlace(feature);
-            else setSelectedLocation(null);
-          }} />
-          <datalist id="location-options">
-            {visiblePlaces.map((place) => <option key={place.properties.id} value={choiceLabels.get(place.properties.id)} />)}
-          </datalist>
-          <section className="favorites-section" aria-labelledby="favorites-heading">
-            <h3 id="favorites-heading">Favorites {user && <span className="favorites-count">{favoriteFeatures.length}</span>}</h3>
-            {user ? <>
-              {!placesLoaded && !placesFailed ? <p className="favorites-hint">Loading favorites…</p> : favoriteFeatures.length ? <ul className="favorites-list">
-                {favoriteFeatures.map((feature) => <li key={feature.properties.id}>
-                  <button className="favorite-open" type="button" onClick={() => selectPlace(feature)} aria-label={`View ${feature.properties.name}`} aria-current={selectedLocation?.properties.id === feature.properties.id ? "true" : undefined}>
-                    <span aria-hidden="true">★</span><span>{feature.properties.name}</span>
-                  </button>
-                  <button className="favorite-remove" type="button" aria-label={`Remove ${feature.properties.name} from favorites`} title="Remove from favorites" onClick={() => updateFavorite(feature, false)} disabled={favoritePendingId !== null || favoriteSignInRequired}>×</button>
-                </li>)}
-              </ul> : <p className="favorites-hint">{placesFailed ? "Load campus locations to see your favorites." : "No favorites yet. Select a location and save it here."}</p>}
-              {favoriteError && <p className="favorite-error" role="alert">{favoriteError}{favoriteSignInRequired && <> <Link href="/sign-in">Sign in again</Link></>}</p>}
-              <p className="favorite-feedback" role="status">{favoriteFeedback}</p>
-            </> : <p className="favorites-hint"><Link href="/sign-in">Sign in</Link> to save your favorite campus locations.</p>}
-          </section>
+        </div>
         </aside>
         <section
           className="map-panel"
@@ -878,8 +943,18 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
             </div>
           )}
           <div className="map-caption">
-            <span className="map-dot" /> Fanshawe College campus · 43.0130° N,
-            81.1994° W
+            <span className="map-dot" />
+            {selectedLocation && isMappedPoint(selectedLocation) ? (
+              <>
+                {selectedLocation.properties.name} ·{" "}
+                {Math.abs(selectedLocation.geometry.coordinates[1]).toFixed(4)}°{" "}
+                {selectedLocation.geometry.coordinates[1] >= 0 ? "N" : "S"},{" "}
+                {Math.abs(selectedLocation.geometry.coordinates[0]).toFixed(4)}°{" "}
+                {selectedLocation.geometry.coordinates[0] >= 0 ? "E" : "W"}
+              </>
+            ) : (
+              <>Fanshawe College campus · 43.0135° N, 81.2008° W</>
+            )}
           </div>
         </section>
         <aside className="details-panel" aria-label="Location details" aria-live="polite">
