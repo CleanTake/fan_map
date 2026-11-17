@@ -205,10 +205,10 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
           lightPreset: "day",
         },
       },
-      center: [-81.1994, 43.013],
-      zoom: 16.2,
+      center: [-81.1989, 43.0134],
+      zoom: 16.8,
       pitch: 58,
-      bearing: -22,
+      bearing: 225,
       antialias: true,
     });
     map.current = instance;

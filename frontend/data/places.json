@@ -453,5 +453,21 @@
         43.01198306044253
       ]
     }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-c8a1fe14-8f61-4134-93ac-ba8e78b905e7",
+      "name": "Mend",
+      "category": "room",
+      "description": "Mend message"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19851910278253,
+        43.01197132138191
+      ]
+    }
   }
 ]
