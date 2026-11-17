@@ -1,0 +1,45 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2026-11-08T20:47:28Z",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "way/1576827338",
+      "properties": {
+        "@id": "way/1576827338",
+        "building": "yes",
+        "description": "Sprint Family Greenhouse",
+        "name": "Building N"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -81.1986031,
+              43.0149912
+            ],
+            [
+              -81.1986506,
+              43.0150749
+            ],
+            [
+              -81.1990801,
+              43.0149508
+            ],
+            [
+              -81.1990305,
+              43.0148674
+            ],
+            [
+              -81.1986031,
+              43.0149912
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}
