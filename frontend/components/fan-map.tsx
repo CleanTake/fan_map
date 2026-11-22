@@ -10,6 +10,13 @@ import { isMappedPoint } from "@/lib/place-types";
 import type { AuthUser } from "@/lib/auth/types";
 import PublishedLocationDetails from "@/components/published-location-details";
 import LocationReportForm from "@/components/location-report-form";
+import WalkingDirections from "@/components/walking-directions";
+import CampusReferenceReview from "@/components/campus-reference-review";
+import { referenceRegistration, referenceCorners, referenceFocusCorners, referenceBearing, referencePassages, referenceQuestionFeatures, referenceQuestions } from "@/lib/navigation/reference";
+import type { Coordinate, WalkingDirections as WalkingRoute } from "@/lib/navigation/directions";
+import { campusCorridorFeatures, campusDoorFeatures } from "@/lib/navigation/campus-router";
+import { watchWalkLocation, type LocationSensorStatus } from "@/lib/navigation/walk-sensors";
+import type { WalkDisplay } from "@/lib/navigation/walk-guidance";
 import { haversineMeters } from "@/lib/map-utils";
 import { createPlace, deletePlace, fetchPlaces, updatePlace } from "@/services/place-service";
 import { SlidersHorizontal, Star } from "lucide-react";
@@ -63,13 +70,22 @@ function createUserLocationMarker() {
   return new mapboxgl.Marker({ element, anchor: "center" });
 }
 
+function fitCampusReference(instance: mapboxgl.Map) {
+  const bounds = new mapboxgl.LngLatBounds();
+  referenceFocusCorners.forEach((point) => bounds.extend(point));
+  instance.fitBounds(bounds, { bearing: referenceBearing, pitch: 0, padding: 45, duration: 700 });
+}
+
 export default function FanMap({ user, initialFavoriteIds = [], initialLocationId }: { user: AuthUser | null; initialFavoriteIds?: string[]; initialLocationId?: string }) {
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<mapboxgl.Map | null>(null);
   const userMarker = useRef<mapboxgl.Marker | null>(null);
-  const locationInterval = useRef<ReturnType<typeof setInterval> | null>(null);
-  const locationRequestInFlight = useRef(false);
-  const hasCenteredOnLocation = useRef(false);
+  const referenceCamera = useRef<{ center: [number, number]; zoom: number; bearing: number; pitch: number } | null>(null);
+  const referencePopup = useRef<mapboxgl.Popup | null>(null);
+  const pickPointRef = useRef<"start" | "end" | null>(null);
+  const stopLocation = useRef<(() => void) | null>(null);
+  const [walkDisplay, setWalkDisplay] = useState<WalkDisplay | null>(null);
+  const walkMarker = useRef<mapboxgl.Marker | null>(null);
   const initialLocationFocused = useRef(false);
   const [requestedLocationMissing, setRequestedLocationMissing] = useState(false);
   const [selectedCategories, setSelectedCategories] = useState<Category[]>(
@@ -82,6 +98,17 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
   const [placesFailed, setPlacesFailed] = useState(false);
   const [locationChoice, setLocationChoice] = useState("");
   const [mapReady, setMapReady] = useState(false);
+  const [directionsOpen, setDirectionsOpen] = useState(false);
+  const [directionsTarget, setDirectionsTarget] = useState("");
+  const [directionsSession, setDirectionsSession] = useState(0);
+  const [walkingRoute, setWalkingRoute] = useState<WalkingRoute | null>(null);
+  const [pickPoint, setPickPoint] = useState<"start" | "end" | null>(null);
+  const [mapStart, setMapStart] = useState<Coordinate | null>(null);
+  const [mapEnd, setMapEnd] = useState<Coordinate | null>(null);
+  const [referenceOpen, setReferenceOpen] = useState(false);
+  const [referenceOpacity, setReferenceOpacity] = useState(0.6);
+  const [referenceShowPassages, setReferenceShowPassages] = useState(true);
+  const [referenceQuestion, setReferenceQuestion] = useState("Q1");
   const [favoriteIds, setFavoriteIds] = useState(initialFavoriteIds);
   const [favoritesOpen, setFavoritesOpen] = useState(false);
   const [favoritePendingId, setFavoritePendingId] = useState<string | null>(null);
@@ -109,9 +136,7 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
   const [userPosition, setUserPosition] = useState<mapboxgl.LngLat | null>(
     null,
   );
-  const [gpsStatus, setGpsStatus] = useState<"ready" | "disabled" | "active">(
-    "ready",
-  );
+  const [gpsStatus, setGpsStatus] = useState<LocationSensorStatus | "ready">("ready");
   const adminUnlockedRef = useRef(false);
   const placesRef = useRef(places);
   const deletedPlaceIdsRef = useRef(deletedPlaceIds);
@@ -301,6 +326,25 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
           "fill-extrusion-opacity": 1,
         },
       });
+      instance.addSource("campus-reference-image", { type: "image", url: referenceRegistration.imageUrl, coordinates: referenceCorners });
+      instance.addLayer({ id: "campus-reference-layer", type: "raster", source: "campus-reference-image", slot: "top", layout: { visibility: "none" }, paint: { "raster-opacity": 0.6, "raster-fade-duration": 0 } });
+      instance.addLayer({ id: "reference-footprints", type: "line", source: "building-outlines", slot: "top", layout: { visibility: "none" }, paint: { "line-color": "#047d91", "line-width": 1.8 } });
+      instance.addSource("reference-passages", { type: "geojson", data: referencePassages });
+      instance.addLayer({ id: "reference-passages-layer", type: "line", source: "reference-passages", slot: "top", layout: { visibility: "none" }, paint: { "line-color": ["match", ["get", "kind"], "outdoor", "#c8102e", "door", "#147d57", "#aa20bb"], "line-width": 4 } });
+      instance.addSource("reference-questions", { type: "geojson", data: referenceQuestionFeatures });
+      instance.addLayer({ id: "reference-question-circles", type: "circle", source: "reference-questions", slot: "top", layout: { visibility: "none" }, paint: { "circle-radius": 15, "circle-color": "#45b183", "circle-stroke-color": "#ffffff", "circle-stroke-width": 2 } });
+      instance.addLayer({ id: "reference-question-labels", type: "symbol", source: "reference-questions", slot: "top", layout: { visibility: "none", "text-field": ["get", "id"], "text-size": 11, "text-font": ["Open Sans Bold"], "text-allow-overlap": true }, paint: { "text-color": "#26191c" } });
+      instance.on("click", "reference-question-circles", (event) => {
+        const question = referenceQuestions.find((item) => item.id === event.features?.[0]?.properties?.id);
+        if (!question) return;
+        setReferenceQuestion(question.id);
+        referencePopup.current?.remove();
+        referencePopup.current = new mapboxgl.Popup().setLngLat(question.coordinates).setText(`${question.id}: ${question.answer}`).addTo(instance);
+      });
+      instance.addSource("campus-ground-corridors", { type: "geojson", data: campusCorridorFeatures });
+      instance.addLayer({ id: "campus-ground-corridors-layer", type: "line", source: "campus-ground-corridors", slot: "top", layout: { visibility: "none" }, paint: { "line-color": "#7f2bbd", "line-width": 2.5, "line-opacity": 0.35 } });
+      instance.addSource("campus-ground-doors", { type: "geojson", data: campusDoorFeatures });
+      instance.addLayer({ id: "campus-ground-doors-layer", type: "circle", source: "campus-ground-doors", slot: "top", layout: { visibility: "none" }, paint: { "circle-color": "#147d57", "circle-radius": 4, "circle-stroke-color": "white", "circle-stroke-width": 1 } });
       instance.addSource("locations", {
         type: "geojson",
         data: {
@@ -358,12 +402,18 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
         type: "line",
         source: "route-line",
         paint: {
-          "line-color": "#c8102e",
+          "line-color": ["match", ["get", "kind"], "indoor", "#7f2bbd", "door", "#147d57", "#c8102e"],
           "line-width": 5,
           "line-opacity": 0.85,
         },
       });
+      instance.addSource("route-endpoints", { type: "geojson", data: { type: "FeatureCollection", features: [] } });
+      instance.addLayer({
+        id: "route-endpoints-layer", type: "circle", source: "route-endpoints",
+        paint: { "circle-radius": 7, "circle-color": ["match", ["get", "role"], "start", "#157655", "#c8102e"], "circle-stroke-color": "#ffffff", "circle-stroke-width": 3 },
+      });
       instance.on("click", "locations-layer", (event) => {
+        if (pickPointRef.current) return;
         const id = event.features?.[0]?.properties?.id;
         const feature = placesRef.current.find((place) => place.properties.id === id);
         if (feature && !deletedPlaceIdsRef.current.includes(feature.properties.id)) {
@@ -372,6 +422,7 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
         }
       });
       instance.on("click", "building-locations-layer", (event) => {
+        if (pickPointRef.current) return;
         const id = event.features?.[0]?.properties?.id;
         const feature = placesRef.current.find((place) => place.properties.id === id);
         if (feature && !deletedPlaceIdsRef.current.includes(feature.properties.id)) {
@@ -392,6 +443,14 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
         instance.getCanvas().style.cursor = "";
       });
       instance.on("click", (event) => {
+        if (pickPointRef.current) {
+          const coordinates: Coordinate = [event.lngLat.lng, event.lngLat.lat];
+          if (pickPointRef.current === "start") setMapStart(coordinates); else setMapEnd(coordinates);
+          pickPointRef.current = null;
+          setPickPoint(null);
+          requestAnimationFrame(() => document.querySelector(".walking-directions")?.scrollIntoView({ behavior: "smooth", block: "start" }));
+          return;
+        }
         if (!adminUnlockedRef.current) return;
         if (instance.queryRenderedFeatures(event.point, { layers: ["locations-layer", "building-locations-layer"] }).length) return;
         setSelectedLocation(null);
@@ -419,8 +478,8 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
     return () => {
       disposed = true;
       userMarker.current?.remove();
+      referencePopup.current?.remove();
       userMarker.current = null;
-      hasCenteredOnLocation.current = false;
       instance.remove();
       if (map.current === instance) map.current = null;
     };
@@ -454,29 +513,76 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
 
   useEffect(() => {
     const instance = map.current;
-    if (!instance?.isStyleLoaded() || !instance.getSource("route-line")) return;
-    const coordinates = selectedLocation && isMappedPoint(selectedLocation) && visiblePlaces.some((place) => place.properties.id === selectedLocation.properties.id) ? selectedLocation.geometry.coordinates : null;
+    if (!instance?.getSource("route-line")) return;
     const line: GeoJSON.FeatureCollection<GeoJSON.LineString> =
-      userPosition && coordinates
+      walkingRoute
         ? {
             type: "FeatureCollection",
-            features: [
-              {
-                type: "Feature",
-                properties: {},
-                geometry: {
-                  type: "LineString",
-                  coordinates: [
-                    [userPosition.lng, userPosition.lat],
-                    coordinates,
-                  ],
-                },
-              },
-            ],
+            features: walkingRoute.segments?.length ? walkingRoute.segments.map((segment) => ({ type: "Feature", properties: { kind: segment.kind }, geometry: { type: "LineString", coordinates: segment.coordinates } })) : [{ type: "Feature", properties: { kind: "outdoor" }, geometry: walkingRoute.geometry }],
           }
         : { type: "FeatureCollection", features: [] };
     (instance.getSource("route-line") as mapboxgl.GeoJSONSource).setData(line);
-  }, [selectedLocation, userPosition, mapReady, visiblePlaces]);
+    (instance.getSource("route-endpoints") as mapboxgl.GeoJSONSource | undefined)?.setData({
+      type: "FeatureCollection",
+      features: walkingRoute ? walkingRoute.endpoints.map((coordinates, index) => ({ type: "Feature", properties: { role: index === 0 ? "start" : "end" }, geometry: { type: "Point", coordinates } })) : [],
+    });
+    if (walkingRoute) {
+      const bounds = new mapboxgl.LngLatBounds();
+      walkingRoute.geometry.coordinates.forEach((point) => bounds.extend(point as [number, number]));
+      instance.fitBounds(bounds, { maxZoom: 18, padding: { top: 60, bottom: 70, left: 40, right: 40 }, duration: 800, ...(walkingRoute.indoorDistanceMetres ? { pitch: 0, bearing: referenceBearing } : {}) });
+    }
+  }, [walkingRoute, mapReady]);
+
+  useEffect(() => {
+    const instance = map.current;
+    if (!instance?.getLayer("campus-reference-layer")) return;
+    for (const id of ["campus-reference-layer", "reference-footprints", "reference-question-circles", "reference-question-labels"]) {
+      instance.setLayoutProperty(id, "visibility", referenceOpen ? "visible" : "none");
+    }
+    instance.setLayoutProperty("locations-layer", "visibility", referenceOpen ? "none" : "visible");
+    instance.setLayoutProperty("building-locations-layer", "visibility", referenceOpen ? "none" : "visible");
+    if (referenceOpen) {
+      referenceCamera.current ??= { center: instance.getCenter().toArray(), zoom: instance.getZoom(), bearing: instance.getBearing(), pitch: instance.getPitch() };
+      fitCampusReference(instance);
+    } else {
+      referencePopup.current?.remove();
+      if (referenceCamera.current) { instance.easeTo({ ...referenceCamera.current, duration: 700 }); referenceCamera.current = null; }
+    }
+  }, [referenceOpen, mapReady]);
+
+  useEffect(() => {
+    const instance = map.current;
+    if (!instance?.getLayer("campus-reference-layer")) return;
+    instance.setPaintProperty("campus-reference-layer", "raster-opacity", referenceOpacity);
+    instance.setLayoutProperty("reference-passages-layer", "visibility", referenceOpen && referenceShowPassages ? "visible" : "none");
+  }, [referenceOpen, referenceOpacity, referenceShowPassages, mapReady]);
+
+  useEffect(() => {
+    pickPointRef.current = pickPoint;
+    if (map.current) map.current.getCanvas().style.cursor = pickPoint ? "crosshair" : "";
+  }, [pickPoint]);
+
+  useEffect(() => {
+    if (!map.current || !directionsOpen) return;
+    const markers = [mapStart, mapEnd].flatMap((point, index) => {
+      if (!point) return [];
+      const element = document.createElement("span");
+      element.className = `navigation-picked-point ${index === 0 ? "navigation-start" : "navigation-end"}`;
+      element.textContent = index === 0 ? "Start" : "Destination";
+      return [new mapboxgl.Marker({ element, anchor: "bottom" }).setLngLat(point).addTo(map.current!)];
+    });
+    return () => markers.forEach((marker) => marker.remove());
+  }, [mapStart, mapEnd, directionsOpen, mapReady]);
+
+  useEffect(() => {
+    const instance = map.current;
+    if (!instance?.getLayer("campus-ground-corridors-layer")) return;
+    const groundView = directionsOpen || (walkingRoute?.indoorDistanceMetres ?? 0) > 0;
+    instance.setLayoutProperty("building-outlines-extrusion", "visibility", referenceOpen || groundView ? "none" : "visible");
+    instance.setLayoutProperty("reference-footprints", "visibility", referenceOpen || groundView ? "visible" : "none");
+    instance.setLayoutProperty("campus-ground-corridors-layer", "visibility", groundView && !referenceOpen ? "visible" : "none");
+    instance.setLayoutProperty("campus-ground-doors-layer", "visibility", groundView && !referenceOpen ? "visible" : "none");
+  }, [walkingRoute, referenceOpen, mapReady, directionsOpen]);
 
   const toggleCategory = (category: Category) => {
     setSelectedCategories((current) =>
@@ -585,65 +691,46 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
     }
   };
 
-  const showMyLocation = () => {
-    if (!navigator.geolocation || document.cookie.includes("gps_consent=denied")) {
-      setGpsStatus("disabled");
+  useEffect(() => {
+    if (!map.current || !mapReady) return;
+    if (!walkDisplay) {
+      walkMarker.current?.remove();
+      walkMarker.current = null;
+      if (userMarker.current) userMarker.current.getElement().hidden = false;
       return;
     }
+    if (userMarker.current) userMarker.current.getElement().hidden = true;
+    if (!walkMarker.current) {
+      const element = document.createElement("div");
+      element.setAttribute("role", "img");
+      walkMarker.current = new mapboxgl.Marker({ element });
+    }
+    const element = walkMarker.current.getElement();
+    element.classList.add("walk-marker");
+    element.classList.toggle("uncertain", walkDisplay.uncertain);
+    element.classList.toggle("replay", walkDisplay.replay);
+    element.setAttribute("aria-label", walkDisplay.replay ? "Simulated walking position" : "Estimated walking position");
+    walkMarker.current.setLngLat(walkDisplay.coordinate).addTo(map.current);
+  }, [walkDisplay, mapReady]);
 
-    if (locationInterval.current !== null) return;
-
-    const updateLocation = () => {
-      if (locationRequestInFlight.current) return;
-      locationRequestInFlight.current = true;
-
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          locationRequestInFlight.current = false;
-          const point = new mapboxgl.LngLat(
-            position.coords.longitude,
-            position.coords.latitude,
-          );
-          document.cookie =
-            "gps_consent=granted; max-age=86400; path=/; samesite=lax";
-          setUserPosition(point);
-          setGpsStatus("active");
-          if (map.current) {
-            if (!userMarker.current) {
-              userMarker.current = createUserLocationMarker();
-            }
-            userMarker.current.setLngLat(point).addTo(map.current);
-            if (!hasCenteredOnLocation.current) {
-              map.current.flyTo({ center: point, zoom: 16.5 });
-              hasCenteredOnLocation.current = true;
-            }
-          }
-        },
-        () => {
-          locationRequestInFlight.current = false;
-          if (locationInterval.current !== null) {
-            clearInterval(locationInterval.current);
-            locationInterval.current = null;
-          }
-          document.cookie =
-            "gps_consent=denied; max-age=86400; path=/; samesite=lax";
-          setGpsStatus("disabled");
-        },
-        { enableHighAccuracy: true, timeout: 1000, maximumAge: 0 },
-      );
-    };
-
-    updateLocation();
-    locationInterval.current = setInterval(updateLocation, 1000);
+  const showMyLocation = () => {
+    stopLocation.current?.();
+    let centered = false;
+    stopLocation.current = watchWalkLocation(fix => {
+      const point = new mapboxgl.LngLat(...fix.coordinate);
+      setUserPosition(point);
+      if (!centered) {
+        map.current?.flyTo({ center: point, zoom: 16.5 });
+        centered = true;
+      }
+      if (map.current) {
+        userMarker.current ??= createUserLocationMarker();
+        userMarker.current.setLngLat(point).addTo(map.current);
+      }
+    }, setGpsStatus);
   };
 
-  useEffect(() => {
-    return () => {
-      if (locationInterval.current !== null) {
-        clearInterval(locationInterval.current);
-      }
-    };
-  }, []);
+  useEffect(() => () => { stopLocation.current?.(); walkMarker.current?.remove(); }, []);
 
   const stopRoutes = selectedLocation?.properties.stop
     ? routes.filter((route) => route.stop === selectedLocation.properties.stop)
@@ -686,16 +773,29 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
           <h1>FanMap</h1>
         </div>
         <div className="topbar-actions">
+          <button className="admin-button" type="button" aria-expanded={directionsOpen} onClick={() => {
+            setPickPoint(null); pickPointRef.current = null;
+            setMapStart(null); setMapEnd(null);
+            map.current?.easeTo({ pitch: 0, duration: 300 });
+            setReferenceOpen(false);
+            setWalkingRoute(null);
+            setDirectionsTarget(selectedLocation?.properties.id ?? "");
+            setDirectionsSession((session) => session + 1);
+            setDirectionsOpen(!directionsOpen);
+          }}>Directions</button>
+          <button className="admin-button" type="button" aria-expanded={referenceOpen} onClick={() => {
+            setPickPoint(null); pickPointRef.current = null;
+            setReferenceOpen(!referenceOpen);
+            if (!referenceOpen) { setDirectionsOpen(false); setWalkingRoute(null); setAdminMode(false); }
+          }}>Review campus map</button>
           <button
             className="location-button"
             onClick={showMyLocation}
-            disabled={!mapReady || !!mapError || gpsStatus === "disabled"}
+            disabled={!mapReady || !!mapError || !!walkDisplay}
           >
-            {gpsStatus === "active"
-              ? "Location active"
-              : gpsStatus === "disabled"
-                ? "Location unavailable"
-                : "Show my location"}
+            {gpsStatus === "active" ? "Location active" : gpsStatus === "denied" ? "Location permission denied · retry"
+              : gpsStatus === "insecure" ? "Location needs HTTPS" : gpsStatus === "unavailable" ? "Location unavailable · retry"
+              : gpsStatus === "waiting" ? "Finding location…" : "Show my location"}
           </button>
           <nav className="account-nav" aria-label="Account">
             {user?.role === "admin" && <button
@@ -723,6 +823,42 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
           </nav>
         </div>
       </header>
+      {referenceOpen && <CampusReferenceReview opacity={referenceOpacity} showPassages={referenceShowPassages} selectedQuestion={referenceQuestion}
+        onOpacity={setReferenceOpacity} onShowPassages={setReferenceShowPassages}
+        onFit={() => { if (map.current) fitCampusReference(map.current); mapContainer.current?.scrollIntoView({ behavior: "smooth", block: "center" }); }}
+        onSelectQuestion={(id) => {
+          const question = referenceQuestions.find((item) => item.id === id);
+          if (!question) return;
+          setReferenceQuestion(id);
+          if (question.status === "removed") { referencePopup.current?.remove(); return; }
+          if (map.current) {
+            map.current.flyTo({ center: question.coordinates, zoom: 18, pitch: 0, bearing: referenceBearing });
+            referencePopup.current?.remove();
+            referencePopup.current = new mapboxgl.Popup().setLngLat(question.coordinates).setText(`${question.id}: ${question.answer}`).addTo(map.current);
+          }
+          mapContainer.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+        }} onClose={() => setReferenceOpen(false)} />}
+      {directionsOpen && <WalkingDirections key={directionsSession} places={activePlaces} labels={choiceLabels} initialDestination={directionsTarget}
+        mapStart={mapStart} mapEnd={mapEnd}
+        onClearPoint={(target) => { if (target === "start") setMapStart(null); else setMapEnd(null); }}
+        onPickPoint={(target) => {
+          setPickPoint(target); pickPointRef.current = target; setAdminMode(false);
+          if (target === "start") setMapStart(null); else setMapEnd(null);
+          map.current?.easeTo({ pitch: 0, bearing: referenceBearing, duration: 500 });
+          mapContainer.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+        }}
+        onRoute={setWalkingRoute} onDisplay={setWalkDisplay}
+        onViewMap={() => mapContainer.current?.scrollIntoView({ behavior: "smooth", block: "center" })}
+        onLocated={(coordinates) => {
+          const point = new mapboxgl.LngLat(...coordinates);
+          setUserPosition(point);
+          setGpsStatus("active");
+          if (map.current) {
+            userMarker.current ??= createUserLocationMarker();
+            userMarker.current.setLngLat(point).addTo(map.current);
+          }
+        }}
+        onClose={() => { setDirectionsOpen(false); setWalkingRoute(null); setPickPoint(null); pickPointRef.current = null; }} />}
       <section className="content-grid">
         <aside className="sidebar" aria-label="Location filters">
           <div className="fab-container">
@@ -828,6 +964,8 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
           aria-label="Interactive Fanshawe campus map"
         >
           <div className="map" ref={mapContainer} />
+          {walkDisplay && <div className="walk-map-cue"><strong>{walkDisplay.replay ? "Practice walk" : "Live walk"}</strong>{walkDisplay.instruction}</div>}
+          {pickPoint && <div className="navigation-pick-hint" role="status">Tap the ground-floor map to set {pickPoint === "start" ? "your start" : "your destination"}. <button type="button" onClick={() => { setPickPoint(null); pickPointRef.current = null; }}>Cancel</button></div>}
           {adminUnlocked && (
             <div className="admin-map-hint">Admin mode · select a location to edit, or click an empty spot to add</div>
           )}
@@ -963,6 +1101,12 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
               <p className="eyebrow">{selectedLocation.properties.category}</p>
               <h2>{selectedLocation.properties.name}</h2>
               <p>{selectedLocation.properties.description}</p>
+              {selectedLocation.properties.resolutionStatus === "reference-map-landmark" && <p className="walking-note">Map-area position from the supplied campus plan. Walking directions use a mapped ground-floor approach where available.</p>}
+              {isMappedPoint(selectedLocation) && <button className="location-button" type="button" onClick={() => {
+                setReferenceOpen(false); setPickPoint(null); pickPointRef.current = null; setMapStart(null); setMapEnd(null); setWalkingRoute(null); setDirectionsTarget(selectedLocation.properties.id); setDirectionsSession((session) => session + 1); setDirectionsOpen(true);
+                map.current?.easeTo({ pitch: 0, duration: 300 });
+                requestAnimationFrame(() => document.querySelector(".walking-directions")?.scrollIntoView({ behavior: "smooth", block: "start" }));
+              }}>Directions here</button>}
               {user ? <button type="button" className={`favorite-toggle${selectedIsFavorite ? " is-saved" : ""}`} aria-pressed={selectedIsFavorite} disabled={favoritePendingId !== null || favoriteSignInRequired} onClick={() => updateFavorite(selectedLocation, !selectedIsFavorite)}>
                 <span aria-hidden="true">{selectedIsFavorite ? "★" : "☆"}</span>
                 {favoritePendingId === selectedLocation.properties.id ? selectedIsFavorite ? "Removing…" : "Saving…" : selectedIsFavorite ? "Saved to favorites" : "Save to favorites"}
