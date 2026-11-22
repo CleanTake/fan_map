@@ -565,5 +565,198 @@
         43.01163473962427
       ]
     }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-4d775983-73e7-43cd-a707-33d3f0c43080",
+      "name": "Parking Lot 1",
+      "category": "parking",
+      "description": "Assigned Permit Lot\n$95/mo, $334/term, $750/yr"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20280601050897,
+        43.01188480913626
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-2495425f-0204-41d5-a2fd-00c0aae21dbf",
+      "name": "Parking Lot 2",
+      "category": "room",
+      "description": "Assigned Permit\n(primarily staff/faculty or special approval)\n$95/mo, $334/term, $750/yr"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20136566186524,
+        43.01202065493786
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-b2cad4dc-1553-4241-9bcf-ad5b6f1d6c9c",
+      "name": "Parking Lot 3",
+      "category": "parking",
+      "description": "Assigned Permit \n(primarily staff/faculty or special approval) \n$95/mo, $334/term, $750/yr"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.2020647396765,
+        43.012568395383624
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-71d4c342-708c-4a76-b9bb-ed6befcc8c11",
+      "name": "Parking Lot 4",
+      "category": "parking",
+      "description": "Assigned Permit \n(primarily staff/faculty or special approval) \n$95/mo, $334/term, $750/yr"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20255248665995,
+        43.01268897325252
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-59b438f8-fbc1-4c8e-bd11-4f9aaa022750",
+      "name": "Motorcycle Parking in Lot 5",
+      "category": "parking",
+      "description": "General (Daily) Lot\nOpen to anyone; pay-per-entry via license plate (credit, debit, FANCard, Apple/Google Pay)\n$6.50 per entry"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20363699213448,
+        43.012674911398335
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-437b38fa-c46d-49d2-9426-04669a8bd095",
+      "name": "Parking Lot 5",
+      "category": "parking",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20458117897977,
+        43.01278687558295
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-8712639c-1e87-41fe-8b05-efc0b89fd9a4",
+      "name": "Parking Lot 6",
+      "category": "parking",
+      "description": "Reserved Permit \nOut-of-town students only (must live outside London / LTC service area; requires lottery/application via the Fanshawe Parking Portal)\n$60/mo, $200/term, or $400 (2 terms)"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20336111968638,
+        43.01314354050598
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-ae1ac5b9-349b-471b-9cf3-aed5501c63d6",
+      "name": "Parking Lot 7",
+      "category": "parking",
+      "description": "Assigned Permit"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20351655446272,
+        43.01402024478742
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-0291b8fa-46a6-4c2c-8f04-160b6abffa62",
+      "name": "Motorcycle Parking in Lot 8",
+      "category": "parking",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20020482373566,
+        43.015024040466585
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-9a909cb4-1391-4e10-a91c-3c0aa03258b2",
+      "name": "Parking Lot 9",
+      "category": "parking",
+      "description": "Assigned Permit (primarily staff/faculty or special approval) $95/mo, $334/term, $750/yr"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19792377450422,
+        43.0148462338509
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-497e44cb-df8b-458d-82e9-1ebe3c3d6d7c",
+      "name": "Parking Lot 10",
+      "category": "parking",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19691205687566,
+        43.01326161489524
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-92532dba-a2bc-403c-a1ca-441c6a025e23",
+      "name": "Parking Lot 11",
+      "category": "parking",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19767855688256,
+        43.01264806572607
+      ]
+    }
+    
   }
 ]
