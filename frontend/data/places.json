@@ -2325,5 +2325,341 @@
         43.0153127499581
       ]
     }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-b513b386-d0e7-4020-9ae9-e2423eaea77c",
+      "name": "Parking P10",
+      "category": "room",
+      "description": "Metered Parking\n$3.50/hr ($12.50 daily max)"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20242017459829,
+        43.0112258929511
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-2cff4312-5491-488c-ac9b-2f1d31d85ea0",
+      "name": "Parking P10",
+      "category": "parking",
+      "description": "Metered Parking \n$3.50/hr ($12.50 daily max)"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20245898459474,
+        43.01107765544023
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-5f85576f-4bdb-4f2a-ae1f-a50c9deee02e",
+      "name": "Parking P10",
+      "category": "parking",
+      "description": "Metered Parking \n$3.50/hr ($12.50 daily max)"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20271372666394,
+        43.011691378752516
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-a22804d8-c71f-47dc-a970-1d2450773088",
+      "name": "Parking P9",
+      "category": "room",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20287312885405,
+        43.012391917522365
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-36226d13-a440-4c13-9f51-19b4319f889e",
+      "name": "Parking Lot 4",
+      "category": "parking",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20296649563704,
+        43.01255629063212
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-ab179032-1b8e-400a-8c7e-14c8b3c4dd84",
+      "name": "Parking P14",
+      "category": "parking",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20220712853964,
+        43.01276951267366
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-b66a4022-5bdc-4ec4-a7ba-c51c352aa28b",
+      "name": "Parking P7",
+      "category": "parking",
+      "description": "Metered Parking $3.50/hr ($12.50 daily max)"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.2027613925741,
+        43.014284858953374
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-5a82de10-41c7-44e8-97e3-c3a4e152f623",
+      "name": "Parking P8",
+      "category": "parking",
+      "description": "Metered Parking $3.50/hr ($12.50 daily max)"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20206529579796,
+        43.01389691659648
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-c280a40d-d2d7-4fe0-915b-9f9074519ecf",
+      "name": "Parking P8",
+      "category": "parking",
+      "description": "Metered Parking $3.50/hr ($12.50 daily max)"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20225218489196,
+        43.01383409697064
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-49305db7-be0b-4559-90b7-8ebd51115d10",
+      "name": "Parking P6",
+      "category": "parking",
+      "description": "Metered Parking $3.50/hr ($12.50 daily max)"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20131877919411,
+        43.01411123839421
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-449a4f55-f0b2-4285-8fef-28112ba6b73a",
+      "name": "Parking P6",
+      "category": "parking",
+      "description": "Metered Parking $3.50/hr ($12.50 daily max)"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.2011984340771,
+        43.0142080516394
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-ad23037c-102c-409d-b57d-560b743db12f",
+      "name": "Parking P13",
+      "category": "parking",
+      "description": "Metered Parking $3.50/hr ($12.50 daily max)"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.201639469048,
+        43.01465516097298
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-898bb68f-57c9-4aa2-bb60-0808aa2d53fa",
+      "name": "Parking P5",
+      "category": "parking",
+      "description": "Metered Parking $3.50/hr ($12.50 daily max)"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20006728972945,
+        43.01459707624369
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-6f544e4f-3460-4be4-a464-8d79d71bd118",
+      "name": "Parking P5",
+      "category": "parking",
+      "description": "Metered Parking $3.50/hr ($12.50 daily max)"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.1996954626817,
+        43.014693262964926
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-54087c0f-ff09-4acc-beec-e9cc6a3a6208",
+      "name": "Parking P4",
+      "category": "parking",
+      "description": "Metered Parking $3.50/hr ($12.50 daily max)"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19871261159416,
+        43.01483215181034
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-783b4031-ad89-44ff-a264-0b18f8174d9f",
+      "name": "Parking P3",
+      "category": "parking",
+      "description": "Metered Parking $3.50/hr ($12.50 daily max)"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19777056078676,
+        43.01439585167424
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-85507286-6179-433b-aefe-3fb347ff0438",
+      "name": "Motorcycle Parking in Lot 10",
+      "category": "parking",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19767712204772,
+        43.013651620129735
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-07bc4257-0407-4bd6-b90f-2e3d4068c9b8",
+      "name": "Parking P2",
+      "category": "parking",
+      "description": "Metered Parking $3.50/hr ($12.50 daily max)"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19796705258663,
+        43.01320513376402
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-6f1da630-9fe8-44d4-9480-04a801e9d9f0",
+      "name": "Parking P12",
+      "category": "parking",
+      "description": "Metered Parking $3.50/hr ($12.50 daily max)"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19683207662278,
+        43.01251477247166
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-deac437c-249d-4936-8782-839ef2bbc75b",
+      "name": "Parking Lot 11",
+      "category": "parking",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19762837306601,
+        43.01257249104137
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-bcc92460-ebcb-4495-9068-41eae689bec4",
+      "name": "Parking P10",
+      "category": "parking",
+      "description": "Metered Parking $3.50/hr ($12.50 daily max)"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20054199720252,
+        43.01220469233971
+      ]
+    }
   }
 ]
