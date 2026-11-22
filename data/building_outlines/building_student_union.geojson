@@ -1,0 +1,61 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2026-11-08T20:04:49Z",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "way/1525935211",
+      "properties": {
+        "@id": "way/1525935211",
+        "building": "college",
+        "name": "Student Union Building",
+        "ref": "SUB"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -81.200301,
+              43.0131086
+            ],
+            [
+              -81.2004223,
+              43.0133346
+            ],
+            [
+              -81.2008547,
+              43.0132116
+            ],
+            [
+              -81.2008832,
+              43.0131614
+            ],
+            [
+              -81.20079,
+              43.0129903
+            ],
+            [
+              -81.2005775,
+              43.0130545
+            ],
+            [
+              -81.200451,
+              43.013089
+            ],
+            [
+              -81.2004397,
+              43.0130682
+            ],
+            [
+              -81.200301,
+              43.0131086
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

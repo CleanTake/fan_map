@@ -1,0 +1,64 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2026-11-08T20:14:51Z",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "way/1180714232",
+      "properties": {
+        "@id": "way/1180714232",
+        "building": "yes",
+        "name": "L Building"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -81.2004199,
+              43.0133467
+            ],
+            [
+              -81.2004147,
+              43.0133368
+            ],
+            [
+              -81.2004223,
+              43.0133346
+            ],
+            [
+              -81.200301,
+              43.0131086
+            ],
+            [
+              -81.2000133,
+              43.013195
+            ],
+            [
+              -81.1998836,
+              43.0132335
+            ],
+            [
+              -81.2000052,
+              43.0134654
+            ],
+            [
+              -81.200052,
+              43.013452
+            ],
+            [
+              -81.2003837,
+              43.0133571
+            ],
+            [
+              -81.2004199,
+              43.0133467
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}
