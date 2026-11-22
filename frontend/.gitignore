@@ -12,6 +12,8 @@
 
 # testing
 /coverage
+/.cache/
+__pycache__/
 
 # next.js
 /.next/

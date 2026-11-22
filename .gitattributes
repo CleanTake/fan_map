@@ -1,0 +1,4 @@
+# The reviewer saves the exact graph digest alongside each drawing.
+frontend/data/navigation/campus-network.json -text whitespace=cr-at-eol
+frontend/data/navigation/reviews/*.json text eol=lf
+frontend/data/navigation/sources/*.osm.gz binary

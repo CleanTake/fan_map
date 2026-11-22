@@ -30,6 +30,8 @@ export type FeatureProperties = {
   buildingCode?: string | null;
   floor?: number | null;
   sourceIds?: string[];
+  navigationCoordinates?: [number, number];
+  navigationStatus?: "pending-access-review" | "mapped-access";
 };
 
 export type LocationFeature = GeoJSON.Feature<GeoJSON.Point | null, FeatureProperties>;

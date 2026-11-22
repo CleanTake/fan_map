@@ -1,0 +1,232 @@
+{
+  "version": 1,
+  "imageSha256": "c8a885dc113467f41d2fad3429d3ec58b404c6b3e436258ae320e586be79dac8",
+  "description": "Numbered parking lots visible on the supplied 830 x 521 campus map. P-number meter labels are not separate numbered lots. Lot 7 has two separate sections.",
+  "lots": [
+    {
+      "id": "lot-1",
+      "number": 1,
+      "name": "Parking Lot 1",
+      "label": "Lot 1",
+      "pixel": [
+        237,
+        335
+      ],
+      "bounds": [
+        223,
+        303,
+        249,
+        355
+      ],
+      "designation": "Assigned parking",
+      "navigationStatus": "pending-access-review"
+    },
+    {
+      "id": "lot-2",
+      "number": 2,
+      "name": "Parking Lot 2 (Assigned)",
+      "label": "Lot 2",
+      "pixel": [
+        353,
+        370
+      ],
+      "bounds": [
+        298,
+        357,
+        414,
+        376
+      ],
+      "designation": "Assigned parking",
+      "navigationStatus": "pending-access-review",
+      "designationSource": "user-confirmed"
+    },
+    {
+      "id": "lot-3",
+      "number": 3,
+      "name": "Parking Lot 3",
+      "label": "Lot 3",
+      "pixel": [
+        286,
+        303
+      ],
+      "bounds": [
+        233,
+        289,
+        361,
+        314
+      ],
+      "designation": "Assigned parking",
+      "navigationStatus": "pending-access-review"
+    },
+    {
+      "id": "lot-4",
+      "number": 4,
+      "name": "Parking Lot 4 (Assigned)",
+      "label": "Lot 4",
+      "pixel": [
+        263,
+        272
+      ],
+      "bounds": [
+        228,
+        257,
+        285,
+        282
+      ],
+      "designation": "Assigned parking",
+      "navigationStatus": "pending-access-review",
+      "designationSource": "user-confirmed"
+    },
+    {
+      "id": "lot-5",
+      "number": 5,
+      "name": "Parking Lot 5",
+      "label": "Lot 5",
+      "pixel": [
+        118,
+        228
+      ],
+      "bounds": [
+        33,
+        150,
+        185,
+        282
+      ],
+      "designation": "General parking",
+      "navigationStatus": "mapped-access"
+    },
+    {
+      "id": "lot-6",
+      "number": 6,
+      "name": "Parking Lot 6 (Assigned)",
+      "label": "Lot 6",
+      "pixel": [
+        224,
+        200
+      ],
+      "bounds": [
+        186,
+        145,
+        266,
+        256
+      ],
+      "designation": "Assigned parking",
+      "navigationStatus": "pending-access-review",
+      "designationSource": "user-confirmed"
+    },
+    {
+      "id": "lot-7",
+      "number": 7,
+      "name": "Parking Lot 7 (Assigned)",
+      "label": "Lot 7",
+      "pixel": [
+        252,
+        97
+      ],
+      "bounds": [
+        204,
+        66,
+        305,
+        118
+      ],
+      "designation": "Assigned parking",
+      "navigationStatus": "pending-access-review",
+      "designationSource": "user-confirmed"
+    },
+    {
+      "id": "lot-7-east",
+      "number": 7,
+      "name": "Parking Lot 7 (east section, Metered)",
+      "label": "Lot 7 E",
+      "parentId": "lot-7",
+      "pixel": [
+        337,
+        97
+      ],
+      "bounds": [
+        316,
+        79,
+        357,
+        121
+      ],
+      "designation": "Metered parking",
+      "navigationStatus": "pending-access-review",
+      "designationSource": "user-confirmed"
+    },
+    {
+      "id": "lot-8",
+      "number": 8,
+      "name": "Parking Lot 8",
+      "label": "Lot 8",
+      "pixel": [
+        551,
+        65
+      ],
+      "bounds": [
+        484,
+        1,
+        662,
+        122
+      ],
+      "designation": "General parking",
+      "navigationStatus": "pending-access-review"
+    },
+    {
+      "id": "lot-9",
+      "number": 9,
+      "name": "Parking Lot 9 (Assigned)",
+      "label": "Lot 9",
+      "pixel": [
+        705,
+        181
+      ],
+      "bounds": [
+        694,
+        145,
+        722,
+        234
+      ],
+      "designation": "Assigned parking",
+      "navigationStatus": "pending-access-review",
+      "designationSource": "user-confirmed"
+    },
+    {
+      "id": "lot-10",
+      "number": 10,
+      "name": "Parking Lot 10 (Reserved)",
+      "label": "Lot 10",
+      "pixel": [
+        714,
+        378
+      ],
+      "bounds": [
+        679,
+        298,
+        773,
+        453
+      ],
+      "designation": "Reserved parking",
+      "navigationStatus": "pending-access-review",
+      "designationSource": "user-confirmed"
+    },
+    {
+      "id": "lot-11",
+      "number": 11,
+      "name": "Parking Lot 11 (Assigned)",
+      "label": "Lot 11",
+      "pixel": [
+        638,
+        417
+      ],
+      "bounds": [
+        618,
+        375,
+        657,
+        456
+      ],
+      "designation": "Assigned parking",
+      "navigationStatus": "pending-access-review",
+      "designationSource": "user-confirmed"
+    }
+  ]
+}

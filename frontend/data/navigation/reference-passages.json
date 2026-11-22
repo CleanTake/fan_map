@@ -1,0 +1,2461 @@
+{
+  "status": "topology-user-confirmed",
+  "description": "Visible passage centrelines plus user-confirmed Q1-Q5 connections. Topology confirmed in chat on 2026-11-18; geometry remains approximate, derived from the aligned schematic.",
+  "passages": [
+    {
+      "id": "C-main",
+      "label": "C east-west corridor",
+      "pixels": [
+        [
+          291,
+          340
+        ],
+        [
+          407,
+          340
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "C"
+      ]
+    },
+    {
+      "id": "C-west",
+      "label": "C north-south corridor",
+      "pixels": [
+        [
+          291,
+          312
+        ],
+        [
+          291,
+          357
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "C"
+      ]
+    },
+    {
+      "id": "B-main",
+      "label": "B east-west corridor",
+      "pixels": [
+        [
+          253,
+          394
+        ],
+        [
+          433,
+          394
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "B"
+      ]
+    },
+    {
+      "id": "B-atrium-west",
+      "label": "B atrium west side",
+      "pixels": [
+        [
+          352,
+          394
+        ],
+        [
+          352,
+          451
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "B"
+      ]
+    },
+    {
+      "id": "B-atrium-east",
+      "label": "B atrium east side",
+      "pixels": [
+        [
+          399,
+          394
+        ],
+        [
+          399,
+          451
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "B"
+      ]
+    },
+    {
+      "id": "B-T-south",
+      "label": "B / T southern corridor",
+      "pixels": [
+        [
+          267,
+          451
+        ],
+        [
+          473,
+          451
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "B",
+        "T"
+      ]
+    },
+    {
+      "id": "D-west",
+      "label": "D western corridor",
+      "pixels": [
+        [
+          449,
+          350
+        ],
+        [
+          449,
+          412
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "D"
+      ]
+    },
+    {
+      "id": "D-main",
+      "label": "D east-west corridor",
+      "pixels": [
+        [
+          440,
+          350
+        ],
+        [
+          534,
+          350
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "D"
+      ]
+    },
+    {
+      "id": "D-east",
+      "label": "D eastern corridor",
+      "pixels": [
+        [
+          511,
+          350
+        ],
+        [
+          511,
+          432
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "D"
+      ]
+    },
+    {
+      "id": "A-main",
+      "label": "A north-south corridor",
+      "pixels": [
+        [
+          565,
+          379
+        ],
+        [
+          565,
+          458
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "A"
+      ]
+    },
+    {
+      "id": "A-east",
+      "label": "A eastern corridor",
+      "pixels": [
+        [
+          591,
+          379
+        ],
+        [
+          591,
+          458
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "A"
+      ]
+    },
+    {
+      "id": "A-cross",
+      "label": "A cross-passage",
+      "pixels": [
+        [
+          551,
+          418
+        ],
+        [
+          617,
+          418
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "A"
+      ]
+    },
+    {
+      "id": "J-main",
+      "label": "J eastern corridor",
+      "pixels": [
+        [
+          414,
+          182
+        ],
+        [
+          414,
+          250
+        ],
+        [
+          399,
+          250
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "J"
+      ]
+    },
+    {
+      "id": "SC-main",
+      "label": "SC north-south corridor",
+      "pixels": [
+        [
+          389,
+          143
+        ],
+        [
+          389,
+          177
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "SC"
+      ]
+    },
+    {
+      "id": "H-main",
+      "label": "H east-west corridor",
+      "pixels": [
+        [
+          540,
+          242
+        ],
+        [
+          596,
+          242
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "H"
+      ]
+    },
+    {
+      "id": "H-east",
+      "label": "H eastern corridor",
+      "pixels": [
+        [
+          596,
+          195
+        ],
+        [
+          596,
+          242
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "H"
+      ]
+    },
+    {
+      "id": "M-main",
+      "label": "M north-south corridor",
+      "pixels": [
+        [
+          639,
+          182
+        ],
+        [
+          639,
+          245
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "M"
+      ]
+    },
+    {
+      "id": "M-cross",
+      "label": "M cross-passage",
+      "pixels": [
+        [
+          632,
+          215
+        ],
+        [
+          655,
+          215
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "M"
+      ]
+    },
+    {
+      "id": "C-east-door-approach",
+      "label": "C east doorway approach",
+      "pixels": [
+        [
+          407,
+          340
+        ],
+        [
+          407,
+          326
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "C"
+      ]
+    },
+    {
+      "id": "C-exit",
+      "label": "Exit C through the nearby door",
+      "pixels": [
+        [
+          407,
+          326
+        ],
+        [
+          409,
+          326
+        ]
+      ],
+      "kind": "door",
+      "buildings": [
+        "C"
+      ]
+    },
+    {
+      "id": "C-D-outdoor",
+      "label": "Walk across the short outdoor connection between C and D",
+      "pixels": [
+        [
+          409,
+          326
+        ],
+        [
+          416,
+          326
+        ]
+      ],
+      "kind": "outdoor",
+      "buildings": []
+    },
+    {
+      "id": "D-entry",
+      "label": "Enter D through the nearby door",
+      "pixels": [
+        [
+          416,
+          326
+        ],
+        [
+          418,
+          326
+        ]
+      ],
+      "kind": "door",
+      "buildings": [
+        "D"
+      ]
+    },
+    {
+      "id": "D-entry-corridor",
+      "label": "D west entrance passage",
+      "pixels": [
+        [
+          418,
+          326
+        ],
+        [
+          437,
+          326
+        ],
+        [
+          437,
+          350
+        ],
+        [
+          440,
+          350
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "D"
+      ]
+    },
+    {
+      "id": "B-D-link",
+      "label": "Continue through the indoor B-D connection",
+      "pixels": [
+        [
+          433,
+          394
+        ],
+        [
+          449,
+          394
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "B",
+        "D"
+      ]
+    },
+    {
+      "id": "F-east",
+      "label": "Follow the eastern F corridor and D connection",
+      "pixels": [
+        [
+          531,
+          284
+        ],
+        [
+          531,
+          325
+        ],
+        [
+          522,
+          335
+        ],
+        [
+          511,
+          335
+        ],
+        [
+          511,
+          350
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "F",
+        "D"
+      ]
+    },
+    {
+      "id": "F-village",
+      "label": "F / Canada Life Village corridor",
+      "pixels": [
+        [
+          531,
+          284
+        ],
+        [
+          521,
+          281
+        ],
+        [
+          521,
+          245
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "F",
+        "L"
+      ]
+    },
+    {
+      "id": "F-SUB",
+      "label": "F / Forwell Hall passage",
+      "pixels": [
+        [
+          521,
+          281
+        ],
+        [
+          444,
+          281
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "F",
+        "L",
+        "Student_union"
+      ]
+    },
+    {
+      "id": "G-F-enclosed",
+      "label": "Use the enclosed G / F / L link",
+      "pixels": [
+        [
+          468,
+          224
+        ],
+        [
+          480,
+          224
+        ],
+        [
+          490,
+          232
+        ],
+        [
+          500,
+          242
+        ],
+        [
+          506,
+          253
+        ],
+        [
+          509,
+          264
+        ],
+        [
+          509,
+          281
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "G",
+        "F",
+        "L"
+      ]
+    },
+    {
+      "id": "F-H-link",
+      "label": "F to H corridor",
+      "pixels": [
+        [
+          521,
+          245
+        ],
+        [
+          540,
+          242
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "F",
+        "H"
+      ]
+    },
+    {
+      "id": "H-M-link",
+      "label": "Continue along the door-free H-M corridor",
+      "pixels": [
+        [
+          596,
+          242
+        ],
+        [
+          639,
+          242
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "H",
+        "M"
+      ]
+    },
+    {
+      "id": "D-A-link",
+      "label": "D / A cross-passage",
+      "pixels": [
+        [
+          511,
+          379
+        ],
+        [
+          591,
+          379
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "D",
+        "A"
+      ]
+    },
+    {
+      "id": "A-south",
+      "label": "A southern passage",
+      "pixels": [
+        [
+          565,
+          458
+        ],
+        [
+          591,
+          458
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "A"
+      ]
+    },
+    {
+      "id": "SC-J-link",
+      "label": "Student Centre to J passage",
+      "pixels": [
+        [
+          389,
+          177
+        ],
+        [
+          414,
+          177
+        ],
+        [
+          414,
+          182
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "student_center",
+        "J"
+      ]
+    },
+    {
+      "id": "J-SUB-link",
+      "label": "J to Student Union connecting walkway",
+      "pixels": [
+        [
+          414,
+          250
+        ],
+        [
+          414,
+          263
+        ],
+        [
+          433,
+          281
+        ],
+        [
+          444,
+          281
+        ]
+      ],
+      "kind": "outdoor",
+      "buildings": [
+        "J",
+        "Student_union"
+      ]
+    },
+    {
+      "id": "lot5-south-path",
+      "label": "Parking Lot 5 south pedestrian path",
+      "pixels": [
+        [
+          70,
+          252
+        ],
+        [
+          118,
+          252
+        ],
+        [
+          177,
+          252
+        ],
+        [
+          208,
+          254
+        ],
+        [
+          213,
+          268
+        ],
+        [
+          215,
+          283
+        ],
+        [
+          233,
+          295
+        ],
+        [
+          291,
+          295
+        ],
+        [
+          291,
+          310
+        ]
+      ],
+      "kind": "outdoor",
+      "buildings": []
+    },
+    {
+      "id": "C-north-door",
+      "label": "Pass through the C north entrance",
+      "pixels": [
+        [
+          291,
+          310
+        ],
+        [
+          291,
+          312
+        ]
+      ],
+      "kind": "door",
+      "buildings": [
+        "C"
+      ]
+    },
+    {
+      "id": "review-A001-walkway",
+      "label": "C / Student Union outdoor walkway",
+      "pixels": [
+        [
+          409,
+          326
+        ],
+        [
+          409,
+          292
+        ],
+        [
+          421,
+          292
+        ],
+        [
+          421,
+          269.63157894736844
+        ]
+      ],
+      "kind": "outdoor",
+      "buildings": [],
+      "reviewAnnotationId": "A001",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A002-a",
+      "label": "A north entrance approach",
+      "pixels": [
+        [
+          570,
+          379
+        ],
+        [
+          570,
+          358
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "A"
+      ],
+      "reviewAnnotationId": "A002",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A002-a-door",
+      "label": "Pass through the A north doorway",
+      "pixels": [
+        [
+          570,
+          358
+        ],
+        [
+          570,
+          356
+        ]
+      ],
+      "kind": "door",
+      "buildings": [
+        "A"
+      ],
+      "reviewAnnotationId": "A002",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A002-courtyard",
+      "label": "A / E courtyard walkway",
+      "pixels": [
+        [
+          570,
+          356
+        ],
+        [
+          570,
+          352
+        ]
+      ],
+      "kind": "outdoor",
+      "buildings": [],
+      "reviewAnnotationId": "A002",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A002-e-door",
+      "label": "Pass through the E south doorway",
+      "pixels": [
+        [
+          570,
+          352
+        ],
+        [
+          570,
+          350
+        ]
+      ],
+      "kind": "door",
+      "buildings": [
+        "E"
+      ],
+      "reviewAnnotationId": "A002",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A002-e",
+      "label": "E corridor and F connection",
+      "pixels": [
+        [
+          570,
+          350
+        ],
+        [
+          570,
+          335
+        ],
+        [
+          522,
+          335
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "E",
+        "F",
+        "D"
+      ],
+      "reviewAnnotationId": "A002",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A003-a-door",
+      "label": "Pass through the A west doorway",
+      "pixels": [
+        [
+          551,
+          418
+        ],
+        [
+          549,
+          418
+        ]
+      ],
+      "kind": "door",
+      "buildings": [
+        "A"
+      ],
+      "reviewAnnotationId": "A003",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A003-courtyard",
+      "label": "A / Alumni Lecture Theatre courtyard walkway",
+      "pixels": [
+        [
+          549,
+          418
+        ],
+        [
+          513,
+          418
+        ]
+      ],
+      "kind": "outdoor",
+      "buildings": [],
+      "reviewAnnotationId": "A003",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A003-d-door",
+      "label": "Pass through the Alumni Lecture Theatre doorway",
+      "pixels": [
+        [
+          513,
+          418
+        ],
+        [
+          511,
+          418
+        ]
+      ],
+      "kind": "door",
+      "buildings": [
+        "D"
+      ],
+      "reviewAnnotationId": "A003",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A004-atrium",
+      "label": "B central atrium corridor",
+      "pixels": [
+        [
+          383,
+          394
+        ],
+        [
+          383,
+          451
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "B"
+      ],
+      "reviewAnnotationId": "A004",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A005-d-door",
+      "label": "Pass through the D southwest doorway",
+      "pixels": [
+        [
+          449,
+          412
+        ],
+        [
+          449,
+          414
+        ]
+      ],
+      "kind": "door",
+      "buildings": [
+        "D"
+      ],
+      "reviewAnnotationId": "A005",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A005-courtyard",
+      "label": "D / B courtyard walkway",
+      "pixels": [
+        [
+          449,
+          414
+        ],
+        [
+          449,
+          421
+        ],
+        [
+          437,
+          421
+        ],
+        [
+          437,
+          428
+        ]
+      ],
+      "kind": "outdoor",
+      "buildings": [],
+      "reviewAnnotationId": "A005",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A005-b-door",
+      "label": "Pass through the B east doorway",
+      "pixels": [
+        [
+          437,
+          428
+        ],
+        [
+          437,
+          430
+        ]
+      ],
+      "kind": "door",
+      "buildings": [
+        "B"
+      ],
+      "reviewAnnotationId": "A005",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A005-b",
+      "label": "B eastern corridor",
+      "pixels": [
+        [
+          437,
+          430
+        ],
+        [
+          437,
+          451
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "B",
+        "T"
+      ],
+      "reviewAnnotationId": "A005",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A006-b-west",
+      "label": "B / T western north-south corridor",
+      "pixels": [
+        [
+          277,
+          451
+        ],
+        [
+          277,
+          376
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "B",
+        "T"
+      ],
+      "reviewAnnotationId": "A006",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A007-h-east",
+      "label": "H north courtyard entrance approach",
+      "pixels": [
+        [
+          587,
+          242
+        ],
+        [
+          584.2,
+          235
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "H"
+      ],
+      "reviewAnnotationId": "A007",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A007-h-east-door",
+      "label": "Pass through the H north courtyard doorway",
+      "pixels": [
+        [
+          584.2,
+          235
+        ],
+        [
+          583.4,
+          233
+        ]
+      ],
+      "kind": "door",
+      "buildings": [
+        "H"
+      ],
+      "reviewAnnotationId": "A007",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A007-courtyard",
+      "label": "H / F north courtyard walkway",
+      "pixels": [
+        [
+          583.4,
+          233
+        ],
+        [
+          579,
+          222
+        ],
+        [
+          563,
+          209
+        ],
+        [
+          556,
+          209
+        ],
+        [
+          541,
+          223
+        ],
+        [
+          541,
+          236
+        ]
+      ],
+      "kind": "outdoor",
+      "buildings": [],
+      "reviewAnnotationId": "A007",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A007-h-west-door",
+      "label": "Pass through the H west courtyard doorway",
+      "pixels": [
+        [
+          541,
+          236
+        ],
+        [
+          541,
+          238
+        ]
+      ],
+      "kind": "door",
+      "buildings": [
+        "H"
+      ],
+      "reviewAnnotationId": "A007",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A007-h-west",
+      "label": "H west courtyard entrance approach",
+      "pixels": [
+        [
+          541,
+          238
+        ],
+        [
+          541,
+          242
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "H"
+      ],
+      "reviewAnnotationId": "A007",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A008-walkway",
+      "label": "H / R1 / G courtyard walkway",
+      "pixels": [
+        [
+          541,
+          223
+        ],
+        [
+          531,
+          208
+        ],
+        [
+          480,
+          208
+        ]
+      ],
+      "kind": "outdoor",
+      "buildings": [],
+      "reviewAnnotationId": "A008",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A009-g-approach",
+      "label": "G west ground-floor corridor",
+      "pixels": [
+        [
+          468,
+          224
+        ],
+        [
+          449,
+          224
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "G"
+      ],
+      "reviewAnnotationId": "A009",
+      "reviewDate": "2026-11-22",
+      "geometryAddition": "Visible G corridor joins the reviewed west entrance to the existing G / F enclosed passage."
+    },
+    {
+      "id": "review-A009-g-door",
+      "label": "Pass through the G west doorway",
+      "pixels": [
+        [
+          449,
+          224
+        ],
+        [
+          447,
+          224
+        ]
+      ],
+      "kind": "door",
+      "buildings": [
+        "G"
+      ],
+      "reviewAnnotationId": "A009",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A009-walkway",
+      "label": "G / Student Union outdoor walkway",
+      "pixels": [
+        [
+          447,
+          224
+        ],
+        [
+          447,
+          242
+        ],
+        [
+          430,
+          257
+        ],
+        [
+          421,
+          269.63157894736844
+        ]
+      ],
+      "kind": "outdoor",
+      "buildings": [],
+      "reviewAnnotationId": "A009",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A010-j",
+      "label": "J east entrance approach",
+      "pixels": [
+        [
+          414,
+          177
+        ],
+        [
+          428,
+          177
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "J",
+        "SC"
+      ],
+      "reviewAnnotationId": "A010",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A010-j-door",
+      "label": "Pass through the J east doorway",
+      "pixels": [
+        [
+          428,
+          177
+        ],
+        [
+          430,
+          177
+        ]
+      ],
+      "kind": "door",
+      "buildings": [
+        "J"
+      ],
+      "reviewAnnotationId": "A010",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A010-road",
+      "label": "J / R1 Residence Circle crossing",
+      "pixels": [
+        [
+          430,
+          177
+        ],
+        [
+          454,
+          177
+        ]
+      ],
+      "kind": "outdoor",
+      "buildings": [],
+      "reviewAnnotationId": "A010",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A010-r1-west-door",
+      "label": "Pass through the R1 west doorway",
+      "pixels": [
+        [
+          454,
+          177
+        ],
+        [
+          456,
+          177
+        ]
+      ],
+      "kind": "door",
+      "buildings": [
+        "R1"
+      ],
+      "reviewAnnotationId": "A010",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A010-r1",
+      "label": "R1 southwest ground-floor corridor",
+      "pixels": [
+        [
+          456,
+          177
+        ],
+        [
+          461,
+          177
+        ],
+        [
+          480,
+          197
+        ],
+        [
+          480,
+          206
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "R1"
+      ],
+      "reviewAnnotationId": "A010",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A011-r1-door",
+      "label": "Pass through the R1 south doorway",
+      "pixels": [
+        [
+          480,
+          206
+        ],
+        [
+          480,
+          208
+        ]
+      ],
+      "kind": "door",
+      "buildings": [
+        "R1"
+      ],
+      "reviewAnnotationId": "A011",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A010-g-approach",
+      "label": "R1 / G outdoor approach",
+      "pixels": [
+        [
+          480,
+          208
+        ],
+        [
+          480,
+          214
+        ]
+      ],
+      "kind": "outdoor",
+      "buildings": [],
+      "reviewAnnotationId": "A010",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A010-g-door",
+      "label": "Pass through the G north doorway",
+      "pixels": [
+        [
+          480,
+          214
+        ],
+        [
+          480,
+          216
+        ]
+      ],
+      "kind": "door",
+      "buildings": [
+        "G"
+      ],
+      "reviewAnnotationId": "A010",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A010-g",
+      "label": "G north entrance corridor",
+      "pixels": [
+        [
+          480,
+          216
+        ],
+        [
+          480,
+          224
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "G"
+      ],
+      "reviewAnnotationId": "A010",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A012-k",
+      "label": "K south entrance approach",
+      "pixels": [
+        [
+          560,
+          178
+        ],
+        [
+          560,
+          180
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "K"
+      ],
+      "reviewAnnotationId": "A012",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A012-k-door",
+      "label": "Pass through the K south doorway",
+      "pixels": [
+        [
+          560,
+          180
+        ],
+        [
+          560,
+          182
+        ]
+      ],
+      "kind": "door",
+      "buildings": [
+        "K"
+      ],
+      "reviewAnnotationId": "A012",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A012-walkway",
+      "label": "K / G courtyard walkway",
+      "pixels": [
+        [
+          560,
+          182
+        ],
+        [
+          560,
+          186
+        ],
+        [
+          531,
+          186
+        ],
+        [
+          531,
+          208
+        ]
+      ],
+      "kind": "outdoor",
+      "buildings": [],
+      "reviewAnnotationId": "A012",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A013-sc",
+      "label": "Student Centre west entrance corridor",
+      "pixels": [
+        [
+          389,
+          177
+        ],
+        [
+          375,
+          177
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "SC"
+      ],
+      "reviewAnnotationId": "A013",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A013-sc-door",
+      "label": "Pass through the Student Centre west doorway",
+      "pixels": [
+        [
+          375,
+          177
+        ],
+        [
+          373,
+          177
+        ]
+      ],
+      "kind": "door",
+      "buildings": [
+        "SC"
+      ],
+      "reviewAnnotationId": "A013",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A013-road",
+      "label": "Student Centre / R2 Student Road crossing",
+      "pixels": [
+        [
+          373,
+          177
+        ],
+        [
+          341,
+          177
+        ]
+      ],
+      "kind": "outdoor",
+      "buildings": [],
+      "reviewAnnotationId": "A013",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A013-r2-door",
+      "label": "Pass through the R2 east doorway",
+      "pixels": [
+        [
+          341,
+          177
+        ],
+        [
+          339,
+          177
+        ]
+      ],
+      "kind": "door",
+      "buildings": [
+        "R2"
+      ],
+      "reviewAnnotationId": "A013",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A013-r2",
+      "label": "R2 east entrance approach",
+      "pixels": [
+        [
+          339,
+          177
+        ],
+        [
+          336,
+          177
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "R2"
+      ],
+      "reviewAnnotationId": "A013",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A014-j",
+      "label": "J west ground-floor corridor",
+      "pixels": [
+        [
+          399,
+          250
+        ],
+        [
+          375,
+          250
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "J"
+      ],
+      "reviewAnnotationId": "A014",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A014-j-door",
+      "label": "Pass through the J west doorway",
+      "pixels": [
+        [
+          375,
+          250
+        ],
+        [
+          373,
+          250
+        ]
+      ],
+      "kind": "door",
+      "buildings": [
+        "J"
+      ],
+      "reviewAnnotationId": "A014",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A014-walkway",
+      "label": "J west outdoor approach",
+      "pixels": [
+        [
+          373,
+          250
+        ],
+        [
+          368,
+          250
+        ]
+      ],
+      "kind": "outdoor",
+      "buildings": [],
+      "reviewAnnotationId": "A014",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A015-b-east",
+      "label": "B eastern north entrance corridor",
+      "pixels": [
+        [
+          399,
+          394
+        ],
+        [
+          399,
+          375
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "B"
+      ],
+      "reviewAnnotationId": "A015",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A016-b-north",
+      "label": "B north entrance corridor",
+      "pixels": [
+        [
+          321,
+          394
+        ],
+        [
+          321,
+          375
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "B"
+      ],
+      "reviewAnnotationId": "A016",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A017-d",
+      "label": "D central ground-floor corridor",
+      "pixels": [
+        [
+          481,
+          350
+        ],
+        [
+          481,
+          375
+        ],
+        [
+          449,
+          375
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "D"
+      ],
+      "reviewAnnotationId": "A017",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A018-f-approach",
+      "label": "F main entrance outdoor approach",
+      "pixels": [
+        [
+          539.4963143991702,
+          279.48095424980374
+        ],
+        [
+          544.7471584823114,
+          279.48095424980374
+        ],
+        [
+          547,
+          279.48095424980374
+        ]
+      ],
+      "kind": "outdoor",
+      "buildings": [],
+      "reviewAnnotationId": "A018",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A019-m-corridor",
+      "label": "M east entrance corridor",
+      "pixels": [
+        [
+          655,
+          215
+        ],
+        [
+          658,
+          215
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "M"
+      ],
+      "reviewAnnotationId": "A019",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A019-m-door",
+      "label": "Pass through the M east doorway",
+      "pixels": [
+        [
+          658,
+          215
+        ],
+        [
+          660,
+          215
+        ]
+      ],
+      "kind": "door",
+      "buildings": [
+        "M"
+      ],
+      "reviewAnnotationId": "A019",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A019-m-approach",
+      "label": "M east entrance outdoor approach",
+      "pixels": [
+        [
+          660,
+          215
+        ],
+        [
+          664.69540698021,
+          215
+        ]
+      ],
+      "kind": "outdoor",
+      "buildings": [],
+      "reviewAnnotationId": "A019",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A020-t-b-west-curve",
+      "label": "T / B curved ground-floor hallway",
+      "pixels": [
+        [
+          277,
+          451
+        ],
+        [
+          277,
+          456
+        ],
+        [
+          280,
+          458
+        ],
+        [
+          291,
+          460.5
+        ],
+        [
+          306,
+          462
+        ],
+        [
+          317,
+          463.5
+        ],
+        [
+          317,
+          459.5
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "T",
+        "B"
+      ],
+      "reviewAnnotationId": "A020",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A021-t-b-branch",
+      "label": "T / B curved hallway central connection",
+      "pixels": [
+        [
+          317,
+          459.5
+        ],
+        [
+          317,
+          451
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "T",
+        "B"
+      ],
+      "reviewAnnotationId": "A021",
+      "reviewDate": "2026-11-22"
+    },
+    {
+      "id": "review-A022-t-b-east-curve",
+      "label": "T / B curved ground-floor hallway",
+      "pixels": [
+        [
+          317,
+          463.5
+        ],
+        [
+          331,
+          464
+        ],
+        [
+          339,
+          463.5
+        ],
+        [
+          354,
+          460
+        ],
+        [
+          359,
+          457
+        ],
+        [
+          364.3,
+          451
+        ]
+      ],
+      "kind": "indoor",
+      "buildings": [
+        "T",
+        "B"
+      ],
+      "reviewAnnotationId": "A022",
+      "reviewDate": "2026-11-22"
+    }
+  ],
+  "questions": [
+    {
+      "id": "Q1",
+      "title": "C to D connection",
+      "pixel": [
+        412.5,
+        326
+      ],
+      "question": "Does C's east-west passage connect to D on the ground floor here, or does it exit outdoors? Where are the doorway thresholds?",
+      "answer": "Confirmed: C and D have separate, very close doors with a short outdoor connection between them.",
+      "status": "confirmed"
+    },
+    {
+      "id": "Q2",
+      "title": "F corridor and main entrance",
+      "pixel": [
+        531,
+        307
+      ],
+      "question": "The lower red F block has no continuous white corridor drawn. Where does the corridor run between the main entrance, D, and the Canada Life Village / L junction?",
+      "answer": "Confirmed: the corridor follows the eastern side of the lower F block, joins the entrance door, and continues into D.",
+      "status": "confirmed"
+    },
+    {
+      "id": "Q3",
+      "title": "B to D neck",
+      "pixel": [
+        441,
+        394
+      ],
+      "question": "Is this a continuous ground-floor interior connection from B into D? Confirm the door at the boundary and which D corridor it joins.",
+      "answer": "Confirmed: B and D are continuously connected indoors; there is no outdoor doorway between them.",
+      "status": "confirmed"
+    },
+    {
+      "id": "Q4",
+      "title": "G / F / L curved link",
+      "pixel": [
+        500,
+        242
+      ],
+      "question": "Is the curved connection from G to F / L enclosed and walkable at ground level? Which doorway joins it to the F corridor?",
+      "answer": "Confirmed: the curved G/F/L connection is enclosed, similar to an airport jet bridge.",
+      "status": "confirmed"
+    },
+    {
+      "id": "Q5",
+      "title": "H to M link and alignment",
+      "pixel": [
+        613,
+        242
+      ],
+      "question": "Confirm that this narrow link is on the ground floor and identify its doors. M has the largest alignment mismatch, so its passage endpoints need checking.",
+      "answer": "Confirmed: H and M are connected by one continuous ground-floor corridor without a door.",
+      "status": "confirmed"
+    },
+    {
+      "id": "Q6",
+      "title": "Student Services destination",
+      "coordinates": [
+        -81.19993,
+        43.01259
+      ],
+      "question": "The app's generic Student Services pin does not identify a room or doorway on this plan. Which office and entrance should this location represent?",
+      "answer": "Removed: Student Services was an inaccurate placeholder, not a valid destination.",
+      "status": "removed"
+    }
+  ],
+  "reviews": [
+    {
+      "date": "2026-11-22",
+      "sourceFile": "reviews/2026-11-22.json",
+      "sourceSha256": "0df5ec2951517b840332d12fcc3ee9d360851d8d619e0aa29e566da6394fefd4",
+      "baseNetworkSha256": "1ae9c49c4b8b76bbe1c1ef901016d340ef3b93f5ad51cda2818249df009a848c",
+      "annotationCount": 17,
+      "connectionCount": 17,
+      "generatedPassageCount": 47,
+      "classification": "Exposed roads/courtyards are outdoor, as confirmed by user. Door boundaries are estimated from the schematic.",
+      "normalization": [
+        {
+          "annotationId": "A001",
+          "pixels": [
+            [
+              409,
+              326
+            ],
+            [
+              409,
+              292
+            ],
+            [
+              421,
+              292
+            ],
+            [
+              421,
+              269.63157894736844
+            ]
+          ],
+          "maxShapeOffsetPixels": 3.028
+        },
+        {
+          "annotationId": "A002",
+          "pixels": [
+            [
+              570,
+              379
+            ],
+            [
+              570,
+              335
+            ],
+            [
+              522,
+              335
+            ]
+          ],
+          "maxShapeOffsetPixels": 3.464
+        },
+        {
+          "annotationId": "A003",
+          "pixels": [
+            [
+              551,
+              418
+            ],
+            [
+              511,
+              418
+            ]
+          ],
+          "maxShapeOffsetPixels": 3.916
+        },
+        {
+          "annotationId": "A004",
+          "pixels": [
+            [
+              383,
+              394
+            ],
+            [
+              383,
+              451
+            ]
+          ],
+          "maxShapeOffsetPixels": 0.685
+        },
+        {
+          "annotationId": "A005",
+          "pixels": [
+            [
+              449,
+              412
+            ],
+            [
+              449,
+              421
+            ],
+            [
+              437,
+              421
+            ],
+            [
+              437,
+              451
+            ]
+          ],
+          "maxShapeOffsetPixels": 1.763
+        },
+        {
+          "annotationId": "A006",
+          "pixels": [
+            [
+              277,
+              451
+            ],
+            [
+              277,
+              376
+            ]
+          ],
+          "maxShapeOffsetPixels": 0.698
+        },
+        {
+          "annotationId": "A007",
+          "pixels": [
+            [
+              587,
+              242
+            ],
+            [
+              579,
+              222
+            ],
+            [
+              563,
+              209
+            ],
+            [
+              556,
+              209
+            ],
+            [
+              541,
+              223
+            ],
+            [
+              541,
+              242
+            ]
+          ],
+          "maxShapeOffsetPixels": 2.689
+        },
+        {
+          "annotationId": "A008",
+          "pixels": [
+            [
+              541,
+              223
+            ],
+            [
+              531,
+              208
+            ],
+            [
+              480,
+              208
+            ]
+          ],
+          "maxShapeOffsetPixels": 3.074
+        },
+        {
+          "annotationId": "A009",
+          "pixels": [
+            [
+              449,
+              224
+            ],
+            [
+              447,
+              224
+            ],
+            [
+              447,
+              242
+            ],
+            [
+              430,
+              257
+            ],
+            [
+              421,
+              269.63157894736844
+            ]
+          ],
+          "maxShapeOffsetPixels": 1.81
+        },
+        {
+          "annotationId": "A010",
+          "pixels": [
+            [
+              414,
+              177
+            ],
+            [
+              461,
+              177
+            ],
+            [
+              480,
+              197
+            ],
+            [
+              480,
+              224
+            ]
+          ],
+          "maxShapeOffsetPixels": 0.533
+        },
+        {
+          "annotationId": "A011",
+          "pixels": [
+            [
+              480,
+              206
+            ],
+            [
+              480,
+              208
+            ]
+          ],
+          "maxShapeOffsetPixels": 3.153
+        },
+        {
+          "annotationId": "A012",
+          "pixels": [
+            [
+              560,
+              178
+            ],
+            [
+              560,
+              186
+            ],
+            [
+              531,
+              186
+            ],
+            [
+              531,
+              208
+            ]
+          ],
+          "maxShapeOffsetPixels": 2.353
+        },
+        {
+          "annotationId": "A013",
+          "pixels": [
+            [
+              389,
+              177
+            ],
+            [
+              336,
+              177
+            ]
+          ],
+          "maxShapeOffsetPixels": 0.945
+        },
+        {
+          "annotationId": "A014",
+          "pixels": [
+            [
+              399,
+              250
+            ],
+            [
+              368,
+              250
+            ]
+          ],
+          "maxShapeOffsetPixels": 0.849
+        },
+        {
+          "annotationId": "A015",
+          "pixels": [
+            [
+              399,
+              394
+            ],
+            [
+              399,
+              375
+            ]
+          ],
+          "maxShapeOffsetPixels": 0.608
+        },
+        {
+          "annotationId": "A016",
+          "pixels": [
+            [
+              321,
+              394
+            ],
+            [
+              321,
+              375
+            ]
+          ],
+          "maxShapeOffsetPixels": 0.453
+        },
+        {
+          "annotationId": "A017",
+          "pixels": [
+            [
+              481,
+              350
+            ],
+            [
+              481,
+              375
+            ],
+            [
+              449,
+              375
+            ]
+          ],
+          "maxShapeOffsetPixels": 0.604
+        }
+      ],
+      "maximumShapeOffsetPixels": 3.916,
+      "notes": [
+        "A010 collinear backtrack was merged, preserving its full extent.",
+        "A011 is the shared R1 south doorway junction, rather than a duplicate overlapping path.",
+        "A009 includes the visible G west indoor approach needed to meet the existing corridor."
+      ]
+    },
+    {
+      "date": "2026-11-22",
+      "sourceFile": "reviews/2026-11-22-entrances.json",
+      "sourceSha256": "2a3e3cde0980378510dc653858c0194164b87e0c6d4403281023ac4d25659907",
+      "baseNetworkSha256": "1ae9c49c4b8b76bbe1c1ef901016d340ef3b93f5ad51cda2818249df009a848c",
+      "parentReviewSha256": "0df5ec2951517b840332d12fcc3ee9d360851d8d619e0aa29e566da6394fefd4",
+      "annotationCount": 5,
+      "connectionCount": 3,
+      "generatedPassageCount": 7,
+      "normalization": [
+        {
+          "annotationId": "A018",
+          "pixels": [
+            [
+              539.4963143991702,
+              279.48095424980374
+            ],
+            [
+              547,
+              279.48095424980374
+            ]
+          ],
+          "maxShapeOffsetPixels": 0.418
+        },
+        {
+          "annotationId": "A019",
+          "pixels": [
+            [
+              655,
+              215
+            ],
+            [
+              664.69540698021,
+              215
+            ]
+          ],
+          "maxShapeOffsetPixels": 2.252
+        },
+        {
+          "annotationId": "A020",
+          "pixels": [
+            [
+              277,
+              451
+            ],
+            [
+              277,
+              456
+            ],
+            [
+              280,
+              458
+            ],
+            [
+              291,
+              460.5
+            ],
+            [
+              306,
+              462
+            ],
+            [
+              317,
+              463.5
+            ],
+            [
+              317,
+              459.5
+            ]
+          ],
+          "maxShapeOffsetPixels": 0.916
+        },
+        {
+          "annotationId": "A021",
+          "pixels": [
+            [
+              317,
+              459.5
+            ],
+            [
+              317,
+              451
+            ]
+          ],
+          "maxShapeOffsetPixels": 0.525
+        },
+        {
+          "annotationId": "A022",
+          "pixels": [
+            [
+              317,
+              463.5
+            ],
+            [
+              331,
+              464
+            ],
+            [
+              339,
+              463.5
+            ],
+            [
+              354,
+              460
+            ],
+            [
+              359,
+              457
+            ],
+            [
+              364.3,
+              451
+            ]
+          ],
+          "maxShapeOffsetPixels": 1.621
+        }
+      ],
+      "maximumShapeOffsetPixels": 2.252,
+      "notes": [
+        "A001-A017 are unchanged and are not reapplied by this cumulative update.",
+        "A020-A022 form one curved indoor T/B hallway with a central branch; its curvature is retained.",
+        "A021 has no selected replacement target and is applied as the connecting branch described by the user.",
+        "F reuses its existing doorway. M adds an east doorway; both outdoor approaches join the mapped footpaths."
+      ]
+    }
+  ],
+  "outdoorJoins": [
+    {
+      "id": "review-A018-f-footpath",
+      "osmWayId": "1531709051",
+      "pixel": [
+        544.7471584823114,
+        279.48095424980374
+      ]
+    },
+    {
+      "id": "review-A019-m-footpath",
+      "osmWayId": "1531709030",
+      "pixel": [
+        664.69540698021,
+        215
+      ]
+    }
+  ]
+}
