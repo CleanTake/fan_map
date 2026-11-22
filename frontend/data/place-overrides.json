@@ -654,5 +654,149 @@
         43.01305039836194
       ]
     }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-c3480f9d-bb63-4220-a8d0-3a8fc5a47388",
+      "name": "Tim Hortons",
+      "category": "food",
+      "description": "Mon - Fri: 8:30am - 2:30pm"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.200093174618,
+        43.012298825627646
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-c60c0e93-2dba-4e2e-851f-f379fc1ad099",
+      "name": "Booster Juice",
+      "category": "food",
+      "description": "Mon - Fri: 10am - 4pm"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20098289876519,
+        43.01321112252206
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-cacd656d-7105-4dc6-ae33-b042b6fdff8c",
+      "name": "Fanshawe College Wellness & Fitness Centre",
+      "category": "service",
+      "description": "(J1003)\nMon - Fri: 7am - 10pm\nSat - Sun: 11am - 7pm"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.2011063851338,
+        43.012971887415965
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-4dcfd1de-569d-48bb-826b-eb0a2dbdc709",
+      "name": "Basketball Court",
+      "category": "court",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20150521824044,
+        43.01359836367136
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-a80b6272-95e8-4f72-9cb3-75907babeeca",
+      "name": "Campus Store",
+      "category": "retail",
+      "description": "F1002"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19961098180698,
+        43.01315570059043
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-8e43034e-22a3-400d-8e25-6bf17c976102",
+      "name": "Harvey's",
+      "category": "food",
+      "description": "Mon - Thurs: 11am - 4pm Fri: 11am - 3pm"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20000947812447,
+        43.01219334853723
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-818f7387-382e-4c27-bc05-18856d1060a0",
+      "name": "A1001",
+      "category": "service",
+      "description": "Mend Student Massage Therapy Clinic\nMon - Fri: 9am - 9pm\nOral Health Clinic\nMon, Wed: 8:30am - 8:30pm\nTues, Thurs: 5:30 - 8:30pm\nFri: 8:30am - 4:30pm"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19833007348517,
+        43.01201986260459
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-5d705a93-a907-4867-93b1-e48de8ec3f76",
+      "name": "IT Service Desk",
+      "category": "service",
+      "description": "E2030\nMon - Fri: 8am - 8pm"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19898579814301,
+        43.01294319538468
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-4bf19f41-4f99-4c5a-8007-56beea401133",
+      "name": "Office of the Registrar",
+      "category": "service",
+      "description": "E1012\nMon - Fri: 9am - 4pm"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19870868970817,
+        43.01309145490809
+      ]
+    }
   }
 ]

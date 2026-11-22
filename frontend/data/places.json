@@ -2965,5 +2965,293 @@
         43.01305039836194
       ]
     }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-a80b6272-95e8-4f72-9cb3-75907babeeca",
+      "name": "Campus Store",
+      "category": "retail",
+      "description": "F1002"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19977562764107,
+        43.01318936278432
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-2f33f372-7b3c-402f-9a39-9c4c0fb634ad",
+      "name": "B Cafe",
+      "category": "food",
+      "description": "bento SUSHI\nChef Inspired\nGreeens and Grains\nKettles\nOn the Go\nParamount\nSmoke's Poutinerie\nTim Horton's"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20091268667879,
+        43.011648364657106
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-c60c0e93-2dba-4e2e-851f-f379fc1ad099",
+      "name": "Booster Juice",
+      "category": "food",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.2008807949091,
+        43.01309661102772
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-3668dba4-0674-4740-aa29-1c2ff0e04d95",
+      "name": "Harvey's",
+      "category": "food",
+      "description": "Mon - Thurs: 11am - 4pm\nFri: 11am - 3pm"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19999125068313,
+        43.01206935886146
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-c3480f9d-bb63-4220-a8d0-3a8fc5a47388",
+      "name": "Tim Hortons",
+      "category": "room",
+      "description": "Mon - Fri: 8:30am - 2:30pm"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.200093174618,
+        43.012298825627646
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-57b7eeca-9f16-4255-8561-afa3a865053a",
+      "name": "Pizza Pizza",
+      "category": "food",
+      "description": "Mon - Fri: 11am - 3pm"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19941149104854,
+        43.012537593406066
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-3513f714-96b6-4d15-9d0f-341cb304b772",
+      "name": "Booster Juice",
+      "category": "food",
+      "description": "Mon - Fri: 10am - 4pm"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20089671005853,
+        43.013122882958726
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-cacd656d-7105-4dc6-ae33-b042b6fdff8c",
+      "name": "Fanshawe College Wellness & Fitness Centre (J1003)",
+      "category": "service",
+      "description": "Mon - Fri: 7am - 10pm\nSat - Sun: 11am - 7pm"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.2011063851338,
+        43.012971887415965
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-dac7dfa6-5347-4912-b8f3-c7b01df627c6",
+      "name": "The Out Back Shack",
+      "category": "food",
+      "description": "SUB1027\nMon - Fri: 11am - 7pm"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20056042827696,
+        43.013240073583496
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-0c440133-3d3e-4f8a-895a-a163f8aafa21",
+      "name": "Oasis",
+      "category": "food",
+      "description": "Mon - Fri: 8am - 8pm\nSat - Sun: 10am - 6pm"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20182213314067,
+        43.013965953263636
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-5d705a93-a907-4867-93b1-e48de8ec3f76",
+      "name": "IT Service Desk",
+      "category": "service",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19898579814301,
+        43.01294319538468
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-4bf19f41-4f99-4c5a-8007-56beea401133",
+      "name": "Office of the Registrar",
+      "category": "service",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19870868970817,
+        43.01309145490809
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-be79427c-49e8-497e-b1df-0be4fa9015c9",
+      "name": "The Nest Convenience Store",
+      "category": "retail",
+      "description": "Mon- Thurs: 7:30am - 6:30pm\nFri: 7:30am - 5pm"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.1999117458735,
+        43.013326198424565
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-8e43034e-22a3-400d-8e25-6bf17c976102",
+      "name": "Harvey's",
+      "category": "food",
+      "description": "43.01219334853723, -81.20000947812447"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20000947812447,
+        43.01219334853723
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-818f7387-382e-4c27-bc05-18856d1060a0",
+      "name": "Mend Student Massage Therapy Clinic",
+      "category": "service",
+      "description": "A1001\nMon - Fri: 9am - 9pm"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19833007348517,
+        43.01201986260459
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-171fd605-f858-4567-8ba9-bfbe19eb083c",
+      "name": "Tim Hortons Express",
+      "category": "food",
+      "description": "Mon - Fri: 7:30am - 4pm"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19945351273593,
+        43.01287944413251
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-7773bf64-463c-4d93-a31c-e7f622ab9c51",
+      "name": "Library Learning Commons",
+      "category": "room",
+      "description": "F1066\nMon - Fri: 9am - 5pm"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19979070864183,
+        43.01298401095616
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-e432d9de-bc36-4cf7-b650-f0ba6ca6421b",
+      "name": "DC Hair Group",
+      "category": "service",
+      "description": "L1002\nMon - Thurs: 10am - 2:30pm\nFri: 10am - 8pm"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19998360759537,
+        43.01334097073363
+      ]
+    }
   }
 ]
