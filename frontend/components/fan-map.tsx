@@ -637,7 +637,18 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
     };
 }, []);
 
-  
+  useEffect(() => {
+    if (!selectedLocation || !map.current) return;
+
+    const [lng, lat] = selectedLocation.geometry.coordinates;
+
+    map.current.flyTo({
+      center: [lng, lat],
+      zoom: 17,
+      duration: 1000,
+      essential: true,
+    });
+  }, [selectedLocation]);
 
   return (
     <main className="fanmap-shell">
