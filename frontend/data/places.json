@@ -2949,5 +2949,21 @@
         43.01436244165856
       ]
     }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-7cfa2671-02ff-4ef9-8960-710d32acf06a",
+      "name": "Test Pin",
+      "category": "service",
+      "description": "lorem ipsum dolor sit amet consectetur adipiscing elit odio commodo autem blanditiis irure fuga ut tempor et dolore id maxime dolor est molestias dolores vero est irure dolorum et voluptas expedita do nobis accusamus labore nulla qui magna accusamus at harum praesentium omnis cupidatat non et qui anim velit id"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19978380514142,
+        43.01305039836194
+      ]
+    }
   }
 ]
