@@ -66,6 +66,7 @@ function createUserLocationMarker() {
 export default function FanMap({ user, initialFavoriteIds = [], initialLocationId }: { user: AuthUser | null; initialFavoriteIds?: string[]; initialLocationId?: string }) {
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<mapboxgl.Map | null>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const userMarker = useRef<mapboxgl.Marker | null>(null);
   const locationInterval = useRef<ReturnType<typeof setInterval> | null>(null);
   const locationRequestInFlight = useRef(false);
@@ -659,33 +660,38 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
           <p className="eyebrow">FANSHAWE COLLEGE</p>
           <h1>FanMap</h1>
         </div>
+
         <div className="topbar-actions">
-          <button
-            className="location-button"
-            onClick={showMyLocation}
-            disabled={!mapReady || !!mapError || gpsStatus === "disabled"}
-          >
-            {gpsStatus === "active"
+
+          {/* Desktop navigation */}
+          <div className="desktop-actions">
+            <button
+              className="location-button"
+              onClick={showMyLocation}
+              disabled={!mapReady || !!mapError || gpsStatus === "disabled"}
+            >{gpsStatus === "active"
               ? "Location active"
               : gpsStatus === "disabled"
                 ? "Location unavailable"
                 : "Show my location"}
-          </button>
-          <nav className="account-nav" aria-label="Account">
-            {user?.role === "admin" && <button
-            className={adminUnlocked ? "admin-button active" : "admin-button"}
-            type="button"
-            aria-pressed={adminUnlocked}
-            disabled={savingPlace || deletingPlace}
-            onClick={() => {
-              setAdminMode(!adminMode);
-              setPlaceEditorOpen(false);
-              setPlaceToDelete(null);
-              setAdminFeedback("");
-            }}
-          >
-            {adminUnlocked ? "Exit admin mode" : "Admin"}
-          </button>}
+            </button>
+
+            <nav className="account-nav" aria-label="Account">
+              {user?.role === "admin" && <button
+              className={adminUnlocked ? "admin-button active" : "admin-button"}
+              type="button"
+              aria-pressed={adminUnlocked}
+              disabled={savingPlace || deletingPlace}
+              onClick={() => {
+                setAdminMode(!adminMode);
+                setPlaceEditorOpen(false);
+                setPlaceToDelete(null);
+                setAdminFeedback("");
+              }}
+            >
+              {adminUnlocked ? "Exit admin mode" : "Admin mode"}
+            </button>}
+
             {user ? <>
               {user.role === "admin" && <Link className="account-link" href="/admin/reports" prefetch={false}>Reports</Link>}
               <span className="account-email" title={user.username ?? user.email}>{user.username ?? user.email}</span>
@@ -694,8 +700,93 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
               <Link className="account-link" href="/sign-in">Sign in</Link>
               <Link className="account-create" href="/sign-up">Create account</Link>
             </>}
-          </nav>
+
+            </nav>
+          </div>
+
+          {/* Mobile menu button */}
+          <button
+            className="mobile-menu-toggle"
+            type="button"
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileMenuOpen}
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? "✕" : "☰"}
+          </button>
+
+          {/* Overlay */}
+          <div
+            className={`mobile-menu-overlay ${mobileMenuOpen ? "open" : ""}`}
+            onClick={() => setMobileMenuOpen(false)}
+          />
+
+          {/* Right sidebar */}
+          <aside
+            className={`mobile-sidebar ${mobileMenuOpen ? "open" : ""}`}
+            aria-label="Mobile navigation"
+            aria-hidden={!mobileMenuOpen}
+          >
+            <div className="mobile-sidebar-header">
+              <h2>Account</h2>
+              <button
+                type="button"
+                onClick={() => setMobileMenuOpen(false)}
+                aria-label="Close menu"
+              >
+                ✕
+              </button>
+            </div>
+
+            <nav className="mobile-account-nav" aria-label="Mobile account">
+              {user ? <>
+                <span className="account-email" title={user.username ?? user.email}>{user.username ?? user.email}</span>
+              </> : <>
+              </>}
+              {user?.role === "admin" && <button
+                className={adminUnlocked ? "admin-button active" : "admin-button"}
+                type="button"
+                aria-pressed={adminUnlocked}
+                disabled={savingPlace || deletingPlace}
+                onClick={() => {
+                  setMobileMenuOpen(false)
+                  setAdminMode(!adminMode);
+                  setPlaceEditorOpen(false);
+                  setPlaceToDelete(null);
+                  setAdminFeedback("");
+                }}
+              >
+                {adminUnlocked ? "Exit admin mode" : "Admin"}
+              </button>}
+
+              <button
+              className="location-button"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                showMyLocation();
+              }}
+              disabled={!mapReady || !!mapError || gpsStatus === "disabled"}
+            >
+              {gpsStatus === "active"
+              ? "Location active"
+              : gpsStatus === "disabled"
+                ? "Location unavailable"
+                : "Show my location"}
+            </button>
+
+              {user ? <>
+              {user.role === "admin" && <Link className="account-link" href="/admin/reports" prefetch={false}>Reports</Link>}
+              <Link className="account-link sign-out" href="/sign-out" prefetch={false}>Sign out</Link>
+            </> : <>
+              <Link className="account-link" href="/sign-in">Sign in</Link>
+              <Link className="account-create" href="/sign-up">Create account</Link>
+            </>}
+
+            </nav>
+          </aside>
+
         </div>
+
       </header>
       <section className="content-grid">
         <aside className="sidebar" aria-label="Location filters">
