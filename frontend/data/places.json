@@ -757,6 +757,1573 @@
         43.01264806572607
       ]
     }
-    
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-76d71088-ae77-4b08-a13e-a6499dac9b04",
+      "name": "Entrance to Building T",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20186361116437,
+        43.01123272269939
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-057f3c10-5166-405c-90f1-f5e1e53a4707",
+      "name": "Entrance to Building T",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20187581601998,
+        43.01123584581694
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-fd356575-5731-4e6e-9849-169125182f87",
+      "name": "Entrance to Building B",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20199162466604,
+        43.01137351678818
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-d96a30f1-7138-44f2-913b-a100d5de3dd2",
+      "name": "Entrance to Building B",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20215157871002,
+        43.0116781387552
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-160a16f1-3a05-49f2-a9e5-f2f7aede92d6",
+      "name": "Entrance to Building B",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20166060293988,
+        43.01183458224335
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-2a5f9b1d-c8ef-4d77-a1d4-d6a4a7308b46",
+      "name": "Entrance to Building C",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20210367787628,
+        43.011864762178504
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-a3e88b6d-3953-4550-9767-40cbfa0ca16d",
+      "name": "Entrance to Building T",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20146388908913,
+        43.010946613519934
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-88e53488-7d6d-41f6-a588-604b4000e6b1",
+      "name": "Entrance to Building B",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20068358986553,
+        43.01211310533347
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-67f8118f-4f3d-4732-b097-c546091e1f84",
+      "name": "Entrance to Buildings C and D",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20078135924474,
+        43.012492538961084
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-ab51aff7-3407-4793-a1ee-d17f70a9b8b9",
+      "name": "Entrance to Building D",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.2004047161449,
+        43.01244942098484
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-9cb71fd7-02fa-4512-b18c-5306f7b0b0e6",
+      "name": "Entrance to Building C",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.2014482600884,
+        43.01236827108079
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-72d317a9-ade6-473e-afae-bae5a5761608",
+      "name": "Entrance to Building C",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20245529951677,
+        43.012244952243975
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-46607cfe-275a-4bc4-99c7-b1ee1a20db57",
+      "name": "Entrance to Building C",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20227751197058,
+        43.01229659115393
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-764c32fc-a6e8-4f52-b87f-e8f9b24edad1",
+      "name": "Entrance to Building D",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20092156450175,
+        43.01275673888671
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-c458d164-3d46-4878-ac70-0a521710e6a1",
+      "name": "Entrance to Building J",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.2008641454122,
+        43.01294949202307
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-b13246b8-764b-49c2-88c1-151dafbe184d",
+      "name": "Entrance to Building D",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20040995289801,
+        43.012711371628995
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-3bf97953-1839-4787-ad19-c38716d2d8a3",
+      "name": "Entrance to Building B",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20052731335709,
+        43.01127975602233
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-d4ee698a-d4a0-426b-972f-278bc4d0ca7d",
+      "name": "Entrance to Building B",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.1994431058746,
+        43.01161938996043
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-b737e43d-ef04-4c4d-9b9a-a014bf6b9653",
+      "name": "Entrance to Building B",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19951181723043,
+        43.01175179480052
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-d6bf8540-89f4-4a42-8ece-e28c76489acf",
+      "name": "Entrance to Building A",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19799926650744,
+        43.01248423003801
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-a0e44931-d999-4a38-a204-bdd4f2023739",
+      "name": "Entrance to Building A",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19789264577678,
+        43.01216866563061
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-914fd20e-16ab-44ea-ad41-4f143d007ba7",
+      "name": "Entrance to Building A",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19901188512058,
+        43.01219930412992
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-03e2dbf9-13bd-4b38-984a-2107cc469940",
+      "name": "Entrance to Building A",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19880530027174,
+        43.01222458389867
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-aca237aa-78cf-45e3-8d2a-d213e24c5f85",
+      "name": "Entrance to Building A",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19906963996803,
+        43.01199103424662
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-b17e79cd-978a-40c8-82ae-b9d95eb18161",
+      "name": "Entrance to Building A",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19922678813688,
+        43.01195665971511
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-d4508fab-7c01-48bf-b8dc-9d42d7cf1a4a",
+      "name": "Entrance to Building B",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.2000050319033,
+        43.011702513330306
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-a0f33200-918e-4ee6-ab1c-b2f195d2769c",
+      "name": "Entrance to Building A",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19994763541591,
+        43.01195635940397
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-9a0d13db-a90b-42d0-a5c5-d0a02c69aa3a",
+      "name": "Entrance to Building A",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19985098649235,
+        43.01198782706592
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-6e5174ab-1ac3-4d4d-ba08-a0604739a18e",
+      "name": "Entrance to Building A",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19978599902257,
+        43.01218522888371
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-acb5c553-37dc-41aa-a72e-18eca55163e2",
+      "name": "Entrance to Building A",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.1999331133516,
+        43.01223509194901
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-d6f20a63-8fcb-499a-8766-dfe91d00e167",
+      "name": "Entrance to Building A",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20020605243197,
+        43.01241956802244
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-a13d3396-1fe4-4ff6-b1d7-18fa8e0f7be5",
+      "name": "Entrance to Building A",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19982233841719,
+        43.01253386028591
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-58992d92-7d25-4529-9107-0ee36b3d0aef",
+      "name": "Entrance to Building A",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19967265093487,
+        43.01242889846867
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-2622f9dc-76d2-4680-b665-d932e46b6048",
+      "name": "Entrance to Building A",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19946111150783,
+        43.01241740419354
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-a36990e3-4bee-4d0f-9319-2e7e5a88beb9",
+      "name": "Entrance to Building A",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19931939621573,
+        43.01276568667589
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-037064f7-4db6-49ae-ba3a-19d4f8e343df",
+      "name": "Entrance to Building A",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19880440459123,
+        43.012425928403275
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-8c4570bb-e44b-4f42-9224-792a51a1d45e",
+      "name": "Entrance to Building D",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19882317099008,
+        43.01277980063992
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-a3824aa6-6429-42f3-9aac-f56b6e8dd1cb",
+      "name": "Entrance to Building E",
+      "category": "room",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19883099530487,
+        43.01289682691262
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-e3b0e30c-5f6f-4448-9880-689036d9815a",
+      "name": "Entrance to Building F",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19930215061622,
+        43.013081907538805
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-d5f29955-ac53-4123-96be-6b0f90b228ef",
+      "name": "Entrance to Building F",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19945045118509,
+        43.01342811851444
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-869a829f-6f8a-4f59-8cea-783f4316170e",
+      "name": "Entrance to Building SUB",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20046819366014,
+        43.013085049188334
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-70ad09e2-8cf1-4bcf-81b4-fa19508e16ae",
+      "name": "Entrance to Building SUB",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20057706571282,
+        43.01305517214459
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-ea7fb386-8568-4404-acd8-fb3e8dc62610",
+      "name": "Entrance to Building F",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20000265674715,
+        43.01317794396405
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-2b6eb562-7c4e-4f2f-8bf3-b6eb59cb2bc1",
+      "name": "Entrance to Building F",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.1999848605709,
+        43.013148078169536
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-bd91b85b-f34d-4e70-955b-52ceb06b0162",
+      "name": "Entrance to Building L",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20007552593843,
+        43.013177630864504
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-bc649bc2-0ec8-444e-bc10-7e43c44e2128",
+      "name": "Entrance to Building L",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20038188258947,
+        43.01335516219427
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-f26a57a9-af05-479f-b7e6-1be606d847f5",
+      "name": "Entrance to Building L",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20005093354195,
+        43.013448499465625
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-a85fec9c-4e88-4eef-b523-503e77240dc1",
+      "name": "Entrance to Building F",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20003100852921,
+        43.013521423211046
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-c8f2e486-c4cb-48db-a876-945a5b263a7c",
+      "name": "Entrance to Building H",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19961775084793,
+        43.01366236332953
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-ac368ea9-069f-450b-b0ea-054e40f81675",
+      "name": "Entrance to Building H",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19896225396626,
+        43.01385491085813
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-7ad7ac92-e596-4e81-bcb4-013570c57f77",
+      "name": "Entrance to Building H",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19968204859886,
+        43.013749172339374
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-23f64c25-5ed4-41a3-bd00-478361a2a5ec",
+      "name": "Entrance to Building F",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19974271512294,
+        43.01376596805687
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-e2ab68ba-ecc9-4d90-b22c-2ac36eda4e81",
+      "name": "Entrance to Corridor connecting Building G and F",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20018992592888,
+        43.01364502269979
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-48f14a8d-b93d-4549-9403-5550e26cc6ba",
+      "name": "Entrance to Corridor connecting Building G and F",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20017673475272,
+        43.01366683032356
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-51bb1439-fbad-410f-85c2-d04c5c816901",
+      "name": "Entrance to Building J",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20088580049102,
+        43.01323846879819
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-32029bef-4f5f-4160-a879-0c29e20ad3a9",
+      "name": "Entrance to Building G",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20084424520151,
+        43.01358618222304
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-c7ba7ff1-471c-4a90-a381-aeb9130054a0",
+      "name": "Entrance to Building J",
+      "category": "room",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20098091523744,
+        43.013320713690575
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-aee58bfd-2b4b-42cf-a989-0a611c2fbc0b",
+      "name": "Entrance to Building J",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20159846216026,
+        43.01310487068986
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-ba8fa7d6-a399-4b4d-875c-d91fd5912116",
+      "name": "Entrance to Building SC",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20193669741732,
+        43.014081216865065
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-842d04ec-49f0-4cf2-bb02-6b0d0cadbee6",
+      "name": "Entrance to Building SC",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20161567658059,
+        43.01417770667504
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-c11b8f69-9241-44e5-894d-8d1d4bd57159",
+      "name": "Entrance to Building J",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20178261149208,
+        43.01349100548035
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-4e438f9d-b7d6-4ea8-8fd5-9b2fd9c4d7fd",
+      "name": "Entrance to Building J",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20181876861201,
+        43.0135611153824
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-83d787a4-0d2b-4e56-bd0b-6cd28601e89f",
+      "name": "Entrance to Building SC",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20191648944473,
+        43.01373809239945
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-640c80c5-f01a-476a-a104-d1af6c19421f",
+      "name": "Entrance to Building SC",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.2013015168248,
+        43.01391407678213
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-0d07a333-16a5-4b5f-9f94-52158cc7c7b5",
+      "name": "Entrance to Building R2",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20224055678852,
+        43.013618496571695
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-b35857b5-a7f7-4823-925a-2168a8a07e26",
+      "name": "Entrance to Building R1",
+      "category": "room",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.2006253819373,
+        43.013846883391125
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-c80576b6-79cb-4636-beff-b904ddf8ccfb",
+      "name": "Entrance to Building R1",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20099009945858,
+        43.01397572640727
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-cb1c8368-b82b-4575-807e-70e5f6e89bd3",
+      "name": "Entrance to Building R1",
+      "category": "room",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20073270768683,
+        43.0140399413734
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-000b6051-a2cc-4a9b-8abd-cde3be3b10d9",
+      "name": "Entrance to Building R1",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20056145438772,
+        43.014114564825576
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-d6378796-8ba9-4ac5-9809-57ebd1351190",
+      "name": "Entrance to Building R1",
+      "category": "room",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20104182525009,
+        43.01436247550899
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-e68d1ecb-1e0a-4ff4-b910-07bad140b46a",
+      "name": "Entrance to Building R1",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20033826296756,
+        43.01456686154202
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-4d7241ff-033a-4dad-9dd0-b0842d474847",
+      "name": "Entrance to Building K",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20004977600595,
+        43.01440753228658
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-3b34b57f-4303-416d-bd6b-54cd8bccda7c",
+      "name": "Entrance to Building K",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19982654875716,
+        43.014547698698806
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-8eae0fb2-5eaa-4994-96cc-453be1f1b0bf",
+      "name": "Entrance to Building K",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19972780873277,
+        43.01437114833706
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-484140d0-812c-42b5-aea2-39b415e58124",
+      "name": "Entrance to Building K",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19952298652329,
+        43.01456019335396
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-4e856c1f-17d2-4235-96ff-c4497047c287",
+      "name": "Entrance to Building H",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.1992095006195,
+        43.014066757604326
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-9c78b9fd-fd98-4f98-812a-5bb801db0670",
+      "name": "Entrance to Building H",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19931107776334,
+        43.013940725944906
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-14d34d9f-7302-4074-ab55-8d8ca0c2dde9",
+      "name": "Entrance to Building H",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19922360151122,
+        43.01436097918415
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-f7006567-1f71-4242-aaef-83faaa67138f",
+      "name": "Entrance to Corridor connecting Building H and M",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19874950399036,
+        43.01397375653343
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-ab7354a0-0f40-4069-8574-2e08075d04c4",
+      "name": "Entrance to Corridor connecting Building H and M",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19876118109325,
+        43.01400724083459
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-d5124e6d-d07e-4d32-baba-b9b63bd2ed4d",
+      "name": "Entrance to Building",
+      "category": "room",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19864686891137,
+        43.01406354577145
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-344336f5-2368-4105-97e0-f2b1879d0918",
+      "name": "Entrance to Building M",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19850226306893,
+        43.01396805307439
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-8ed183cf-cb0e-4fb6-b84c-c9d2965b7fad",
+      "name": "Entrance to Building M",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19831176254426,
+        43.014367140821804
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-4d7187d5-a548-417b-86bd-0f91c57347c8",
+      "name": "Entrance to Building M",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19892216284897,
+        43.014616651861644
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-aabe7938-be21-4b91-8a61-128ce782251c",
+      "name": "Entrance to Building E",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.1984078676648,
+        43.013069804184255
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-d9e4bb38-dc71-4d29-9f70-6b3bc2c4e338",
+      "name": "Entrance to Building E",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19898923646063,
+        43.0130819065796
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-7b5b723e-d6ad-4884-8257-1f65585be5b0",
+      "name": "Entrance to Building E",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19868785988096,
+        43.01316826077016
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-af0f123f-235b-42dd-aacd-ebed3de7f695",
+      "name": "Entrance to Building B",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.2013185136775,
+        43.01145941380841
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-1bb1477b-b138-4505-8637-89165127bff3",
+      "name": "Entrance to Building R2",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.203275510563,
+        43.01372343690625
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-b2aafe64-8c97-44fc-9a0d-39c5c1279627",
+      "name": "Entrance to Building R2",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20257550264655,
+        43.01392557483328
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-def4d919-1773-4e85-9c4f-c7dc27085083",
+      "name": "Entrance to Building R2",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20239359412552,
+        43.013353847261016
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-86d43c49-a7cc-4ede-ac6a-b49b47c30635",
+      "name": "Entrance to Building R2",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.2023643494603,
+        43.013384516559285
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-2e242c14-83d5-4052-b607-85b5a8fcfb06",
+      "name": "Entrance to Corridor connecting Building G and R1",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20054978891899,
+        43.01383468814001
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-77bcc068-ca0b-441d-975e-30c6f9b6c609",
+      "name": "Entrance to Corridor connecting Building G and R1",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20051752682184,
+        43.01384660036271
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-c3169524-fa27-4f63-84cb-651e0468061f",
+      "name": "Entrance to Building R3",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20149161586899,
+        43.0149664869291
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-e6f5f4cf-7430-4ffb-8144-7675862c16bd",
+      "name": "Entrance to Building R3",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20119523955283,
+        43.01468100701234
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-36c330f6-3ecf-4fbd-9ae8-2ac340f9447f",
+      "name": "Entrance to Building R3",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20049880698015,
+        43.01488053693839
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-aba1f23c-a0a6-4ea2-86ed-62162fc2fcc1",
+      "name": "Parking Lot 8",
+      "category": "parking",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20062989911054,
+        43.0153127499581
+      ]
+    }
   }
 ]

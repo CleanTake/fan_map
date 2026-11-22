@@ -146,22 +146,6 @@
   {
     "type": "Feature",
     "properties": {
-      "id": "place-4d775983-73e7-43cd-a707-33d3f0c43080",
-      "name": "Parking Lot 1",
-      "category": "parking",
-      "description": "Assigned Permit \n(primarily staff/faculty or special approval) \n$95/mo, $334/term, $750/yr"
-    },
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -81.20280601050897,
-        43.01188480913626
-      ]
-    }
-  },
-  {
-    "type": "Feature",
-    "properties": {
       "id": "place-437b38fa-c46d-49d2-9426-04669a8bd095",
       "name": "Parking Lot 5",
       "category": "parking",
@@ -220,6 +204,326 @@
       "coordinates": [
         -81.19767855688256,
         43.01264806572607
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-4d775983-73e7-43cd-a707-33d3f0c43080",
+      "name": "Parking Lot 1",
+      "category": "parking",
+      "description": "Assigned Permit (primarily staff/faculty or special approval) $95/mo, $334/term, $750/yr"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20280601050897,
+        43.01188480913626
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-a36990e3-4bee-4d0f-9319-2e7e5a88beb9",
+      "name": "Entrance to Building D",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19931939621573,
+        43.01276568667589
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-914fd20e-16ab-44ea-ad41-4f143d007ba7",
+      "name": "Entrance to Building D",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19901188512058,
+        43.01219930412992
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-aca237aa-78cf-45e3-8d2a-d213e24c5f85",
+      "name": "Entrance to Building D",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19906963996803,
+        43.01199103424662
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-b17e79cd-978a-40c8-82ae-b9d95eb18161",
+      "name": "Entrance to Building D",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19922678813688,
+        43.01195665971511
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-2622f9dc-76d2-4680-b665-d932e46b6048",
+      "name": "Entrance to Building D",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19946111150783,
+        43.01241740419354
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-58992d92-7d25-4529-9107-0ee36b3d0aef",
+      "name": "Entrance to Building D",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19967265093487,
+        43.01242889846867
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-a13d3396-1fe4-4ff6-b1d7-18fa8e0f7be5",
+      "name": "Entrance to Building D",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19982233841719,
+        43.01253386028591
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-d6f20a63-8fcb-499a-8766-dfe91d00e167",
+      "name": "Entrance to Building D",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20020605243197,
+        43.01241956802244
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-acb5c553-37dc-41aa-a72e-18eca55163e2",
+      "name": "Entrance to Building D",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.1999331133516,
+        43.01223509194901
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-6e5174ab-1ac3-4d4d-ba08-a0604739a18e",
+      "name": "Entrance to Building D",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19978599902257,
+        43.01218522888371
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-9a0d13db-a90b-42d0-a5c5-d0a02c69aa3a",
+      "name": "Entrance to Building D",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19985098649235,
+        43.01198782706592
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-a0f33200-918e-4ee6-ab1c-b2f195d2769c",
+      "name": "Entrance to Building D",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19994763541591,
+        43.01195635940397
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-a3824aa6-6429-42f3-9aac-f56b6e8dd1cb",
+      "name": "Entrance to Building E",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19883099530487,
+        43.01289682691262
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-c7ba7ff1-471c-4a90-a381-aeb9130054a0",
+      "name": "Entrance to Building J",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20098091523744,
+        43.013320713690575
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-b35857b5-a7f7-4823-925a-2168a8a07e26",
+      "name": "Entrance to Building R1",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.2006253819373,
+        43.013846883391125
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-cb1c8368-b82b-4575-807e-70e5f6e89bd3",
+      "name": "Entrance to Building R1",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20073270768683,
+        43.0140399413734
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-d6378796-8ba9-4ac5-9809-57ebd1351190",
+      "name": "Entrance to Building R1",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20104182525009,
+        43.01436247550899
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-d5124e6d-d07e-4d32-baba-b9b63bd2ed4d",
+      "name": "Entrance to Building M",
+      "category": "entrance",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19864686891137,
+        43.01406354577145
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-aba1f23c-a0a6-4ea2-86ed-62162fc2fcc1",
+      "name": "Parking Lot 8",
+      "category": "parking",
+      "description": "Assigned Permit (primarily staff/faculty or special approval) $95/mo, $334/term, $750/yr"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20062989911054,
+        43.0153127499581
       ]
     }
   }
