@@ -641,11 +641,13 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
     if (!selectedLocation || !map.current) return;
 
     const [lng, lat] = selectedLocation.geometry.coordinates;
+    const isMobile = window.innerWidth <= 768;
 
     map.current.flyTo({
       center: [lng, lat],
       zoom: 17,
-      duration: 1000,
+      offset: isMobile ? [0, -100] : [0, 0],
+      duration: 800,
       essential: true,
     });
   }, [selectedLocation]);
@@ -931,9 +933,23 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
             )}
           </div>
         </section>
-        <aside className="details-panel" aria-label="Location details" aria-live="polite">
-          {selectedLocation ? (
-            <>
+
+        <div className={`map-details-overlay ${selectedLocation ? "is-visible" : ""}`}>
+            <aside
+              className="details-panel"
+              aria-label="Location details"
+              aria-live="polite"
+            >
+              {selectedLocation ? (
+                <>
+                  <button
+                    className="details-close"
+                    onClick={() => setSelectedLocation(null)}
+                    aria-label="Close location details"
+                  >
+                    ×
+                  </button>
+
               <p className="eyebrow">{selectedLocation.properties.category}</p>
               <h2>{selectedLocation.properties.name}</h2>
               <p>{selectedLocation.properties.description}</p>
@@ -1004,13 +1020,14 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
                   ))}
                 </div>
               )}
-            </>
-          ) : (
-            <p className="sidebar-intro">
-              Click a location on the map or select one from the list to see more details.
-            </p>
-          )}
-        </aside>
+              </>
+            ) : (
+              <p className="sidebar-intro">
+                Click a location on the map or select one from the list to see more details.
+              </p>
+            )}
+          </aside>
+        </div>
       </section>
     </main>
   );
