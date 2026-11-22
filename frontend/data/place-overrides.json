@@ -82,22 +82,6 @@
   {
     "type": "Feature",
     "properties": {
-      "id": "place-0676eac0-54f7-47e6-9d63-b5106b1f1b0b",
-      "name": "Building A",
-      "category": "building",
-      "description": ""
-    },
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -81.201490288416,
-        43.01347095538543
-      ]
-    }
-  },
-  {
-    "type": "Feature",
-    "properties": {
       "id": "place-886b658a-c24c-41d7-a235-f2c9036d3246",
       "name": "Entrance to Building B",
       "category": "entrance",
@@ -620,6 +604,38 @@
       "coordinates": [
         -81.20220712853964,
         43.01276951267366
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-0676eac0-54f7-47e6-9d63-b5106b1f1b0b",
+      "name": "Building J",
+      "category": "building",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.201490288416,
+        43.01347095538543
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-f9980377-94ac-4003-bbe1-199912fb8fc4",
+      "name": "Building B",
+      "category": "building",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20092251560749,
+        43.011699396931334
       ]
     }
   }

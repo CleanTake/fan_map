@@ -2661,5 +2661,293 @@
         43.01220469233971
       ]
     }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-2a216a5f-626c-4cdf-ac79-683ea474fc4f",
+      "name": "Parking P1",
+      "category": "parking",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19877819393493,
+        43.01338018408896
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-88bd116f-946c-48f3-b203-4d8dc4537f57",
+      "name": "Building C",
+      "category": "building",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20173610833973,
+        43.01214987303601
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-60f67074-70b7-48e8-8058-c25f1ea13848",
+      "name": "Building T",
+      "category": "building",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20150930550977,
+        43.011143593785135
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-f9980377-94ac-4003-bbe1-199912fb8fc4",
+      "name": "Building B",
+      "category": "room",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20092251560749,
+        43.011699396931334
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-3237acf6-3497-4a25-a49a-668c64f0ddf3",
+      "name": "Building A",
+      "category": "building",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.1983755912378,
+        43.012343984997045
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-78987c44-9ff8-4864-a57a-7458f895efbe",
+      "name": "Building D",
+      "category": "building",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19961980486275,
+        43.01262439982327
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-1915a323-e60a-4e5d-a7dd-294919e0a26c",
+      "name": "Building E",
+      "category": "building",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19878236669929,
+        43.01303618419098
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-513cc8bb-a1f4-46eb-bef1-de719869054a",
+      "name": "Building F",
+      "category": "building",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19973064601986,
+        43.01335208405601
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-c06ab91e-84b5-4fe2-8600-bd344e4ea85e",
+      "name": "Building L",
+      "category": "building",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20016409874714,
+        43.01328985991327
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-e62f165b-7009-4d16-bfd5-387ffd315589",
+      "name": "Building SUB",
+      "category": "building",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20060116504669,
+        43.013175124365176
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-be1b17e0-db64-4bfa-b90e-f81dc75dc0ac",
+      "name": "Building SC",
+      "category": "building",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20169030711969,
+        43.01398760884277
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-5540f304-9547-40de-a706-df4dc392ea0b",
+      "name": "Building R2",
+      "category": "building",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20245735349975,
+        43.013716165656746
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-9a033e4c-ee53-42c1-8323-dd5f6aa3dabb",
+      "name": "Building R3",
+      "category": "building",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20121668859066,
+        43.014821364244085
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-86c5e0f1-b92e-4137-8cb3-b6582b314b7b",
+      "name": "Building R1",
+      "category": "building",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.2003656361921,
+        43.014018692835066
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-0208c44d-b181-4fec-8214-12e1c04c8de9",
+      "name": "Building G",
+      "category": "building",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20059948449706,
+        43.013693244389884
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-cceaf25e-b10a-4b91-9187-6ace60fb9660",
+      "name": "Building K",
+      "category": "building",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19977123252839,
+        43.014459930171796
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-777a5942-c4c4-4dc8-ad48-030f209e2b43",
+      "name": "Building H",
+      "category": "building",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19914138722167,
+        43.01394880776357
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "place-f5139bd5-4f79-4e60-a1d5-b0a3bed8367b",
+      "name": "Building M",
+      "category": "building",
+      "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19856397728812,
+        43.01436244165856
+      ]
+    }
   }
 ]
