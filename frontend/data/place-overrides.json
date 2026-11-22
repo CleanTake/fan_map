@@ -85,13 +85,21 @@
       "id": "place-0676eac0-54f7-47e6-9d63-b5106b1f1b0b",
       "name": "Building A",
       "category": "building",
-      "description": ""
+      "description": "A Building. Position aligned from the supplied campus plan; ground-floor directions use its main corridor.",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "schematic-position",
+      "navigationCoordinates": [
+        -81.19849777982598,
+        43.01231794042769
+      ]
     },
     "geometry": {
       "type": "Point",
       "coordinates": [
-        -81.201490288416,
-        43.01347095538543
+        -81.19834499536896,
+        43.01229226248759
       ]
     }
   },
@@ -124,6 +132,182 @@
       "coordinates": [
         -81.19815236757539,
         43.01198966452398
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "lot-5",
+      "name": "Parking Lot 5",
+      "category": "parking",
+      "description": "Parking Lot 5, positioned from the supplied campus plan. Walking routes use the nearest mapped pedestrian access.",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "schematic-position",
+      "navigationCoordinates": [
+        -81.20464943819869,
+        43.012191508398345
+      ]
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20476017587437,
+        43.01239968855548
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20143270946049,
+        43.01346757470938
+      ]
+    },
+    "properties": {
+      "id": "gym-1-2",
+      "name": "Gym 1 & 2",
+      "category": "gym",
+      "catalogCategory": "health_wellness",
+      "description": "Gym 1 & 2 — Room J1015, J Building (Student Wellness Centre), Floor 1 Gym 1 & 2 area labelled in Building J on the supplied plan.",
+      "groups": [
+        "health"
+      ],
+      "launchLabels": [
+        "Gyms"
+      ],
+      "status": "open",
+      "resolutionStatus": "reference-map-landmark",
+      "roomCode": "J1015",
+      "buildingCode": "J",
+      "floor": 1,
+      "sourceIds": [
+        "campus-map",
+        "user-campus-plan"
+      ],
+      "aliases": [
+        "Glenn Johnston Athletics Centre"
+      ],
+      "navigationCoordinates": [
+        -81.20123993191125,
+        43.01352363964337
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20156190341547,
+        43.01371044644434
+      ]
+    },
+    "properties": {
+      "id": "gym-3",
+      "name": "Gym 3",
+      "category": "gym",
+      "catalogCategory": "health_wellness",
+      "description": "Gym 3 — Room J1032, J Building (Student Wellness Centre), Floor 1 Gym 3 area labelled on the supplied plan.",
+      "groups": [
+        "health"
+      ],
+      "launchLabels": [
+        "Gyms"
+      ],
+      "status": "open",
+      "resolutionStatus": "reference-map-landmark",
+      "roomCode": "J1032",
+      "buildingCode": "J",
+      "floor": 1,
+      "sourceIds": [
+        "campus-map",
+        "user-campus-plan"
+      ],
+      "navigationCoordinates": [
+        -81.20136912586621,
+        43.01376651115662
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19862593347504,
+        43.01308195179153
+      ]
+    },
+    "properties": {
+      "id": "office-of-the-registrar",
+      "name": "Office of the Registrar",
+      "category": "service",
+      "catalogCategory": "student_services",
+      "description": "Office of the Registrar — Room E1012, E Building, Floor 1 Registrar area labelled on the supplied plan; the marker identifies the office area, not its exact room doorway.",
+      "groups": [
+        "admissions"
+      ],
+      "launchLabels": [
+        "Office of Registrar"
+      ],
+      "status": "open",
+      "resolutionStatus": "reference-map-landmark",
+      "roomCode": "E1012",
+      "buildingCode": "E",
+      "floor": 1,
+      "sourceIds": [
+        "campus-map",
+        "user-campus-plan"
+      ],
+      "navigationCoordinates": [
+        -81.19882050463696,
+        43.01305541274261
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20059497551958,
+        43.012729647442015
+      ]
+    },
+    "properties": {
+      "id": "security-control-centre",
+      "name": "Security Control Centre & Lost and Found",
+      "category": "service",
+      "catalogCategory": "student_services",
+      "description": "Security Control Centre & Lost and Found — Room D1027, D Building, Floor 1 Security Control Centre area labelled on the supplied plan; its exact room doorway remains approximate.",
+      "groups": [
+        "student-services"
+      ],
+      "launchLabels": [
+        "Campus security"
+      ],
+      "status": "open",
+      "resolutionStatus": "reference-map-landmark",
+      "roomCode": "D1027",
+      "buildingCode": "D",
+      "floor": 1,
+      "sourceIds": [
+        "campus-map",
+        "std03",
+        "campus-security",
+        "user-campus-plan"
+      ],
+      "aliases": [
+        "Campus Security"
+      ],
+      "navigationCoordinates": [
+        -81.20046449464355,
+        43.01266743500593
       ]
     }
   }

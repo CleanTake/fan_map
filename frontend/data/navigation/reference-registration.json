@@ -1,0 +1,212 @@
+{
+  "version": 1,
+  "status": "approximate-schematic-registration",
+  "imageUrl": "/navigation/campus-reference.png",
+  "imageSha256": "c8a885dc113467f41d2fad3429d3ec58b404c6b3e436258ae320e586be79dac8",
+  "imageSize": [
+    830,
+    521
+  ],
+  "projection": "EPSG:3857",
+  "mercatorOrigin": [
+    -9039142.652413813,
+    5313950.788880378
+  ],
+  "pixelToMercator": [
+    [
+      1.3412436637631788,
+      0.5136359028913675,
+      -805.2760926056541
+    ],
+    [
+      0.5334706046203465,
+      -1.3205619079031514,
+      146.74616792019154
+    ]
+  ],
+  "controlPoints": [
+    {
+      "label": "C southwest",
+      "footprint": "building_c.geojson",
+      "vertex": 8,
+      "pixel": [
+        249,
+        358
+      ],
+      "coordinates": [
+        -81.2025694,
+        43.0117298
+      ],
+      "role": "fit",
+      "errorMetres": 1.03
+    },
+    {
+      "label": "C southeast",
+      "footprint": "building_c.geojson",
+      "vertex": 11,
+      "pixel": [
+        407,
+        358
+      ],
+      "coordinates": [
+        -81.2007028,
+        43.0122873
+      ],
+      "role": "check",
+      "errorMetres": 2.01
+    },
+    {
+      "label": "M northeast",
+      "footprint": "building_m.geojson",
+      "vertex": 23,
+      "pixel": [
+        648,
+        169
+      ],
+      "coordinates": [
+        -81.1986119,
+        43.0147666
+      ],
+      "role": "fit",
+      "errorMetres": 2.84
+    },
+    {
+      "label": "M northwest",
+      "footprint": "building_m.geojson",
+      "vertex": 24,
+      "pixel": [
+        635,
+        169
+      ],
+      "coordinates": [
+        -81.1989309,
+        43.0146772
+      ],
+      "role": "check",
+      "errorMetres": 11.57
+    },
+    {
+      "label": "M southeast",
+      "footprint": "building_m.geojson",
+      "vertex": 14,
+      "pixel": [
+        658,
+        250
+      ],
+      "coordinates": [
+        -81.1982353,
+        43.0140674
+      ],
+      "role": "check",
+      "errorMetres": 7.72
+    },
+    {
+      "label": "A northeast",
+      "footprint": "building_a.geojson",
+      "vertex": 0,
+      "pixel": [
+        579,
+        352
+      ],
+      "coordinates": [
+        -81.1986023,
+        43.0129534
+      ],
+      "role": "fit",
+      "errorMetres": 2.98
+    },
+    {
+      "label": "A southwest",
+      "footprint": "building_a.geojson",
+      "vertex": 14,
+      "pixel": [
+        551,
+        460
+      ],
+      "coordinates": [
+        -81.198523,
+        43.0118938
+      ],
+      "role": "fit",
+      "errorMetres": 4.27
+    },
+    {
+      "label": "SC northeast",
+      "footprint": "building_student_center_building.geojson",
+      "vertex": 20,
+      "pixel": [
+        428,
+        143
+      ],
+      "coordinates": [
+        -81.2014657,
+        43.0142205
+      ],
+      "role": "fit",
+      "errorMetres": 3.95
+    },
+    {
+      "label": "SC southwest",
+      "footprint": "building_student_center_building.geojson",
+      "vertex": 45,
+      "pixel": [
+        374,
+        177
+      ],
+      "coordinates": [
+        -81.2019055,
+        43.0137224
+      ],
+      "role": "check",
+      "errorMetres": 1.91
+    },
+    {
+      "label": "T west tip",
+      "footprint": "building_t.geojson",
+      "vertex": 10,
+      "pixel": [
+        232,
+        432
+      ],
+      "coordinates": [
+        -81.2024253,
+        43.0110325
+      ],
+      "role": "fit",
+      "errorMetres": 1.66
+    },
+    {
+      "label": "T northeast",
+      "footprint": "building_t.geojson",
+      "vertex": 1,
+      "pixel": [
+        350,
+        432
+      ],
+      "coordinates": [
+        -81.2010374,
+        43.0114286
+      ],
+      "role": "check",
+      "errorMetres": 1.97
+    },
+    {
+      "label": "T southeast",
+      "footprint": "building_t.geojson",
+      "vertex": 30,
+      "pixel": [
+        350,
+        466
+      ],
+      "coordinates": [
+        -81.2009355,
+        43.0111144
+      ],
+      "role": "check",
+      "errorMetres": 6.74
+    }
+  ],
+  "checkRmsMetres": 6.46,
+  "checkMaxMetres": 11.57,
+  "note": "Schematic alignment from manually matched corners, not a survey. Checkpoint errors measure fit to existing footprints, not absolute accuracy. Ground-floor connectivity follows the user's Q1-Q5 confirmations; doorway coordinates remain approximate."
+}

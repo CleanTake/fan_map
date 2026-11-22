@@ -557,6 +557,18 @@
       "name": "Taxi waiting",
       "category": "parking",
       "description": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19927454759652,
+        43.01163473962427
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
       "id": "place-c8a1fe14-8f61-4134-93ac-ba8e78b905e7",
       "name": "Mend",
       "category": "room",
@@ -565,10 +577,1309 @@
     "geometry": {
       "type": "Point",
       "coordinates": [
-        -81.19927454759652,
-        43.01163473962427
         -81.19851910278253,
         43.01197132138191
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "lot-1",
+      "name": "Parking Lot 1",
+      "category": "parking",
+      "description": "Assigned parking as labelled on the campus reference map. Pedestrian access connections are awaiting review.",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "schematic-position",
+      "navigationStatus": "pending-access-review"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20283268738096,
+        43.01188854185513
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "lot-2",
+      "name": "Parking Lot 2 (Assigned)",
+      "category": "parking",
+      "description": "Assigned parking. Designation confirmed by the user. Pedestrian access connections are awaiting review.",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "schematic-position",
+      "navigationStatus": "pending-access-review"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20127355770508,
+        43.011991425102124
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "lot-3",
+      "name": "Parking Lot 3",
+      "category": "parking",
+      "description": "Assigned parking as labelled on the campus reference map. Pedestrian access connections are awaiting review.",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "schematic-position",
+      "navigationStatus": "pending-access-review"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.2023899563706,
+        43.01233781894772
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "lot-4",
+      "name": "Parking Lot 4 (Assigned)",
+      "category": "parking",
+      "description": "Assigned parking. Designation confirmed by the user. Pedestrian access connections are awaiting review.",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "schematic-position",
+      "navigationStatus": "pending-access-review"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.2028101102621,
+        43.01252612298184
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "lot-6",
+      "name": "Parking Lot 6 (Assigned)",
+      "category": "parking",
+      "description": "Assigned parking. Designation confirmed by the user. Pedestrian access connections are awaiting review.",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "schematic-position",
+      "navigationStatus": "pending-access-review"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.2036122185655,
+        43.013013998737286
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "lot-7",
+      "name": "Parking Lot 7 (Assigned)",
+      "category": "parking",
+      "description": "Assigned parking. Designation confirmed by the user. Pedestrian access connections are awaiting review.",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "schematic-position",
+      "navigationStatus": "pending-access-review"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20375010704578,
+        43.01400553452697
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "lot-7-east",
+      "name": "Parking Lot 7 (east section, Metered)",
+      "category": "parking",
+      "description": "Metered parking. Designation confirmed by the user. Pedestrian access connections are awaiting review.",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "schematic-position",
+      "navigationStatus": "pending-access-review"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20272597631532,
+        43.014303376293476
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "lot-8",
+      "name": "Parking Lot 8",
+      "category": "parking",
+      "description": "General parking as labelled on the campus reference map. Pedestrian access connections are awaiting review.",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "schematic-position",
+      "navigationStatus": "pending-access-review"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20029522682822,
+        43.01533079079641
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "lot-9",
+      "name": "Parking Lot 9 (Assigned)",
+      "category": "parking",
+      "description": "Assigned parking. Designation confirmed by the user. Pedestrian access connections are awaiting review.",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "schematic-position",
+      "navigationStatus": "pending-access-review"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.1979045108174,
+        43.01486424352379
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "lot-10",
+      "name": "Parking Lot 10 (Reserved)",
+      "category": "parking",
+      "description": "Reserved parking. Designation confirmed by the user. Pedestrian access connections are awaiting review.",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "schematic-position",
+      "navigationStatus": "pending-access-review"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.1968871016913,
+        43.013187015790585
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "lot-11",
+      "name": "Parking Lot 11 (Assigned)",
+      "category": "parking",
+      "description": "Assigned parking. Designation confirmed by the user. Pedestrian access connections are awaiting review.",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "schematic-position",
+      "navigationStatus": "pending-access-review"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19762284632732,
+        43.012582415194764
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-building-b",
+      "name": "Building B",
+      "category": "building",
+      "description": "Building B labelled on the supplied campus reference map.",
+      "buildingCode": "B",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark",
+      "navigationCoordinates": [
+        -81.20100618827063,
+        43.01182879757319
+      ]
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20092774908369,
+        43.011681335330735
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-building-c",
+      "name": "Building C",
+      "category": "building",
+      "description": "Building C labelled on the supplied campus reference map.",
+      "buildingCode": "C",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark",
+      "navigationCoordinates": [
+        -81.20159270875214,
+        43.01219908907331
+      ]
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.2015834806125,
+        43.01218174069717
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-building-d",
+      "name": "Building D",
+      "category": "building",
+      "description": "Building D labelled on the supplied campus reference map.",
+      "buildingCode": "D",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark",
+      "navigationCoordinates": [
+        -81.19982361870741,
+        43.01261343673308
+      ]
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19987437347542,
+        43.01270885207052
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-building-e",
+      "name": "Building E",
+      "category": "building",
+      "description": "Building E labelled on the supplied campus reference map.",
+      "buildingCode": "E",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark",
+      "navigationCoordinates": [
+        -81.19906147657352,
+        43.0129853310328
+      ]
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19905224843389,
+        43.01296798287875
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-building-f",
+      "name": "Building F",
+      "category": "building",
+      "description": "Building F labelled on the supplied campus reference map.",
+      "buildingCode": "F",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark",
+      "navigationCoordinates": [
+        -81.19940113758896,
+        43.013126931026406
+      ]
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19954572075092,
+        43.01308488205909
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-building-g",
+      "name": "Building G",
+      "category": "building",
+      "description": "Building G labelled on the supplied campus reference map.",
+      "buildingCode": "G",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark",
+      "navigationCoordinates": [
+        -81.20067006063502,
+        43.01362927810879
+      ]
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.2006423762161,
+        43.01357723417765
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-building-h",
+      "name": "Building H",
+      "category": "building",
+      "description": "Building H labelled on the supplied campus reference map.",
+      "buildingCode": "H",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark",
+      "navigationCoordinates": [
+        -81.19900864119367,
+        43.01393217628252
+      ]
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.1990640100315,
+        43.014036263499094
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-building-j",
+      "name": "Building J",
+      "category": "building",
+      "description": "Building J labelled on the supplied campus reference map.",
+      "buildingCode": "J",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark",
+      "navigationCoordinates": [
+        -81.20124916005088,
+        43.01354098764046
+      ]
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20145398619697,
+        43.01348141866322
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-building-k",
+      "name": "Building K",
+      "category": "building",
+      "description": "Building K labelled on the supplied campus reference map.",
+      "buildingCode": "K",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark",
+      "navigationCoordinates": [
+        -81.19964694328776,
+        43.014347490398144
+      ]
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19968282900176,
+        43.014467258785174
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-building-l",
+      "name": "Forwell Hall (Building L)",
+      "category": "building",
+      "description": "Forwell Hall (Building L) labelled on the supplied campus reference map.",
+      "buildingCode": "L",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark",
+      "navigationCoordinates": [
+        -81.20012994092818,
+        43.01321545274546
+      ]
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20016685348675,
+        43.013284845052624
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-building-m",
+      "name": "Building M",
+      "category": "building",
+      "description": "Building M labelled on the supplied campus reference map.",
+      "buildingCode": "M",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark",
+      "navigationCoordinates": [
+        -81.1985428398342,
+        43.01433806901673
+      ]
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19852130302127,
+        43.014454505700286
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-building-n",
+      "name": "Building N",
+      "category": "building",
+      "description": "Building N labelled on the supplied campus reference map. Walking access is awaiting review.",
+      "buildingCode": "N",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark",
+      "navigationStatus": "pending-access-review"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19878148454383,
+        43.01496976577146
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-residence-r1",
+      "name": "Falcon House Residence (R1)",
+      "category": "building",
+      "description": "Falcon House Residence (R1) labelled on the supplied campus reference map.",
+      "buildingCode": "R1",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark",
+      "navigationCoordinates": [
+        -81.20086282472292,
+        43.01404396209804
+      ]
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20064722343966,
+        43.014397121730106
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-residence-r2",
+      "name": "Peregrine House Residence (R2)",
+      "category": "building",
+      "description": "Peregrine House Residence (R2) labelled on the supplied campus reference map.",
+      "buildingCode": "R2",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark",
+      "navigationCoordinates": [
+        -81.2023568507297,
+        43.01360946120219
+      ]
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20281597086887,
+        43.01376639724268
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-residence-r3",
+      "name": "Merlin House Residence (R3)",
+      "category": "building",
+      "description": "Merlin House Residence (R3) labelled on the supplied campus reference map. Walking access is awaiting review.",
+      "buildingCode": "R3",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark",
+      "navigationStatus": "pending-access-review"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20091407272116,
+        43.014820302071016
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-student-centre",
+      "name": "Student Centre (SC)",
+      "category": "building",
+      "description": "Student Centre (SC) labelled on the supplied campus reference map.",
+      "buildingCode": "SC",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark",
+      "navigationCoordinates": [
+        -81.20180876288154,
+        43.013939128805
+      ]
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20166417971961,
+        43.01398117718743
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-student-union-building",
+      "name": "Student Union Building (SUB)",
+      "category": "building",
+      "description": "Student Union Building (SUB) labelled on the supplied campus reference map.",
+      "buildingCode": "SUB",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark",
+      "navigationCoordinates": [
+        -81.200563690414,
+        43.01308930593897
+      ]
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20060060297257,
+        43.01315869838868
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-building-t",
+      "name": "Building T",
+      "category": "building",
+      "description": "Building T labelled on the supplied campus reference map.",
+      "buildingCode": "T",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark",
+      "navigationCoordinates": [
+        -81.2014661021006,
+        43.01112411269078
+      ]
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20149840058933,
+        43.01118483303145
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-building-u",
+      "name": "Building U",
+      "category": "building",
+      "description": "Building U labelled on the supplied campus reference map. Walking access is awaiting review.",
+      "buildingCode": "U",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark",
+      "navigationStatus": "pending-access-review"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20585453103534,
+        43.0126523307287
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-student-wellness-centre",
+      "name": "Student Wellness Centre",
+      "category": "service",
+      "description": "Student Wellness Centre labelled on the supplied campus reference map.",
+      "buildingCode": "J",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark",
+      "navigationCoordinates": [
+        -81.20109228167699,
+        43.01324607102356
+      ]
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.2011548384267,
+        43.01299751060766
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-colvin-atrium",
+      "name": "James A. Colvin Atrium",
+      "category": "room",
+      "description": "James A. Colvin Atrium labelled on the supplied campus reference map.",
+      "buildingCode": "B",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark",
+      "navigationCoordinates": [
+        -81.20067678223938,
+        43.01165416347715
+      ]
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20084546259498,
+        43.01160510516939
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-alumni-lecture-theatre",
+      "name": "Alumni Lecture Theatre",
+      "category": "room",
+      "description": "Alumni Lecture Theatre labelled on the supplied campus reference map.",
+      "buildingCode": "D",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark",
+      "navigationCoordinates": [
+        -81.19914840405475,
+        43.01212871735552
+      ]
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19907329201659,
+        43.01217059468936
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-parking-office-map-label",
+      "name": "Parking Office (D1018 map label)",
+      "category": "service",
+      "description": "The supplied plan labels Parking Office D1018 here. The existing current catalog lists FANCard, Parking and Lockers at E2020; that separate record is retained. Current use of this map-labelled office needs confirmation. Walking access is awaiting review.",
+      "buildingCode": "D",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark",
+      "navigationStatus": "pending-access-review"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20050730819298,
+        43.01256483909458
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-parking-information-booth",
+      "name": "Parking and Information Booth",
+      "category": "service",
+      "description": "Position follows the callout arrow at the main entrance, rather than the large question-mark label.",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19749949951775,
+        43.01405056580387
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-washrooms-lot-4",
+      "name": "Washrooms near Parking Lot 4",
+      "category": "service",
+      "description": "Washroom landmark shown beside Lot 4 on the reference plan.",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20237662085273,
+        43.01252198667757
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-main-gate",
+      "name": "Main Campus Entrance",
+      "category": "entrance",
+      "description": "Main campus road entrance marked on the east side of the supplied plan.",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19694808452081,
+        43.01419089899479
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-cheapside-gate",
+      "name": "Cheapside Street Entrance",
+      "category": "entrance",
+      "description": "Cheapside Street Entrance labelled on the supplied campus reference map.",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20654434120416,
+        43.013713724075046
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-oxford-gate",
+      "name": "Oxford Street Entrance",
+      "category": "entrance",
+      "description": "Oxford Street Entrance labelled on the supplied campus reference map.",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20207854031113,
+        43.01057538711948
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-entrance-f",
+      "name": "Entrance to Building F",
+      "category": "entrance",
+      "description": "Entrance approach connected in the user's reviewed ground-floor network.",
+      "buildingCode": "F",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark",
+      "navigationCoordinates": [
+        -81.19935379111746,
+        43.01345639337478
+      ]
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19935379111746,
+        43.01345639337478
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-entrance-m",
+      "name": "Entrance to Building M",
+      "category": "entrance",
+      "description": "Entrance approach connected in the user's reviewed ground-floor network.",
+      "buildingCode": "M",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark",
+      "navigationCoordinates": [
+        -81.19825367351031,
+        43.01442216520649
+      ]
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19825367351031,
+        43.01442216520649
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-meter-p1",
+      "name": "Metered Parking P1",
+      "category": "parking",
+      "description": "Metered Parking P1 labelled on the supplied campus reference map. Walking access is awaiting review.",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark",
+      "navigationStatus": "pending-access-review"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19887920062357,
+        43.01334883666895
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-meter-p2",
+      "name": "Metered Parking P2",
+      "category": "parking",
+      "description": "Metered Parking P2 labelled on the supplied campus reference map. Walking access is awaiting review.",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark",
+      "navigationStatus": "pending-access-review"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19804964105502,
+        43.013620142815476
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-meter-p3",
+      "name": "Metered Parking P3",
+      "category": "parking",
+      "description": "Metered Parking P3 labelled on the supplied campus reference map. Walking access is awaiting review.",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark",
+      "navigationStatus": "pending-access-review"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19767098686918,
+        43.01445140321632
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-meter-p4",
+      "name": "Metered Parking P4",
+      "category": "parking",
+      "description": "Metered Parking P4 labelled on the supplied campus reference map. Walking access is awaiting review.",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark",
+      "navigationStatus": "pending-access-review"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19848335015678,
+        43.014906234316875
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-meter-p5",
+      "name": "Metered Parking P5",
+      "category": "parking",
+      "description": "Metered Parking P5 labelled on the supplied campus reference map. Walking access is awaiting review.",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark",
+      "navigationStatus": "pending-access-review"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19987893369982,
+        43.01460052607745
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-meter-p6",
+      "name": "Metered Parking P6",
+      "category": "parking",
+      "description": "Metered Parking P6 labelled on the supplied campus reference map. Walking access is awaiting review.",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark",
+      "navigationStatus": "pending-access-review"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20113942229703,
+        43.01422393156539
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-meter-p7",
+      "name": "Metered Parking P7",
+      "category": "parking",
+      "description": "Metered Parking P7 labelled on the supplied campus reference map. Walking access is awaiting review.",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark",
+      "navigationStatus": "pending-access-review"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.2026677870203,
+        43.01422014135299
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-meter-p8",
+      "name": "Metered Parking P8",
+      "category": "parking",
+      "description": "Metered Parking P8 labelled on the supplied campus reference map. Walking access is awaiting review.",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark",
+      "navigationStatus": "pending-access-review"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20222943692602,
+        43.01386686537664
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-meter-p9",
+      "name": "Metered Parking P9",
+      "category": "parking",
+      "description": "Metered Parking P9 labelled on the supplied campus reference map. Walking access is awaiting review.",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark",
+      "navigationStatus": "pending-access-review"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.2012599486494,
+        43.0127766374143
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-meter-p10",
+      "name": "Metered Parking P10 (Technology Drive)",
+      "category": "parking",
+      "description": "Metered Parking P10 (Technology Drive) labelled on the supplied campus reference map. Walking access is awaiting review.",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark",
+      "navigationStatus": "pending-access-review"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20141608717793,
+        43.01205013408222
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-meter-p10-apprentice",
+      "name": "Metered Parking P10 (Apprentice Drive)",
+      "category": "parking",
+      "description": "Metered Parking P10 (Apprentice Drive) labelled on the supplied campus reference map. Walking access is awaiting review.",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark",
+      "navigationStatus": "pending-access-review"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20240998657012,
+        43.01112003466432
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-meter-p11",
+      "name": "Metered Parking P11",
+      "category": "parking",
+      "description": "Metered Parking P11 labelled on the supplied campus reference map. Walking access is awaiting review.",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark",
+      "navigationStatus": "pending-access-review"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19863622884333,
+        43.011636641244635
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-meter-p12",
+      "name": "Metered Parking P12 (London Lane)",
+      "category": "parking",
+      "description": "Metered Parking P12 (London Lane) labelled on the supplied campus reference map. Walking access is awaiting review.",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark",
+      "navigationStatus": "pending-access-review"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19728217192868,
+        43.01202043219647
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-meter-p12-lot10",
+      "name": "Metered Parking P12 (Lot 10 south)",
+      "category": "parking",
+      "description": "Metered Parking P12 (Lot 10 south) labelled on the supplied campus reference map. Walking access is awaiting review.",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark",
+      "navigationStatus": "pending-access-review"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19684687544532,
+        43.01245753005751
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-meter-p12-lot11",
+      "name": "Metered Parking P12 (Lot 11 south)",
+      "category": "parking",
+      "description": "Metered Parking P12 (Lot 11 south) labelled on the supplied campus reference map. Walking access is awaiting review.",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark",
+      "navigationStatus": "pending-access-review"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.19751980325509,
+        43.012231772488136
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-meter-p13",
+      "name": "Metered Parking P13",
+      "category": "parking",
+      "description": "Metered Parking P13 labelled on the supplied campus reference map. Walking access is awaiting review.",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark",
+      "navigationStatus": "pending-access-review"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.2018471955149,
+        43.01463907142673
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "campus-meter-p14",
+      "name": "Metered Parking P14",
+      "category": "parking",
+      "description": "Metered Parking P14 labelled on the supplied campus reference map. Walking access is awaiting review.",
+      "sourceIds": [
+        "user-campus-plan"
+      ],
+      "resolutionStatus": "reference-map-landmark",
+      "navigationStatus": "pending-access-review"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -81.20215384511896,
+        43.012757049476946
       ]
     }
   }

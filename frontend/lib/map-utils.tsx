@@ -1,4 +1,6 @@
-export function haversineMeters(a: mapboxgl.LngLat, b: number[]) {
+import type { LngLat } from "mapbox-gl";
+
+export function haversineMeters(a: LngLat, b: number[]) {
   const toRadians = (value: number) => (value * Math.PI) / 180;
   const radius = 6371000;
   const dLat = toRadians(b[1] - a.lat);
