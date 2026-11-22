@@ -620,11 +620,11 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
     function handleClickOutside(event: MouseEvent) {
         const target = event.target as HTMLElement;
 
-        if (!target.closest(".filter-fab")) {
+        if (!target.closest(".filter-container")) {
           setIsFilterOpen(false);
         }
 
-        if (!target.closest(".favorites-fab")) {
+        if (!target.closest(".favorites-container")) {
           setFavoritesOpen(false);
         }
 
@@ -687,6 +687,7 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
       <section className="content-grid">
         <aside className="sidebar" aria-label="Location filters">
           <div className="fab-container">
+            <div className="favorites-container">
                 <button
                   className={`favorites-fab${favoritesOpen ? " active" : ""}`}
                   onClick={() => setFavoritesOpen((current) => !current)}
@@ -712,42 +713,45 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
                     </> : <p className="favorites-hint"><Link href="/sign-in">Sign in</Link> to save your favorite campus locations.</p>}
                   </section>
                 )}
-            <button
-                className="filter-fab"
-                type="button"
-                onClick={() => setIsFilterOpen(prev => !prev)}
-                aria-expanded={isFilterOpen}
-                aria-label="Toggle location filters"
-            >
-                <SlidersHorizontal size={20} />
-                <span className="filter-count">
-                    {selectedCategories.length}
-                </span>
-            </button>
-            {isFilterOpen && (
-                <div className="filter-popup">
-                    <fieldset>
-                        <legend>Location types</legend>
-                        <div className="category-filter-grid">
-                          {categories.map(({ id, label }) => (
-                            <label className={selectedCategories.includes(id) ? "filter active" : "filter"} key={id}>
-                              <input
-                                type="checkbox"
-                                checked={selectedCategories.includes(id)}
-                                onChange={() => toggleCategory(id)}
-                              />
-                              {id === "building" ? (
-                                <span className="filter-icon-placeholder" aria-hidden="true" />
-                              ) : (
-                                <NextImage className="filter-icon" src={categoryIconPath(id)} alt="" width={24} height={24} unoptimized />
-                              )}
-                              <span className="filter-label">{label}</span>
-                            </label>
-                          ))}
-                        </div>
-                    </fieldset>
-                </div>
-            )}
+            </div>
+            <div className="filter-container">
+              <button
+                  className="filter-fab"
+                  type="button"
+                  onClick={() => setIsFilterOpen(prev => !prev)}
+                  aria-expanded={isFilterOpen}
+                  aria-label="Toggle location filters"
+              >
+                  <SlidersHorizontal size={20} />
+                  <span className="filter-count">
+                      {selectedCategories.length}
+                  </span>
+              </button>
+              {isFilterOpen && (
+                  <div className="filter-popup">
+                      <fieldset>
+                          <legend>Location types</legend>
+                          <div className="category-filter-grid">
+                            {categories.map(({ id, label }) => (
+                              <label className={selectedCategories.includes(id) ? "filter active" : "filter"} key={id}>
+                                <input
+                                  type="checkbox"
+                                  checked={selectedCategories.includes(id)}
+                                  onChange={() => toggleCategory(id)}
+                                />
+                                {id === "building" ? (
+                                  <span className="filter-icon-placeholder" aria-hidden="true" />
+                                ) : (
+                                  <NextImage className="filter-icon" src={categoryIconPath(id)} alt="" width={24} height={24} unoptimized />
+                                )}
+                                <span className="filter-label">{label}</span>
+                              </label>
+                            ))}
+                          </div>
+                      </fieldset>
+                  </div>
+              )}
+            </div>
             <div className="location-search">
               <input
                 id="location-select"

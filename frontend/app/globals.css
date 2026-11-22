@@ -140,19 +140,6 @@ h3 { font-size: .9rem; }
 .favorite-item:hover {
   background: #f3f3f3;
 }
-.favorites-container{
-  background: var(--surface);
-  border-radius: 100%;
-  padding: 13px 12px 8px;
-  position: relative;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  transition: background 0.2s, color 0.2s;
-}
-.favorites-container:hover .favorites-fab {
-  color: #d6a52a;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
-}
 .favorites-section{
   position: absolute;
   top: calc(100% + 5px);
