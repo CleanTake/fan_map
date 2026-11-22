@@ -82,6 +82,7 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
   const [placesFailed, setPlacesFailed] = useState(false);
   const [locationChoice, setLocationChoice] = useState("");
   const [mapReady, setMapReady] = useState(false);
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [favoriteIds, setFavoriteIds] = useState(initialFavoriteIds);
   const [favoritesOpen, setFavoritesOpen] = useState(false);
   const [favoritePendingId, setFavoritePendingId] = useState<string | null>(null);
@@ -615,19 +616,18 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
       : null;
   const tokenMissing = !process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
-  const [isFilterOpen, setIsFilterOpen] = useState(false);
-
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
         const target = event.target as HTMLElement;
 
-        if (!target.closest(".fab-container")) {
+        if (!target.closest(".filter-fab")) {
           setIsFilterOpen(false);
         }
 
-        if (!target.closest(".favorites-container")) {
+        if (!target.closest(".favorites-fab")) {
           setFavoritesOpen(false);
         }
+
     }
 
     document.addEventListener("mousedown", handleClickOutside);
