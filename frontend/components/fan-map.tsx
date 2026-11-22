@@ -687,14 +687,13 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
       <section className="content-grid">
         <aside className="sidebar" aria-label="Location filters">
           <div className="fab-container">
-            <div className="favorites-container">
                 <button
-                  className={`favorites-fab ${favoritesOpen ? "active" : ""}`}
+                  className={`favorites-fab${favoritesOpen ? " active" : ""}`}
                   onClick={() => setFavoritesOpen((current) => !current)}
-                  aria-label="Toggle favorites"
+                  aria-label="Toggle favorites list"
                   aria-expanded={favoritesOpen}
                 >
-                  <Star size={20} />
+                  <Star size={24} />
                 </button>
                 {favoritesOpen && (
                   <section className="favorites-section" aria-labelledby="favorites-heading">
@@ -713,7 +712,6 @@ export default function FanMap({ user, initialFavoriteIds = [], initialLocationI
                     </> : <p className="favorites-hint"><Link href="/sign-in">Sign in</Link> to save your favorite campus locations.</p>}
                   </section>
                 )}
-              </div>
             <button
                 className="filter-fab"
                 type="button"
